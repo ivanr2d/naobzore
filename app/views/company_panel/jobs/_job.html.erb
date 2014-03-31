@@ -1,0 +1,123 @@
+<tr data-entity_id="<%= job.id %>" <%= job.published? ? '' : 'class=not-public' %>>
+  <td>
+    <%= form_for job, :as => :entity, :url => company_panel_job_path(job, :format => :js), :remote => true do |f| %>
+    <% end %>
+    <input type="checkbox" class="row-checkbox" />
+  </td>
+  <td><a href="<%= edit_company_panel_job_path(job) %>" class="silver-button">Изменить</a></td>
+  <td class="dynamic-cell" data-type="text">
+      <div class="cell">
+      <div class="title"><%= truncate job.name, :limit => 7 %></div>
+      <div class="input hidden"><input type="text" name="entity[name]" value="<%= job.name %>" size="10" /></div>
+      </div>
+  </td>
+  <td class="ext-coll" data-type="popup">
+      <div class="right"><a href="#" class="points" data-item="2" data-type="popup-categories"></a>
+          <!--popup-categories-->
+      </div>
+      <div class="left"><%= job.category.try(:title) %></div>
+      <input type="hidden" name="entity[category]" value="<%= job.category.try(:title) %>" />
+  </td>
+  <td class="dynamic-cell" data-type="text">
+      <div class="cell">
+      <div class="title"><%= job.salary_from %></div>
+      <div class="input hidden"><input type="text" name="entity[salary_from]" value="<%= job.salary_from %>" size="2" /></div>
+      </div>
+  </td>
+  <td class="dynamic-cell" data-type="text">
+      <div class="cell">
+      <div class="title"><%= job.salary_to %></div>
+      <div class="input hidden"><input type="text" name="entity[salary_to]" value="<%= job.salary_to %>" size="2" /></div>
+      </div>
+  </td>
+  <td>
+      <div class="cell">
+      <a href="#" class="link-simple view-popup" data-type="description" data-description="<%= job.description %>"><%= raw truncate(job.description, :limit => 15) %></a>
+      <input type="hidden" name="entity[description]" value="<%= job.description %>" />
+      </div>
+  </td>
+  <td class="dynamic-cell" data-type="select">
+      <div class="cell">
+      <div class="title"><%= job.graphic.try(:name) %></div>
+      <div class="input hidden">
+          <select name="entity[graphic_id]"><option value="">Не выбрано</option><%= options_from_collection_for_select(Graphic.all, :id, :name, job.graphic_id) %></select>
+      </div>
+      </div>
+  </td>
+  <% experiences = ['Полгода', 'Год', 'Полтора года', 'Два года', 'Больше двух лет'] %>
+  <td class="dynamic-cell" data-type="select">
+      <div class="cell">
+      <div class="title"><%= job.experience %></div>
+      <div class="input hidden">
+          <select name="entity[experience]"><option value="">Не выбрано</option><%= options_for_select(experiences, job.experience) %></select>
+      </div>
+      </div>
+  </td>
+  <% educations = ['Высшее', 'Неоконченное высшее', 'Среднее специальное', 'Среднее', 'Неоконченное среднее'] %>
+  <td class="dynamic-cell" data-type="select">
+      <div class="cell">
+      <div class="title"><%= job.education %></div>
+      <div class="input hidden">
+          <select name="entity[education]"><option value="">Не выбрано</option><%= options_for_select(educations, job.education) %></select>
+      </div>
+      </div>
+  </td>
+  <% sexes = {'Мужской' => 1, 'Женский' => 0} %>
+  <td class="dynamic-cell" data-type="select">
+      <div class="cell">
+      <div class="title"><%= sexes.invert[job.sex] %></div>
+      <div class="input hidden">
+          <select name="entity[sex]"><option value="">Не выбрано</option><%= options_for_select(sexes, job.sex) %></select>
+      </div>
+      </div>
+  </td>
+  <td class="dynamic-cell" data-type="text">
+      <div class="cell">
+      <div class="title"><%= job.age_from %></div>
+      <div class="input hidden"><input type="text" name="entity[age_from]" value="<%= job.age_from %>" size="2" /></div>
+      </div>
+  </td>
+  <td class="dynamic-cell" data-type="text">
+      <div class="cell">
+      <div class="title"><%= job.age_to %></div>
+      <div class="input hidden"><input type="text" name="entity[age_to]" value="<%= job.age_to %>" size="2" /></div>
+      </div>
+  </td>
+  <td class="dynamic-cell" data-type="text">
+      <div class="cell">
+      <div class="title"><%= job.address %></div>
+      <div class="input hidden"><input type="text" name="entity[address]" value="<%= job.address %>" size="2" /></div>
+      </div>
+  </td>
+  <td class="dynamic-cell" data-type="text">
+      <div class="cell">
+      <div class="title"><%= job.contact_face %></div>
+      <div class="input hidden"><input type="text" name="entity[contact_face]" value="<%= job.contact_face %>" size="2" /></div>
+      </div>
+  </td>
+  <td class="dynamic-cell" data-type="text">
+      <div class="cell">
+      <div class="title"><%= job.contact_email %></div>
+      <div class="input hidden"><input type="text" name="entity[contact_email]" value="<%= job.contact_email %>" size="2" /></div>
+      </div>
+  </td>
+  <td class="dynamic-cell" data-type="text">
+      <div class="cell">
+      <div class="title"><%= job.contact_phone %></div>
+      <div class="input hidden"><input type="text" name="entity[contact_phone]" value="<%= job.contact_phone %>" size="2" /></div>
+      </div>
+  </td>
+  <td class="dynamic-cell" data-type="text">
+      <div class="cell">
+      <div class="title"><%= job.contact_fax %></div>
+      <div class="input hidden"><input type="text" name="entity[contact_fax]" value="<%= job.contact_fax %>" size="2" /></div>
+      </div>
+  </td>
+  <!--
+  <td class="ext-coll" data-type="popup">
+      <div class="right"><a href="#" class="points" data-item="2" data-type="popup-categories"></a>
+      </div>
+      <div class="left"><%#= job.company.category.try(:title) %></div>
+      <input type="hidden" name="company[category]" value="<%= job.company.category.try(:title) %>" />
+  </td>-->
+</tr>

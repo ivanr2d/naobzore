@@ -1,0 +1,29 @@
+<%= form_for @warranty, :url => @warranty.new_record? ? company_panel_warranties_path : company_panel_warranty_path(@warranty) do |f| %>
+  <%= f.hidden_field :company_id, :value => @company.id %>
+  <%= render_error_explanation @warranty %>
+  <div class="form">
+    <div class="row">
+      <div class="label"><%= f.label :default %></div>
+      <div class="field"><%= f.check_box :default %></div>
+      <div class="clear"></div>
+    </div>
+    <div class="row">
+      <div class="label"><%= f.label :code, "Код гарантии" %></div>
+      <div class="field"><%= f.text_field :code %></div>
+      <div class="clear"></div>
+    </div>
+    <div class="row">
+      <div class="label"><%= f.label :months %></div>
+      <div class="field"><%= f.text_field :months %></div>
+      <div class="clear"></div>
+    </div>
+    <div class="row">
+      <div class="label"><%= f.label :conditions %></div>
+      <div class="clear"></div>
+      <div><%= f.text_area :conditions %></div>
+    </div>
+    <div class="buttons" style="float:left; margin-left:200px;">
+      <input class="blue-button big" type="submit" value="Сохранить" />
+    </div>
+  </div>
+<% end %>

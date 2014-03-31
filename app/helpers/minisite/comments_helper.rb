@@ -1,0 +1,2 @@
+module Minisite::CommentsHelper
+end

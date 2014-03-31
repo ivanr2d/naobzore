@@ -1,0 +1,2 @@
+module CompanyPanel::FeedbacksHelper
+end

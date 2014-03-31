@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  type: 1
+  sms: 1
+  calls: 1
+  goods_and_services: 1
+  jobs: 1
+  campaigns: 1
+
+two:
+  type: 1
+  sms: 1
+  calls: 1
+  goods_and_services: 1
+  jobs: 1
+  campaigns: 1

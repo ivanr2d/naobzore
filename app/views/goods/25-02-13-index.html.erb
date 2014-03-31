@@ -1,0 +1,365 @@
+
+      <!-- заголовочный блок -->
+      <section class="main-title">
+          <div class="main-title-title">
+              <h1 class="page-title"><%= (@category) ? @category.title : 'Товары' %> <span class="page-title-ext">(<%= (@category) ? Category.get_count_entity(@curent_controller, @category.id) : Good.count %>)</span></h1>
+          </div>
+          <div class="main-title-categories">
+          	<% if @category && @category.children != nil %>
+          	<% @category.children.each do |subcat| %>
+              <a href="#"><%= subcat.title %></a>,
+            <% end %>
+            <% end %>
+          </div>
+          <div class="clear"></div>
+      </section>
+      <!-- end | заголовочный блок -->
+
+      <!-- Фильтры -->
+      <section class="filter-elements">
+          <div class="element-container" id="filterSort">
+              <div class="filter-label">Сортировать по</div>
+              <div class="filter-element">
+	              <select name="sort" id="sort">
+	              	  <option value="empty">Выбрать</option>
+		              <option <%= (params[:sort] == "views" && params[:order] == "DESC") ? 'selected' : '' %> value="<%= url_for params.merge(:sort => "views", :order => 'DESC') %>">Популярности (по убыванию)</option>
+		              <option <%= (params[:sort] == "views" && params[:order] == "ASC") ? 'selected' : '' %> value="<%= url_for params.merge(:sort => "views", :order => 'ASC') %>">Популярности (по возростанию)</option>
+		              <option <%= (params[:sort] == "price" && params[:order] == "DESC") ? 'selected' : '' %> value="<%= url_for params.merge(:sort => "price", :order => 'DESC') %>">Цене (по убыванию)</option>
+		              <option <%= (params[:sort] == "price" && params[:order] == "ASC") ? 'selected' : '' %> value="<%= url_for params.merge(:sort => "price", :order => 'ASC') %>">Цене (по возростанию)</option>
+		              <option <%= (params[:sort] == "created_at" && params[:order] == "DESC") ? 'selected' : '' %> value="<%= url_for params.merge(:sort => "created_at", :order => 'DESC') %>">Дате (по убыванию)</option>
+		              <option <%= (params[:sort] == "created_at" && params[:order] == "ASC") ? 'selected' : '' %> value="<%= url_for params.merge(:sort => "created_at", :order => 'ASC') %>">Дате (по возростанию)</option>
+	              </select>
+              </div>
+          </div>
+          <div class="element-container" id="filterPageCount">
+              <div class="filter-label">Товаров на странице:</div>
+              <div class="filter-element">
+	              <ul>
+	                  <li><%= link_to "10", {:controller => "goods", :action => "index", :count => 10}, :class => (params[:count] == '10' || !params[:count]) ? 'count-active' : '' %> |</li>
+	                  <li><%= link_to "20", {:controller => "goods", :action => "index", :count => 20}, :class => (params[:count] == '20') ? 'count-active' : '' %> |</li>
+	                  <li><%= link_to "30", {:controller => "goods", :action => "index", :count => 30}, :class => (params[:count] == '30') ? 'count-active' : '' %>  </li>
+	              </ul>
+              </div>
+          </div>
+		<div class="clear"></div>
+      </section>
+
+      <section class="sub-filter-elements">
+          <div class="element-container" id="filterMaker">
+			  <div class="filter-label">Показать</div>
+			  <div class="filter-element">
+	              <select name="maker" class="filter other-selectbox">
+	                  <option value="empty">Все</option>
+	      			  <% @makers.each do |maker| %>
+	      			  <option <%= (params[:maker] && params[:maker] == maker.name) ? 'selected' : '' %> value="<%= maker.name %>"><%= maker.name %></option>
+	      			  <% end %>
+	              </select>
+              </div>
+          </div>
+          
+          <div class="element-container">
+          	  <div class="filter-label">Цена от</div>
+          	  <div class="filter-element">
+          	  	  <input type="text" name="price_from" size="5" value="<%= (params[:price_from]) ? params[:price_from] : '' %>" class="filter" />
+          	  </div>
+          </div>
+          
+          <div class="element-container">
+          	  <div class="filter-label">До</div>
+          	  <div class="filter-element">
+          	  	  <input type="text" name="price_to" size="5" class="filter" value="<%= (params[:price_to]) ? params[:price_to] : '' %>" />
+          	  </div>
+          </div>
+          
+          <div class="element-container">
+          	  <div class="filter-label">Со скидкой</div>
+          	  <div class="filter-element">
+          	  	  <input type="checkbox" name="campaign" class="filter" <%= (params[:campaign]) ? 'checked' : '' %> />
+          	  </div>
+          </div>
+          
+          <div class="element-container">
+              <input type="button" class="filter-button" value="Фильтровать" id="filter" />
+          </div>
+          <div class="clear"></div>
+        
+      </section>
+      <!-- end | Фильтры -->
+
+      <section class="indent"></section>
+
+      <section class="content-items">
+
+      <% @goods.each do |good| %>
+          <article class="content-item" data-item-type="Good" data-item-id="<%= good.id %>">
+              <div class="item-container-1">
+                  <div class="item-image"><a href="#" data-item-id="<%= good.id %>"><%= image_tag(good.image) %></a></div>
+                  <div class="item-info">
+                      <div class="item-info-block">
+                          <h3 class="info-block-title"><a href="#"><%= good.company.name %></a></h3>
+                          <p><%= good.company.address %></p>
+                          <p>Тел.: <%= good.company.phone %></p>
+                          <p><a href="#" class="view-map-full" data-full-map="<%= good.company.name %>::<%= good.company.address %>">Посмотреть на карте</a></p>
+                          
+                          <% if user_signed_in? %>
+                          <!-- Добавление в избранное -->
+                          <div class="item-info-block-stat">
+							<div class="favorite-active">
+								<a href="#" data-favorite="Good:<%= good.id %>:1" class="favorite"><%= image_tag "reviews-1.png" %></a>
+								<a href="#" data-favorite="Good:<%= good.id %>:0" class="favorite"><%= image_tag "reviews-0.png" %></a>
+								<a href="#"><%= image_tag "reviews-2.png" %></a><span>(255)</span>
+							</div>
+							<div class="favorite-notactive">
+							 	<%= image_tag "loading-mini.gif" %>
+							</div>
+                          </div>
+                          <div class="item-info-block-bell">
+                              <a href="#"><%= image_tag "bell.png" %></a>
+                          </div>
+                          <% else %>
+                          <div class="item-info-block-stat">
+                              <%= image_tag "no-reviews-1.png" %>
+                              <%= image_tag "no-reviews-0.png" %>
+                              <%= image_tag "no-reviews-2.png" %><span>(255)</span>
+                          </div>
+                          <div class="item-info-block-bell">
+                              <%= image_tag "no-bell.png" %>
+                          </div>
+                          <% end %>
+                          
+                          <p class="info-block-price">Цена: <span><%= good.price %> р.</span></p>
+                      </div>
+                  </div>
+                  <div class="item-text" data-item-id="<%= good.id %>">
+                      <h2 class="item-title"><a href="#" data-item-id="<%= good.id %>"><%= good.title %></a></h2>
+                      <p><%= truncate good.description, :length => 160 %></p>
+                  </div>
+                  <div class="clear"></div>
+                  <div class="item-other"><!---
+                      <div class="item-control">
+                          <div class="control-edit"><a href="#">Редактировать</a></div>
+                          <div class="control-delete"><a href="#">Удалить</a></div>
+                      </div>--->
+                      <div class="item-bell">
+                          <div class="info-bell-left"><!--для фона--></div>
+                          <div class="info-bell-right">
+                              <p>Отзывы: <span class="bell-true">+40</span> / <span class="bell-false">-2</span></p>
+                          </div>
+                      </div>
+                  </div>
+
+              </div>
+          </article>
+      <% end %>
+
+      </section>
+      
+    <div class="popup-slider">
+        <div class="popup-main">
+            <div class="popup-close"><a href="#" class="button-close"></a></div>
+            <!-- Главный блок с инфой -->
+            <div class="popup-content" id="popup_header">
+                <div class="popup-images">
+                    <div class="popup-image"><img src="img/temp/notebook.png" alt="" /></div>
+                    <ul class="lightbox">
+                        <!---
+                        <li><a href="img/temp/notebook.png"><img src="img/temp/notebook.png" alt="" width="32" height="32" /></a></li>
+                        ---->
+                    </ul>
+                </div>
+                <div class="popup-map">
+                    <div class="popup-map-title view-map-full" data-full-map="">Показать во весь экран</div>
+                    <div class="popup-map-content" id="map"></div>
+                </div>
+                <div class="popup-info">
+                    <p class="popup-name"><a href="#">Samsung 305V5A-S0 CA8- 3510MX</a></p>
+                    <p class="popup-price">Цена: <span><span id="good_price">22 400</span> р.</span></p>
+                    <p class="popup-company"><a href="#">ООО "Имя компании"</a></p>
+                    <p class="popup-address popup-price">пр. Дзержинского, 2А</p>
+                    <p class="popup-phone">Тел.: <span>8(3532)94-40-55</span></p>
+                    <div><a href="#"><img src="img/bell.png" alt="" /></a></div>
+                    <div>Отзывы: <span class="bell-true">+40</span> / <span class="bell-false">-2</span></div>
+                    <% if user_signed_in? %>
+                    <div class="popup-stat">
+                          <a href="#"><%= image_tag "reviews-1.png" %></a>
+                          <a href="#"><%= image_tag "reviews-0.png" %></a>
+                          <a href="#"><%= image_tag "reviews-2.png" %></a><span>(255)</span>
+                    </div>
+                    <% else %>
+                    <div class="popup-stat">
+                          <%= image_tag "no-reviews-1.png" %>
+                          <%= image_tag "no-reviews-0.png" %>
+                          <%= image_tag "no-reviews-2.png" %><span>(255)</span>
+                    </div>
+                    <% end %>
+                </div>
+            </div>
+            <!-- end | Главный блок с инфой -->
+        </div>
+        
+        <!--блок с кнопками-->
+        <div class="popup-buts">
+            <div class="popup-but-prev" id="popupPrev"></div>
+            <div class="popup-but-next" id="popupNext"></div>
+            <div class="popup-but-cent">
+            	<div id="popup_loading"><%= image_tag "loading-2.gif" %></div>
+            </div>
+        </div>
+        
+        <div class="feedback-add">
+        	<div class="fb-add-top">
+            	<div class="fb-add-top-left"><div class="popup-fb-photo"><img src="/assets/temp/ava-1.png" /></div></div>
+            	<div class="fb-add-top-cont">
+            		<div class="fb-add-top-tit">Samsung galaxy s3</div>
+            		<div class="fb-add-top-info">Иван Иванов</div>
+            	</div>
+        		<div class="clear"></div>
+        	</div>
+        	<div class="fb-add-form">
+        		<div class="fb-add-form-row">
+        			<div class="fb-add-form-col-l">Заголовок отзыва</div>
+        			<div class="fb-add-form-col-r"><input type="text" name="" class="fb-field" /></div>
+        			<div class="clear"></div>
+        		</div>
+        		<div class="fb-add-form-row">
+        			<div class="fb-add-form-col-l">Достоинства</div>
+        			<div class="fb-add-form-col-r"><textarea name="" cols="50" class="fb-field" rows="3"></textarea></div>
+        			<div class="clear"></div>
+        		</div>
+        		<div class="fb-add-form-row">
+        			<div class="fb-add-form-col-l">Недостатки</div>
+        			<div class="fb-add-form-col-r"><textarea name="" cols="50" class="fb-field" rows="3"></textarea></div>
+        			<div class="clear"></div>
+        		</div>
+        		<div class="fb-add-form-row">
+        			<div class="fb-add-form-col-l">Отзыв</div>
+        			<div class="fb-add-form-col-r"><textarea name="" cols="50" class="fb-field" rows="3"></textarea></div>
+        			<div class="clear"></div>
+        		</div>
+        		<div class="fb-add-form-row-one">
+        			<input type="button" value="Назад" class="blue-but-prev fb-close" />
+        			<input type="submit" value="Добавить" class="blue-but" />
+        		</div>
+        	</div>
+        </div>
+        <!--end | блок с кнопками-->
+        
+        <div class="popup-other">
+        <div id="popup_tabs">
+            <div class="other-tabs">
+                <ul>
+                    <li data-other-tab="1" class="tab-curent"><div class="tab-wave"></div><div class="tab-shadow"></div><div class="tab-cont">Описание</div></li>
+                    <li  data-other-tab="2"><div class="tab-wave"></div><div class="tab-shadow"></div><div class="tab-cont">Характеристики</div></li>
+                    <li data-other-tab="3"><div class="tab-wave"></div><div class="tab-shadow"></div><div class="tab-cont">Отзывы</div></li>
+                    <li data-other-tab="4"><div class="tab-wave"></div><div class="tab-shadow"></div><div class="tab-cont">Акции</div></li>
+                    <li data-other-tab="5"><div class="tab-wave"></div><div class="tab-shadow"></div><div class="tab-cont">Доставка</div></li>
+                </ul>
+                <div class="clear"></div>
+            </div>
+            <div class="other-content">
+                
+                <div class="tab-content" data-other-con="1" id="entity_description">
+                    <div class="content-title">Описание</div>
+                    <div class="content-text">
+               		  1800Mhz/4096Mb/500Gb/ Windows 7-HB Silver
+                   	  Этот надежный ноутбук включает все необходимое для повседневного использования. Благодаря широкому набору функций вы сможете с легкостью управлять данными.
+                    </div>
+                </div>
+                <div class="tab-content" data-other-con="2" id="entity_characteristics">
+                    <div class="content-title">Характеристики</div>
+                    <div class="content-text">
+                        1800Mhz/4096Mb/500Gb/ Windows 7-HB Silver
+                        Этот надежный ноутбук включает все необходимое для повседневного использования. Благодаря широкому набору функций вы сможете с легкостью управлять данными.
+                    </div>
+                </div>
+                <div class="tab-content" data-other-con="3">
+                    <div class="content-top-but fb-add"><a href="#">Добавить отзыв</a></div>
+                    <div class="content-text">
+                    	
+                    	<!-- отзыв -->
+                        <div class="popup-fb fb-odd">
+                        	<div class="popup-fb-left"><div class="popup-fb-photo"><img src="/assets/temp/ava-1.png" /></div></div>
+                        	<div class="popup-fb-cont">
+                        		<div class="popup-fb-cont-tit"><a href="#">Samsung galaxy s3</a><span class="popup-fb-true">(Положительный)</span></div>
+                        		<div class="popup-fb-cont-text">
+                        			В телефоне меня прельстило то, что за приемлемую цену можно было купить сенсорный сотик с двумя симками и усиленной батареей. Да, телеф...Читать отзыв
+                        		</div>
+                        		<div class="popup-fb-cont-info">
+                        			<div class="fb-cont-info-left">Иван Иванов - 30 июня 2012</div>
+                        			<div class="fb-cont-info-right popup-stat-fb"><%= image_tag "reviews-2.png" %><span>(255)</span></div>
+                        			<div class="clear"></div>
+                        		</div>
+                        	</div>
+                        	<div class="clear"></div>
+                        </div>
+                        <!-- end | отзыв -->
+                        
+                    	<!-- отзыв -->
+                        <div class="popup-fb fb-even">
+                        	<div class="popup-fb-left"><div class="popup-fb-photo"><img src="/assets/temp/ava-1.png" /></div></div>
+                        	<div class="popup-fb-cont">
+                        		<div class="popup-fb-cont-tit"><a href="#">Samsung galaxy s3</a><span class="popup-fb-true">(Положительный)</span></div>
+                        		<div class="popup-fb-cont-text">
+                        			В телефоне меня прельстило то, что за приемлемую цену можно было купить сенсорный сотик с двумя симками и усиленной батареей. Да, телеф...Читать отзыв
+                        		</div>
+                        		<div class="popup-fb-cont-info">
+                        			<div class="fb-cont-info-left">Иван Иванов - 30 июня 2012</div>
+                        			<div class="fb-cont-info-right popup-stat-fb"><%= image_tag "reviews-2.png" %><span>(255)</span></div>
+                        			<div class="clear"></div>
+                        		</div>
+                        	</div>
+                        	<div class="clear"></div>
+                        </div>
+                        <!-- end | отзыв -->
+                        
+                        <!-- отзыв -->
+                        <div class="popup-fb fb-odd">
+                        	<div class="popup-fb-left"><div class="popup-fb-photo"><img src="/assets/temp/ava-1.png" /></div></div>
+                        	<div class="popup-fb-cont">
+                        		<div class="popup-fb-cont-tit"><a href="#">Samsung galaxy s3</a><span class="popup-fb-true">(Положительный)</span></div>
+                        		<div class="popup-fb-cont-text">
+                        			В телефоне меня прельстило то, что за приемлемую цену можно было купить сенсорный сотик с двумя симками и усиленной батареей. Да, телеф...Читать отзыв
+                        		</div>
+                        		<div class="popup-fb-cont-info">
+                        			<div class="fb-cont-info-left">Иван Иванов - 30 июня 2012</div>
+                        			<div class="fb-cont-info-right popup-stat-fb"><%= image_tag "reviews-2.png" %><span>(255)</span></div>
+                        			<div class="clear"></div>
+                        		</div>
+                        	</div>
+                        	<div class="clear"></div>
+                        </div>
+                        <!-- end | отзыв -->
+                        
+                    </div>
+                </div>
+                <div class="tab-content" data-other-con="4">
+                    <div class="content-title">Акции</div>
+                    <div class="content-text">
+                        1800Mhz/4096Mb/500Gb/ Windows 7-HB Silver
+                        Этот надежный ноутбук включает все необходимое для повседневного использования. Благодаря широкому набору функций вы сможете с легкостью управлять данными.
+                    </div>
+                </div>
+                <div class="tab-content" data-other-con="5">
+                    <div class="content-title">Доставка</div>
+                    <div class="content-text">
+                        1800Mhz/4096Mb/500Gb/ Windows 7-HB Silver
+                        Этот надежный ноутбук включает все необходимое для повседневного использования. Благодаря широкому набору функций вы сможете с легкостью управлять данными.
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        </div>
+    </div>
+    
+    <div id="mask"></div>
+    
+    <div class="map-full">
+    	<div class="map-full-title">
+    		<div class="map-full-left" id="map_full_title">Планета</div>
+    		<div class="map-full-right"><a href="#" id="map_full_close"></a></div>
+    		<div class="clear"></div>
+    	</div>
+    	<div class="map-full-content" id="map_full"></div>
+    </div>
+    

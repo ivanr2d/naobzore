@@ -1,0 +1,696 @@
+﻿<!doctype html>
+<html>
+<head>
+    <title>На обзоре</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/lightbox.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="css/selectbox.css" />
+    
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jcarousel.js"></script>
+    <script type="text/javascript" src="js/jselectbox.js"></script>
+    <script type="text/javascript" src="js/lightbox.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    
+    <!--[if lt IE 9]>
+    <script>
+        document.createElement('nav');
+        document.createElement('header');
+        document.createElement('footer');
+        document.createElement('section');
+        document.createElement('aside');
+        document.createElement('article');
+    </script>
+    <![endif]-->
+</head>
+<body>
+                
+    <div id="container">
+
+        <header id="header">
+            <div id="header_main">
+                <img id="logotype" src="img/logotype.png" alt="" />
+            </div>
+            <div id="header_buts">
+                <div id="mini_buts">
+                    <a href="#" class="top-link"><img src="img/icons/home.png" alt="" /></a>
+                    <a href="#" class="top-link"><img src="img/icons/mail.png" alt="" /></a>
+                    <a href="#" class="top-link"><img src="img/icons/map.png" alt="" /></a>
+                </div>
+                <nav id="top_nav">
+                    <ul>
+                        <li class="top-nav"><a href="#" id="view_add">Добавить</a>
+                            <div id="add">
+                                <ul>
+                                    <li><a href="#">Объявление</a></li>
+                                    <li><a href="#">Резюме</a></li>
+                                    <li><a href="#">Предприятие</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="top-nav"><a href="#" id="view_registration">Регистрация</a>
+                            <!-- Выподающий блок регистрации -->
+                            <div id="registration">
+                                <div class="pop-form">
+
+                                    <div class="pop-table">
+                                        <div class="pop-table-row">
+                                            <div class="pop-table-coll">ФИО</div>
+                                            <div class="pop-table-colr"><input type="text" name="" /></div>
+                                        </div>
+                                        <div class="pop-table-row">
+                                            <div class="pop-table-coll">Логин</div>
+                                            <div class="pop-table-colr"><input type="text" name="" /></div>
+                                        </div>
+                                        <div class="pop-table-row">
+                                            <div class="pop-table-coll">Пароль</div>
+                                            <div class="pop-table-colr"><input type="text" name="" /></div>
+                                        </div>
+                                        <div class="pop-table-row">
+                                            <div class="pop-table-coll">E - mail</div>
+                                            <div class="pop-table-colr"><input type="text" name="" /></div>
+                                        </div>
+                                        <div class="pop-table-row">
+                                            <div class="pop-table-coll-captcha">
+                                                <img src="img/temp/captha.png" alt="" />
+                                                <p><a href="#" class="pop-link">Новое изображение</a></p>
+                                            </div>
+                                            <div class="pop-table-colr-captcha">
+                                                <p>Что Вы видите?</p><input type="text" name="" size="10" />
+                                            </div>
+                                        </div>
+                                        <div class="pop-table-row">
+                                            <div class="pop-table-col-full">
+                                                <input type="checkbox" name="" /> Я принимаю условия <a href="#"  class="pop-link">пользовательского соглашения</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="pop-form-send">
+                                    <input type="submit" value="Зарегистрироваться" />
+                                </div>
+                                <div class="pop-form-social">
+                                    Вход без регистрации 
+                                    <a href="#"><img src="img/social/facebook.png" /></a>
+                                    <a href="#"><img src="img/social/vk.png" /></a>
+                                    <a href="#"><img src="img/social/twitter.png" /></a>
+                                </div>
+                            </div>
+                            <!-- end | Выподающий блок регистрации -->
+                        </li>
+                        <li class="top-nav"><a href="#" id="view_login">Войти</a>
+
+                            <!-- Всплывающий блок Входа -->
+                            <div id="login">
+                                <div id="login_form">
+                                    <div class="pop-form-login">
+                                        <div class="pop-form-login-table">
+                                            <div class="pop-form-login-row">
+                                                <div class="pop-form-login-coll">Логин</div>
+                                                <div class="pop-form-login-colr"><input type="text" name="" /></div>
+                                            </div>
+                                            <div class="pop-form-login-row">
+                                                <div class="pop-form-login-coll">Пароль</div>
+                                                <div class="pop-form-login-colr"><input type="text" name="" /></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pop-form-button">
+                                        <div class="pop-form-button-left"><a href="#" id="view_rec_pass">Забыли пароль?</a></div>
+                                        <div class="pop-form-button-right"><input type="submit" value="Войти" /></div>
+                                    </div>
+                                </div>
+                                <div id="login_social">
+                                    Войти с помощью... 
+                                    <a href="#"><img src="img/social/facebook.png" /></a>
+                                    <a href="#"><img src="img/social/vk.png" /></a>
+                                    <a href="#"><img src="img/social/twitter.png" /></a>
+                                </div>
+                            </div>
+                            <!-- end | Всплывающий блок Входа -->
+
+                        </li>
+                        <li class="top-nav"><a href="#">Справка</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div id="header_wave"></div>
+            <div id="header_righ"></div>
+            <nav id="main_nav">
+                <ul>
+                    <li><a href="#">ТОВАРЫ</a></li>
+                    <li><a href="#">УСЛУГИ</a></li>
+                    <li><a href="#">ВАКАНСИИ</a></li>
+                    <li class="main-nav-active"><a href="#">ПРЕДПРИЯТИЯ</a></li>
+                    <li><a href="#">НОВОСТИ</a></li>
+                    <li><a href="#">АКЦИИ</a></li>
+                    <li><a href="#">ОТЗЫВЫ</a></li>
+                    <li><a href="#">ОБЪЯВЛЕНИЯ</a></li>
+                </ul>
+                <div class="clear"></div>
+            </nav>
+        </header>
+
+        <!---
+        Размер картинки в слайде: weight: 556px; height: 266px;
+        --->
+        <section id="slider">
+            <div id="bannerView">
+                <a href="http://hi.ru/view/3"><img src="img/banner-view.png" alt="" /></a>
+            </div>
+            <div id="bannerContainer">
+                <div class="banner-image" id="bannerSlider">
+                    <ul>
+                        <li><a href="http://hi.ru/view/1"><img src="img/temp/companys-header-mini.png" /></a></li>
+                        <li><a href="http://hi.ru/view/2"><img src="img/temp/companys-header-mini.png" /></a></li>
+                        <li><a href="http://hi.ru/view/3"><img src="img/temp/companys-header-mini.png" /></a></li>
+                        <li><a href="http://hi.ru/view/4"><img src="img/temp/companys-header-mini.png" /></a></li>
+                        <li><a href="http://hi.ru/view/5"><img src="img/temp/companys-header-mini.png" /></a></li>
+                    </ul>
+                </div>
+                <div class="banner-menu">
+                    <ul class="banner-buttons">
+                        <li id="sl_1" data-view-url="http://hi.ru/view/1">Связной</li>
+                        <li id="sl_2" data-view-url="http://hi.ru/view/2">Белый ветер цыфровой</li>
+                        <li id="sl_3" data-view-url="http://hi.ru/view/3" class="banner-but-active">Константа сервис</li>
+                        <li id="sl_4" data-view-url="http://hi.ru/view/4">ТС Центер</li>
+                        <li id="sl_5" data-view-url="http://hi.ru/view/5">База 25</li>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </section>
+
+        <section id="search">
+            <div id="search_main">
+                <!-- Search field -->
+                <div id="search_child">
+                    <div id="search_but">
+                        <input type="submit" value="НАЙТИ" />
+                    </div>
+                    <div id="search_field">
+                        <input type="text" name="SEARCH" />
+                        <a href="#" id="search_ext_view">Расширенный поиск <img src="img/view-search.png" alt="" /></a>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div id="search_ext">
+                    <div class="search-shadow"></div><!--тень сверху-->
+                    <div class="search-category">
+                        <span>Категория</span> <input type="text" name="" />
+                    </div>
+                    <div class="search-price">
+                        <span>Цена от</span> <input type="text" name="" size="5" />
+                        <span>до</span> <input type="text" name="" size="5" />
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <div id="main_container">
+
+            <!-- Левый блок -->
+            <div id="left">
+                <nav id="sub_nav">
+                    <header>
+                        <p class="left-tit-first">КАТАЛОГ</p>
+                        <p class="left-tit-second">ТОВАРЫ</p>
+                    </header>
+                    <ul>
+                        <li><a href="#">Строительство и недвижимость</a>
+                            <ul>
+                                <li><a href="#">Квартиры</a><p>1800</p><div class="clear"></div></li>
+                                <li><a href="#">Дома</a><p>2010</p><div class="clear"></div>
+                                    <ul>
+                                        <li><a href="#">-Однокомнатные</a><p>454</p><div class="clear"></div></li>
+                                        <li><a href="#">-Двухкомнатные</a><p>454</p><div class="clear"></div></li>
+                                        <li><a href="#">-Трехкомнатные</a><p>454</p><div class="clear"></div></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Гаражи</a><p>1020</p><div class="clear"></div></li>
+                                <li><a href="#">Склады</a><p>2300</p><div class="clear"></div>
+                                    <ul>
+                                        <li><a href="#">-Однокомнатные</a><p>454</p><div class="clear"></div></li>
+                                        <li><a href="#">-Двухкомнатные</a><p>454</p><div class="clear"></div></li>
+                                        <li><a href="#">-Трехкомнатные</a><p>454</p><div class="clear"></div></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Строительство и недвижимость</a>
+                            <ul>
+                                <li><a href="#">Квартиры</a><p>1800</p><div class="clear"></div></li>
+                                <li><a href="#">Дома</a><p>2010</p><div class="clear"></div>
+                                    <ul>
+                                        <li><a href="#">-Однокомнатные</a><p>454</p><div class="clear"></div></li>
+                                        <li><a href="#">-Двухкомнатные</a><p>454</p><div class="clear"></div></li>
+                                        <li><a href="#">-Трехкомнатные</a><p>454</p><div class="clear"></div></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Гаражи</a><p>1020</p><div class="clear"></div></li>
+                                <li><a href="#">Склады</a><p>2300</p><div class="clear"></div>
+                                    <ul>
+                                        <li><a href="#">-Однокомнатные</a><p>454</p><div class="clear"></div></li>
+                                        <li><a href="#">-Двухкомнатные</a><p>454</p><div class="clear"></div></li>
+                                        <li><a href="#">-Трехкомнатные</a><p>454</p><div class="clear"></div></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Оборудование</a></li>
+                        <li><a href="#">Промышленные изделия</a></li>
+                        <li><a href="#">Металлопрокат, металлоизделия</a></li>
+                        <li><a href="#">Сырье и материалы</a></li>
+                        <li><a href="#">Транспорт</a></li>
+                        <li><a href="#">Товары для офиса</a></li>
+                        <li><a href="#">Связь, интернет</a></li>
+                        <li><a href="#">Мебель</a></li>
+                    </ul>
+                    <div class="clear"></div>
+                    <footer></footer>
+                </nav>
+
+            </div>
+            <!-- / Левый блок -->
+
+            <!-- Контент -->
+            <div id="content">
+                <header>
+                    <!-- Обычно хлебные крошки или статистика -->
+                    <div class="breadcrumbs">
+                        <a href="/admin">НаОбзоре</a>
+                        <span class="breadcrumbs-separator">»</span>
+                        <span>Предприятия</span>
+                    </div>
+                </header>
+                <div id="main">
+
+                    <!-- заголовочный блок -->
+                    <section class="main-title">
+                        <div class="main-title-title">
+                            <h1 class="page-title">Отзывы <span class="page-title-ext">(4823)</span></h1>
+                        </div>
+                        <div class="main-title-categories">
+                            <a href="#">Тонкие</a>,
+                            <a href="#">нетбуки</a>,
+                            <a href="#">игровые</a>,
+                            <a href="#">бюджетные ноутбуки</a>,
+                            <a href="#">Плантшетные нетбуки</a>,
+                            <a href="#">MacBook Pro</a>,
+                            <a href="#">MacBook Pro 1.3</a>,
+                            <a href="#">MacBook Pro Air</a>
+                        </div>
+                        <div class="clear"></div>
+                    </section>
+                    <!-- end | заголовочный блок -->
+
+                    <!-- Фильтры -->
+                    <section class="filter-elements">
+                        <div class="filter-element-select">
+                            Сортировать по 
+                            <select>
+                                <option>Алфавиту</option>
+                            </select>
+                        </div>
+                        <div class="filter-element-select">
+                            Показать 
+                            <select>
+                                <option>Производитель</option>
+                            </select>
+                        </div>
+                        <div class="filter-element-page">
+                            Перейти на странице: 
+                            <ul>
+                                <li><a href="#">10</a> |</li>
+                                <li><a href="#">20</a> |</li>
+                                <li><a href="#">40</a> </li>
+                            </ul>
+                        </div>
+                    </section>
+                    <!-- end | Фильтры -->
+
+                    <section class="filter-abc">
+                        <div class="filter-abc-title">Предприятия <span>Отзывов (654)</span></div>
+                        <div class="filter-abc-content">
+                            <div>
+                                <a href="#">А</a>
+                                <a href="#">В</a>
+                                <a href="#">Г</a>
+                                <a href="#">Д</a>
+                                <a href="#">Е</a>
+                                <a href="#">Ж</a>
+                                <a href="#">З</a>
+                                <a href="#">И</a>
+                                <a href="#">К</a>
+                                <a href="#">Л</a>
+                                <a href="#">М</a>
+                                <a href="#">Н</a>
+                                <a href="#">О</a>
+                                <a href="#">П</a>
+                                <a href="#">Р</a>
+                                <a href="#">С</a>
+                                <a href="#">Т</a>
+                                <a href="#">У</a>
+                                <a href="#">Ф</a>
+                                <a href="#">Х</a>
+                                <a href="#">Ц</a>
+                                <a href="#">Ч</a>
+                                <a href="#">Ш</a>
+                                <a href="#">Щ</a>
+                                <a href="#">Э</a>
+                                <a href="#">Ю</a>
+                                <a href="#">Я</a>
+                            </div>
+                            <div>
+                                <a href="#">A</a>
+                                <a href="#">B</a>
+                                <a href="#">C</a>
+                                <a href="#">D</a>
+                                <a href="#">E</a>
+                                <a href="#">F</a>
+                                <a href="#">G</a>
+                                <a href="#">H</a>
+                                <a href="#">I</a>
+                                <a href="#">J</a>
+                                <a href="#">K</a>
+                                <a href="#">L</a>
+                                <a href="#">M</a>
+                                <a href="#">N</a>
+                                <a href="#">O</a>
+                                <a href="#">P</a>
+                                <a href="#">Q</a>
+                                <a href="#">R</a>
+                                <a href="#">S</a>
+                                <a href="#">T</a>
+                                <a href="#">U</a>
+                                <a href="#">V</a>
+                                <a href="#">W</a>
+                                <a href="#">X</a>
+                                <a href="#">W</a>
+                                <a href="#">Z</a>
+                            </div>
+                            <div>
+                                <a href="#">1</a>
+                                <a href="#">2</a>
+                                <a href="#">3</a>
+                                <a href="#">4</a>
+                                <a href="#">5</a>
+                                <a href="#">6</a>
+                                <a href="#">7</a>
+                                <a href="#">8</a>
+                                <a href="#">9</a>
+                                <a href="#">0</a>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="items-title">
+                        <span>Последние отзывы о товарах и услугах </span> <a href="#"><img src="img/add-comment.png" alt="" id="add_comment" /></a>
+                    </div>
+
+                    <div class="indent"></div>
+
+                    <article class="review">
+                        <div class="review-container">
+                            <div class="review-image"><img src="img/temp/phone.png" /></div>
+                            <div class="review-content">
+                                <h2 class="review-title"><a href="#" class="review-view">Отзыв о сотовом телефоне Fly E170</a></h2>
+                                <p class="review-brief">Сделали отлично, но делали долго</p>
+                                <div class="review-detail">
+                                    <div class="detail-full">
+                                        <p><b>Достоинства:</b>  + Экран (четкий, яркий)<br />
+                                        + Сенсор,очень отзывчивый<br />
+                                        + Стиль само собой <br />
+                                        + Батарейка (в режиме использования как телефон 3-4 дня)<br />
+                                        + Мощная начинка (ничего!!! не тормозит)</p>
+
+                                        <p><b>Недостатки:</b> Соглашаюсь с мнением большинства - совершенно неадекватная цена в России. НО пусть цена была бы такая, если бы не два других недостатка: 
+                                        2. Очень слабый аккумулятор если устройство использовать более активно(не только звонки и смс, но и Инет, музыка и прочее): хватает на 1-1.5 дня.</p>
+
+                                        <p><b>Отзыв:</b> Я сам пользовался и слышал что говорят другие люди о современных смартфонах..... поэтому совсем не понимаю тех, кто в недостатки пишет малое время работы от одной зарядки батареи..... Скорее всего люди не пользовались смартфонами нормально(!) и не знают, что нет ни одного который проработает больше одного дня.....только не надо сейчас говорить о работе 3 дня.. в режиме ожидания- может быть, с выключенной геолокацией, сетью 3G, wi-fi,без инета..)))
+                                        У меня все это включено и есть... нормально хватает на день.. 
+                                        ....Я не зря написал в достоинствах, что Нет ничего лишнего..... нет немыслимых спецэффектов , анимированных обоев и т.д.... </p>
+                                    </div>
+                                    <div class="detail-mini">
+                                        <p> Я сам пользовался и слышал что говорят другие люди о современных смартфонах..... поэтому совсем не понимаю тех, кто в недостатки пишет малое время работы от одной зарядки батареи..... Скорее всего люди не пользовались смартфонами нормально(!) и не знают, что нет ни одного который проработает больше одного дня... <a href="#" class="review-view">Читать отзыв</a></p>
+                                        <div class="review-info">
+                                            <div class="review-info-author">Иван Иванов - 21 декабря 2012</div>
+                                            <div class="review-info-count"><a href="#"><img src="img/reviews-2.png" alt="" /></a><span>(255)</span></div>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="review-other">
+                            <div class="review-author">Иван Иванов - 21 декабря 2012</div>
+                            <div class="review-good"><a href="#" class="go-entity">Перейти к товару</a></div>
+                            <div class="review-soc">
+                                <a href="#"><img src="img/social/facebook.png" /></a>
+                                <a href="#"><img src="img/social/vk.png" /></a>
+                                <a href="#"><img src="img/social/twitter.png" /></a>
+                            </div>
+                            <div class="review-count">
+                                <a href="#"><img src="img/reviews-2.png" alt="" /></a><span>(255)</span>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </article>
+
+                    <article class="review">
+                        <div class="review-container">
+                            <div class="review-image"><img src="img/temp/notebook.png" /></div>
+                            <div class="review-content">
+                                <h2 class="review-title"><a href="#" class="review-view">Отзыв о сотовом телефоне Fly E170</a></h2>
+                                <p class="review-brief">Сделали отлично, но делали долго</p>
+                                <div class="review-detail">
+                                    <div class="detail-full">
+                                        <p><b>Достоинства:</b>  + Экран (четкий, яркий)<br />
+                                        + Сенсор,очень отзывчивый<br />
+                                        + Стиль само собой <br />
+                                        + Батарейка (в режиме использования как телефон 3-4 дня)<br />
+                                        + Мощная начинка (ничего!!! не тормозит)</p>
+
+                                        <p><b>Недостатки:</b> Соглашаюсь с мнением большинства - совершенно неадекватная цена в России. НО пусть цена была бы такая, если бы не два других недостатка: 
+                                        2. Очень слабый аккумулятор если устройство использовать более активно(не только звонки и смс, но и Инет, музыка и прочее): хватает на 1-1.5 дня.</p>
+
+                                        <p><b>Отзыв:</b> Я сам пользовался и слышал что говорят другие люди о современных смартфонах..... поэтому совсем не понимаю тех, кто в недостатки пишет малое время работы от одной зарядки батареи..... Скорее всего люди не пользовались смартфонами нормально(!) и не знают, что нет ни одного который проработает больше одного дня.....только не надо сейчас говорить о работе 3 дня.. в режиме ожидания- может быть, с выключенной геолокацией, сетью 3G, wi-fi,без инета..)))
+                                        У меня все это включено и есть... нормально хватает на день.. 
+                                        ....Я не зря написал в достоинствах, что Нет ничего лишнего..... нет немыслимых спецэффектов , анимированных обоев и т.д.... </p>
+                                    </div>
+                                    <div class="detail-mini">
+                                        <p> Я сам пользовался и слышал что говорят другие люди о современных смартфонах..... поэтому совсем не понимаю тех, кто в недостатки пишет малое время работы от одной зарядки батареи..... Скорее всего люди не пользовались смартфонами нормально(!) и не знают, что нет ни одного который проработает больше одного дня... <a href="#" class="review-view">Читать отзыв</a></p>
+                                        <div class="review-info">
+                                            <div class="review-info-author">Иван Иванов - 21 декабря 2012</div>
+                                            <div class="review-info-count"><a href="#"><img src="img/reviews-2.png" alt="" /></a><span>(255)</span></div>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="review-other">
+                            <div class="review-author">Иван Иванов - 21 декабря 2012</div>
+                            <div class="review-good"><a href="#"><img src="img/go-good.png" /></a></div>
+                            <div class="review-soc">
+                                <a href="#"><img src="img/social/facebook.png" /></a>
+                                <a href="#"><img src="img/social/vk.png" /></a>
+                                <a href="#"><img src="img/social/twitter.png" /></a>
+                            </div>
+                            <div class="review-count">
+                                <a href="#"><img src="img/reviews-2.png" alt="" /></a><span>(255)</span>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </article>
+
+                </div>
+                <div id="pagination">
+                    <!--navigation-->
+
+                        <ul>
+                            <li><a href="#"><img src="img/page-prev.png" alt="" /> Предыдущая</a></li>
+                            <li><a href="#" class="page-active">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li>...</li>
+                            <li><a href="#">30</a></li>
+                            <li><a href="#">Следующая <img src="img/page-next.png" alt="" /></a></li>
+                        </ul>
+                </div>
+            </div>
+            <!-- / Контент -->
+            <div class="clear"></div>
+        </div>
+        
+    </div>
+    
+    
+    <!-- Подвал -->
+    <footer id="last_footer">
+        <div id="info_footer">
+            <div class="info-head">
+                <div class="info-head-auto">
+                    <div class="info-row">Полезная информация</div>
+                    <div class="info-row">Организациям</div>
+                    <div class="info-row">О нас</div>
+                    <div class="info-row">Мы в социальных сетях</div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="info-body">
+                <div class="info-head-auto">
+                    <div class="info-col">
+                        <p><a href="#">Пользовательское соглашение</a></p>
+                        <p><a href="#">Политика кофидициальности</a></p>
+                        <p><a href="#">Договор оферты</a></p>
+                    </div>
+                    <div class="info-col">
+                        <p><a href="#">Правила размещения</a></p>
+                        <p><a href="#">Правила оформления</a></p>
+                        <p><a href="#">Добавить компанию</a></p>
+                        <p><a href="#">Добавить товар</a></p>
+                        <p><a href="#">Заказать рекламу</a></p>
+                    </div>
+                    <div class="info-col">
+                        <p><a href="#">Наши услуги</a></p>
+                        <p><a href="#">Работа у нас</a></p>
+                        <p><a href="#">Контакты</a></p>
+                    </div>
+                    <div class="info-col">
+                        <p><a href="#"><img src="img/social/twitter.png" />Twitter</a></p>
+                        <p><a href="#"><img src="img/social/vk.png" />Вконтакте</a></p>
+                        <p><a href="#"><img src="img/social/facebook.png" />Facebook</a></p>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- / Подвал -->
+    
+    <div class="popup-slider">
+        <div class="popup-main">
+            <div class="popup-close"><a href="#" class="button-close"></a></div>
+            <!-- Главный блок с инфой -->
+            <div class="popup-content">
+                <div class="popup-images">
+                    <div class="popup-image"><img src="img/temp/notebook.png" alt="" /></div>
+                    <ul class="lightbox">
+                        <li><a href="img/temp/notebook.png"><img src="img/temp/notebook.png" alt="" width="32" height="32" /></a></li>
+                        <li><a href="img/temp/notebook.png"><img src="img/temp/notebook.png" alt="" width="32" height="32" /></a></li>
+                        <li><a href="img/temp/notebook.png"><img src="img/temp/notebook.png" alt="" width="32" height="32" /></a></li>
+                        <li><a href="img/temp/notebook.png"><img src="img/temp/notebook.png" alt="" width="32" height="32" /></a></li>
+                        <li><a href="img/temp/notebook.png"><img src="img/temp/notebook.png" alt="" width="32" height="32" /></a></li>
+                        <li><a href="img/temp/notebook.png"><img src="img/temp/notebook.png" alt="" width="32" height="32" /></a></li>
+                    </ul>
+                </div>
+                <div class="popup-map">
+                    <img src="img/temp/map.png" alt="" />
+                </div>
+                <div class="popup-info">
+                    <p class="popup-name"><a href="#">Samsung 305V5A-S0 CA8- 3510MX</a></p>
+                    <p class="popup-price">Цена: <span>22 400 р.</span></p>
+                    <p class="popup-company"><a href="#">ООО "Имя компании"</a></p>
+                    <p class="popup-price">пр. Дзержинского, 2А</p>
+                    <p>Тел.: 8(3532)94-40-55</p>
+                    <div><a href="#"><img src="img/bell.png" alt="" /></a></div>
+                    <div>Отзывы: <span class="bell-true">+40</span> / <span class="bell-false">-2</span></div>
+                    <div class="popup-stat">
+                        <a href="#"><img src="img/reviews-1.png" alt="" /></a>
+                        <a href="#"><img src="img/reviews-0.png" alt="" /></a>
+                        <a href="#"><img src="img/reviews-2.png" alt="" /></a><span>(255)</span>
+                    </div>
+                </div>
+            </div>
+            <!-- end | Главный блок с инфой -->
+        </div>
+        
+        <!--блок с кнопками-->
+        <div class="popup-buts">
+            <div class="popup-but-prev"></div>
+            <div class="popup-but-next"></div>
+            <div class="popup-but-cent"></div>
+        </div>
+        <!--end | блок с кнопками-->
+        
+        <div class="popup-other">
+            <div class="other-tabs">
+                <ul>
+                    <li data-other-tab="1" class="tab-curent"><div class="tab-wave"></div><div class="tab-shadow"></div><div class="tab-cont">Описание</div></li>
+                    <li  data-other-tab="2"><div class="tab-wave"></div><div class="tab-shadow"></div><div class="tab-cont">Характеристики</div></li>
+                    <li data-other-tab="3"><div class="tab-wave"></div><div class="tab-shadow"></div><div class="tab-cont">Фото</div></li>
+                    <li data-other-tab="4"><div class="tab-wave"></div><div class="tab-shadow"></div><div class="tab-cont">Отзывы</div></li>
+                    <li data-other-tab="5"><div class="tab-wave"></div><div class="tab-shadow"></div><div class="tab-cont">Акции</div></li>
+                    <li data-other-tab="6"><div class="tab-wave"></div><div class="tab-shadow"></div><div class="tab-cont">Доставка</div></li>
+                    <li data-other-tab="7"><div class="tab-wave"></div><div class="tab-shadow"></div><div class="tab-cont">Гарантия</div></li>
+                </ul>
+                <div class="clear"></div>
+            </div>
+            <div class="other-content">
+                
+                <div class="tab-content" data-other-con="1">
+                    <div class="content-title">Описание</div>
+                    <div class="content-text">
+                        1800Mhz/4096Mb/500Gb/ Windows 7-HB Silver
+                        Этот надежный ноутбук включает все необходимое для повседневного использования. Благодаря широкому набору функций вы сможете с легкостью управлять данными.
+                    </div>
+                </div>
+                <div class="tab-content" data-other-con="2">
+                    <div class="content-title">Характеристики</div>
+                    <div class="content-text">
+                        1800Mhz/4096Mb/500Gb/ Windows 7-HB Silver
+                        Этот надежный ноутбук включает все необходимое для повседневного использования. Благодаря широкому набору функций вы сможете с легкостью управлять данными.
+                    </div>
+                </div>
+                <div class="tab-content" data-other-con="3">
+                    <div class="content-title">Фото</div>
+                    <div class="content-text">
+                        1800Mhz/4096Mb/500Gb/ Windows 7-HB Silver
+                        Этот надежный ноутбук включает все необходимое для повседневного использования. Благодаря широкому набору функций вы сможете с легкостью управлять данными.
+                    </div>
+                </div>
+                <div class="tab-content" data-other-con="4">
+                    <div class="content-title">Отзывы</div>
+                    <div class="content-text">
+                        1800Mhz/4096Mb/500Gb/ Windows 7-HB Silver
+                        Этот надежный ноутбук включает все необходимое для повседневного использования. Благодаря широкому набору функций вы сможете с легкостью управлять данными.
+                    </div>
+                </div>
+                <div class="tab-content" data-other-con="5">
+                    <div class="content-title">Акции</div>
+                    <div class="content-text">
+                        1800Mhz/4096Mb/500Gb/ Windows 7-HB Silver
+                        Этот надежный ноутбук включает все необходимое для повседневного использования. Благодаря широкому набору функций вы сможете с легкостью управлять данными.
+                    </div>
+                </div>
+                <div class="tab-content" data-other-con="6">
+                    <div class="content-title">Доставка</div>
+                    <div class="content-text">
+                        1800Mhz/4096Mb/500Gb/ Windows 7-HB Silver
+                        Этот надежный ноутбук включает все необходимое для повседневного использования. Благодаря широкому набору функций вы сможете с легкостью управлять данными.
+                    </div>
+                </div>
+                <div class="tab-content" data-other-con="7">
+                    <div class="content-title">Гарантия</div>
+                    <div class="content-text">
+                        1800Mhz/4096Mb/500Gb/ Windows 7-HB Silver
+                        Этот надежный ноутбук включает все необходимое для повседневного использования. Благодаря широкому набору функций вы сможете с легкостью управлять данными.
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <div id="mask"></div>
+    
+</body>
+</html>
+
+

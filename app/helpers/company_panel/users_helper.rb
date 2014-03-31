@@ -1,0 +1,2 @@
+module CompanyPanel::UsersHelper
+end

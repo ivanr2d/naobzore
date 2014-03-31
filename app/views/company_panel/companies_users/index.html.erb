@@ -1,0 +1,46 @@
+<div class="personal">
+    
+    <div class="title">
+        График работы будет отображаться на вашем сайте, звонки будут 
+        доступны из выбранного графика работы
+    </div>
+  <% @company_users.each do |user| %>
+    <div class="employee">
+        <%= link_to_unless user == current_user, '', company_panel_companies_user_path(user), :method => 'delete', :confirm => "Удалить пользователя #{user.fi}?", :class => 'delete' %>
+        <div class="top">
+            <div class="photo">
+                <img src="<%= user.main_photo %>" alt="" />
+            </div>
+            <div class="data">
+                <p><%= user.f_name %></p>
+                <p><%= user.m_name %></p>
+                <p><%= user.l_name %></p>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="bottom">
+            <p>тел.: <%= raw user.phone.to_s.gsub(';', '<br />') %></p>
+            <p>e-mail: <%= user.email %></p>
+        </div>
+    </div>
+  <% end %>
+
+    <div class="employee new">
+        <div class="top">
+            <div class="plus">
+                <img src="/controlPanel/images/plus.png" alt="" />
+            </div>
+            <div class="label">Добавить сотрудника</div>
+            <div class="clear"></div>
+        </div>
+        <div class="bottom">
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+        </div>
+    </div>
+    
+    
+    <div class="clear"></div>
+</div>
+
+<%= render :partial => 'new_popup' %>

@@ -1,0 +1,10 @@
+<div id="error_explanation">
+  <% if @object.respond_to?(:errors) && @object.errors.size > 0 %>
+		<h2><img src="/assets/icons/001_30.png" /><%= pluralize(@object.errors.count, "ошибка", "ошибки", "ошибок") %> при сохранении:</h2>
+		<ul>
+		<% @object.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+		<% end %>
+		</ul>
+  <% end %>
+</div>

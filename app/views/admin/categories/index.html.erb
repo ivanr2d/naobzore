@@ -1,0 +1,39 @@
+<script>
+  $(function() {
+    $('table.treetable').treetable({ expandable: true });
+  });
+</script>
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%" class="treetable">
+  <tr>
+    <th width="32"></th>
+    <th>Название</th>
+    <th>Кол-во категорий</th>
+    <th>Тип</th>
+    <th>Дата добавления</th>
+    
+    <th width="96">Действия</th>
+  </tr>
+
+  <% # XXX переписать гавнокод %>
+  <% @categories.each do |category| %>
+    <% if category.parents_ids.include?(0) %>
+      <%= render :partial => 'category', :locals => { :category => category, :parent_category => nil } %>
+      <% category.children.each do |sub_category| %>
+        <%= render :partial => 'category', :locals => { :category => sub_category, :parent_category => category } %>
+        <% sub_category.children.each do |sub_sub_category| %>
+          <%= render :partial => 'category', :locals => { :category => sub_sub_category, :parent_category => sub_category } %>
+          <% sub_sub_category.children.each do |sub_sub_sub_category| %>
+            <%= render :partial => 'category', :locals => { :category => sub_sub_sub_category, :parent_category => sub_sub_category } %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+  
+  <tr>
+    <td colspan="8" class="last_ceil">
+      <%= will_paginate @top_categories %>
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,187 @@
+<!doctype html>
+<html><head>
+  <title>На обзоре - админка компании</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+  <link href="/assets/company-panel-main.css?body=1" media="screen" rel="stylesheet" type="text/css">
+  <link href="/assets/selectbox.css?body=1" media="screen" rel="stylesheet" type="text/css">
+  <link href="/assets/jquery.jscrollpane.css?body=1" media="screen" rel="stylesheet" type="text/css">
+
+  <script src="/assets/jquery.js?body=1" type="text/javascript"></script>
+  <script src="/assets/defaults.js" type="text/javascript"></script>
+<script src="/assets/jquery_ujs.js?body=1" type="text/javascript"></script>
+  <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" type="text/javascript"></script>
+  <script src="/assets/jquery.ui.datepicker-ru.js?body=1" type="text/javascript"></script>
+  <script src="/assets/jquery.flot.min.js?body=1" type="text/javascript"></script>
+  <script src="http://malsup.github.com/jquery.form.js" type="text/javascript"></script> 
+  <script src="/controlPanel/js/kegrid.js" type="text/javascript"></script>
+  <script src="/controlPanel/js/jselectbox.js" type="text/javascript"></script>
+  <script src="/controlPanel/js/jcarousel.js" type="text/javascript"></script>
+  <script type="text/javascript">
+  var CKEDITOR_BASEPATH = '/assets/ckeditor/';
+  </script>
+  <script src="/assets/ckeditor/ckeditor.js?body=1" type="text/javascript"></script><style>.cke{visibility:hidden;}</style>
+  <script src="/assets/jquery.maskedinput.min.js?body=1" type="text/javascript"></script>
+  <script src="/assets/jquery.zclip.min.js?body=1" type="text/javascript"></script>
+
+  <script src="/assets/jquery.jscrollpane.js?body=1" type="text/javascript"></script>
+  <script src="/assets/jquery.mousewheel.js?body=1" type="text/javascript"></script>
+  <script src="/assets/company-panel-common.js?body=1" type="text/javascript"></script>
+  
+  <script src="/assets/company_panel/messages.js" type="text/javascript"></script>
+
+  <!--[if lt IE 9]>
+  <script>
+      document.createElement('nav');
+      document.createElement('header');
+      document.createElement('footer');
+      document.createElement('section');
+      document.createElement('aside');
+      document.createElement('article');
+  </script>
+  <![endif]-->
+</head>
+<body>
+
+
+<div id="main_container">
+
+<!-- Шапка -->
+<header id="main_header">
+  <div class="header-secl">
+    <div id="logotype"><a href="/"><img src="/company-panel/images/logotype2.png"></a></div>
+
+    <div id="siteNav">
+      <a href="#" class="top-link"><img src="/company-panel/images/home.png" alt=""></a>
+      <a href="#" class="top-link"><img src="/company-panel/images/mail.png" alt=""></a>
+      <a href="#" class="top-link"><img src="/company-panel/images/map.png" alt=""></a>
+    </div>
+
+    <div class="clear"></div>
+  </div>
+  <div class="header-secr">
+    <div id="headerNav">
+      <nav id="top_nav">
+        <ul>
+          <li class="top-nav"><a href="#" class="vinous">Добавить компанию</a></li>
+          <li class="top-nav"><a href="#">Выход</a></li>
+          <li class="top-nav"><a href="#">Справка</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="clear"></div>
+</header>
+<!-- end | Шапка -->
+
+<!-- Основная навигация -->
+<nav id="navigation"> 
+  <ul class="nav-level-1"><li><a href="#">Мой кабинет</a><ul class="nav-level-2"><li><a href="/company_panel">Панель управления кабинетом</a></li><li><a href="/company_panel/users/50/edit">Настройка кабинета</a><ul class="nav-level-3"><li><a href="/company_panel/users/50/edit">Редактировать персональные данные</a></li><li><a href="/company_panel/users/50/edit_password">Изменить пароль</a></li><li><a href="/company_panel/users/50/edit_email">Изменить адрес электронной почты</a></li><li><a href="/company_panel/users/50/delete_account">Удалить учетную запись</a></li></ul></li><li><a href="/company_panel/statistics">Статистика просмотров</a></li><li><a href="/company_panel/resumes">База резюме</a></li></ul></li><li><a href="#">Управление контентом</a><ul class="nav-level-2"><li><a href="/company_panel/goods">Панель управления контентом</a></li><li><a href="#">Добавить</a><ul class="nav-level-3"><li><a href="/company_panel/goods/new">Товар</a></li><li><a href="/company_panel/services/new">Услугу</a></li><li><a href="/company_panel/jobs/new">Вакансию</a></li><li><a href="/company_panel/campaigns/new">Скидку/Акцию</a></li></ul></li><li><a href="/company_panel/price_lists/new">Импорт прайс-листа</a><ul class="nav-level-3"><li><a href="/company_panel/pages/price_desc">Описание загрузки прайс-листа</a></li><li><a href="/company_panel/price_lists/new">Загрузить прайс-лист</a></li><li><a href="/company_panel/categories">Коды категорий</a></li></ul></li><li><a href="/company_panel/photos">Каталог фото</a></li></ul></li><li><a href="#">Управление сайтом</a><ul class="nav-level-2"><li><a href="/company_panel/site_control">Панель управления сайтом</a></li><li><a href="/company_panel/sites/1/construct">Конструктор  дизайна сайта</a></li><li><a href="#">Настройка сайта</a><ul class="nav-level-3"><li><a href="/company_panel/subdomains">Адрес сайта</a></li><li><a href="/company_panel/menus">Настройка меню</a></li></ul></li><li><a href="/company_panel/sites/1/stats">Инструменты веб-мастера</a><ul class="nav-level-3"><li><a href="/company_panel/sites/1/stats">Настройка внешней статистики</a></li><li><a href="/company_panel/sites/1/webmaster">Подключение инструментов веб-мастера</a></li><li><a href="/company_panel/sites/1/sitemap">Карта сайта (sitemap)</a></li><li><a href="/company_panel/sites/1/robots">Управление robots.txt</a></li></ul></li></ul></li><li><a href="#">Документооборот</a><ul class="nav-level-2"><li><a href="#">Баланс</a></li><li><a href="#">Счета</a></li><li><a href="#">Акты</a></li><li><a href="#">Счет-фактуры</a></li></ul></li><li><a href="#">Почта и связь</a><ul class="nav-level-2"><li><a href="/company_panel/mail">Панель управления</a></li><li><a href="/company_panel/messages">Сообщения</a></li><li><a href="/company_panel/emails">Рассылки</a></li><li><a href="/company_panel/sms">Sms-биллинг</a></li><li><a href="/company_panel/calls">Менеджер звонков</a></li></ul></li><li><a href="#">Платные услуги</a><ul class="nav-level-2"><li><a href="/company_panel/packages/placing">Пакеты размещения</a></li><li><a href="/company_panel/banners/new">Размещение рекламного баннера</a></li><li><a href="/company_panel/packages/communication">Пакеты смс и голосовой телефонии</a></li><li><a href="/company_panel/pages/apo_design">Услуги дизайна</a></li></ul></li><li><a href="#">О компании</a><ul class="nav-level-2"><li><a href="/company_panel/companies/8/edit">Общие данные</a></li><li><a href="/company_panel/companies/8/legal">Юридические данные</a></li><li><a href="/company_panel/companies/8/logotype">Загрузить логотип</a></li><li><a href="/company_panel/companies/8/schedule">График работы</a></li><li><a href="/company_panel/companies_users">Сотрудники компании</a></li><li><a href="/company_panel/companies/8/crediting">Кредитование</a></li><li><a href="/company_panel/deliveties">Доставка</a></li></ul></li></ul>
+</nav>
+<!-- end | Основная навигация -->
+
+<section id="contentTitle">
+  <h1>Добавление новости</h1>
+</section>
+
+<section id="mainContent">
+  <!-- Левая часть -->
+  <section id="left">
+
+      
+
+
+    <div class="extra">
+      <div class="title">Служба поддержки</div>
+      <div class="content">
+        <ul>
+          <li><a href="#"><img src="../images/bell.png" alt=""></a></li>
+          <li>ICQ: <span class="txt-blue">310-234-224</span></li>
+          <li>Номер: <span class="txt-blue">8(3532)34-56-65</span></li>
+          <li><a href="#" class="blue-button view-popup" data-type="send-message">Написать сообщение</a></li>
+        </ul>
+      </div>
+    </div>
+		
+		<div class="extra">
+    <div class="title">Добавить</div>
+    <div class="content">
+      <ul>
+        <li><a href="/company_panel/goods/new" class="txt-blue">Товар</a></li>
+        <li><a href="/company_panel/services/new" class="txt-blue">Услугу</a></li>
+        <li><a href="/company_panel/jobs/new" class="txt-blue">Вакансию</a></li>
+        <li><a href="/company_panel/campaigns/new" class="txt-blue">Акцию/Скидку</a></li>
+				<li>Новость</li>
+      </ul>
+    </div>
+  </div>
+    
+    
+  </section>
+  <!-- end | Левая часть -->
+  
+  <!-- Главное содержательная часть -->
+  <section id="content">
+    <div class="notice"></div>
+    
+ 
+  <!-- Контент -->
+	<form>
+	<div class="form">
+		<div class="body">
+			<div class="row">
+        <div class="label"><label for="entity_title">Название новости</label></div>
+        <div class="field"><input class="input-normal" id="entity_title" name="entity[title]" size="30" type="text"></div>
+        <div class="clear"></div>
+      </div>
+
+			<div class="row">
+        <div class="label"><label>Изображение</label></div>
+        <div class="field">
+          <!-- блок с фотографией -->
+          <div class="photo">
+            <div class="preview-wrap" data-entity_id="">
+              <div class="preview">
+                <img src="/company-panel/images/no_image.png" width="100" height="128">
+              </div>
+            </div>
+            <div class="field view-popup" data-type="load-image">
+              <label>Загрузить изображение</label>
+                <div class="input-file" style="">
+                  <input type="text" size="5">
+                  <input type="button" value="Обзор...">
+                  <input id="entity_image" name="entity[image]" type="file">
+                </div>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <!-- end | блок с фотографией -->
+        </div>
+        <div class="clear"></div>
+      </div>
+			
+			<div class="row row-multiline">
+        <div class="label"<label for="entity_description">Текст новости</label></div>
+				<div class="clear"></div>
+        <div class="field"><textarea cols="48" id="entity_description" name="entity[description]" rows="8"></textarea></div>
+        <div class="clear"></div>
+      </div>
+			
+			<div class="buts">
+				<input type="submit" class="blue-button big btn-with-arrow" value="Разместить"><!-- if 'edit' mode don't add class 'btn-with-arrow'-->
+			</div>
+			
+		</div>
+	</div>
+	</form>
+	<!-- end  Контент -->
+
+  </section>
+
+	<div class="clear"></div>
+</section>
+
+<footer id="mainFooter">
+  <div id="footerShadow"><!----></div>
+  <div id="footerContent">© НаОбзоре.рф, 2012</div>
+</footer>
+</div>

@@ -1,0 +1,6 @@
+var search_tab = $('.src-link.active').data('search-tab');
+$('#search_results').html('<%= escape_javascript(render :partial => 'search_results') %>');
+$('.src-link[data-search-tab=' + search_tab + ']').click();
+$('.selectbox').selectbox({animationSpeed: 50}).bind('change', function() {
+  $(this).parents('form').submit();
+});

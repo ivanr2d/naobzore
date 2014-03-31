@@ -1,0 +1,22 @@
+<div class="entity">
+    <div class="image">
+        <img src="<%= @company.logotype_url(:thumb) %>" alt="" height="100px;" />
+    </div>
+    <div class="data">
+        <p>Код доставки: <%= delivety.code %></p>
+        <p>Стоимость: <%= delivety.free? ? 'Бесплатная' : "#{delivety.cost} руб." %></p>
+        <p>График работы: <%= delivety.graph %></p>
+        <p>Доставка осуществляется <%= delivety.period %></p>
+    </div>
+    <div class="info">
+        <p><%= @company.address %></p>
+        <p>тел.: <%= @company.phone.to_s.gsub(';', ', ') %></p>
+    </div>
+    
+    <ul class="control">
+        <li><a href="<%= edit_company_panel_delivety_path(delivety) %>">Редактировать</a></li>
+        <li><%= link_to 'Удалить', company_panel_delivety_path(delivety), :method => 'delete', :confirm => 'Удалить доставку' %></li>
+    </ul>
+    
+    <div class="clear"></div>
+</div>

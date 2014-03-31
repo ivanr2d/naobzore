@@ -1,0 +1,16 @@
+<div class="video-about" id="video_capability_<%= video.id %>" style="display: none"> 
+  <div class="video-about-title">
+    <div class="video-about-left" id="tutorial_full_title"></div>
+    <div class="video-about-right"><a href="#" class="video-about-close"></a></div>
+    <div class="clear"></div>
+  </div>
+  <div class="video-about-content">
+      <object id="uppod_<%= video.id %>" type="application/x-shockwave-flash" data="/uppod.swf" width="890" height="570">
+        <param name="bgcolor" value="#ffffff" />
+        <param name="allowFullScreen" value="true" />
+        <param name="wmode" value="window" />
+        <param name="movie" value="/uppod.swf" />
+        <param name="flashvars" value="file=<%= video.local_file_url %>" />
+      </object>
+  </div>
+</div>

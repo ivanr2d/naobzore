@@ -1,0 +1,3 @@
+<% ConstructorTrack.all.each_with_index do |track, index| %>
+  <div data-setting="help::<%= track.category %>" class="setting <%= 'hidden' unless index == 0 %>" data-url="<%= track.video_url %>"></div>
+<% end %>

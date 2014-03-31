@@ -1,0 +1,2 @@
+module Minisite::CampaignsHelper
+end

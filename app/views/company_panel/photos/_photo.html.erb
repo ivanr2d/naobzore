@@ -1,0 +1,35 @@
+<tr data-entity_id="<%= photo.id %>">
+  <td>
+    <%= form_for photo, :as => :entity, :url => company_panel_photo_path(photo, :format => :js), :remote => true do |f| %>
+    <% end %>
+    <input type="checkbox" class="row-checkbox" />
+  </td>
+  <td><div class="title"><%= File.basename(photo.file.path) %></div><div class="preview"><img src="<%= photo.file.url %>" /></div></td>
+  <td class="ext-coll">
+    <div class="right"><a href="#" class="points view-popup" data-item="<%= photo.id %>" data-type="search-entity"> <!-- was data-type="popup-input"--> </a>
+      <div class="popup-input hidden" data-item="<%= photo.id %>">
+          <div class="content">
+              <input type="text" class="autocomplete" name="NAME" />
+              <div class="autocomplite">
+                <div class="inner"></div>
+                <div class="actions">
+                  <a class="send" href="#">Выбрать</a><a class="cancel" href="#">Отмена</a>
+                </div>
+              </div>
+          </div>
+      </div>
+    </div>
+    <div class="left"><%= photo.entity.try(:article_name) %></div>
+    <input type="hidden" name="article_name" value="<%= photo.entity.try(:article_name) %>" />
+  </td>
+  <td><%= photo.size.to_i / 1024 %> kB</td>
+  <td>
+    <div style="display:none;">
+      <%= form_for photo, :url => company_panel_photo_path(photo) do |f| %>
+        <%= f.file_field :file, :class => 'replace-photo-file' %>
+      <% end %>
+    </div>
+    <a href="javascript:void(0);" class="replace-photo-link"><img src="/company-panel/images/edit.png" title="Редактировать" /></a>
+    <%= link_to raw('<img src="/company-panel/images/delete.png" title="Удалить" />'), company_panel_photo_path(photo), :method => :delete, :confirm => 'Вы уверены' %>
+  </td>
+</tr>

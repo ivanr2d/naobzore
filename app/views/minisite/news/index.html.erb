@@ -1,0 +1,15 @@
+<!-- Блок с заголовком -->
+<div class="entity-title">
+    <h2>Новости</h2>
+    <p></p>
+    <div class="clear"></div>
+</div>
+
+<div class="campaigns">
+	 <% if @news.count > 0 %>
+		  <%= render :partial => 'news', :collection => @news %>
+	<% else %>
+		<div class="empty-content">Новостей нет</div>
+	<% end %>
+</div>
+<%= will_paginate @news, :renderer => 'BootstrapPaginationHelper::LinkRenderer', :previous_label => '', :next_label => '' %>

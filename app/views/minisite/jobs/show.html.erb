@@ -1,0 +1,91 @@
+                <div class="entity-title">
+                    <h2>Вакансии</h2>
+                    <p>Добавлено: <%= @job.created_at.strftime('%d.%m.%Y') %>, Обновлено: <%= @job.updated_at.strftime('%d.%m.%Y') %></p>
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="job">
+                
+                    <div class="header">
+                        <div class="left">
+                            <h2><%= @job.name %></h2>
+                            <p class="salary">от <%= @job.salary_from %> руб.</p>
+                            
+                            <div class="requirements">
+                                <p><span class="key">Опыт работы:</span> <span class="value"><%= @job.experience %></span></p>
+                                <p><span class="key">Образование:</span> <span class="value"><%= @job.education %></span></p>
+                                <p><span class="key">График работы:</span> <span class="value"><%= @job.graphic.try(:name) %></span></p>
+                                <p><span class="key">Предпочтительный пол:</span> <span class="value"><%= human_sex @job.sex %></span></p>
+                                <p><span class="key">Предпочтительный возраст:</span> <span class="value">от <%= @job.age_from %> то <%= @job.age_to %> лет</span></p>
+                            </div>
+                            
+                        </div>
+                        <div class="right">
+                            <p class="company-name"><%= @company.legal_name %></p>
+                            <div class="logotype">
+                                <img src="<%= @site.get_header_logotype(@construct_mode) %>" alt="" />
+                            </div>
+                            <p class="more-jobs"><a href="<%= jobs_path %>">Все вакансии организации (<%= @company.jobs.count %>)</a></p>
+                            <div><a class="call-up" href="#"></a></div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <!--Желтая навигация-->
+                    <nav>
+                        <ul>
+                            <li><a href="#" id="viewDescription">Описание вакансии</a></li>
+                            <% if user_signed_in? %>
+                              <li><a href="#" id="sendResume">Отправить резюме</a></li>
+                            <% else %>
+                              <li><a href="#" id="view_login">Отправить резюме</a></li>
+                            <% end %>
+                            <li><a href="#" id="viewComments">Комментарии(<%= @job.comments_count %>)</a></li>
+                            <li>
+                              <%= render :partial => 'minisite/shared/likes', :locals => { :entity => @job } %>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!--end | Желтая навигация-->
+                    
+                    <!--Блок отправки резюме-->
+                    <% if user_signed_in? %>
+                      <div class="send-resume hidden" id="sendResumeBlock">
+                        <div>
+                          <div class="scrollpane">
+                            <ul>
+                              <% current_user.resumes.each do |resume| %>
+                                <li><%= link_to resume.name, resume_send_resume_path(resume, :job_id => @job.id, :format => :json), :remote => true, :method => :post, :class => 'send-job-resume' %></li>
+                              <% end %>
+                              <li><a href="cabinet/" class="add-resume">Создать резюме</a></li><!-- ссылка на стр. создания резюме в Личном кабинете (!) -->
+                            </ul>
+                          </div>
+                        </div>
+                        <div class="buttons">
+                          <a class="ok" href="#">Отправить</a><a class="cancel" href="#">Отмена</a>
+                        </div>
+                      </div>
+                    <% end %>
+                    <!--end | Блок отправки резюме-->
+                    
+                    <%= render :partial => 'minisite/comments/comments_block', :locals => { :entity => @job, :comments => @job.comments.last(Comment::LAST_COUNT), :visible => false } %>
+                
+                    <div id="descriptionBlock" class="description">
+
+						<div class="row">
+							<h2>Описание</h2>
+              <%= raw @job.description  %>
+						</div>
+						<div class="row">
+							<h2>Адрес</h2>
+							<p><a href="#"><%= @job.address %></a></p>
+						</div>
+						<div class="row">
+							<h2>Контактное лицо</h2>
+							<p><%= @job.contact_face %></p>
+							<p>Тел.: <%= @job.contact_phone %></p>
+							<p>E-mail: <%= @job.contact_email %></p>
+						</div>
+					</div>
+          <%= render :partial => 'minisite/shared/footer_sharing', :locals => { :entity => @job } %>                
+</div>

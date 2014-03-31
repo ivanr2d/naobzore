@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  annonce: MyString
+  comment: MyText
+  plus: MyText
+  minus: MyText
+  user_id: 1
+  contentment: 1
+  entity_id: 1
+  entity_type: MyString
+
+two:
+  title: MyString
+  annonce: MyString
+  comment: MyText
+  plus: MyText
+  minus: MyText
+  user_id: 1
+  contentment: 1
+  entity_id: 1
+  entity_type: MyString

@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+  <title>На обзоре - админка компании</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+  <%= stylesheet_link_tag 'company-panel-main' %>
+  <%= stylesheet_link_tag 'selectbox.css' %>
+  <%= stylesheet_link_tag 'jquery.jscrollpane.css' %>
+
+  <%= javascript_include_tag 'jquery' %>
+  <%= javascript_include_tag :defaults, "jquery_ujs.js" %>
+  <%= javascript_include_tag 'http://code.jquery.com/ui/1.10.2/jquery-ui.js' %>
+  <%= javascript_include_tag 'jquery.ui.datepicker-ru.js' %>
+  <%= javascript_include_tag 'jquery.flot.min.js' %>
+  <%= javascript_include_tag 'http://malsup.github.com/jquery.form.js' %> 
+  <%= javascript_include_tag '/controlPanel/js/kegrid.js' %>
+  <%= javascript_include_tag '/controlPanel/js/jselectbox.js' %>
+  <%= javascript_include_tag '/controlPanel/js/jcarousel.js' %>
+  <script type="text/javascript">
+  var CKEDITOR_BASEPATH = '/assets/ckeditor/';
+  </script>
+  <%= javascript_include_tag 'ckeditor/ckeditor' %>
+  <%= javascript_include_tag 'jquery.maskedinput.min.js' %>
+  <%= javascript_include_tag 'jquery.zclip.min.js' %>
+  <%= javascript_include_tag 'jquery.iframe-transport' %>
+  <%= javascript_include_tag 'live_input' %>
+  <%= javascript_include_tag 'jquery.jscrollpane.js' %>
+  <%= javascript_include_tag 'jquery.mousewheel.js' %>
+  <%= javascript_include_tag 'jquery.cookie' %>
+  <%= javascript_include_tag 'company-panel-common' %>
+  <%= yield :javascripts %>
+  <%= javascript_include_tag params[:controller] %>
+
+  <!--[if lt IE 9]>
+  <script>
+      document.createElement('nav');
+      document.createElement('header');
+      document.createElement('footer');
+      document.createElement('section');
+      document.createElement('aside');
+      document.createElement('article');
+  </script>
+  <![endif]-->
+</head>
+<body>

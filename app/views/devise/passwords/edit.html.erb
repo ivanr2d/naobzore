@@ -1,0 +1,25 @@
+
+<!-- ------ --------- ---------- ------------- -->
+<section class="main-title">
+    <div class="main-title-title">
+        <p class="page-title">Изменение пароля</p>
+    </div>
+    <div class="main-title-categories">
+    <div class="clear"></div>
+</section>
+<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
+<section class="filter-elements">
+	<%= devise_error_messages! %>
+</section>
+    <div class="other-form">
+    	
+    	<%= f.hidden_field :reset_password_token %>
+        <div class="other-form-field"><%= f.password_field :password, :class => "text-field", :placeholder => "Пароль" %></div>
+        <div class="other-form-field"><%= f.password_field :password_confirmation, :class => "text-field", :placeholder => "Повтор пароля" %></div>
+        
+        <div><%= f.submit "Изменить", :class => "form-submit" %></div>
+        
+        <div class="other-form-field"><%= render "links" %></div>
+        
+    </div>
+<% end %>

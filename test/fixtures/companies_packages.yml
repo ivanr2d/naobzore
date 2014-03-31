@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  company_id: 1
+  package_id: 1
+  start: 1
+  finish: 1
+  auto: false
+
+two:
+  company_id: 1
+  package_id: 1
+  start: 1
+  finish: 1
+  auto: false

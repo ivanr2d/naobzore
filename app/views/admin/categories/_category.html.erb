@@ -1,0 +1,14 @@
+<tr data-tt-id="<%= category.id %>" data-tt-parent-id="<%= parent_category.try(:id) %>">
+  <td></td>
+  <td><% if parent_category %><sup class="sub">|__</sup><% end %> <%= category.title %></td>
+  <td><%= category.deep_children.count %></td>
+  <td><%= category.cat_type %></td>
+  <td><%= category.created_at.strftime("%d.%m.%Y %H:%M") %></td>
+  <td>
+    <a href="/<%= params[:controller] %>/new?parents_ids=<%= category.id %>&q[cat_type_eq]=<%= category.cat_type %>" title="Создать подкатегорию"><img src="/assets/icons/001_01.png" style="width:16px; height:16px; vertical-align:middle;" /></a>
+    <a href="/<%= params[:controller] %>/<%= category.id %>/edit" class="action" title="Редактировать"><img src="/assets/icons/001_45.png" style="width:16px; height:16px; vertical-align:middle;" /></a>
+    <%= link_to admin_category_path(category), :method => :delete, :confirm => "Удалить '#{category.title}'?" do %>
+      <img src="/assets/icons/001_05.png" style="width:16px; height:16px; vertical-align:middle;" />
+    <% end %>
+  </td>
+</tr>

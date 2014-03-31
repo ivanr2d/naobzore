@@ -1,0 +1,12 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  email: admin@onshow.ru
+  password: 1q2w3e
+  f_name: Smit
+  l_name: John
+  account_type: admin
+  active: 1
+  confirmation_token: 1234567890
+  confirmed_at: 2013-02-11
+  lic: 1

@@ -1,0 +1,91 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @feedback.title %>
+</p>
+
+<p>
+  <b>Annonce:</b>
+  <%= @feedback.annonce %>
+</p>
+
+<p>
+  <b>Comment:</b>
+  <%= @feedback.comment %>
+</p>
+
+<p>
+  <b>Plus:</b>
+  <%= @feedback.plus %>
+</p>
+
+<p>
+  <b>Minus:</b>
+  <%= @feedback.minus %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @feedback.user_id %>
+</p>
+
+<p>
+  <b>Contentment:</b>
+  <%= @feedback.contentment %>
+</p>
+
+<p>
+  <b>Entity:</b>
+  <%= @feedback.entity_id %>
+</p>
+
+<p>
+  <b>Entity type:</b>
+  <%= @feedback.entity_type %>
+</p>
+
+
+<%= link_to 'Edit', edit_feedback_path(@feedback) %> |
+<%= link_to 'Back', feedbacks_path %>
+
+<!---------------------------------INDEX----------------------------------><h1>Listing feedbacks</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Annonce</th>
+    <th>Comment</th>
+    <th>Plus</th>
+    <th>Minus</th>
+    <th>User</th>
+    <th>Contentment</th>
+    <th>Entity</th>
+    <th>Entity type</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @feedbacks.each do |feedback| %>
+  <tr>
+    <td><%= feedback.title %></td>
+    <td><%= feedback.annonce %></td>
+    <td><%= feedback.comment %></td>
+    <td><%= feedback.plus %></td>
+    <td><%= feedback.minus %></td>
+    <td><%= feedback.user_id %></td>
+    <td><%= feedback.contentment %></td>
+    <td><%= feedback.entity_id %></td>
+    <td><%= feedback.entity_type %></td>
+    <td><%= link_to 'Show', feedback %></td>
+    <td><%= link_to 'Edit', edit_feedback_path(feedback) %></td>
+    <td><%= link_to 'Destroy', feedback, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Feedback', new_feedback_path %>
+

@@ -1,0 +1,42 @@
+<!-- favicon : load -->
+        <div data-setting="favicon::load" class="setting hidden">
+            <div class="container">
+                <!-- Полный блок с вкладками -->
+                <ul class="tabs">
+                    <li><a data-tab="1" href="#" class="active">Загрузка Favicon</a></li>
+                </ul>
+                <div class="tabs-content">
+                  <%= form_for @site, :url => company_panel_site_path(@site), :html => { :target => :minisite } do |f| %>
+                    <div data-tab="1" class="tab-content visible">
+                    
+                        <p class="info">Рекомендуемый размер 16*16 пикселей, формат файла *.ICO</p>
+                    
+                        <div class="row">
+                            <div class="label">Загрузить логотип с компьютера</div>
+                            <div class="field">
+                                <div class="input-file">
+                                    <input type="text" size="5" />
+                                    <input type="button" value="Обзор..." />
+                                    <%= f.file_field :favicon %>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <footer>
+                        <p class="info">Подробнее о Favicon, Вы можете ознакомиться <a href="#">по ссылке.</a></p>
+                    </footer>
+                  <% end %>
+                </div>
+            </div>
+        </div>
+    <!-- favicon : remove -->
+        <div data-setting="favicon::remove" class="setting hidden">
+            <div class="block-remove">
+              <%= form_for @site, :url => company_panel_site_path(@site), :html => { :target => :minisite } do |f| %>
+                <p class="info">Вы действительно хотите удалить favicon?</p>
+                <%= f.hidden_field :remove_favicon, :value => true %>
+                <input type="submit" class="button" value="Удалить" />
+              <% end %>
+            </div>
+        </div>

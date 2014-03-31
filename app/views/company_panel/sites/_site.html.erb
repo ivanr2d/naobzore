@@ -1,0 +1,159 @@
+<div id="site">
+
+    <header id="header_color_background" style="background: <%= @site.header_background %> no-repeat !important;">
+      <% if @site.header_logotype_url %>
+        <div class="left">
+            <div class="logo">
+                <img src="<%= @site.header_logotype_url %>" />
+            </div>
+        </div>
+        <div class="left" style="margin-top:45px;">
+          <h1><%= @company.name %></h1>
+        </div>
+      <% else %>
+        <div class="left" style="margin-top:45px;">
+          <div class="logo">
+            <h1><%= @company.name %></h1>
+          </div>
+        </div>
+      <% end %>
+        <div class="right">
+            <div class="search">
+                <input type="text" name="SEARCH" />
+            </div>
+            <ul class="navigation" data-setting="menu_background_color" style="background:<%= @site.menu_background_color.blank? ? '#838fa0' : @site.menu_background_color %> !important;">
+              <% {'Главная' => '#', 'Товары' => '#', 'Услуги' => '#', 'Новости' => '#', 'Акции' => '#', 'О компании' => '#', 'Контакты' => '#'}.each do |title, href| %>
+                <li><a href="<%= href %>" style="font-family:<%= @site.menu_text_font_family.blank? ? 'Arial' : @site.menu_text_font_family %>;<%= @site.menu_text_font_weight.blank? ? '' : "font-weight:#{@site.menu_text_font_weight};" %><%= @site.menu_text_font_style.blank? ? '' : "font-style:#{@site.menu_text_font_style};" %>"><%= title %></a></li>
+              <% end %>
+            </ul>
+        </div>
+        <div class="clear"></div>        
+    </header>
+    
+    <div class="container" data-setting="external_color_background" style="background:<%= @site.external_background %> no-repeat !important;">
+        <section class="sidebar">
+        
+            <aside>
+                <div class="title">Каталог Товары/Услуги</div>
+                <div class="content">
+                  <%= render_categories [current_user.account.category] %>
+                </div>
+            </aside>
+            
+            <aside>
+                <div class="title">Контактная информация</div>
+                <div class="content">
+                    <div class="info">
+                        <p><%= @company.legal_name %></p>
+                        <p><%= @company.full_address %></p>
+                        <p>Тел.: <%= @company.main_phone %></p>
+                        
+                        <a class="send-mail view-popup" data-type="send-message" href="#">Написать сообщение</a>
+                        <a class="call-up" href="#"></a>
+                    </div>
+                </div>
+                <div class="title">График работы</div>
+                <div class="content">
+                    <div class="timetable">
+                      <% @company.schedule.select { |s| !s[:w] }.each_with_index do |day, index| %>
+                        <div class="day">
+                            <div class="name-time">
+                                <div class="name"><%= day_name(index) %></div>
+                                <div class="time"><%= day[:f] %>-<%= day[:t] %></div>
+                                <div class="clear"></div>
+                            </div>
+                            <% if day[:bf] %>
+                              <div class="break">Перерыв: <%= day[:bf] %>-<%= day[:bt] %></div>
+                            <% end %>
+                        </div>
+                      <% end %>
+                      <% if (weekends = @company.schedule.each_index.select { |i| @company.schedule[i][:w] }).any? %>
+                        <p class="weekend">Выходные дни: <%= weekends.map { |w| day_name(w, true) }.join(',') %></p>
+                      <% end %>
+                    </div>
+                </div>
+            </aside>
+        </section>
+        
+        <section class="content">
+            <div class="title">
+                <p class="breadcrumbs">
+                    <a href="#">НаОбзоре</a>
+                    <span>»</span>
+                    <a href="#"><%= @company.name %></a>
+                </p>
+            </div>
+            
+            <!-- Блок с заголовком -->
+            <div class="entity-title">
+                <h2>О компании</h2>
+                <p></p>
+                <div class="clear"></div>
+            </div>
+            <div class="text"><%= raw @company.description %></div>
+
+            <div class="entity-title">
+                <h2>Каталог</h2>
+                <p></p>
+                <div class="clear"></div>
+            </div>
+            <% (@company.goods.shuffle.slice(0,4) + @company.services.shuffle.slice(0,4)).each do |entity| %>
+              <div style="float:left;">
+                <%= image_tag entity.image_url(:thumb) %><br />
+                <%= link_to entity.name, '#' %><br />
+                <%= entity.price %> руб.
+              </div>
+            <% end %>
+            <div class="clear"></div>
+
+            <% if (campaigns = @company.campaigns.shuffle.slice(0,4)).any? %>
+              <div class="entity-title">
+                  <h2>Акции</h2>
+                  <p></p>
+                  <div class="clear"></div>
+              </div>
+              <% campaigns.each do |entity| %>
+                <div>
+                  <%= image_tag entity.image_url(:thumb) %><br />
+                  <%= link_to entity.name, '#' %><br />
+                  <%= entity.description %>
+                </div>
+                <br />
+              <% end %>
+            <% else %>
+              <div class="entity-title">
+                  <h2>Вакансии</h2>
+                  <p></p>
+                  <div class="clear"></div>
+              </div>
+              <% @company.jobs.shuffle.slice(0,4).each do |entity| %>
+                <div>
+                  <%= link_to entity.name, '#' %><br />
+                  <%= entity.description %>
+                </div>
+                <br />
+              <% end %>
+            <% end %>
+
+        </section>
+        <div class="clear"></div>
+    </div><!--class:container-->
+    
+    <footer>
+        <div class="left">
+            <div class="info">
+                <p><%= @company.full_address %></p>
+                <p>тел.: <%= @company.main_phone %></p>
+                <p>Сайт создан на платформе наОбзоре.рф</p>
+                <p>© 2013 "<%= @company.name %>"</p>
+            </div>
+        </div>
+        <div class="right">
+            <ul class="counters">
+                <li><img src="/controlPanel/images/temp/counter-1.gif" /></li>
+                <li><img src="/controlPanel/images/temp/counter-2.gif" /></li>
+            </ul>
+        </div>
+        <div class="clear"></div>
+    </footer>
+</div><!--id:site-->

@@ -1,0 +1,40 @@
+<div class="list">
+  <div class="content">
+	<div class="kegrid-wrap">
+		<table class="table-akty style-silver" cellpadding="0" cellspacing="0">
+			<thead>
+			  <tr>
+				<th width="2">№</th>
+				<th>Счёт</th>
+				<th>Сумма</th>
+				<th>Дата</th>
+				<th>Тип платежа</th>
+				<th>Назначение</th>
+			  </tr>
+			</thead>
+			<tbody>
+			  <% @invoices.each do |invoice| %>
+				<tr>
+					<td><%= invoice.id %></td>
+					<td><%= link_to invoice.full_name, company_panel_invoice_path(invoice) %></td>
+					<td><%= invoice.sum %></td>
+					<td><%= invoice.created_at.strftime('%d.%m.%y') %></td>
+					<% if invoice.fill? %>
+					  <td class="text-green">Доход</td>
+					<% else %>
+					  <td class="text-red">Расход</td>
+					<% end %>
+					<td><%= t "invoices.entities.#{invoice.entity_type}" %></td>
+				</tr>
+			  <% end %>
+			</tbody>
+			
+		</table>
+	</div>
+
+    <!-- Подвальчик -->
+    <footer class="footer text-right">
+      <%= render :partial => 'company_panel/shared/pagination', :locals => {:obj => @invoices} %> 
+    </footer>
+  </div>
+</div>

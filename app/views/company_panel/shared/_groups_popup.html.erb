@@ -1,0 +1,29 @@
+<!--Попап для изображения-->
+<%= form_for Folder.new, :url => company_panel_folders_path(:format => :json), :html => { :id => :popup_group_form } do |f| %>
+    <div class="popup hidden" data-type="edit-group">
+        <header>
+            <div class="left gray"><h2>Редактирование группы</h2></div>
+            <div class="right"><a class="close" href="#"></a></div>
+        </header>
+
+    	<div class="description">
+         
+    		<div class="field">
+                <%= f.label :number, 'Код группы' %>
+    			<%= f.text_field :number, :size => 15 %> <span class="desc-txt-left">Код группы генерируется автоматически, <br> но вы можете его изменить.</span> 
+    		</div>
+    		
+    		<div class="field">
+                <%= f.label :name, 'Название группы' %>
+    			<%= f.text_field :name, :size => 30, :placeholder => "Введите название группы" %>
+    		</div>
+
+            <%= f.hidden_field :company_id, :value => @company.id %>
+            <%= hidden_field_tag :id %>
+        </div>
+        
+        <footer class="text-center">
+          <input class="blue-button save" type="button" value="ОК"> &nbsp; <input type="button" value="Отмена" class="blue-button cancel">
+        </footer>
+    </div>
+<% end %>

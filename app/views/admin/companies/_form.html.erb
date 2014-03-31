@@ -1,0 +1,28 @@
+<%= semantic_form_for [:admin, @company], :html => { :enctype => "multipart/form-data" } do |f| %>
+  <%= f.inputs do %>
+    <% # XXX поля типа enum по умолчанию сделать селектами %>
+    <% options = { 
+      :logotype => { :as => :file }, 
+      :tallage => { :as => :select }, 
+      :user => { :as => :select, :collection => User.order(:email).map { |user| [user.email, user.id] } }, 
+      :status => { :as => :select },
+      :tallage => { :as => :select, :collection => Company.columns_hash['tallage'].limit.map { |t| [t("companies.tallages.#{t}"), t] } },
+      :status => { :as => :select, :collection => Company.columns_hash['status'].limit.map { |t| [t("companies.statuses.#{t}"), t] } }
+    } %>
+    <% excludes = [:id, :created_at, :updated_at, :views, :active, :com_type, :deleted_at, :coords, :schedule, :tmp_logotype, :main, :balance] %>
+    <% Company.column_names.map(&:to_sym).delete_if { |column| excludes.include? column }.each do |column| %>
+      <% if column.to_s.end_with?('_id') && @company.respond_to?(association = column.to_s.sub('_id', '').to_sym) %>
+        <% column = association %>
+      <% end %>
+      <% begin %>
+        <%= f.input column, options[column] || {} %>
+      <% rescue => e %>
+        <% raise column.to_s + ': ' + e.message %>
+      <% end %>
+    <% end %>
+    <%= f.semantic_fields_for :site, @company.site || Site.new do |site| %>
+      <%= site.inputs :subdomen %>
+    <% end %>
+  <% end %>
+  <%= f.actions %>
+<% end %>

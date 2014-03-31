@@ -1,0 +1,10 @@
+<div class="notice"></div>
+<!-- Контент -->
+<div class="form">
+  <%= render :partial => 'tutorial', :collection => @tutorials %>
+</div>
+
+<!-- видео -->
+<%= render :partial => 'video', :collection => @tutorials %>
+
+<div id="mask"></div>

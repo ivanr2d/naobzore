@@ -1,0 +1,2 @@
+module CompanyPanel::CategoriesHelper
+end

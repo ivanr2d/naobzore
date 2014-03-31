@@ -1,0 +1,2 @@
+module CompanyPanel::BanksHelper
+end

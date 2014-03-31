@@ -1,0 +1,180 @@
+
+    <!-- заголовочный блок -->
+    <section class="main-title">
+        <div class="main-title-title">
+            <h1 class="page-title">Отзывы <span class="page-title-ext">(<%= Feedback.count %>)</span></h1>
+        </div>
+        <div class="main-title-categories">
+          	<% if @category && @category.children != nil %>
+          	<% @category.children.each do |subcat| %>
+              <a href="#"><%= subcat.title %></a>,
+            <% end %>
+            <% end %>
+        </div>
+        <div class="clear"></div>
+    </section>
+    <!-- end | заголовочный блок -->
+		
+		<!-- Фильтры -->
+		<div class="filters">
+				<!--Левый блок-->
+				<div class="left">
+						<div class="row">
+								<div class="cell left">Сортировать по</div>
+								<div class="cell right">
+									<select name="sort" id="sort" style="width:100px;">
+										<option>Выбрать</option>
+										<option value="<%= url_for params.merge(:sort => "views", :order => (params[:order] == 'DESC') ? 'ASC' : 'DESC') %>">Популярности</option>
+										<option value="<%= url_for params.merge(:sort => "created_at", :order => (params[:order] == 'DESC') ? 'ASC' : 'DESC') %>">Дате</option>
+									</select>
+								</div>
+								<div class="clear"></div>
+						</div>
+				</div>
+				<!--Центральный блок-->
+				<div class="center">
+						<div class="row">
+							<div class="cell left text-right">Показать &nbsp;</div>
+							<div class="cell right">
+								<select name="type" class="filter other-selectbox" style="width:100px;">
+										<option value="empty">Все</option>
+									<% Common.types.each do |value, key| %>
+										<option <%= (params[:type] && params[:type] == key) ? 'selected' : '' %> value="<%= key %>"><%= value %></option>
+									<% end %>
+								</select>
+							</div>
+						</div>
+				</div>
+				<!--Правый блок-->
+				<div class="right">
+						<div class="row">
+								<ul class="count-page">
+										<li>Показать:</li>
+										<li><%= link_to "10", {:controller => "feedbacks", :action => "index", :count => 10}, :class => (params[:count] == '10' || !params[:count]) ? 'count-active' : '' %></li>
+	                  <li><%= link_to "20", {:controller => "feedbacks", :action => "index", :count => 20}, :class => (params[:count] == '20') ? 'count-active' : '' %></li>
+	                  <li><%= link_to "30", {:controller => "feedbacks", :action => "index", :count => 30}, :class => (params[:count] == '30') ? 'count-active' : '' %></li>
+								</ul>
+						</div>
+				</div>
+		<div class="clear"></div>
+		</div>
+		<div class="found-res text-center" style="display: none;">
+			<span class="found-res-btn">
+				Показать 100 результатов
+			</span>
+		</div>
+		
+		<!-- Блок с подписаться и управлением колличеством элементов -->
+		<div class="sub-filters">
+				<div class="left">
+					<%= render :partial => 'shared/subscribe' %>
+				</div>
+				<div class="right">
+						<!-- Чтонить сюда можно воткнуть -->
+				</div>
+				<div class="clear"></div>
+		</div>
+		<!-- end | Фильтры -->
+
+
+    <div class="items-title">
+        <span>Последние добавленные отзывы о товарах и услугах </span> <a href="#"><img src="/assets/add-comment.png" alt="" id="add_comment" /></a>
+    </div>
+
+    <div class="indent"></div>
+
+	<% if @feedbacks.count > 0 %>
+		<% @feedbacks.each do |feedback| %>
+			<article class="review">
+					<div class="review-container">
+							<div class="review-image"><%= image_tag(Feedback.get_picture(feedback)) %></div>
+							<div class="review-content">
+									<h2 class="review-title"><a href="#" class="review-view"><%= (feedback.entity_type == 'Good') ? feedback.entity.title : feedback.entity.name %></a></h2>
+									<% if feedback.contentment == 1 %>
+										<span class="popup-fb-true">(Положительный)</span>
+									<% else %>
+										<span class="popup-fb-false">(Отрицательный)</span>
+									<% end %>
+									
+									<div class="review-detail">
+											<div class="detail-full">
+													<p><b>Достоинства:</b>  <%= feedback.plus %></p>
+	
+													<p><b>Недостатки:</b> <%= feedback.minus %></p>
+	
+													<p><b>Отзыв:</b> <%= feedback.comment %></p>
+											</div>
+											<div class="detail-mini">
+													<p><%= truncate feedback.comment, :length => 160 %> <a href="#" class="review-view">Читать отзыв</a></p>
+													<div class="review-info">
+															<div class="review-info-author"><a href="/cabinet/<%= feedback.user_id %>"><%= feedback.user.fi %></a><!-- Ссылка на Личный кабинет пользователя --> - <%=  l feedback.created_at, :format => '%d %B %Y' %></div>
+															
+															<% if user_signed_in? %>
+															<div class="review-info-count">
+												<div class="favorite-active">
+														<a href="#" data-like="Feedback:<%= feedback.id %>" class="like"><%= image_tag "reviews-2.png" %></a><span>(<small class="like-count"><%= feedback.likes.count %></small>)</span>
+												</div>
+									<div class="favorite-notactive">
+										<%= image_tag "loading-mini.gif" %>
+									</div>
+															</div>
+															<% else %>
+															<div class="review-info-count">
+																<%= image_tag "no-reviews-2.png" %><span>(<%= feedback.likes.count %>)</span>
+															</div>
+															<% end %>
+															
+															<div class="clear"></div>
+													</div>
+											</div>
+									</div>
+							</div>
+							<div class="clear"></div>
+					</div>
+					<div class="review-other">
+							<div class="review-author"><a href="/cabinet/<%= feedback.user_id %>"><%= feedback.user.fio %></a><!-- Ссылка на Личный кабинет пользователя --> - <%= l feedback.created_at, :format => '%d %B %Y' %></div>
+							<div class="review-good">
+							<% if feedback.entity_type == 'Good' %>
+								<a href="/goods/<%= feedback.entity.category.alias %>/<%= feedback.entity.id %>" class="go-entity">Перейти к товару</a>
+							<% elsif feedback.entity_type == 'Service' %>
+								<a href="/services/<%= feedback.entity.category.alias %>/<%= feedback.entity.id %>" class="go-entity">Перейти к услуге</a>
+							<% elsif feedback.entity_type == 'Company' %>
+								<a href="#" class="go-entity">Перейти к компании</a>
+							<% elsif feedback.entity_type == 'Campaign' %>
+								<a href="/campaigns/<%= feedback.entity.category.alias %>/<%= feedback.entity.id %>" class="go-entity">Перейти к акции</a>
+							<% end %>
+							</div>
+							<div class="review-soc">
+								<a href="#"><img src="/assets/social/vk_small.png"></a>
+								<a href="#"><img src="/assets/social/odnoklassniki_small.png"></a>
+								<a href="#"><img src="/assets/social/mail_small.png"></a>
+								<a href="#"><img src="/assets/social/facebook_small.png"></a>
+								<a href="#"><img src="/assets/social/twitter_small.png"></a>
+								<a href="#"><img src="/assets/social/google_small.png"></a>
+							</div>
+							<div class="review-count">
+								<div class="favorite-active">
+											<% if user_signed_in? %>
+										<div class="favorite-active">
+												<a href="#" data-like="Feedback:<%= feedback.id %>" class="like"><%= image_tag "reviews-2.png" %></a><span>(<small class="like-count"><%= feedback.likes.count %></small>)</span>
+										</div>
+							<div class="favorite-notactive">
+								<%= image_tag "loading-mini.gif" %>
+							</div>
+											<% else %>
+												<%= image_tag "no-reviews-2.png" %><span>(<%= feedback.likes.count %>)</span>
+											<% end %>
+					</div>
+					<div class="favorite-notactive">
+						<%= image_tag "loading-mini.gif" %>
+					</div>
+							</div>
+							<div class="clear"></div>
+					</div>
+			</article>
+			<% end %>
+    <% else %>
+			<div class="empty-content">Отзывов нет</div>
+    <% end %>
+    
+		<%= render :partial => 'shared/sharing' %>

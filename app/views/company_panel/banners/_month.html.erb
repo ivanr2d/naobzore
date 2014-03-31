@@ -1,0 +1,15 @@
+<header>
+    <div class="left">
+      <% months = (Time.now.month .. Time.now.month + Banner.period_in_months - 1).to_a.map { |m| m > 12 ? m % 12 : m } %>
+      <% month_names = months.map { |m| l Time.new(Time.now.year, m), :format => '%B' } %>
+        <ul class="calendar-buttons" data-months="<%= months.join(',') %>" data-month_names="<%= month_names.join(',') %>">
+            <li class="prev"></li>
+            <li class="current"><%= l Time.now, :format => '%B' %></li>
+            <li class="next"></li>
+        </ul>
+    </div>
+    <div class="right">
+        <p class="small">Стоимость размещения на 7 дней, состовляет <span class="average"><%= Banner.week_price %> руб.</span></p>
+    </div>
+    <div class="clear"></div>
+</header>

@@ -1,0 +1,304 @@
+<!doctype html>
+<html>
+<head>
+    <title>На обзоре</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/jquery.jscrollpane.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="css/selectbox.css" />
+    
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jcarousel.js"></script>
+    <script type="text/javascript" src="js/jselectbox.js"></script>
+    <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+    <script type="text/javascript" src="js/jquery.jscrollpane.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    
+    <!--[if lt IE 9]>
+    <script>
+        document.createElement('nav');
+        document.createElement('header');
+        document.createElement('footer');
+        document.createElement('section');
+        document.createElement('aside');
+        document.createElement('article');
+    </script>
+    <![endif]-->
+</head>
+<body>
+    
+    <section id="container">
+
+        <header id="header">
+            <div id="header_main">
+                <img id="logotype" src="img/logotype.png" alt="" />
+            </div>
+            <div id="header_buts">
+                <div id="mini_buts">
+                    <a href="#" class="top-link"><img src="img/icons/home.png" alt="" /></a>
+                    <a href="#" class="top-link"><img src="img/icons/mail.png" alt="" /></a>
+                    <a href="#" class="top-link"><img src="img/icons/map.png" alt="" /></a>
+                </div>
+                <nav id="top_nav">
+                    <ul>
+                        <li class="top-nav"><a href="#" id="view_add">Добавить</a>
+                            <div id="add">
+                                <ul>
+                                    <li><a href="#">Объявление</a></li>
+                                    <li><a href="#">Резюме</a></li>
+                                    <li><a href="#">Предприятие</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="top-nav"><a href="#" id="view_registration">Регистрация</a>
+                            <!-- Выподающий блок регистрации -->
+                            <div id="registration">
+                                <div class="pop-form">
+
+                                    <div class="pop-table">
+                                        <div class="pop-table-row">
+                                            <div class="pop-table-coll">ФИО</div>
+                                            <div class="pop-table-colr"><input type="text" name="" /></div>
+                                        </div>
+                                        <div class="pop-table-row">
+                                            <div class="pop-table-coll">Логин</div>
+                                            <div class="pop-table-colr"><input type="text" name="" /></div>
+                                        </div>
+                                        <div class="pop-table-row">
+                                            <div class="pop-table-coll">Пароль</div>
+                                            <div class="pop-table-colr"><input type="text" name="" /></div>
+                                        </div>
+                                        <div class="pop-table-row">
+                                            <div class="pop-table-coll">E - mail</div>
+                                            <div class="pop-table-colr"><input type="text" name="" /></div>
+                                        </div>
+                                        <div class="pop-table-row">
+                                            <div class="pop-table-coll-captcha">
+                                                <img src="img/temp/captha.png" alt="" />
+                                                <p><a href="#" class="pop-link">Новое изображение</a></p>
+                                            </div>
+                                            <div class="pop-table-colr-captcha">
+                                                <p>Что Вы видите?</p><input type="text" name="" size="10" />
+                                            </div>
+                                        </div>
+                                        <div class="pop-table-row">
+                                            <div class="pop-table-col-full">
+                                                <input type="checkbox" name="" /> Я принимаю условия <a href="#"  class="pop-link">пользовательского соглашения</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="pop-form-send">
+                                    <input type="submit" value="Зарегистрироваться" />
+                                </div>
+                                <div class="pop-form-social">
+                                    Вход без регистрации 
+                                    <a href="#"><img src="img/social/facebook.png" /></a>
+                                    <a href="#"><img src="img/social/vk.png" /></a>
+                                    <a href="#"><img src="img/social/twitter.png" /></a>
+                                </div>
+                            </div>
+                            <!-- end | Выподающий блок регистрации -->
+                        </li>
+                        <li class="top-nav"><a href="#" id="view_login">Войти</a>
+
+                            <!-- Всплывающий блок Входа -->
+                            <div id="login">
+                                <div id="login_form">
+                                    <div class="pop-form-login">
+                                        <div class="pop-form-login-table">
+                                            <div class="pop-form-login-row">
+                                                <div class="pop-form-login-coll">Логин</div>
+                                                <div class="pop-form-login-colr"><input type="text" name="" /></div>
+                                            </div>
+                                            <div class="pop-form-login-row">
+                                                <div class="pop-form-login-coll">Пароль</div>
+                                                <div class="pop-form-login-colr"><input type="text" name="" /></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pop-form-button">
+                                        <div class="pop-form-button-left"><a href="#" id="view_rec_pass">Забыли пароль?</a></div>
+                                        <div class="pop-form-button-right"><input type="submit" value="Войти" /></div>
+                                    </div>
+                                </div>
+                                <div id="login_social">
+                                    Войти с помощью... 
+                                    <a href="#"><img src="img/social/facebook.png" /></a>
+                                    <a href="#"><img src="img/social/vk.png" /></a>
+                                    <a href="#"><img src="img/social/twitter.png" /></a>
+                                </div>
+                            </div>
+                            <!-- end | Всплывающий блок Входа -->
+
+                        </li>
+                        <li class="top-nav"><a href="#">Справка</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div id="header_wave"></div>
+            <div id="header_righ"></div>
+            <nav id="main_nav">
+                <ul>
+                    <li><a href="#">ТОВАРЫ</a></li>
+                    <li><a href="#">УСЛУГИ</a></li>
+                    <li><a href="#">ВАКАНСИИ</a></li>
+                    <li class="main-nav-active"><a href="#">ПРЕДПРИЯТИЯ</a></li>
+                    <li><a href="#">НОВОСТИ</a></li>
+                    <li><a href="#">АКЦИИ</a></li>
+                    <li><a href="#">ОТЗЫВЫ</a></li>
+                    <li><a href="#">ОБЪЯВЛЕНИЯ</a></li>
+                </ul>
+                <div class="clear"></div>
+            </nav>
+        </header>
+
+
+		<div id="simp_container_ext">
+			
+			<div class="big-shadow"></div>
+			
+			<div id="container_ext_content">
+				<div class="entity-top">Добавлено: 12.12.2012</div>
+				
+				<div class="entity-data-container">
+					<div class="entity-data-left">
+						<h1 class="entity-job-title">Специалист по не движемости</h1>
+						<p class="entity-job-price">от 30000 руб.</p>
+						
+						<p class="resume-name">Иванов Иван Иванович</p>
+						
+						<div class="entity-mini-info">
+							<p><span class="entity-data-key">Возраст: </span><span class="entity-data-value">23 года</span></p>
+							<p><span class="entity-data-key">Опыт работы: </span><span class="entity-data-value">6 лет</span></p>
+							<p><span class="entity-data-key">Образование: </span><span class="entity-data-value">Высшее</span></p>
+							<p><span class="entity-data-key">Телефон: </span><span class="entity-data-value">8-922-999-444-333</span></p>
+							<p><span class="entity-data-key">E-mail: </span><span class="entity-data-value">ivan@petrov.ru</span></p>
+						</div>
+					</div>
+					<div class="entity-data-right">
+						<div class="resume-photo">
+							<img src="img/temp/main-photo.png" />
+						</div>
+						<a href="#" class="offer-job">Предложить работу</a>
+					</div>
+					<div class="clear"></div>
+				</div>
+				
+				<div class="entity-content">
+					
+					<div id="description">
+						<div class="entity-content-item">
+							<h2>Обязанности</h2>
+							<p>Кредитный менеджер работает в мини-офисе Банка на территории магазинов-партнеров‚ таких как «Медиамаркт»‚ «М-Видео»‚ «Техносила»‚ «Берингов» и т.д.‚ которые располагаются в различных округах Москвы и Московской области.  (место работы подбирается ближе к дому).</p>
+						</div>
+						
+						<div class="entity-content-item">
+							<h2>Обязанности</h2>
+							<p>Кредитный менеджер работает в мини-офисе Банка на территории магазинов-партнеров‚ таких как «Медиамаркт»‚ «М-Видео»‚ «Техносила»‚ «Берингов» и т.д.‚ которые располагаются в различных округах Москвы и Московской области.  (место работы подбирается ближе к дому).</p>
+						</div>
+						
+						<div class="entity-content-item">
+							<h2>Обязанности</h2>
+							<p>Кредитный менеджер работает в мини-офисе Банка на территории магазинов-партнеров‚ таких как «Медиамаркт»‚ «М-Видео»‚ «Техносила»‚ «Берингов» и т.д.‚ которые располагаются в различных округах Москвы и Московской области.  (место работы подбирается ближе к дому).</p>
+						</div>
+					</div>
+					
+				</div>
+				
+				<div class="entity-bottom">
+					<div class="entity-bottom-soc">
+						<a href="#"><img src="img/social/facebook.png" /></a>
+						<a href="#"><img src="img/social/vk.png" /></a>
+					</div>
+					<div class="entity-bottom-but">
+						<a href="#"><img src="img/mail.png" /></a>
+						<a href="#"><img src="img/printer.png" /></a>
+						<a href="#">Пожаловаться на резюме</a>
+					</div>
+					<div class="clear"></div>
+				</div>
+				
+			</div>
+			
+			<div id="container_ext_right">
+				<div id="like_entities">
+					<div class="like-entities-title">
+						Похожие резюме
+					</div>
+					<div class="like-entities-content">
+						<div class="like-entity">
+							<p class="like-entity-title"><a href="#">Специалист по недвижемости</a></p>
+							<p class="like-entity-price">от 2200 руб</p>
+						</div>
+						<div class="like-entity">
+							<p class="like-entity-title"><a href="#">Специалист по недвижемости</a></p>
+							<p class="like-entity-price">от 2200 руб</p>
+						</div>
+						<div class="like-entity">
+							<p class="like-entity-title"><a href="#">Специалист по недвижемости</a></p>
+							<p class="like-entity-price">от 2200 руб</p>
+						</div>
+						<div class="like-entity">
+							<p class="like-entity-title"><a href="#">Специалист по недвижемости</a></p>
+							<p class="like-entity-price">от 2200 руб</p>
+						</div>
+						<div class="like-entity">
+							<p class="like-entity-title"><a href="#">Специалист по недвижемости</a></p>
+							<p class="like-entity-price">от 2200 руб</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="clear"></div>
+        </div>
+
+    </section>
+    
+    <!-- Подвал -->
+    <footer id="last_footer">
+        <div id="info_footer">
+            <div class="info-head">
+                <div class="info-head-auto">
+                    <div class="info-row">Полезная информация</div>
+                    <div class="info-row">Организациям</div>
+                    <div class="info-row">О нас</div>
+                    <div class="info-row">Мы в социальных сетях</div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="info-body">
+                <div class="info-head-auto">
+                    <div class="info-col">
+                        <p><a href="#">Пользовательское соглашение</a></p>
+                        <p><a href="#">Политика кофидициальности</a></p>
+                        <p><a href="#">Договор оферты</a></p>
+                    </div>
+                    <div class="info-col">
+                        <p><a href="#">Правила размещения</a></p>
+                        <p><a href="#">Правила оформления</a></p>
+                        <p><a href="#">Добавить компанию</a></p>
+                        <p><a href="#">Добавить товар</a></p>
+                        <p><a href="#">Заказать рекламу</a></p>
+                    </div>
+                    <div class="info-col">
+                        <p><a href="#">Наши услуги</a></p>
+                        <p><a href="#">Работа у нас</a></p>
+                        <p><a href="#">Контакты</a></p>
+                    </div>
+                    <div class="info-col">
+                        <p><a href="#"><img src="img/social/twitter.png" />Twitter</a></p>
+                        <p><a href="#"><img src="img/social/vk.png" />Вконтакте</a></p>
+                        <p><a href="#"><img src="img/social/facebook.png" />Facebook</a></p>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- / Подвал -->
+
+</body>
+</html>

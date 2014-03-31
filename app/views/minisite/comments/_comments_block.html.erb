@@ -1,0 +1,5 @@
+<div id="commentsBlock" class="comments <%= local_assigns.has_key?(:visible) && !visible ? 'hidden' : '' %>">
+	<div class="comments-header"></div>
+  <%= render :partial => 'minisite/comments/comment', :collection => comments %>
+  <%= render :partial => 'minisite/comments/footer', :locals => { :entity => entity, :comments => comments } %>
+</div>

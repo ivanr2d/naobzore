@@ -1,0 +1,294 @@
+/* Общий css для логина (основные страницы + минисайт) */
+#login
+{
+    position: absolute;
+    z-index: 2000;
+    display: none;
+}
+#login_form
+{
+    margin: 4px 0px 0px 0px;
+    width: 305px;
+    height: 160px;
+    background: #fff;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 10px rgba(0,0,0,0.3);
+    overflow: hidden;
+}
+#login_social
+{
+    margin: 0px 20px 0px 20px;
+    height: 30px;
+    background: #e4f7f6;
+    border-top: 1px solid #cccccc;
+    
+    -webkit-border-bottom-left-radius: 10px;
+    -moz-border-bottom-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    -webkit-border-bottom-right-radius: 10px;
+    -moz-border-bottom-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    
+    overflow: hidden;
+
+    padding: 10px 20px 0px 20px;
+    text-align: right;
+    color: #565656;
+    font-size: 11px;
+}
+#login_social img
+{
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    border: 0px;
+}
+.pop-form-login
+{
+    height: 125px;
+    border-bottom: 1px solid #9fe8fc; 
+    background: -moz-linear-gradient(top, #ffffff, #e4f7f6);    /* Подогнать */
+    background: -webkit-linear-gradient(top, #ffffff, #e4f7f6);    /* Подогнать */
+    background: -o-linear-gradient(top, #ffffff, #e4f7f6); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #ffffff, #e4f7f6); /* IE10 */
+    background: linear-gradient(top, #ffffff, #e4f7f6); /* CSS3 */
+}
+.pop-form-button
+{
+    border-top: 1px solid #dcf8fe;
+    background: #bcf0fd;
+    height: 37px;
+}
+.pop-form-button-left
+{
+    padding: 10px 0px 0px 0px;
+    width: 150px;
+    height: 27px;
+    float: left;
+    background: url(login-but-border.png) no-repeat;
+    background-position: right;
+    text-align: center;
+}
+.pop-form-login-table
+{
+    border: 0px solid #cccccc;
+    margin: 0px 30px 20px 30px;
+    padding: 30px 0px 0px 0px;
+}
+.pop-form-login-row
+{
+    border: 0px solid #cccccc;
+    height: 45px;
+    padding: 1px;
+}
+.pop-form-login-coll
+{
+    width: 60px;
+    height: 40px;
+    border: 0px solid #cccccc;
+    float: left;
+    text-align: right;
+    padding: 5px 10px 0px 0px;
+    color: #565656;
+    font-size: 12px;
+}
+.pop-form-login-colr
+{
+    width: 120px;
+    height: 45px;
+    border: 0px solid #cccccc;
+    float: left;
+    text-align: right;
+    padding: 0px 10px 0px 0px;
+}
+#login_form input[type="text"], #login_form input[type="password"], #login_form input[type="email"]
+{
+    border: 1px solid #cccccc;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding: 3px;
+}
+
+#header_buts nav ul li .pop-form-button-left a
+{
+    color: #595959;
+}
+.pop-form-button-right
+{
+    padding: 7px 0px 0px 0px;
+    margin: 0px 0px 0px 150px;
+    height: 30px;
+    color: #595959;
+    text-align: center;
+}
+.pop-form-button-right input
+{
+    border: none;
+    background: transparent;
+    color: #595959;
+    cursor: pointer;
+    font-family: verdana;
+    font-size: 9pt;
+}
+
+#registration
+{
+    margin: 4px 0px 0px -70px;
+    position: absolute;
+    width: 390px;
+    height: 649px;
+    border: 0px solid #cccccc;
+    z-index: 2000;
+    background: #fff;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 10px rgba(0,0,0,0.3);
+    overflow: hidden;
+    background: #52dbfd;
+    display: none;
+}
+.pop-form
+{
+    background: -moz-linear-gradient(top, #ffffff, #c8f4ff);    /* Подогнать */
+    background: -webkit-linear-gradient(top, #ffffff, #c8f4ff);    /* Подогнать */
+    background: -o-linear-gradient(top, #ffffff, #c8f4ff); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #ffffff, #c8f4ff); /* IE10 */
+    background: linear-gradient(top, #ffffff, #c8f4ff); /* CSS3 */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#c8f4ff',GradientType=0 ); /* IE6-9 */
+    height: 555px;
+    border-bottom: 1px solid #a1fc4a;
+}
+.pop-form-send
+{
+    border-top: 1px solid #ddfea9;
+    background: #bdfd6b;
+    height: 14px;
+    -webkit-border-bottom-left-radius: 10px;
+    -moz-border-bottom-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    -webkit-border-bottom-right-radius: 10px;
+    -moz-border-bottom-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin: 0px 0px -10px 0px;
+    padding: 10px 15px 15px 15px;
+    text-align: center;
+}
+.pop-form-send input
+{
+    border: 0px;
+    background: transparent;
+    color: #777777;
+    cursor: pointer;
+    font-family: verdana;
+    font-size: 11pt;
+}
+.pop-form-social
+{
+    height: 53px;
+    padding: 30px 20px 10px 20px;
+    text-align: right;
+    color: #fff;
+    font-size: 12px;
+}
+.pop-form-social img
+{
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    border: 0px;
+}
+.pop-table
+{
+    border: 0px solid #cccccc;
+    margin: 0px 30px 20px 30px;
+    padding: 50px 0px 0px 0px;
+}
+.pop-table-row
+{
+    border: 0px solid #cccccc;
+    height: 55px;
+    padding: 1px;
+}
+.pop-table-coll
+{
+    width: 90px;
+    height: 50px;
+    border: 0px solid #cccccc;
+    float: left;
+    text-align: right;
+    padding: 5px 10px 0px 0px;
+    font-size: 12px;
+}
+.pop-table-coll-captcha
+{
+    width: 130px;
+    height: 43px;
+    border: 0px solid #cccccc;
+    float: left;
+    text-align: center;
+    padding: 0px 0px 0px 15px;
+}
+.pop-table-coll-captcha p
+{
+	margin: 0;
+}
+.pop-table-colr
+{
+    width: 180px;
+    height: 55px;
+    border: 0px solid #cccccc;
+    float: left;
+    padding: 0px 0px 0px 10px;
+		text-align: left;
+}
+.pop-table-colr-captcha
+{
+    width: 150px;
+    height: 55px;
+    border: 0px solid #cccccc;
+    float: left;
+    padding: 0px 0px 0px 19px;
+		text-align: left;
+}
+.pop-table-col-full
+{
+    margin: 17px 0px 0px -18px;
+    border: 0px solid #cccccc;
+    clear: both;
+    text-align: center;
+    width: 361px;
+}
+.pop-table-col-full input
+{
+    vertical-align: middle;
+}
+.pop-table input[type="text"], .pop-table input[type="password"], .pop-table input[type="email"] 
+{
+    border: 1px solid #cccccc;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding: 3px;
+}
+#header_buts nav ul li a.pop-link
+{
+    color: #8d9c11;
+    display: inline-block;
+    margin-top: 3px;
+}
+.pop-table-colr-captcha p
+{
+    color: #9d9d9d;
+    font-weight: bold;
+    font-size: 12px;
+    margin: 0px 0px 3px 0px;
+}
+#header_righ
+{
+    margin-left: 430px;
+    height: 70px;
+}

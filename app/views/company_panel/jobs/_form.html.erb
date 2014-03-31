@@ -1,0 +1,116 @@
+<%= form_for @entity, :as => :entity, :url => @entity.new_record? ? company_panel_jobs_path : company_panel_job_path(@entity) do |f| %>
+  <%= render_error_explanation @entity %>
+  <div class="form">
+    <div class="body">
+			
+			<h1 class="title">Выбор сферы размещения вакансии</h1>
+				<%= f.hidden_field :company_id, :value => current_user.account.id %>
+				<%= render :partial => 'company_panel/shared/categories_job', :locals => {:obj => @entity} %>
+			 
+      <h1 class="title">Описание вакансии</h1>
+      <div class="row">
+        <div class="label"><%= f.label :name, 'Наименование' %></div>
+        <div class="field"><%= f.text_field :name, :maxlength => 128, :class => 'input-normal live-search', 'data-url' => search_company_panel_resumes_path(:format => :json, :q => '') %>
+		  <div class="desc-txt"><a href="/resume" target="_blank" class="link-nounderline marked-blue"><span class="live-search-count"><%= @entity.possible_resumes.count %></span> резюме</a> соответствуют данной вакансии</div>
+		</div>
+        <div class="clear"></div>
+      </div>			
+      <div class="row">
+        <div class="label"><%= f.label :salary_from, 'Зарплата' %></div>
+        <div class="field">
+          <%= f.label :salary_from, 'от' %>
+          <%= f.text_field :salary_from, :size => 5 %>
+          <%= f.label :salary_to, 'до' %>
+          <%= f.text_field :salary_to, :size => 5 %> руб.
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="row">
+        <div class="label"><%= f.label :description, 'Описание' %></div>
+        <div class="field"><%= f.text_area :description, :class => :ckeditor %></div>
+        <div class="clear"></div>
+      </div>
+      <div class="row">
+        <div class="label"><%= f.label :graphic_id, 'График работы' %></div>
+        <div class="field field-select-normal"><%= f.select :graphic_id, options_from_collection_for_select(Graphic.all, :id, :name, @entity.graphic_id), {:include_blank => 'Не выбрано'}, {:class => 'selectbox'} %></div>
+        <div class="clear"></div>
+      </div>
+      <% experiences = ['Полгода', 'Год', 'Полтора года', 'Два года', 'Больше двух лет'] %>
+      <div class="row">
+        <div class="label"><%= f.label :experience, 'Опыт работы в аналогичной должности' %></div>
+        <div class="field field-select-normal"><%= f.select :experience, options_for_select(experiences, @entity.experience), {:include_blank => 'Не выбрано'}, {:class => 'selectbox'} %></div>
+        <div class="clear"></div>
+      </div>
+      <% educations = ['Высшее', 'Неоконченное высшее', 'Среднее специальное', 'Среднее', 'Неоконченное среднее'] %>
+      <div class="row">
+        <div class="label"><%= f.label :education, 'Образование' %></div>
+        <div class="field field-select-normal"><%= f.select :education, options_for_select(educations, @entity.education), {:include_blank => 'Не выбрано'}, {:class => 'selectbox'} %></div>
+        <div class="clear"></div>
+      </div>
+      <div class="row">
+        <div class="label"><%= f.label :address, 'Адрес места работы' %></div>
+        <div class="field"><%= f.text_area :address, :rows => 8, :cols => 48 %></div>
+        <div class="clear"></div>
+      </div>
+      <div class="row">
+        <div class="label"><%= f.label :contact_face, 'Контактное лицо' %></div>
+        <div class="field">								   
+					<div class="autocomplite-wrap">
+						<%= f.text_field :contact_face, :class => 'input-normal', :id => 'autocomplete', :placeholder => 'Введите Фамилию, Имя сотрудника' %>
+						<div class="autocomplite hidden">
+							<div class="inner"></div>
+							<div class="actions">
+							<a class="send" href="#">Выбрать</a><a class="cancel" href="#">Отмена</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="clear"></div>
+      </div>
+      <div class="row">
+        <div class="label"><%= f.label :contact_email, 'E-mail' %></div>
+        <div class="field"><%= f.text_field :contact_email, :class => 'input-normal' %></div>
+        <div class="clear"></div>
+      </div>
+      <div class="row">
+        <div class="label"><label>Телефон</label></div>
+        <div class="field">
+          <div class="phones">
+            
+            <div class="phone hidden" id="newPhone">
+              <%= render :partial => 'company_panel/shared/phone' %>
+            </div>
+            <% (@entity.contact_phones.blank? ? [{}] : @entity.contact_phones).each_with_index do |phone, index| %>
+              <div class="phone">
+                <%= render :partial => 'company_panel/shared/phone', :locals => phone.merge(:add => index == 0) %>
+              </div>
+            <% end %>
+          
+          </div>
+          <div class="example">Пример: +7(3532) 332321</div>
+        </div>
+        <div class="clear"></div>
+      </div>
+    <% notifications = @entity.notifications.to_s.split(',') %>
+    <div class="row">
+      <div class="label label-long"><%= f.label :notifications, 'Оповестить подписчиков' %></div>
+      <div class="field">
+        <label><input type="checkbox" class="row-checkbox notifications" name="entity[notifications][]" value="sms" <%= notifications.include?('sms') ? 'checked=checked' : '' %> disabled="disabled" /> SMS рассылка</label><br />
+        <label><input type="checkbox" class="row-checkbox notifications" name="entity[notifications][]" value="email" <%= notifications.include?('email') ? 'checked=checked' : '' %> /> E-mail рассылка</label>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="buts">
+      <input type="submit" class="blue-button big <% if @entity.new_record? %>btn-with-arrow<% end %>" value="<%= @entity.new_record? ? 'Разместить' : 'Сохранить' %>" />
+    </div>
+  </div>
+		
+		
+	<div class="hidden search-item">
+    <div style="float:left; width:145px;" class="fio"></div>
+    <div style="float:left; width:93px;" class="birthday"></div>
+    <div class="clear"></div>
+    <div class="company"></div>
+  </div>
+				
+<% end %>

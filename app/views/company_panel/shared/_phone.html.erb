@@ -1,0 +1,8 @@
++7 <input type="text" size="2" placeholder="Код" name="phone_code[]" value="<%= local_assigns[:phone_code] %>" /> 
+<input type="text" size="7" placeholder="Номер" name="phone_number[]" value="<%= local_assigns[:phone_number] %>" />
+Доб. <input type="text" size="3" name="phone_dob[]" value="<%= local_assigns[:phone_dob] %>" />
+<% if local_assigns[:add] %>
+  <a href="#" id="addPhone">Добавить еще номер</a>
+<% else %>
+  <a href="#" class="del-phone">Удалить</a>
+<% end %>

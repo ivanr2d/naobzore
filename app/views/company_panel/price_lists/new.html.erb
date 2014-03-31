@@ -1,0 +1,46 @@
+<%= form_for @price_list, :url => company_panel_price_lists_path do |f| %>
+  <%= render_error_explanation @price_list %>
+  <%= f.hidden_field :company_id, :value => current_user.account.id %>
+  <div class="form">
+    <div class="info">
+        Импортируйте описание товаров и услуг в кабинет компании и опубликуйте весь 
+        ассортимент ваших товаров и услуг всего за несколько минут! Здесь вы можете выполнить импорт 
+        позиций из наиболее популярных форматов файлов «.xls» и «.csv».
+    </div>
+    <div class="body-blue load-price">
+      <div class="row">
+        <div class="label"><label>Выбрать файл</label></div>
+        <div class="field">
+                          <div class="input-file" style="">
+                              <input type="text" size="5" />
+                              <input type="button" value="Обзор..." />
+                              <%= f.file_field :xls %>
+                          </div>
+                      </div>
+        <div class="clear"></div>
+      </div>
+                  <div class="row">
+        <div class="label"><label>Отметить товары/услуги отсутствующие в файле как</label></div>
+        <div class="field">
+                          <div><input type="radio" name="price_list[note_missed_entities]" value="no" checked="checked" /> Не отмечать</div>
+                          <div><input type="radio" name="price_list[note_missed_entities]" value="deleted" /> Удаленные</div>
+                          <div><input type="radio" name="price_list[note_missed_entities]" value="unpublished" /> Снять с публикации</div>
+                      </div>
+        <div class="clear"></div>
+      </div>
+      <div class="frow">
+                      <div class="label"><label>Обновить товары/услуги</label></div>
+        <div class="field">
+                          <div><input type="checkbox" name="price_list[refreshed_fields][]" value="name" /> Название</div>
+                          <div><input type="checkbox" name="price_list[refreshed_fields][]" value="image" /> Фото</div>
+                          <div><input type="checkbox" name="price_list[refreshed_fields][]" value="description" /> Описание</div>
+                          <div><input type="checkbox" name="price_list[refreshed_fields][]" value="price" /> Цена</div>
+                      </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div class="buts">
+      <input type="submit" class="blue-button big" id="VIEW_POPUP" value="Загрузить" />
+    </div>
+  </div>
+<% end %>

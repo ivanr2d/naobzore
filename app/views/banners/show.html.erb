@@ -1,0 +1,11 @@
+            <% if @curent_controller == 'feedbacks' %>
+            	<%= render "feedbacks/left" %>
+            <% elsif @curent_controller == 'companies' %>
+            	<%= render "layouts/left" %>
+            <% elsif @curent_controller == 'campaigns' %>
+            	<%= render "campaigns/left" %>
+            <% elsif @curent_controller == 'NONE' %>
+            
+            <% else %>
+            	<%= render "layouts/left" %>
+            <% end %>

@@ -1,0 +1,73 @@
+<div id="construct">
+
+    <!--Пункты настроек-->
+    <div class="items">
+      <% items = [ [:header, 'Шапка сайта'], [:logotype, 'Логотип'], [:favicon, 'Favicon'], [:background, 'Фон'], [:menu, 'Меню'], [:text, 'Текст'], [:info, 'Инф.блоки'], [:footer, 'Футер'], [:help, 'Видеоуроки'] ] %>
+      <ul>
+        <% items.each_with_index do |item, index| %>
+          <li><a href="#" <%= index == 0 ? 'class=active' : '' %> data-item="<%= item.first %>"><%= item.last %></a></li>
+        <% end %>
+      </ul>
+    </div>
+    <!--end | Пункты настроек-->
+    
+    
+    
+    <!--Под пункты настроек-->
+    <div class="subItems">
+        <ul data-subitem="header">
+            <li><a href="#" data-setting="image_background" class="active">Загрузить фон</a></li>
+            <li><a href="#" data-setting="color_background">Выбрать цвет фона</a></li>
+        </ul>
+        <ul data-subitem="logotype" class="hidden">
+            <li><a href="#" data-setting="load">Загрузить логотип</a></li>
+            <li><a href="#" data-setting="name">Название организации</a></li>
+            <li><a href="#" data-setting="remove">Удалить логотип</a></li>
+        </ul>
+        <ul data-subitem="favicon" class="hidden">
+            <li><a href="#" data-setting="load" class="active">Загрузить Favicon</a></li>
+            <li><a href="#" data-setting="remove">Удалить Favicon</a></li>
+        </ul>
+        <ul data-subitem="background" class="hidden">
+            <!--<li><a href="#" data-setting="internal" class="active">Внутренний фон</a></li>-->
+            <li><a href="#" data-setting="external">Внешний фон</a></li>
+        </ul>
+        <ul data-subitem="menu" class="hidden">
+            <li><a href="#" data-setting="text" class="active">Текст</a></li>
+            <li><a href="#" data-setting="background">Фон</a></li>
+        </ul>
+        <ul data-subitem="text" class="hidden">
+            <li><a href="#" data-setting="title" class="active">Заголовок</a></li>
+            <li><a href="#" data-setting="content">Текст содержания</a></li>
+        </ul>
+        <ul data-subitem="info" class="hidden">
+            <li><a href="#" data-setting="title" class="active">Заголовок</a></li>
+            <li><a href="#" data-setting="content">Содержания</a></li>
+        </ul>
+        <ul data-subitem="footer" class="hidden">
+            <li><a href="#" data-setting="text" class="active">Текст</a></li>
+            <li><a href="#" data-setting="background">Фон</a></li>
+        </ul>
+        <ul data-subitem="help" class="hidden">
+          <% categories = items.slice(0, items.count - 1).map(&:last) %>
+          <% ConstructorTrack.all.sort { |t1, t2| (categories.index(t1.category) || categories.count) <=> (categories.index(t2.category) || categories.count) }.each_with_index do |track, index| %>
+            <li><a href="#" data-setting="<%= track.category %>" <%= index == 0 ? 'class=active' : '' %>><%= track.category %></a></li>
+          <% end %>
+        </ul>
+    </div>
+    <!--end | Под пункты настроек-->
+    
+    
+    
+    <!--Блок настроек-->
+    <div class="settings">
+      <%= form_for @site, :url => company_panel_site_path(@site), :html => { :id => 'save_site_form', :multipart => true, :target => :minisite } { |f| } %>
+      <% %w(header_image_background header_color_background header_logotype favicon background_internal background_external menu_text menu_background text_title text_content info_title info_content footer_text footer_background constructor_tracks).each do |setting| %>
+        <%= render :partial => "company_panel/sites/construct/#{setting}" %>
+      <% end %>
+    </div>
+    
+    <div class="clear"></div>
+</div>
+
+<iframe src="<%= @site.main_url(:construct_mode => true) %>" class="site-iframe" name="minisite">

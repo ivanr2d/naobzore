@@ -1,0 +1,61 @@
+<%= form_for @bank, :url => @bank.new_record? ? company_panel_banks_path : company_panel_bank_path(@bank) do |f| %>
+  <%= render_error_explanation @bank %>
+  <%= f.hidden_field :company_id, :value => current_user.account.id %>
+  <div class="form">
+  
+      <div class="row">
+          <div class="label"><%= f.label :name %></div>
+          <div class="field"><%= f.text_field :name, :size => 30 %></div>
+          <div class="clear"></div>
+      </div>
+      <div class="row">
+          <div class="label"><%= f.label :phone %></div>
+          <div class="field">
+              +7 <input type="text" name="phone_code" value="<%= @bank.phone_code %>" size="4" /> <input type="text" name="phone_number" value="<%= @bank.phone_number %>" size="10" />
+          </div>
+          <div class="clear"></div>
+      </div> 
+      <div class="row">
+          <div class="label"><%= f.label :address %></div>
+          <div class="field"><%= f.text_field :address %></div>
+          <div class="clear"></div>
+      </div> 
+      <div class="row">
+          <div class="label"><label>Логотип</label></div>
+          <div class="field">
+              <div class="photo"><!-- блок с фотографией -->
+				  <div class="preview-wrap">
+					<div class="preview">
+					  <% unless @bank.logotype.blank? %>
+						<img src="<%= @bank.logotype_url(:thumb) %>" />
+					  <% else %>
+						<img src="/controlPanel/images/not-photo.png" />
+					  <% end %>
+					</div>
+				  </div>
+                  <div class="field">
+                      <label>Загрузить лого с компьютера</label>
+                      <div class="input-file" style="">
+                          <input type="text" size="5" />
+                          <input type="button" value="Обзор..." />
+                          <%= f.file_field :logotype %>
+                      </div>
+                  </div>
+                  <div class="clear"></div>
+              </div><!-- end | блок с фотографией -->
+          </div>
+          <div class="clear"></div>
+      </div> 
+      
+  </div>
+
+  <div class="form-one">
+      <p class="label">Условия кредитования</p>
+      <%= f.text_area :condition, :class => 'ckeditor' %>
+      <div class="buttons">
+          <input class="blue-button big" type="submit" value="Сохранить" />
+          <input class="blue-button big" type="button" id="reset_form" value="Сбросить" />
+      </div>
+  </div>
+      
+<% end %>

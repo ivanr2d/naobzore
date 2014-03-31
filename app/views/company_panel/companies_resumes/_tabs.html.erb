@@ -1,0 +1,11 @@
+<ul class="reload-tabs">
+  <% [["Заявки по вакансиям#{counter(@company.companies_resumes.with_job_id.where(:status => :new).count)}", company_panel_companies_resumes_path(:with_job_id => true, :status => :new), params[:with_job_id].present?], ["Все резюме#{counter(@company.companies_resumes.where(:status => :new).count)}", company_panel_companies_resumes_path, params[:with_job_id].blank?]].each_with_index do |(name, href, active), index| %>
+    <li>
+      <% if active %>
+        <a href="#" data-id="<%= index + 1 %>" class="active"><%= name %></a>
+      <% else %>
+        <%= link_to name, href, 'data-id' => index + 1 %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

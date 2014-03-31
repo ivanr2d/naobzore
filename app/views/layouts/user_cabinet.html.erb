@@ -1,0 +1,310 @@
+<!doctype html>
+<html>
+<head>
+    <title>На обзоре</title>
+  
+	<script src="http://api-maps.yandex.ru/2.0-stable/?load=package.full&lang=ru-RU" type="text/javascript"></script>
+  
+	<link rel="stylesheet" href="/assets/main.css" />
+	<link rel="stylesheet" href="/assets/login.css" />
+    <link rel="stylesheet" href="/assets/lightbox.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/selectbox.css" />
+    
+    <script type="text/javascript" src="/assets/jquery.js"></script>
+    <script type="text/javascript" src="/assets/lightbox.js"></script>
+    <script type="text/javascript" src="/assets/jcarousel.js"></script>
+    <script type="text/javascript" src="/assets/jselectbox.js"></script>
+    <script type="text/javascript" src="/assets/kepCarousel.js"></script>
+		<script type="text/javascript" src="/assets/ui-slider.js"></script>
+    <script type="text/javascript" src="/assets/common.js"></script>
+  
+	<!---%= stylesheet_link_tag    "application", :media => "all" %--->
+	<!---%= javascript_include_tag "application" %--->
+	<%= csrf_meta_tags %>
+
+    
+    <!--[if lt IE 9]>
+    <script>
+        document.createElement('nav');
+        document.createElement('header');
+        document.createElement('footer');
+        document.createElement('section');
+        document.createElement('aside');
+        document.createElement('article');
+    </script>
+    <![endif]-->
+    
+</head>
+<body>
+    
+    <section id="container">
+
+        <header id="header">
+            <div id="header_main">
+                <%= image_tag('logotype.png', :id => 'logotype') %>
+            </div>
+            <div id="header_buts">
+                <div id="mini_buts">
+                    <a href="/" class="top-link"><%= image_tag('icons/home.png') %></a>
+                    <a href="#" class="top-link"><%= image_tag('icons/mail.png') %></a>
+                    <a href="#" class="top-link"><%= image_tag('icons/map.png') %></a>
+                </div>
+             
+								<%= render "layouts/top_nav" %>
+            </div>
+            <div id="header_wave"></div>
+            <div id="header_righ"></div>
+        </header>
+
+		<section id="cabinetHeader">
+            <div class="user-container">
+                <div class="user-ava">
+                    <%= image_tag(@user.mini_photo) %>
+                </div>
+                <div class="user-menu">
+                    <ul>
+                        <li><a href="/cabinet">Моя страница</a></li>
+                        <li><a href="#">Мои сообщения</a><div class="user-notic">+2</div></li>
+                        <li><a href="#">Мои друзья</a></li>
+                        <li><a href="#">Мои настройки</a></li>
+                    </ul>
+                </div>
+                <div class="user-search">
+                    <div class="user-search-container">
+                        <div class="user-search-field">
+                            <input type="text" name="SEARCH" />
+                            <a href="#"></a>
+                        </div>
+                        <div class="user-search-but">
+                            <input type="submit" value="НАЙТИ" />
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </section>
+        
+        <div id="cabinetContainer">
+		
+            <section id="cabinetLeft">
+                
+                <div id="cabinetLeftPart1">
+                    <!--ul class="min-nav">
+                        <li><a href="#">В друзья</a></li>
+                        <li>|</li>
+                        <li><a href="#">Сообщение</a></li>
+                    </ul--->
+                    <div class="main-photo">
+                        <%= image_tag(@user.main_photo) %>
+                    </div>
+                </div>
+                <ul class="left-menu">
+                	
+                	<!-- Друзья -->
+                    <li class="left-menu-item">
+                        <div class="left-menu-tit"><a href="#" rel="0">Друзья</a></div>
+                        <div class="left-menu-num">6</div>
+                        <div class="clear"></div>
+                    </li>
+                    <li class="left-menu-content" id="menu_content_0">
+                        <div class="left-menu-content-child">
+                            <div class="left-menu-photos">
+                                <div class="left-menu-photo">
+                                    <img src="img/temp/ava-1.png" />
+                                    <a href="#">Имя Фамилия</a>
+                                </div>
+                                <div class="left-menu-photo">
+                                    <img src="img/temp/ava-2.png" />
+                                    <a href="#">Имя Фамилия</a>                               
+                                </div>
+                                <div class="left-menu-photo">
+                                    <img src="img/temp/ava-3.png" />
+                                    <a href="#">Имя Фамилия</a>                               
+                                </div>
+                                <div class="left-menu-photo">
+                                    <img src="img/temp/ava-4.png" />
+                                    <a href="#">Имя Фамилия</a>                               
+                                </div>
+                                <div class="left-menu-photo">
+                                    <img src="img/temp/ava-5.png" />
+                                    <a href="#">Имя Фамилия</a>                               
+                                </div>
+                                <div class="left-menu-photo">
+                                    <img src="img/temp/ava-2.png" />
+                                    <a href="#">Имя Фамилия</a>                                
+                                </div>
+                                <div class="clear"></div>
+                                
+                                <a href="#" class="left-menu-item-more">Все друзья</a>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- end | Друзья -->
+                    
+                    <!-- Товары -->
+                    <li class="left-menu-item">
+                        <div class="left-menu-tit"><a href="#" rel="1">Товары</a></div>
+                        <div class="left-menu-num"><%= @left_entities[:goods][:count] %></div>
+                        <div class="clear"></div>
+                    </li>
+                    <li class="left-menu-content none" id="menu_content_1">
+                        <div class="left-menu-content-child">
+                            <div class="left-menu-photos">
+                            	
+                            	<% @left_entities[:goods][:entities].each do |good| %>
+                                <div class="left-menu-photo">
+                                    <img src="<%= good.entity.image.url %>" />
+                                    <a href="#"><%= truncate good.entity.title, :length => 15 %></a>
+                                </div>
+                                <% end %>
+                                
+                                <div class="clear"></div>
+                                <a href="/cabinet/good" class="left-menu-item-more">Все товары</a>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- end | Товары -->
+                    
+                    <!-- Услуги -->
+                    <li class="left-menu-item">
+                        <div class="left-menu-tit"><a href="#" rel="2">Услуги</a></div>
+                        <div class="left-menu-num"><%= @left_entities[:services][:count] %></div>
+                        <div class="clear"></div>
+                    </li>
+                    <li class="left-menu-content none" id="menu_content_2">
+                        <div class="left-menu-content-child">
+                            <div class="left-menu-photos">
+                            	
+                            	<% @left_entities[:services][:entities].each do |service| %>
+                                <div class="left-menu-photo">
+                                    <img src="<%= service.entity.image.url %>" />
+                                    <a href="#"><%= truncate service.entity.name, :length => 15 %></a>
+                                </div>
+                                <% end %>
+                                
+                                <div class="clear"></div>
+                                <a href="/cabinet/service" class="left-menu-item-more">Все услуги</a>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- end | услуги -->
+                    
+                    <!-- Вакансии -->
+                    <li class="left-menu-item">
+                        <div class="left-menu-tit"><a href="#" rel="3">Вакансии</a></div>
+                        <div class="left-menu-num"><%= @left_entities[:jobs][:count] %></div>
+                        <div class="clear"></div>
+                    </li>
+                    <li class="left-menu-content none" id="menu_content_3">
+                        <div class="left-menu-content-child">
+                            <div class="left-menu-photos">
+                            	
+                            	<% @left_entities[:jobs][:entities].each do |job| %>
+                                <div class="left-menu-photo">
+                                    <img src="<%= job.entity.image.url %>" />
+                                    <a href="#"><%= truncate job.entity.name, :length => 15 %></a>
+                                </div>
+                                <% end %>
+                                
+                                <div class="clear"></div>
+                                <a href="/cabinet/job" class="left-menu-item-more">Все вакансии</a>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- end | Вакансии -->
+                    
+                    <!-- Вакансии -->
+                    <li class="left-menu-item">
+                        <div class="left-menu-tit"><a href="#" rel="4">Предприятия</a></div>
+                        <div class="left-menu-num"><%= @left_entities[:companies][:count] %></div>
+                        <div class="clear"></div>
+                    </li>
+                    <li class="left-menu-content none" id="menu_content_4">
+                        <div class="left-menu-content-child">
+                            <div class="left-menu-photos">
+                            	
+                            	<% @left_entities[:companies][:entities].each do |company| %>
+                                <div class="left-menu-photo">
+                                    <img src="<%= company.entity.logotype.url %>" />
+                                    <a href="#"><%= truncate company.entity.name, :length => 15 %></a>
+                                </div>
+                                <% end %>
+                                
+                                <div class="clear"></div>
+                                <a href="/cabinet/company" class="left-menu-item-more">Все Предприятия</a>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- end | Вакансии -->
+                    
+                    <!-- Новости -->
+                    
+                    <!-- end | Новости -->
+                    
+                    <!-- Отзывы -->
+                    <li class="left-menu-item">
+                        <div class="left-menu-tit"><a href="#" rel="10">Отзывы</a></div>
+                        <div class="left-menu-num">163</div>
+                        <div class="clear"></div>
+                    </li>
+                    <li class="left-menu-content none" id="menu_content_10">
+                        <div class="left-menu-content-child">
+                            <a class="left-menu-link" href="#">Отзыв о сотовом телефоне Fly E 170</a>
+                            <a class="left-menu-link" href="#">Отзыв о сотовом телефоне Fly E 170</a>
+                            <a class="left-menu-link" href="#">Отзыв о сотовом телефоне Fly E 170</a>
+                            <a class="left-menu-link" href="#">Отзыв о сотовом телефоне Fly E 170</a>
+                            <a class="left-menu-link" href="#">Отзыв о сотовом телефоне Fly E 170</a>
+
+                            <a href="#" class="left-menu-item-more">Все отзывы</a>
+                        </div>
+                    </li>
+                    <!-- end | Отзывы -->
+
+                    <!-- Акции -->
+                    <li class="left-menu-item">
+                        <div class="left-menu-tit"><a href="#" rel="11">Акции</a></div>
+                        <div class="left-menu-num"><%= @left_entities[:campaigns][:count] %></div>
+                        <div class="clear"></div>
+                    </li>
+                    <li class="left-menu-content none" id="menu_content_11">
+                        <div class="left-menu-content-child">
+                        	
+                        	<% @left_entities[:campaigns][:entities].each do |campaign| %>
+                            <a class="left-menu-link" href="#"><%= campaign.entity.name %></a>
+                            <% end %>
+
+                            <a href="/cabinet/campaign" class="left-menu-item-more">Все акции</a>
+                        </div>
+                    </li>
+                    <!-- end | Акции -->
+                    
+                    <li class="left-menu-item-last"><!--Пустой блок для красоты--></li>
+                </ul>
+                <footer></footer>
+            </section>
+			
+            <section id="cabinetContent">
+            	<%= yield %>
+				<footer>
+					<% if @favorites %>
+					<%= will_paginate @favorites, :renderer => 'BootstrapPaginationHelper::LinkRenderer' %>
+					<% end %>
+				</footer>
+            </section>
+            
+
+            
+            <div class="clear"></div>
+        </div>
+    
+    </section>
+		<div id="btn_goto_top" class="btn-goto-top"><div class="bgt-link"><span class="bgt-link-text">Наверх</span></div></div>
+
+    
+    <!-- Подвал -->
+    <%= render "layouts/footer" %>
+    <!-- / Подвал -->
+
+</body>
+</html>

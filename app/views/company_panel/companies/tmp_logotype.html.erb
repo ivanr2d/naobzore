@@ -1,0 +1,40 @@
+<%= stylesheet_link_tag 'company-panel-main' %>
+<%= javascript_include_tag 'jquery' %>
+<%= javascript_include_tag :defaults, "jquery_ujs.js" %>
+<%= javascript_include_tag 'http://code.jquery.com/ui/1.10.2/jquery-ui.js' %>
+<script type="text/javascript">
+  $(function() {
+    $('#company_tmp_logotype').change(function() {
+      $(this).parents('form').submit();
+    });
+  });
+</script>
+
+<%= form_for @company, :url => company_panel_company_path(@company) do |f| %>
+  <div class="upload-image">
+    <div class="image">
+      <% if !@company.tmp_logotype.blank? %>
+        <img src="<%= @company.tmp_logotype_url(:thumb) %>" />
+      <% elsif !@company.logotype.blank? %>
+        <img src="<%= @company.logotype_url(:thumb) %>" />
+      <% end %>
+    </div>
+    <div class="form">
+        <p class="title">Загрузка логотипа</p>
+        <div class="input-file">
+            <input type="text" size="5" />
+            <input type="button" value="Загрузить" />
+            <%= f.file_field :tmp_logotype %>
+        </div>
+        <p class="help">Форматы загружаемого логотипа: JPEG, PNG, GIF</p>
+    </div>
+    <div class="clear"></div>
+  </div>
+<% end %>
+
+<%= form_for @company, :url => company_panel_company_path(@company) do |f| %>
+  <%= f.hidden_field :logotype, :value => @company.tmp_logotype %>
+  <div class="upload-image-submit">
+    <input type="submit" value="Сохранить" class="blue-button big" />
+  </div>
+<% end %>

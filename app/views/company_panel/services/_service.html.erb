@@ -1,0 +1,77 @@
+<tr data-entity_id="<%= service.id %>" <%= service.published? ? '' : 'class=not-public' %> data-entity_translit="<%= service.translit %>">
+  <td>
+    <%= form_for service, :as => :entity, :url => company_panel_service_path(service, :format => :js), :remote => true do |f| %>
+    <% end %>
+    <input type="checkbox" class="row-checkbox" />
+  </td>
+  <td><a href="<%= edit_company_panel_service_path(service) %>" class="silver-button">Изменить</a></td>
+  <td class="dynamic-cell" data-type="text">
+      <div class="title"><%= service.article %></div>
+      <div class="input hidden"><input type="text" name="entity[article]" value="<%= service.article %>" size="2" /></div>
+  </td>
+  <td class="ext-coll" data-type="popup">
+      <div class="right"><a href="#" class="points" data-item="2" data-type="popup-categories"></a>
+          <!--popup-categories-->
+      </div>
+      <div class="left"><%= service.category.try(:title) %></div>
+      <input type="hidden" name="entity[category]" value="<%= service.category.try(:title) %>" />
+  </td>
+  <td class="dynamic-cell" data-type="text">
+      <div class="cell">
+      <div class="title"><%= truncate service.name, :limit => 7 %></div>
+      <div class="input hidden"><input type="text" name="entity[name]" value="<%= service.name %>" size="10" /></div>
+      </div>
+  </td>
+  <td class="dynamic-cell" data-type="text">
+      <div class="cell field field-for-group">
+        <a href="#" id="entity_folder_name" class="link-simple" data-role="select-group" data-item="<%= service.folder_id %>"><%= service.folder.try(:name) || 'no-group' %></a>
+        <input type="hidden" id="entity_folder_id" name="entity[folder_id]" value="<%= service.folder_id %>" />
+        <%= render :partial => 'company_panel/folders/folders' %>
+      </div>
+  </td>
+  <td class="dynamic-cell" data-type="text">
+      <div class="cell">
+      <div class="title"><%= service.price %></div>
+      <div class="input hidden"><input type="text" name="entity[price]" value="<%= service.price %>" size="2" /></div>
+      </div>
+  </td>
+  <td class="dynamic-cell" data-type="select">
+    <div class="cell">
+    <div class="title"><%= service.measure %></div>
+    <div class="input hidden">
+        <select name="entity[measure]"><option value="">Не выбрано</option><%= options_for_select(['час', 'месяц']) %></select>
+    </div>
+    </div>
+  </td>
+  <td>
+      <div class="cell">
+      <a href="#" class="link-simple view-popup" data-type="description" data-description="<%= service.description %>"><%= raw truncate(service.description, :limit => 15) %></a>
+      <input type="hidden" name="entity[description]" value="<%= service.description %>" />
+      </div>
+  </td>
+  <td class="link-simple" data-entity_id="<%= service.id %>">
+	  <div class="title"><%= link_to (service.main_photo ? File.basename(service.main_photo.path) : 'no-image'), load_image_company_panel_service_path(service), :remote => true, :class => 'load-popup', :"data-type" => 'load-image' %></div>
+    <% if service.main_photo %>
+      <div class="preview preview-dynamic"><img src="<%= service.main_photo.url %>"></div>
+    <% end %>
+  </td>
+  <td class="dynamic-cell" data-type="select">
+      <div class="cell">
+      <div class="title"><%= service.warranty.try(:title) %></div>
+      <div class="input hidden">
+          <%= select_tag 'entity[warranty_id]', options_from_collection_for_select(@company.warranties, :id, :title, service.warranty_id), :include_blank => 'Не выбрано' %>
+      </div>
+      </div>
+  </td>
+  <td>
+    <a href="#" class="link-simple view-popup" data-item="<%= service.id %>" data-type="characteristics" data-characteristics="<%= service.characteristics_str %>"><%= service.characteristics_str.empty? ? 'Добавить' : truncate(service.characteristics_str, :limit => 12) %></a>
+  </td>
+  <td class="dynamic-cell" data-type="select">
+      <div class="cell">
+      <div class="title"><%= service.campaign.try(:name) %></div>
+      <div class="input hidden">
+          <select name="entity[campaign_id]"><option value="">Не выбрано</option><%= options_from_collection_for_select(Campaign.order(:name), :id, :name, service.campaign_id) %></select>
+      </div>
+      </div>
+  </td>
+</tr>

@@ -1,0 +1,29 @@
+<div id="comment_add" class="comment-add" data-entity_id="<%= entity.id %>" data-entity_type="<%= entity.class.to_s %>">
+  <div class="comments-footer">
+    <div class="left">
+      <%= link_to_if entity.comments_count > comments.count, "Показать все комментарии(#{entity.comments_count})", entity_comments_path(entity, :format => :js), :remote => true do
+        ''
+      end %>
+    </div>
+    <div class="right">
+      <% if user_signed_in? %>
+        <a href="#" class="show-comment-add">Комментировать</a>
+      <% else %>
+        <a href="#" id="view_login">Комментировать</a>
+      <% end %>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <% if user_signed_in? %>
+    <div class="add" style="display: none;">
+      <%= form_for :comment, :url => entity_comments_path(entity, :format => :js), :html => { :remote => true } do |f| %>
+        <div class="g"></div>
+        <%= f.text_area :text %>
+        <%= f.hidden_field :entity_id, :value => entity.id %>
+        <%= f.hidden_field :entity_type, :value => entity.class.to_s %>
+        <%= f.hidden_field :user_id, :value => current_user.id %>
+        <input type="submit" value="Отправить" class="send" />
+      <% end %>
+    </div>
+  <% end %>
+</div>

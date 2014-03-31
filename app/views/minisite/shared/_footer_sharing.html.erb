@@ -1,0 +1,21 @@
+  <div class="footer sharing">
+      <div class="left">
+          <div class="social-caption">Поделиться в соц. сетях</div>
+          <div class="social">
+            <% CONFIG[:socials].keys.each do |social| %>
+              <%= link_to social_export_path(:social => social, :entity_id => entity.id, :entity_type => entity.class.to_s) do %>
+                <img src="/miniSite/images/social/<%= social %>.png" />
+              <% end %>
+            <% end %>
+          </div>
+      </div>
+      <div class="right">
+          <div class="page-actions">
+              <a href="javascript:window.print()"><img src="/miniSite/images/printer.png" alt="" /></a>
+              <% title = "Пожаловаться на #{t("activerecord.to_models.#{@entity.class.to_s.downcase}")}" %>
+              <a class="<%= user_signed_in? ? 'view-popup' : 'view-login' %>" data-type="send-message" data-mtype="complaint" data-title="<%= title %>" href="#"><img src="/miniSite/images/mail.png" alt="" /></a>
+              <a class="<%= user_signed_in? ? 'view-popup' : 'view-login' %> complain-link" data-type="send-message" data-mtype="complaint" data-title="<%= title %>" href="#">Пожаловаться <br>на <%= t "activerecord.to_models.#{@entity.class.to_s.downcase}" %></a>
+          </div>
+      </div>
+      <div class="clear"></div>
+  </div>

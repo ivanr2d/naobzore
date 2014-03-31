@@ -1,0 +1,52 @@
+
+            <div class="other-tabs">
+                <ul>
+                    <li data-other-tab="1" class="tab-curent"><div class="tab-wave"></div><div class="tab-shadow"></div><div class="tab-cont">Описание</div></li>
+                    <li  data-other-tab="2"><div class="tab-wave"></div><div class="tab-shadow"></div><div class="tab-cont">Требования</div></li>
+                    <li data-other-tab="3"><div class="tab-wave"></div><div class="tab-shadow"></div><div class="tab-cont">Комментарии</div></li>
+                    <li data-other-tab="4"><div class="tab-wave"></div><div class="tab-shadow"></div><div class="tab-cont">Откликнувшиеся</div></li>
+                </ul>
+                <div class="clear"></div>
+            </div>
+            <div class="other-content">
+                
+                <div class="tab-content" data-other-con="1" id="entity_description">
+                    <!--div class="content-title">Описание</div-->
+                    <div class="content-text">
+                    	<% if @job.description %>
+               				<%= raw @job.description %>
+               			<% else %>
+               				<p class="tab-content-empty">Описание отсутствует</p>
+               			<% end %>
+               		</div>
+                </div>
+                
+                <div class="tab-content" data-other-con="2" id="entity_characteristics">
+                    <div class="content-text">
+                    	<table class="stripy-table">
+                			<tr><td>График:</td><td><%= Job.get_graphic(@job.graphic) %></td></tr>
+                			<tr><td>Испытательный срок:</td><td><%= @job.probation %></td></tr>
+                			<tr><td>Пол:</td><td><%= Job.get_sex(@job.sex) %></td></tr>
+                			<tr><td>Возрост от:</td><td><%= @job.age_from %></td></tr>
+                			<tr><td>Опыт:</td><td><%= @job.experience %></td></tr>
+                			<tr><td>Образование:</td><td><%= @job.education %></td></tr>
+                		</table>
+               		</div>
+                </div>
+                
+                <div class="tab-content" data-other-con="3">
+                	<div class="content-text">
+                    	<p class="tab-content-empty">Комментарии отсутствуют</p>
+                    </div>
+                </div>
+                
+                <div class="tab-content" data-other-con="4">
+                    <!---div class="content-title">Акции</div--->
+                    <div class="content-text">
+                    	<p class="tab-content-empty">Откликнувшиеся отсутствуют</p>
+                    </div>
+                </div>
+                
+                
+            </div>
+        

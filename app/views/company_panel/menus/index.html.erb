@@ -1,0 +1,21 @@
+<%= form_for :menu, :url => set_order_company_panel_menus_path(:format => :js), :remote => true, :method => 'post' do |f| %>
+  <%= hidden_field_tag 'ids' %>
+<div class="form">
+  <h1 class="title">Настройка меню Вашего сайта</h1>
+            <div class="info">
+    Вы можете изменить расположение пунктов меню, перетащив вкладки на 
+                нужную позицию, используя компьтерную мышь.
+  </div>
+            
+  <ul id="menuPosition">
+    <% @menus.each do |menu| %>
+      <li data-menu_id="<%= menu.id %>"><%= menu.name %></li>
+    <% end %>
+  </ul>
+</div>
+<div class="packets-notices">
+  По умолчанию на&nbsp;вашем сайте отображаются всего три&nbsp;страницы: &laquo;Главная&raquo;, &laquo;О&nbsp;компании&raquo;, &laquo;Контакты&raquo;.<br/>
+  Страницы &laquo;Товары&raquo;, &laquo;Услуги&raquo;, &laquo;Вакансии&raquo;, &laquo;Отзывы&raquo; автоматически появятся на&nbsp;вашем сайте при добавлении хотя бы&nbsp;одной позиции контента, соответствующей разделу.
+</div>
+
+<% end %>

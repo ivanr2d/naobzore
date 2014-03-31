@@ -1,0 +1,103 @@
+
+                <div class="account-info">
+                    <div class="account-title">
+                        <div class="account-name"><%= @user.fio || User.get_name(@user.email) %></div>
+                        <div class="account-status"><span class="user-status online">Онлайн</span></div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="account-content">
+                        <div class="account-table">
+                            <div class="account-table-row">
+                                <div class="account-table-left">День рождения:</div>
+                                <div class="account-table-right">1 января 1990г.</div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="account-table-row">
+                                <div class="account-table-left">Город:</div>
+                                <div class="account-table-right">Оренбург</div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="account-table-row">
+                                <div class="account-table-left">Дом. телефон:</div>
+                                <div class="account-table-right">3835-44-44-44</div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="account-table-row">
+                                <div class="account-table-left">Моб. телефон:</div>
+                                <div class="account-table-right">8(905)-848-44-44</div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="account-table-row">
+                                <div class="account-table-left">Электронная почта:</div>
+                                <div class="account-table-right">mail@mail.com</div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="account-table-row">
+                                <div class="account-table-left">Skype:</div>
+                                <div class="account-table-right">username</div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="account-table-row">
+                                <div class="account-table-left">Web:</div>
+                                <div class="account-table-right"><a href="#">Vk.com</a>, <a href="#">Facebook.com</a>, <a href="#">Twitter.com</a>, <a href="#">Odnoklassniki.ru</a></div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cabinet-content">
+                    <div class="cabinet-content-title">
+                        <div class="content-title-left">&nbsp;</div>
+                        <div class="content-title-right"><%= Favorite.count %> записей</div>
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="cabinet-filtr">
+                        <div class="cabinet-filtr-top">
+                            <div class="cabinet-filtr-left">Отображать на личной странице:</div>
+                            <div class="cabinet-filtr-right">Сортировать по</div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="cabinet-filtr-bottom">
+                            <span class="cabinet-filtr-item"><input class="filter-view-type" type="checkbox" <%= (@filter[:view].include? "Good") ? 'checked' : '' %> name="Good" />Товары</span>
+                            <span class="cabinet-filtr-item"><input class="filter-view-type" type="checkbox" <%= (@filter[:view].include? "Service") ? 'checked' : '' %> name="Service" />Услуги</span>
+                            <span class="cabinet-filtr-item"><input class="filter-view-type" type="checkbox" <%= (@filter[:view].include? "Job") ? 'checked' : '' %> name="Job" />Вакансии</span>
+                            <span class="cabinet-filtr-item"><input class="filter-view-type" type="checkbox" <%= (@filter[:view].include? "Company") ? 'checked' : '' %> name="Company" />Предприятия</span>
+                            <span class="cabinet-filtr-item"><input class="filter-view-type" type="checkbox" <%= (@filter[:view].include? "News") ? 'checked' : '' %> name="News" />Новости</span>
+                            <span class="cabinet-filtr-item"><input class="filter-view-type" type="checkbox" <%= (@filter[:view].include? "Campaign") ? 'checked' : '' %> name="Campaign" />Акции</span>
+                            <span class="cabinet-filtr-item"><input class="filter-view-type" type="checkbox" <%= (@filter[:view].include? "Feedback") ? 'checked' : '' %> name="Feedback" />Отзывы</span>
+                            <span class="cabinet-filtr-item"><input class="filter-view-type" type="checkbox" <%= (@filter[:view].include? "Ads") ? 'checked' : '' %> name="Ads" />Объявления</span>
+                        </div>
+                    </div>
+                    
+                    <div class="cabinet-items" data-one-type="false">
+                    
+                    	<% if @entities.count > 0 %>
+                        <% @favorites.each do |favorite| %>
+                        	
+                        	<%= render :partial => "cabinet/items/" + favorite.entity_type.underscore, :locals => { :favorite => favorite } %>
+                        	
+                        <% end %>
+                        <% end %>
+                    
+                    </div>
+                </div>
+                
+				<% @filter[:view].each do |type| %>
+					<% if type == 'Good' || type == 'Service' || type == 'Job' || type == 'Company' || type == 'Campaign' %>
+						<%= render :partial => "cabinet/popups/" + type.underscore + "_popup" %>
+					<% end %>
+				<% end %>
+				
+    <div id="mask"></div>
+    
+    <div class="map-full">
+    	<div class="map-full-title">
+    		<div class="map-full-left" id="map_full_title">Планета</div>
+    		<div class="map-full-right"><a href="#" id="map_full_close"></a></div>
+    		<div class="clear"></div>
+    	</div>
+    	<div class="map-full-content" id="map_full"></div>
+    </div>

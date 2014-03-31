@@ -1,0 +1,33 @@
+<% if current_user %>
+<div class="popup hidden" data-type="<%= local_assigns[:type] || 'send-message' %>">
+		<header>
+				<div class="left"><h2 class="title"><%= local_assigns[:title] || 'Сообщение компании' %></h2></div>
+				<div class="right"><a class="close" href="#"></a></div>
+		</header>
+		<div class="content">
+      <% @message = Message.new %>
+			<%= form_for @message, :url => company_panel_messages_path(:format => :js), :html => {:remote => true} do |f| %>
+        <%= render_error_explanation @message %>
+				<%= f.hidden_field :from_id, :value => current_user.id %>
+        <%= f.hidden_field :to_id, :value => local_assigns[:to_id] || User.support.try(:id) %>
+				<div class="form">
+						<div class="row">
+								<div class="cell left"><label>Имя</label></div>
+								<div class="cell right"><span class="default"><%= current_user.f_name %> <%= current_user.l_name %></span></div>
+								<div class="clear"></div>
+						</div>
+						<div class="row">
+								<div class="cell left"><%= f.label :text, 'Текст сообщения' %></div>
+								<div class="cell right"><%= f.text_area :text %></div>
+								<div class="clear"></div>
+						</div>
+						<div class="row">
+								<div class="cell buttons">
+										<input type="submit" value="Отправить" />
+								</div>
+						</div>
+				</div>
+			<% end %>
+		</div>
+</div>
+<% end %>

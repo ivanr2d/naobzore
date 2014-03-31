@@ -1,0 +1,137 @@
+<nav id="top_nav">
+	<ul>
+		
+		<% if !user_signed_in? %>
+			<li class="top-nav"><a href="#" class="vinous">Добавить компанию</a></li>
+			<% else %>
+			<li class="top-nav"><a href="#" id="view_add">Добавить</a>
+					<div id="add" class="<%= current_user.companies.count > 0 ?  'add-long' : '' %>">
+							<ul>
+								<% if current_user.companies.count > 0 %>
+									<li><a href="<%= new_company_panel_good_path %>">Товар</a></li>
+									<li><a href="<%= new_company_panel_service_path %>">Услугу</a></li>
+									<li><a href="<%= new_company_panel_job_path %>">Вакансию</a></li>
+									<li><a href="<%= new_company_panel_campaign_path %>">Скидку/Акцию</a></li>
+									<li><a href="#">Новость</a></li>
+								<% else %>
+									<li><a href="#">Резюме</a></li>
+									<li><a href="#">Объявление</a></li>
+									<li><a href="#">Предприятие</a></li>
+								<% end %>
+							</ul>
+					</div>
+			</li>
+			<li class="top-nav">
+				<% if current_user.account.nil? %>
+						<a href="/cabinet">Личный кабинет</a>
+				<% else %>
+						<%= link_to 'Админ-панель', company_panel_root_path %>
+				<% end %>
+			<% end %>
+			
+			<% if !user_signed_in? %>
+<li class="top-nav"><a href="#" id="view_registration">Регистрация</a>
+					<!-- Выподающий блок регистрации -->
+					<div id="registration">
+							<div class="pop-form">
+								<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+									<div class="pop-table">
+										<div><!--%= devise_error_messages! %--></div>
+											<div class="pop-table-row">
+												<%= raw Settings.find_by_key(:registration_advantages).value %>
+											</div>
+											<div class="pop-table-row">
+													<div class="pop-table-coll">Фамилия</div>
+													<div class="pop-table-colr"><%= f.text_field :f_name, :size => 20 %></div>
+											</div>
+											<div class="pop-table-row">
+													<div class="pop-table-coll">Имя</div>
+													<div class="pop-table-colr"><%= f.text_field :l_name, :size => 20 %></div>
+											</div>
+											<div class="pop-table-row">
+													<div class="pop-table-coll">Отчество</div>
+													<div class="pop-table-colr"><%= f.text_field :m_name, :size => 20 %></div>
+											</div>
+											<div class="pop-table-row">
+													<div class="pop-table-coll">E - mail</div>
+													<div class="pop-table-colr"><%= f.email_field :email, :size => 20 %></div>
+											</div>
+											<div class="pop-table-row">
+													<div class="pop-table-coll">Пароль</div>
+													<div class="pop-table-colr"><%= f.password_field :password, :size => 20 %></div>
+											</div>
+											<div class="pop-table-row">
+													<div class="pop-table-coll">Повтор пароля</div>
+													<div class="pop-table-colr"><%= f.password_field :password_confirmation, :size => 20  %></div>
+											</div>
+											<div class="pop-table-row">
+													<div class="pop-table-coll-captcha">
+															<img src="/assets/temp/captha.png" alt="" />
+															<p><a href="#" class="pop-link">Новое изображение</a></p>
+													</div>
+													<div class="pop-table-colr-captcha">
+															<p>Что Вы видите?</p><input type="text" name="" size="11" />
+													</div>
+											</div>
+											<div class="pop-table-row">
+													<div class="pop-table-col-full">
+															<%= check_box_tag "user[lic]" %> Я принимаю условия <a href="#"  class="pop-link">пользовательского соглашения</a>
+													</div>
+											</div>
+									</div>
+
+							</div>
+							<div class="pop-form-send">
+									<%= f.submit "Зарегистрироваться" %>
+							</div>
+					<% end %>
+							
+							<div class="pop-form-social">
+									Вход без регистрации 
+									<a href="#"><img src="/assets/social/facebook.png" /></a>
+									<a href="#"><img src="/assets/social/vk.png" /></a>
+									<a href="#"><img src="/assets/social/twitter.png" /></a>
+							</div>
+					</div>
+					<!-- end | Выподающий блок регистрации -->
+			</li>
+			<li class="top-nav"><a href="#" id="view_login">Войти</a>
+
+					<!-- Всплывающий блок Входа -->
+					<div id="login">
+					<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+							<div id="login_form">
+									<div class="pop-form-login">
+											<div class="pop-form-login-table">
+													<div class="pop-form-login-row">
+															<div class="pop-form-login-coll">E-mail</div>
+															<div class="pop-form-login-colr"><%= f.email_field :email, :size => 18 %></div>
+													</div>
+													<div class="pop-form-login-row">
+															<div class="pop-form-login-coll">Пароль</div>
+															<div class="pop-form-login-colr"><%= f.password_field :password, :size => 18 %></div>
+													</div>
+											</div>
+									</div>
+									<div class="pop-form-button">
+											<div class="pop-form-button-left"><a href="#" id="view_rec_pass">Забыли пароль?</a></div>
+											<div class="pop-form-button-right"><%= f.submit "Вход" %></div>
+									</div>
+							</div>
+							<div id="login_social">
+									Войти с помощью... 
+									<a href="#"><img src="/assets/social/facebook.png" /></a>
+									<a href="#"><img src="/assets/social/vk.png" /></a>
+									<a href="#"><img src="/assets/social/twitter.png" /></a>
+							</div>
+					<% end %>
+					</div>
+					<!-- end | Всплывающий блок Входа -->
+
+			</li>
+			<% else %>
+			<li class="top-nav"><%= link_to "Выход", destroy_user_session_path, :method => :delete %></li>
+			<% end %>
+			<li class="top-nav"><a href="/help">Справка</a></li>
+	</ul>
+</nav>

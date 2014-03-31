@@ -1,0 +1,22 @@
+<!---
+Размер картинки в слайде: weight: 560px; height: 260px;
+--->
+<section id="slider">
+  <div id="kepCarousel">
+    <div class="carousel-all">
+      <ul>
+        <% @this_banners.each do |banner| %>
+        <li>
+					<%= link_to(image_tag(banner.banner.main), banner.link) %>
+				</li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="carousel-left">
+      <div class="slide-prev"></div>
+    </div>
+    <div class="carousel-right">
+      <div class="slide-next"></div>
+    </div>
+  </div>
+</section>

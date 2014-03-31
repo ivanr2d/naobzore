@@ -1,0 +1,112 @@
+    <div class="popup-slider" data-type="good">
+        <div class="popup-main">
+            <div class="popup-close"><a href="#" class="button-close"></a></div>
+            <!-- Главный блок с инфой -->
+            <div class="popup-content" id="good_popup_header">
+                <div class="popup-images">
+                    <div class="popup-image"><img src="img/temp/notebook.png" alt="" /></div>
+                    <ul class="lightbox">
+                        <!---
+                        <li><a href="img/temp/notebook.png"><img src="img/temp/notebook.png" alt="" width="32" height="32" /></a></li>
+                        ---->
+                    </ul>
+                </div>
+								<div class="popup-name"><a href="#">Samsung 305V5A-S0 CA8- 3510MX</a></div>
+								<div class="popup-map">
+									<div class="popup-map">
+											<div class="popup-map-title view-map-full" data-full-map="">Показать во весь экран</div>
+											<div class="popup-map-content" id="good_map"></div>
+									</div>
+									<h3 class="popup-address"><p>пр. Дзержинского, 2А</p></h3>
+								</div>
+                <div class="popup-info">
+                    <p class="popup-name"><a href="#">Samsung 305V5A-S0 CA8- 3510MX</a></p>
+                    <p class="popup-price">Цена: <span><span id="good_price">22 400</span> р.</span></p>
+										<p class="popup-presence">В наличии <!-- Под заказ --> | Новый товар</p>
+                    <h2 class="popup-company"><p><a href="#">ООО "Имя компании"</a></p></h2>
+                    <h3 class="popup-address popup-price"><p>пр. Дзержинского, 2А</p></h3>
+                    <p class="popup-phone">Тел.: <span>8(3532)94-40-55</span></p>
+                    <div><a href="#"><img src="img/bell.png" alt="" /></a></div>
+                    <div>Отзывы: <span class="bell-true">+40</span> / <span class="bell-false">-2</span></div>
+                    <% if user_signed_in? %>
+                    <div class="popup-stat">
+                          <a href="#"><%= image_tag "reviews-1.png" %></a>
+                          <a href="#"><%= image_tag "reviews-0.png" %></a>
+                          <a href="#"><%= image_tag "reviews-2.png" %></a><span>(255)</span>
+                    </div>
+                    <% else %>
+                    <div class="popup-stat">
+                          <%= image_tag "no-reviews-1.png" %>
+                          <%= image_tag "no-reviews-0.png" %>
+                          <%= image_tag "no-reviews-2.png" %><span>(255)</span>
+                    </div>
+                    <% end %>
+                </div>
+            </div>
+            <!-- end | Главный блок с инфой -->
+        </div>
+        
+        <!--блок с кнопками-->
+        <div class="popup-buts">
+            <div class="popup-but-prev" id="popupExtPrev"></div>
+            <div class="popup-but-next" id="popupExtNext"></div>
+            <div class="popup-but-cent">
+            	<div class="popup-loading" id="good_popup_loading"><%= image_tag "loading-2.gif" %></div>
+            </div>
+        </div>
+        <!--end | блок с кнопками-->
+        
+        <div class="popup-other">
+        <div id="good_popup_tabs" class="popup-tabs">
+            <div class="other-tabs">
+                <ul>
+                    <li data-other-tab="1" class="tab-curent"><div class="tab-wave"></div><div class="tab-shadow"></div><div class="tab-cont">Описание</div></li>
+                    <li  data-other-tab="2"><div class="tab-wave"></div><div class="tab-shadow"></div><div class="tab-cont">Характеристики</div></li>
+                    <li data-other-tab="3"><div class="tab-wave"></div><div class="tab-shadow"></div><div class="tab-cont">Отзывы</div></li>
+                    <li data-other-tab="4"><div class="tab-wave"></div><div class="tab-shadow"></div><div class="tab-cont">Акции</div></li>
+                    <li data-other-tab="5"><div class="tab-wave"></div><div class="tab-shadow"></div><div class="tab-cont">Доставка</div></li>
+                </ul>
+                <div class="clear"></div>
+            </div>
+            <div class="other-content">
+                
+                <div class="tab-content" data-other-con="1" id="entity_description">
+                    <div class="content-title">Описание</div>
+                    <div class="content-text">
+                        1800Mhz/4096Mb/500Gb/ Windows 7-HB Silver
+                        Этот надежный ноутбук включает все необходимое для повседневного использования. Благодаря широкому набору функций вы сможете с легкостью управлять данными.
+                    </div>
+                </div>
+                <div class="tab-content" data-other-con="2" id="entity_characteristics">
+                    <div class="content-title">Характеристики</div>
+                    <div class="content-text">
+                        1800Mhz/4096Mb/500Gb/ Windows 7-HB Silver
+                        Этот надежный ноутбук включает все необходимое для повседневного использования. Благодаря широкому набору функций вы сможете с легкостью управлять данными.
+                    </div>
+                </div>
+                <div class="tab-content" data-other-con="3">
+                    <div class="content-title">Отзывы</div>
+                    <div class="content-text">
+                        1800Mhz/4096Mb/500Gb/ Windows 7-HB Silver
+                        Этот надежный ноутбук включает все необходимое для повседневного использования. Благодаря широкому набору функций вы сможете с легкостью управлять данными.
+                    </div>
+                </div>
+                <div class="tab-content" data-other-con="4">
+                    <div class="content-title">Акции</div>
+                    <div class="content-text">
+                        1800Mhz/4096Mb/500Gb/ Windows 7-HB Silver
+                        Этот надежный ноутбук включает все необходимое для повседневного использования. Благодаря широкому набору функций вы сможете с легкостью управлять данными.
+                    </div>
+                </div>
+                <div class="tab-content" data-other-con="5">
+                    <div class="content-title">Доставка</div>
+                    <div class="content-text">
+                        1800Mhz/4096Mb/500Gb/ Windows 7-HB Silver
+                        Этот надежный ноутбук включает все необходимое для повседневного использования. Благодаря широкому набору функций вы сможете с легкостью управлять данными.
+                    </div>
+                </div>
+                
+            </div>
+    	</div>
+        </div>
+    </div>

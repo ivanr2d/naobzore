@@ -1,0 +1,265 @@
+
+            <div class="other-tabs">
+                <ul>
+                    <li data-other-tab="1" class="tab-curent"><div class="tab-wave"></div><div class="tab-shadow"></div><div class="tab-cont">Описание</div></li>
+                    <li  data-other-tab="2"><div class="tab-wave"></div><div class="tab-shadow"></div><div class="tab-cont">Кредитование</div></li>
+                    <li data-other-tab="3"><div class="tab-wave"></div><div class="tab-shadow"></div><div class="tab-cont">Отзывы</div></li>
+                    <li data-other-tab="4"><div class="tab-wave"></div><div class="tab-shadow"></div><div class="tab-cont">Доставка</div></li>
+                </ul>
+                <div class="clear"></div>
+            </div>
+            <div class="other-content">
+                
+                <div class="tab-content" data-other-con="1" id="entity_description">
+                    <!--div class="content-title">Описание</div-->
+                    <div class="content-text">
+                    	<% if @company.description %>
+               				<%= raw @company.description %>
+               			<% else %>
+               				<p class="tab-content-empty">Описание отсутствует</p>
+               			<% end %>
+               		</div>
+                </div>
+                
+                <div class="tab-content" data-other-con="2">
+                    <div class="content-text">
+       			
+						<% if @company.crediting != '' %>
+						<article class="popup-item">
+						<h2 class="popup-tab-title">Кредитование интернет магазина</h2>	
+	                        <div class="item-container-4">
+	                            <div class="popup-item-image"><a href="#"><img src="<%= @company.logotype.url %>" alt="" /></a></div>
+	                            <div class="item-info">
+	                                <div class="item-info-block">
+	                                    <p><%= @company.address %></p>
+	                                    <p><%= @company.phone %></p>
+	                                    <!--div class="item-info-block-bell">
+	                                        <a href="#"><img src="/assets/bell.png" alt="" /></a>
+	                                    </div--->
+	                                </div>
+	                            </div>
+	                            <div class="popup-item-text">
+	                                <table>
+	                                	<tr><td width="70" valign="top">Условия</td><td><%= truncate raw(@company.crediting), :length => 140 %> <a href="#" class="link-blue">Читать дальше</a></td></tr>
+	                                </table>
+	                            </div>
+	                            <div class="clear"></div>
+	                        </div>
+	                    </article>
+	                    <% end %>
+	                    
+	                    <% if @company.banks.count > 0 %>
+	                    <article class="popup-item">
+						<h2 class="popup-tab-title">Банки</h2>
+						
+							<% @company.banks.each do |bank| %>
+	                        <div class="item-container-4">
+	                            <div class="popup-item-image"><a href="#"><img src="<%= bank.logotype.url %>" alt="" /></a></div>
+	                            <div class="item-info">
+	                                <div class="item-info-block">
+	                                    <p><%= bank.address %></p>
+	                                    <p><%= bank.phone %></p>
+	                                    <!--div class="item-info-block-bell">
+	                                        <a href="#"><img src="/assets/bell.png" alt="" /></a>
+	                                    </div--->
+	                                </div>
+	                            </div>
+	                            <div class="popup-item-text">
+	                                <table>
+	                                	<tr><td width="70" valign="top">Условия</td><td><%= truncate raw(bank.condition), :length => 140 %> <a href="#" class="link-blue">Читать дальше</a></td></tr>
+	                                </table>
+	                            </div>
+	                            <div class="clear"></div>
+	                        </div>
+	                        <% end %>
+	                        
+	                        <!---div class="item-container-4">
+	                            <div class="popup-item-image"><a href="#"><img src="/assets/temp/logo.png" alt="" /></a></div>
+	                            <div class="item-info">
+	                                <div class="item-info-block">
+	                                    <p>Адрес банка</p>
+	                                    <p>Телефон банка</p>
+	                                    <!--div class="item-info-block-bell">
+	                                        <a href="#"><img src="/assets/bell.png" alt="" /></a>
+	                                    </div---
+	                                </div>
+	                            </div>
+	                            <div class="popup-item-text">
+	                                Услови: условия условия условия условия условия
+	                            </div>
+	                            <div class="clear"></div>
+	                        </div--->
+	                    </article>
+	                    <% end %>
+                    	
+               			<% if @company.crediting == '' && @company.banks == nil %>
+               				<p class="tab-content-empty">Кредитование отсутствует</p>
+               			<% end %>
+               		</div>
+                </div>
+                
+                <div class="tab-content" data-other-con="3">
+                	
+                	<% if user_signed_in? %>
+                    <div class="content-top-but fb-add">
+                    	<a href="#">Добавить отзыв</a>
+                    </div>
+                    <% end %>
+                    
+                    <div class="content-text">
+                    	
+                    <% if @feedbacks.count > 0 %>
+                    	<% @feedbacks.each do |feedback| %>
+                    	<!-- отзыв -->
+                        <div class="popup-fb <%= cycle("fb-even", "fb-odd") -%>">
+                        	<div class="popup-fb-left"><div class="popup-fb-photo"><img src="<%= feedback.user.mini_photo.url %>" /></div></div>
+                        	<div class="popup-fb-cont">
+                        		<div class="popup-fb-cont-tit">
+                        			<a href="#"><%= feedback.entity.name %></a>
+                        			<% if feedback.contentment == 1 %>
+                        				<span class="popup-fb-true">(Положительный)</span>
+                        			<% else %>
+                        				<span class="popup-fb-false">(Отрицательный)</span>
+                        			<% end %>
+                        		</div>
+                        		<div class="popup-fb-cont-text">
+                        			
+                        			<div class="popup-texts">
+	                  					<div class="popup-text-mini">
+	                  						<p><%= truncate feedback.comment, :length => 100 %> &nbsp;<a href="#" class="view-full-text">Читать отзыв</a></p>
+	                  					</div>
+	                  					<div class="popup-text-full">
+	                  						
+	                  						<p><b>Достоинства: </b><%= feedback.plus %></p>
+	                  						<p><b>Недостатки: </b><%= feedback.minus %></p>
+	                  						<p><b>Отзыв: </b><%= feedback.comment %></p>
+	                  						
+	                  						<p><a href="#" class="view-full-text">Скрыть</a></p>
+	                  					</div>
+                  					</div>
+                        			
+                        		</div>
+                        		<div class="popup-fb-cont-info">
+                        			<div class="fb-cont-info-left"><a href="/cabinet/<%= feedback.user_id %>"><%= feedback.user.f_name %> <%= feedback.user.l_name %></a> - <%= feedback.created_at.strftime("%d.%m.%Y %H:%M") %></div>
+                        			<div class="fb-cont-info-right popup-stat-fb">
+		         					<% if user_signed_in? %>
+						            	<div class="favorite-active">
+						                	<a href="#" data-like="Feedback:<%= feedback.id %>" class="like"><%= image_tag "reviews-2.png" %></a><span>(<small class="like-count"><%= feedback.likes.count %></small>)</span>
+						            	</div>
+										<div class="favorite-notactive">
+										 	<%= image_tag "loading-mini.gif" %>
+										</div>
+		                            <% else %>
+		                            	<%= image_tag "no-reviews-2.png" %><span>(<%= feedback.likes.count %>)</span>
+		                            <% end %>
+                        			</div>
+                        			<div class="clear"></div>
+                        		</div>
+                        	</div>
+                        	<div class="clear"></div>
+                        </div>
+                        <!-- end | отзыв -->
+                        <% end %>
+                    <% else %>
+                    	<p class="tab-content-empty">Отзывы отсутствуют</p>
+                    <% end %>
+                        
+                    	<!-- отзыв --
+                        <div class="popup-fb fb-even">
+                        	<div class="popup-fb-left"><div class="popup-fb-photo"><img src="/assets/temp/ava-1.png" /></div></div>
+                        	<div class="popup-fb-cont">
+                        		<div class="popup-fb-cont-tit"><a href="#">Samsung galaxy s3</a><span class="popup-fb-true">(Положительный)</span></div>
+                        		<div class="popup-fb-cont-text">
+                        			В телефоне меня прельстило то, что за приемлемую цену можно было купить сенсорный сотик с двумя симками и усиленной батареей. Да, телеф...Читать отзыв
+                        		</div>
+                        		<div class="popup-fb-cont-info">
+                        			<div class="fb-cont-info-left">Иван Иванов - 30 июня 2012</div>
+                        			<div class="fb-cont-info-right popup-stat-fb"><%= image_tag "reviews-2.png" %><span>(255)</span></div>
+                        			<div class="clear"></div>
+                        		</div>
+                        	</div>
+                        	<div class="clear"></div>
+                        </div>
+                        
+                        <div class="popup-fb fb-odd">
+                        	<div class="popup-fb-left"><div class="popup-fb-photo"><img src="/assets/temp/ava-1.png" /></div></div>
+                        	<div class="popup-fb-cont">
+                        		<div class="popup-fb-cont-tit"><a href="#">Samsung galaxy s3</a><span class="popup-fb-true">(Положительный)</span></div>
+                        		<div class="popup-fb-cont-text">
+                        			В телефоне меня прельстило то, что за приемлемую цену можно было купить сенсорный сотик с двумя симками и усиленной батареей. Да, телеф...Читать отзыв
+                        		</div>
+                        		<div class="popup-fb-cont-info">
+                        			<div class="fb-cont-info-left">Иван Иванов - 30 июня 2012</div>
+                        			<div class="fb-cont-info-right popup-stat-fb"><%= image_tag "reviews-2.png" %><span>(255)</span></div>
+                        			<div class="clear"></div>
+                        		</div>
+                        	</div>
+                        	<div class="clear"></div>
+                        </div>
+                        -- end | отзыв -->
+                        
+                    </div>
+                </div>
+                
+                <div class="tab-content" data-other-con="4">
+                    <!---div class="content-title">Акции</div--->
+                    <div class="content-text">
+                    	
+					<% if @company.delivety %>
+					<article class="popup-item">
+					<h2 class="popup-tab-title">Доставка организации</h2>	
+                        <div class="item-container-4">
+                            <div class="popup-item-image"><a href="#"><img src="<%= @company.logotype.url %>" alt="" /></a></div>
+                            <div class="item-info">
+                                <div class="item-info-block">
+                                    <p><%= @company.address %></p>
+                                    <p><%= @company.phone %></p>
+                                    <div class="item-info-block-bell">
+                                        <a href="#"><img src="/assets/bell.png" alt="" /></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="popup-item-text">
+                                <h2 class="popup-item-title"><a href="#"><%= @company.name %></a></h2>
+                                <p>Стоимость доставки: <span class="orange"><%= @company.delivety.cost == 0 ? 'Бесплатная' : @company.delivety.cost.to_s + ' руб.' %></span></p>
+                                <p>График работы: <%= @company.delivety.graph %></p>
+                                <p>Доставка осуществляется <%= @company.delivety.period %></p>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </article>
+                    <% end %>
+                    
+                    <% if @default_delivery && @default_delivery.delivety %>
+                    <article class="popup-item">
+					<h2 class="popup-tab-title">Альтернативная доставка</h2>
+                        <div class="item-container-4">
+                            <div class="popup-item-image"><a href="#"><img src="<%= @default_delivery.logotype.url %>" alt="" /></a></div>
+                            <div class="item-info">
+                                <div class="item-info-block">
+                                    <p><%= @default_delivery.address %></p>
+                                    <p><%= @default_delivery.phone %></p>
+                                    <div class="item-info-block-bell">
+                                        <a href="#"><img src="/assets/bell.png" alt="" /></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="popup-item-text">
+                                <h2 class="popup-item-title"><a href="#"><%= @default_delivery.name %></a></h2>
+                                <p>Стоимость доставки: <span class="orange"><%= @default_delivery.delivety.cost == 0 ? 'Бесплатная' : @default_delivery.delivety.cost.to_s + ' руб.' %></span></p>
+                                <p>График работы: <%= @default_delivery.delivety.graph %></p>
+                                <p>Доставка осуществляется <%= @default_delivery.delivety.period %></p>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </article>
+                    <% end %>
+                    
+                    </div>
+                </div>
+                
+                
+
+                
+            </div>
+        

@@ -1,0 +1,51 @@
+<div class="list">
+  <div class="content">
+	<div class="kegrid-wrap">
+                <table class="table-akty style-silver" cellpadding="0" cellspacing="0">
+                    
+                    <thead>
+                        <tr>
+                            <th width="2">№</th>
+                            <th>Название счета</th>
+                            <th>Дата</th>
+                            <th>Сумма</th>
+                            <th>Статус</th>
+                            <th>Оплатить до</th>
+                            <th>Вид услуг</th>
+                            <th>Действия</th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                      <% @invoices.each do |invoice| %>
+                        <tr data-id="<%= invoice.id %>">
+                            <td><%= invoice.id %></td>
+                            <td><%= link_to invoice.full_name, company_panel_invoice_path(invoice) %></td>
+                            <td><%= invoice.created_at.strftime('%d.%m.%y') %></td>
+                            <td><%= invoice.sum %></td>
+                            <td class="invoice-status"><%= t "invoices.statuses.#{invoice.status}" %></td>
+                            <td><%= invoice.pay_to.strftime('%d.%m.%y') %></td>
+                            <td><%= t "invoices.entities.#{invoice.entity_type}" %></td>
+                            <td>
+                              <%= link_to_if invoice.from_aps? && invoice.status != :complete, 'Оплатить', pay_company_panel_invoice_path(invoice, :format => :js), :remote => true, :method => 'put', :confirm => "Оплатить #{invoice.name}", :class => 'pay-invoice', 'data-id' => invoice.id do %>
+                                <%= '' %>
+                              <% end %>
+                              &nbsp;
+                              <%= link_to 'Просмотр', company_panel_invoice_path(invoice) %>
+                              &nbsp;
+                              <%= link_to 'Скачать', company_panel_invoice_path(invoice, :format => :pdf), :download => invoice.pdf_name %>
+                            </td>
+                        </tr>
+                      <% end %>
+                    </tbody>
+                    
+                </table>
+    </div>
+
+                <!-- Подвальчик -->
+                <footer class="footer text-right">
+                   <%= render :partial => 'company_panel/shared/pagination', :locals => {:obj => @invoices} %> 
+                </footer>
+                
+  </div>
+</div>

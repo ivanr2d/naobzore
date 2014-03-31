@@ -1,0 +1,8 @@
+<div class="comment <%= comment_counter.odd? ? 'odd' : 'even' %>">
+  <div class="photo"><img src="<%= comment.user.mini_photo %>" /></div>
+  <div class="data">
+    <p class="info"><a href="users/50"><%= comment.user.fi %></a>, <%= comment.created_at.strftime('%d.%m.%Y %H:%S') %></p>
+    <div class="text"><%= comment.text %></div>
+  </div>
+  <div class="clear"></div>							
+</div>

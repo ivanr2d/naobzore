@@ -1,0 +1,427 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Mini site</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/selectbox.css" />
+    <link rel="stylesheet" href="css/ui-slider.css" />
+    
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jselectbox.js"></script>
+    <script type="text/javascript" src="js/ui-slider.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    
+    <!--[if lt IE 9]>
+    <script>
+        document.createElement('nav');
+        document.createElement('header');
+        document.createElement('footer');
+        document.createElement('section');
+        document.createElement('aside');
+        document.createElement('article');
+    </script>
+    <![endif]-->
+    
+    <style>
+    
+    </style>
+    
+</head>
+<body>
+
+<div id="topPanel">
+        <header>
+            <div class="left"></div>
+            <div class="right"></div>
+            <div class="content">
+            
+                <div class="logotype"><a href="#"><img src="images/logo.png" alt="" /></a></div>
+                
+                <div class="search">
+                    <div class="container">
+                        <div class="field">
+														<span class="icon-lupa"></span>
+                            <input type="text" name="SEARCH" />
+                            <a href="#" class="show-search-submenu"></a>
+														<div class="search-submenu">
+															<div class="row">
+																<label class="ss-label">Категория</label>
+																<div class="ss-select">
+																	<select class="selectbox" style="width: 98px;">
+																		<option value="1">Категория 1</option>
+																		<option value="2">Категория 2</option>
+																	</select>
+																</div>
+																<div class="clear"></div>
+															</div>
+															
+															<div class="row">
+																<label class="ss-label">Каталог</label>
+																<div class="ss-select">
+																	<select class="selectbox" style="width: 98px;">
+																		<option value="1">Каталог 1</option>
+																		<option value="2">Каталог 2</option>
+																	</select>
+																</div>
+																<div class="clear"></div>
+															</div>
+														</div>
+                        </div>
+                        <div class="but">
+                            <input type="submit" value="НАЙТИ" />
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                
+                <div class="navigation">
+                
+                    <!--Верхняя навигация-->
+                    <div class="top">
+                        <ul class="user">
+                            <li><a href="#">Личный кабинет</a></li>
+                            <li><a href="#">Регистрация</a></li>
+                        </ul>
+                        <ul class="icons">
+                            <li><a href="#"><img src="images/icon-home.png" /></a></li>
+                            <li><a href="#"><img src="images/icon-mail.png" /></a></li>
+                            <li><a href="#"><img src="images/icon-map.png" /></a></li>
+                        </ul>
+                    </div>
+                    
+                    <!--Нижняя навигация-->
+                    <div class="bottom">
+                        <ul>
+                            <li><a href="#">Товары</a></li>
+                            <li><a href="#">Услуги</a></li>
+                            <li><a href="#">Вакансии</a></li>
+                            <li><a href="#">Предприятия</a></li>
+                            <li><a href="#" id="viewMenuItems"><img src="images/icon-view.png" alt="" /></a>
+                                <ul class="more hidden" id="hiddenMenuItems">
+                                    <li><a href="#">Новости</a></li>
+                                    <li><a href="#">Акции</a></li>
+                                    <li><a href="#">Отзывы</a></li>
+                                    <li><a href="#">Объявления</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+        </header>
+        <footer>
+            <div class="active">
+							<span class="footer-menu">
+								<!-- if пользователь авторизован -->
+								<a href="#">Главная</a> |
+								<a href="#">Личная страница</a> |
+								<a href="#">Мои сообщения</a>
+								<!-- else  -->
+								<!--
+								<a href="#">Войти</a> |
+								<a href="#">Зарегистрироваться</a>
+								-->
+								<!-- end if -->
+							</span>
+                        
+							<a href="#" id="controlTopPanel">Свернуть</a>
+            </div>
+        </footer>
+    </div>
+
+    <div id="container">
+    
+        <!-- Шапочка -->
+        <header>
+            <div class="left">
+                <div class="logo">
+                    <a href="#"><img src="images/temp/logo_kepler.png" /></a>
+                </div>
+            </div>
+            <div class="right">
+                <div class="search">
+                    <input type="text" name="SEARCH" />
+                </div>
+                <ul class="navigation">
+                    <li><a href="#">Главная</a></li>
+                    <li><a href="#">Товары</a></li>
+                    <li><a href="#">Услуги</a></li>
+                    <li><a href="#">Новости</a></li>
+                    <li><a href="#">Акции</a></li>
+                    <li><a href="#">О компании</a></li>
+                    <li><a href="#">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </header>
+        
+        <!-- Левая навигация и контент -->
+        <div id="content">
+        
+            <section class="sidebar">
+            
+                <aside>
+                    <div class="title">Каталог Товары/Услуги</div>
+                    <div class="content">
+                        <ul class="categories level-1">
+                            <li class=""><div class="container"><a href="#">Строительство</a><p>123</p><div class="clear"></div></div></li>
+                            <li class=""><div class="container"><a href="#">Котлы и котельное оборудование</a><p>123</p><div class="clear"></div></div></li>
+                            <li class="active"><div class="container"><a href="#">Одежда, спецодежда</a><p>123</p><div class="clear"></div></div>
+                                
+                                <ul class="level-2">
+                                    <li class=""><div class="container"><a href="#">Котлы и котельное оборудование</a><p>84</p><div class="clear"></div></div></li>
+                                    <li class=""><div class="container"><a href="#">Строительство</a><p>84</p><div class="clear"></div></div></li>
+                                    <li class=""><div class="container"><a href="#">Котлы и котельное оборудование</a><p>84</p><div class="clear"></div></div></li>
+                                    <li class="active"><div class="container"><a href="#">Строительство</a><p>84</p><div class="clear"></div></div>
+                                    
+                                        <ul class="level-3">
+                                            <li class=""><div class="container"><a href="#">Строительство</a><p>(48)</p><div class="clear"></div></div></li>
+                                            <li class="have-child"><div class="container"><a href="#">Газовые</a><p>(48)</p><div class="clear"></div></div>
+                                            
+                                                <ul class="level-4">
+                                                    <li class=""><div class="container"><a href="#">-Строительство</a><p>(415)</p><div class="clear"></div></div></li>
+                                                    <li class=""><div class="container"><a href="#">-Газовые </a><p>(13)</p><div class="clear"></div></div></li>
+                                                    <li class=""><div class="container"><a href="#">-Строительство</a><p>(67)</p><div class="clear"></div></div></li>
+                                                </ul>
+                                            
+                                            </li>
+                                        </ul>
+                                    
+                                    </li>
+                                    
+                                </ul>
+                                
+                            </li>
+                        </ul>
+                    </div>
+                </aside>
+                
+                <aside>
+                    <div class="title">Контактная информация</div>
+                    <div class="content">
+                        <div class="info">
+                            <p>ООО "Имя предприятия"</p>
+                            <p>4600098, г. Оренбург, ул. Просторная 23, офис 34</p>
+                            <p>Тел.: 8 (3532) 68-78-89</p>
+                            
+                            <a class="send-mail" href="#">Написать сообщение</a>
+                            <a class="call-up" href="#"></a>
+                        </div>
+                    </div>
+                    <div class="title">График работы</div>
+                    <div class="content">
+                        <div class="timetable">
+                        
+                            <div class="day">
+                                <div class="name-time">
+                                    <div class="name">Понедельник</div>
+                                    <div class="time">9:00-18:00</div>
+                                    <div class="clear"></div>
+                                </div>
+                                <div class="break">Перерыв: 13:00-14:00</div>
+                            </div>
+                        
+                            <div class="day">
+                                <div class="name-time">
+                                    <div class="name">Вторник</div>
+                                    <div class="time">9:00-18:00</div>
+                                    <div class="clear"></div>
+                                </div>
+                                <div class="break">Перерыв: 13:00-14:00</div>
+                            </div>
+                            
+                            <p class="weekend">Выходные дни: Сб,Вс</p>
+                        </div>
+                    </div>
+                </aside>
+            </section>
+            
+            <section class="content">
+                <div class="title">
+                    <p class="breadcrumbs">
+                        <a href="#">НаОбзоре</a>
+                        <span>»</span>
+                        <a href="#">Название сайта</a>
+                        <span>»</span>
+                        <a href="#">Каталог</a>
+                        <span>»</span>
+                        <a href="#">Ноутбуки</a>
+                        <span>»</span>
+                        <a href="#">Samsung 305V5A-SO</a>
+                    </p>
+                </div>
+                
+                <!-- Блок с заголовком -->
+                <div class="top">
+                    <h1 class="page-title">Ноутбуки <span>(4823)</span></h1>
+                </div>
+                
+                <!-- Блок с фильтрами -->
+                <div class="filters">
+                    <!--Левый блок-->
+                    <div class="left">
+                        <div class="row">
+                            Цена от <input type="text" class="diapazon-field" id="minCost" value="0" /> 
+                            до <input type="text" class="diapazon-field" id="maxCost" value="1000" />
+                        </div>
+                        <div>
+                            <div class="slider" id="cost"></div>
+                        </div>
+                    </div>
+                    <!--Центральный блок-->
+                    <div class="center">
+                        <div class="row">
+                            <div class="cell left">Сортировать по</div>
+                            <div class="cell right">
+                                <select class="selectbox">
+                                    <option value="1">Отзывам</option>
+                                    <option value="2">Популярности</option>
+                                </select>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="row">
+                            <div class="cell left"></div>
+                            <div class="cell right">
+                                <input type="checkbox" /> Со скидкой
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <!--Правый блок-->
+                    <div class="right">
+                        <div class="row"><!--none--></div>
+                        <div class="row">
+                            <ul class="count-page">
+                                <li>Показать:</li>
+                                <li><a href="#">10</a></li>
+                                <li><a href="#" class="active">20</a></li>
+                                <li><a href="#">30</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                <div class="clear"></div>
+                </div>
+
+                <!-- Блок с подписаться и управлением колличеством элементов -->
+                <div class="sub-filters">
+                    <div class="left">
+                        <div class="subscribe">
+                            <a href="#" class="view">Подписаться</a>
+                            <ul>
+                                <li><input type="checkbox" /> ЛК</li>
+                                <li><input type="checkbox" /> E-mail</li>
+                                <li><input type="checkbox" /> SMS</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <!-- Чтонить сюда можно воткнуть -->
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                
+                
+                <div class="items">
+                
+                    <div class="item">
+                        <div class="image"><a href="#"><img src="images/temp/image-1.png" /></a></div>
+                        <a href="#" class="name">Acer Aspire S7-391- 53314G12aws (белый)</a>
+                        <p class="price">Цена: <span>22 440 р.</span></p>
+                        <div class="info">
+                            <p class="feedbacks">Отзывы: <span class="plus">+40</span>/<span class="minus">-2</span></p>
+                            <div class="liks">
+                                <img src="images/hare-1.png" alt="" />
+                                <img src="images/hare-2.png" alt="" />
+                                <img src="images/hare-3.png" alt="" />
+                                <span>(256)</span>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="item">
+                        <div class="image"><a href="#"><img src="images/temp/image-1.png" /></a></div>
+                        <a href="#" class="name">Acer Aspire S7-391- 53314G12aws (белый)</a>
+                        <p class="price">Цена: <span>22 440 р.</span></p>
+                        <div class="info">
+                            <p class="feedbacks">Отзывы: <span class="plus">+40</span>/<span class="minus">-2</span></p>
+                            <div class="liks">
+                                <img src="images/hare-1.png" alt="" />
+                                <img src="images/hare-2.png" alt="" />
+                                <img src="images/hare-3.png" alt="" />
+                                <span>(256)</span>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="item">
+                        <div class="image"><a href="#"><img src="images/temp/image-1.png" /></a></div>
+                        <a href="#" class="name">Acer Aspire  (белый)</a>
+                        <p class="price">Цена: <span>22 440 р.</span></p>
+                        <div class="info">
+                            <p class="feedbacks">Отзывы: <span class="plus">+40</span>/<span class="minus">-2</span></p>
+                            <div class="liks">
+                                <img src="images/hare-1.png" alt="" />
+                                <img src="images/hare-2.png" alt="" />
+                                <img src="images/hare-3.png" alt="" />
+                                <span>(256)</span>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="item">
+                        <div class="image"><a href="#"><img src="images/temp/image-1.png" /></a></div>
+                        <a href="#" class="name">Acer Aspire S7-391- 53314G12aws S7-391- 53314G12aws (белый)</a>
+                        <p class="price">Цена: <span>22 440 р.</span></p>
+                        <div class="info">
+                            <p class="feedbacks">Отзывы: <span class="plus">+40</span>/<span class="minus">-2</span></p>
+                            <div class="liks">
+                                <img src="images/hare-1.png" alt="" />
+                                <img src="images/hare-2.png" alt="" />
+                                <img src="images/hare-3.png" alt="" />
+                                <span>(256)</span>
+                            </div>
+                        </div>
+                    </div>
+                
+                <div class="clear"></div>
+                </div>
+                
+                <ul class="pagination">
+                    <li><a href="#"></a></li>
+                    <li><a href="#">1</a></li>
+                    <li><span>2</span></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#"></a></li>
+                </ul>
+                
+            </section>
+            <div class="clear"></div>
+        </div>
+        
+        <!-- Тег говорит сам за себя -->
+        <footer>
+            <div class="left">
+                <div class="info">
+                    <p>460876, г. Оренбург, ул. Советская 34, офис 56</p>
+                    <p>тел.: +7(3532) 456789</p>
+                    <p>Сайт создан на платформе наОбзоре.рф</p>
+                    <p>© 2013 "Название сайта"</p>
+                </div>
+            </div>
+            <div class="right">
+                <ul class="counters">
+                    <li><img src="images/temp/counter-1.gif" /></li>
+                    <li><img src="images/temp/counter-2.gif" /></li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </footer>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,199 @@
+menu:
+ -
+  href: "#"
+  name: "Мой кабинет"
+  children:
+   -
+    href: "<%= company_panel_root_path %>"
+    name: "Панель управления кабинетом"
+   -
+    href: "<%= edit_company_panel_user_path(current_user) %>"
+    name: "Настройка кабинета"
+    children:
+     -
+      href: "<%= edit_company_panel_user_path(current_user) %>"
+      name: "Редактировать персональные данные"
+     -
+      href: "<%= edit_password_company_panel_user_path(current_user) %>"
+      name: "Изменить пароль"
+     -
+      href: "<%= edit_email_company_panel_user_path(current_user) %>"
+      name: "Изменить адрес электронной почты"
+     -
+      href: "<%= delete_account_company_panel_user_path(current_user) %>"
+      name: "Удалить учетную запись"
+   -
+    href: "<%= company_panel_statistics_path %>"
+    name: "Статистика просмотров"
+   -
+    href: "<%= company_panel_companies_resumes_path %>"
+    name: "База резюме"
+   -
+    href: "<%= company_panel_notifications_path %>"
+    name: Уведомения
+   -
+    href: "<%= company_panel_tutorials_path %>"
+    name: "Возможности"
+ -
+  href: "#"
+  name: "Управление контентом"
+  children:
+   -
+    href: "/company_panel/goods"
+    name: "Панель управления контентом"
+   -
+    href: "#"
+    name: "Добавить"
+    children:
+     -
+      href: "<%= new_company_panel_good_path %>"
+      name: "Товар"
+     -
+      href: "<%= new_company_panel_service_path %>"
+      name: "Услугу"
+     -
+      href: "<%= new_company_panel_job_path %>"
+      name: "Вакансию"
+     -
+      href: "<%= new_company_panel_campaign_path %>"
+      name: "Скидку/Акцию"
+     -
+      href: "<%= new_company_panel_news_path %>"
+      name: "Новость"
+   -
+    href: "<%= new_company_panel_price_list_path %>"
+    name: "Импорт прайс-листа"
+    children:
+     -
+      href: "<%= company_panel_page_path(:link => 'price_desc') %>"
+      name: "Описание загрузки прайс-листа"
+     -
+      href: "<%= new_company_panel_price_list_path %>"
+      name: "Загрузить прайс-лист"
+     -
+      href: "<%= company_panel_categories_path %>"
+      name: "Коды категорий"
+   -
+    href: "<%= company_panel_photos_path %>"
+    name: "Каталог изображений"
+ -
+  href: "#"
+  name: "Управление сайтом"
+  children:
+   -
+    href: "/company_panel/site_control"
+    name: "Панель управления сайтом"
+   -
+    href: "<%= construct_company_panel_site_path(current_user.account.site.id) %>"
+    name: "Конструктор  дизайна сайта"
+   -
+    href: "/company_panel/subdomains"
+    name: "Настройка сайта"
+    children:
+     -
+      href: "<%= company_panel_subdomains_path %>"
+      name: "Адрес сайта"
+     -
+      href: "<%= company_panel_menus_path %>"
+      name: "Настройка меню"
+   -
+    href: "<%= stats_company_panel_site_path(current_user.account.site.id) %>"
+    name: "Инструменты веб-мастера"
+    children:
+     -
+      href: "<%= stats_company_panel_site_path(current_user.account.site.id) %>"
+      name: "Настройка внешней статистики"
+     -
+      href: "<%= webmaster_company_panel_site_path(current_user.account.site.id) %>"
+      name: "Подключение инструментов веб-мастера"
+     -
+      href: "<%= sitemap_company_panel_site_path(current_user.account.site.id) %>"
+      name: "Карта сайта (sitemap)"
+     -
+      href: "<%= robots_company_panel_site_path(current_user.account.site.id) %>"
+      name: "Управление robots.txt"
+ -
+  href: "#"
+  name: "Документооборот"
+  children:
+   -
+    href: "<%= movement_company_panel_invoices_path %>"
+    name: "Операции по счетам"
+   -
+    href: "<%= new_company_panel_invoice_path %>"
+    name: "Пополнение счёта"
+   -
+    href: "<%= company_panel_invoices_path %>"
+    name: "Счета"
+   -
+    href: "<%= company_panel_factures_path %>"
+    name: "Счет-фактуры"
+   -
+    href: "<%= company_panel_acts_path %>"
+    name: "Акты выполненных работ"
+ -
+  href: "#"
+  name: "Почта и связь"
+  children:
+   -
+    href: "/company_panel/mail"
+    name: "Панель управления почта и связь"
+   -
+    href: "/company_panel/messages"
+    name: "Сообщения"
+   -
+    href: "<%= company_panel_feedbacks_path %>"
+    name: "Отзывы"
+   -
+    href: "/company_panel/emails"
+    name: "Рассылки"
+   -
+    href: "/company_panel/sms"
+    name: "Sms-биллинг"
+   -
+    href: "/company_panel/calls"
+    name: "Менеджер звонков"
+ -
+  href: "#"
+  name: "Платные услуги"
+  children:
+   -
+    href: "<%= placing_company_panel_packages_path %>"
+    name: "Пакеты размещения"
+   -
+    href: "<%= new_company_panel_banner_path %>"
+    name: "Размещение рекламного баннера"
+   -
+    href: "<%= communication_company_panel_packages_path %>"
+    name: "Пакеты смс и голосовой телефонии"
+   -
+    href: "<%= company_panel_page_path(:link => 'apo_design') %>"
+    name: "Услуги дизайна"
+ -
+  href: "#"
+  name: "О компании"
+  children:
+   -
+    href: "<%= edit_company_panel_company_path(current_user.account) %>"
+    name: "Общие данные"
+   -
+    href: "<%= legal_company_panel_company_path(current_user.account) %>"
+    name: "Юридические данные"
+   -
+    href: "<%= logotype_company_panel_company_path(current_user.account) %>"
+    name: "Загрузить логотип"
+   -
+    href: "<%= schedule_company_panel_company_path(current_user.account) %>"
+    name: "График работы"
+   -
+    href: "<%= company_panel_companies_users_path %>"
+    name: "Сотрудники компании"
+   -
+    href: "<%= crediting_company_panel_company_path(current_user.account) %>"
+    name: "Кредитование"
+   -
+    href: "<%= company_panel_deliveties_path %>"
+    name: "Доставка"
+   -
+    href: "<%= company_panel_warranties_path %>"
+    name: "Гарантия"

@@ -1,0 +1,68 @@
+<div class="search-res-cats plural"> <!-- если категорий больше 6 добавить класс plural к search-res-cats-->
+  <% active_index = nil %>
+  <% [['Товаров', @goods], ['Услуг', @services], ['Вакансий', @jobs], ['Новостей', @news], ['Акций', @campaigns], ['Отзывов', @feedbacks]].each_with_index do |entity_array, index| %>
+    <% if (count = entity_array.last.count) > 0 %>
+      <a href="#" class="src-link <%= active_index ? '' : 'active' %>" data-search-tab="<%= index %>"><%= entity_array.first %> (<%= count %>)</a>
+      <% active_index ||= index %>
+    <% end %>
+  <% end %>
+  <span class="src-corner"></span>
+  <div class="clear"></div>
+</div>
+
+<!-- search result -->
+<div class="search-res-items" data-search-res="0" <%= active_index == 0 ? '' : 'style=display:none;' %>>
+  <%= render :partial => 'search_header_goods', :locals => { :order_fields => [['Дате', :id], ['Отзывам', :feedbacks_count], ['Популярности', :views]], :makers => @goods.map(&:maker).delete_if { |m| m.blank? }.uniq.sort, :entities => @goods } %>
+  <!-- '.items' - copy of the same list of goods, jobs, etc... on minisite -->
+  <div class="items" data-search-res="1">
+    <%= render :partial => 'minisite/entities/entity', :collection => @goods %>
+    <div class="clear"></div>
+  </div>
+  <%= will_paginate @goods, :renderer => 'BootstrapPaginationHelper::RemoteLinkRenderer', :previous_label => '', :next_label => '' %> 
+</div>
+
+<!-- other type of items -->
+<!-- услуги  -->
+<div class="search-res-items" data-search-res="1" <%= active_index == 1 ? '' : 'style=display:none;' %>>
+  <%= render :partial => 'search_header_services', :locals => { :order_fields => [['Дате', :id], ['Отзывам', :feedbacks_count], ['Популярности', :views]], :makers => @services.map(&:maker).delete_if { |m| m.blank? }.uniq.sort, :entities => @services } %>
+  <div class="items">
+    <%= render :partial => 'minisite/entities/entity', :collection => @services %> 
+    <div class="clear"></div>
+  </div>
+  <%= will_paginate @services, :renderer => 'BootstrapPaginationHelper::RemoteLinkRenderer', :previous_label => '', :next_label => '' %> 
+</div>
+
+<!-- other type of items -->
+<!-- вакансии  -->
+<div class="search-res-items" data-search-res="2" <%= active_index == 2 ? '' : 'style=display:none;' %>>
+  <%= render :partial => 'search_header_jobs', :locals => { :order_fields => [['Зарплате', :salary_from], ['Дате', :id]], :entities => @jobs } %>
+  <div class="jobs-items">
+    <%= render :partial => 'minisite/jobs/job', :collection => @jobs %>
+    <div class="clear"></div>
+  </div>
+  <%= will_paginate @jobs, :renderer => 'BootstrapPaginationHelper::RemoteLinkRenderer', :previous_label => '', :next_label => '' %> 
+</div>
+
+<!-- other type of items -->
+<!-- новости  -->
+<div class="search-res-items" data-search-res="3" <%= active_index == 3 ? '' : 'style=display:none;' %>>
+  <%= render :partial => 'search_header', :locals => { :order_fields => [['Дате', :id], ['Отзывам', :comments_count]], :entities => @news } %>
+  <div class="campaigns"><%= render :partial => 'minisite/news/news', :collection => @news %></div>
+  <%= will_paginate @news, :renderer => 'BootstrapPaginationHelper::RemoteLinkRenderer', :previous_label => '', :next_label => '' %> 
+</div>
+
+<!-- other type of items -->
+<!-- акции -->
+<div class="search-res-items" data-search-res="4" <%= active_index == 4 ? '' : 'style=display:none;' %>>
+  <%= render :partial => 'search_header', :locals => { :order_fields => [['Дате', :start_at], ['Отзывам', :comments_count]], :entities => @campaigns } %>
+  <div class="campaigns"><%= render :partial => 'minisite/campaigns/campaign', :collection => @campaigns %></div>
+  <%= will_paginate @campaigns, :renderer => 'BootstrapPaginationHelper::RemoteLinkRenderer', :previous_label => '', :next_label => '' %> 
+</div>
+
+<!-- other type of items -->
+<!-- отзывы -->
+<div class="search-res-items" data-search-res="5" <%= active_index == 5 ? '' : 'style=display:none;' %>>
+  <%= render :partial => 'search_header', :locals => { :order_fields => [['Отзывам', :plus]], :entities => @feedbacks } %>
+  <%= render :partial => 'minisite/feedbacks/feedback', :collection => @feedbacks %>
+  <%= will_paginate @feedbacks, :renderer => 'BootstrapPaginationHelper::RemoteLinkRenderer', :previous_label => '', :next_label => '' %> 
+</div>

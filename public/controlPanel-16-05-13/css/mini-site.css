@@ -1,0 +1,520 @@
+﻿#site
+{
+    border: 0px solid #cccccc;
+    margin: 0 auto;
+    margin-top: 290px;
+    margin-bottom: 30px;
+    width: 910px;
+    min-height: 200px;
+}
+
+#site header
+{
+    min-height: 230px;
+    max-height: 230px;
+    width: 910px;
+    margin: 0 auto;
+    border: 0px solid #cccccc;
+    
+    background: url("../images/temp/textura2.jpg");
+}
+#site header .left
+{
+    width: 220px;
+    float: left;
+    padding: 60px 0px 0px 0px;
+    border: 0px solid #cccccc;
+}
+#site header .logo
+{
+    width: 185px;
+    height: 100px;
+    margin: 10px 0px 0px 25px;
+    
+    overflow: hidden;
+    text-align: center;
+}
+#site header .logo img
+{
+    max-width: 185px;
+    max-height: 100px;
+    vertical-align: middle;
+}
+#site header .right
+{
+    float: left;
+    width: 675px;
+    padding: 33px 0px 0px 0px;
+    border: 0px solid #cccccc;
+}
+#site header .search
+{
+    border: 0px solid #cccccc; 
+    padding: 0px 40px 0px 0px;
+    text-align: right;
+    margin: 20px 0px 0px 0px;
+}
+#site header .search input
+{
+    margin: 90px 0px 0px 0px;
+    border: 1px solid #cccccc;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    font-family: Verdana;
+    font-size: 8pt;
+    padding: 2px 20px 2px 5px;
+    background: url(../images/lupa-blue.png) 97% center no-repeat #fff;
+}
+
+
+/* Хак для FF */
+@-moz-document url-prefix()
+{
+    #site header .right
+    {
+        padding: 30px 0px 0px 0px;
+    }     
+}
+
+
+/* Хак для Chrome */
+@media all and (-webkit-min-device-pixel-ratio:0)
+{
+
+}
+
+
+#site header .navigation
+{
+    border: 0px solid #cccccc;
+    margin: 30px 20px 0px 20px;
+    padding: 0px;
+    overflow: hidden;
+    background: url(../mini-img/header-shadow.png) no-repeat;
+    background-position: bottom;
+    display: inline-block;
+    background: #838fa0;
+    
+    -webkit-border-top-left-radius: 10px;
+    -moz-border-top-left-radius: 10px;
+    border-top-left-radius: 10px;
+    -webkit-border-top-right-radius: 10px;
+    -moz-border-top-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+#site header .navigation li
+{
+    float: left;
+    list-style: none;
+    display: block;
+}
+#site header .navigation li:first-child
+{
+    -webkit-border-top-left-radius: 10px;
+    -moz-border-top-left-radius: 10px;
+    border-top-left-radius: 10px;    
+}
+#site header .navigation li:last-child
+{
+    -webkit-border-top-right-radius: 10px;
+    -moz-border-top-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+#site header .navigation li:hover
+{
+    background: #e9e9e9;
+}
+#site header .navigation li a
+{
+    color: #fff;
+    text-decoration: none;
+    font-size: 12px;
+    padding: 12px 18px 12px 19px;
+    display: block;
+}
+#site header .navigation li a:hover
+{
+    color: #01d6fd;
+}
+
+
+
+#site .container
+{
+    border: 0px solid #cccccc;
+    background: #e9e9e9;
+}
+
+
+#site .container section.sidebar
+{
+    border: 0px solid #cccccc;
+    width: 215px;
+    margin: 15px 0px 15px 15px;
+    float: left;
+    min-height: 50px;
+}
+#site .sidebar aside
+{
+    margin: 0px 0px 15px 0px;
+}
+
+/* ВЫНЕСТИ!!! */
+#site .sidebar aside .title, #site .container section.content .title
+{
+    background: #838fa0;
+    line-height: 28px;
+    text-align: center;
+    color: #ffffff;
+    border-top: 1px solid #e9e9e9;
+}
+#site .sidebar aside .title:first-child, #site .container section.content .title:first-child
+{
+    border: none;
+    -webkit-border-top-left-radius: 10px;
+    -moz-border-top-left-radius: 10px;
+    border-top-left-radius: 10px;
+    -webkit-border-top-right-radius: 10px;
+    -moz-border-top-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+#site .sidebar aside .content
+{
+    background: #fff;
+    min-height: 100px;
+}
+#site .container section.content .title
+{
+    line-height: 28px;
+    text-align: left;
+    padding: 0px 20px 0px 20px;
+    border-top: 1px solid #e9e9e9;
+    background: #838fa0;
+    color: #fff;
+}
+
+/* Хлебные крощки */
+#site section.content .title .breadcrumbs
+{
+    margin: 0px;
+    font-size: 11px;
+}
+#site section.content .title .breadcrumbs span
+{
+    font-size: 11px;
+}
+#site section.content .title .breadcrumbs a
+{
+    color: #ffffff;
+    font-size: 11px;
+    text-decoration: none;
+}
+#site section.content .title .breadcrumbs a:first-child
+{
+    color: #01cbfd;
+}
+
+.entity-title
+{
+    border-bottom: 1px solid #8490a1;
+    margin: 20px;
+}
+.entity-title h2
+{
+    padding: 0px 10px 0px 0px;
+    float: left;
+    background: #fff;
+    margin: -5px 0px -5px 0px;
+    color: #8490a1;
+    font-weight: normal;
+    font-size: 20px;
+}
+.entity-title p
+{
+    margin: 0px;
+    padding: 0px;
+    float: right;
+    font-size: 11px;
+    color: #ababab;
+}
+
+#site section.content p.text
+{
+    margin: 20px;
+    line-height: 20px;
+}
+
+
+#site .categories
+{
+    margin: 0px;
+    padding: 5px 10px 10px 5px;
+    list-style: none;
+}
+#site .categories li
+{
+    display: block;
+}
+#site .categories ul
+{
+    margin: 0px;
+    padding: 0px;
+}
+#site .categories li .container
+{
+    
+}
+#site .categories li a
+{
+    display: block;
+    text-decoration: none;
+    color: #141414;
+    line-height: 20px;
+    float: left;
+    width: 145px;
+    padding: 0px 5px 0px 5px;
+    border: 0px solid #cccccc;
+}
+#site .categories li p
+{
+    float: left;
+    color: #141414;
+    line-height: 20px;
+    width: 30px;
+    margin: 0px;
+    padding: 0px 5px 0px 5px;
+    border-bottom: 0px solid #cccccc;
+    text-align: center;
+}
+
+#site .categories.level-1 .container
+{
+    border-bottom: 1px dashed #cccccc;
+    padding: 5px 0px 5px 0px;
+    background: #fff;
+}
+#site .categories .level-2
+{
+    margin: 5px 0px 5px 3px;
+    display: none;
+}
+#site .categories .level-2 li
+{
+    margin: 2px 0px 2px 0px;
+}
+#site .categories .level-2 .container
+{
+    background: url("../images/level-2.gif") repeat-y;
+    border: none;
+    padding: 4px 0px 4px 0px;
+    -webkit-border-top-left-radius: 10px;
+    -moz-border-top-left-radius: 10px;
+    border-top-left-radius: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+    -moz-border-bottom-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+#site .categories .level-3
+{
+    margin: 2px 0px 2px 0px;
+    display: none;
+}
+#site .categories .level-3 li
+{
+    margin: 0px 0px 0px 0px;
+    font-size: 11px;
+}
+#site .categories .level-3 .container
+{
+    /*background: url("../images/level-2.gif") repeat-y;*/
+    border-bottom: 1px solid #cccccc;
+    background: none;
+    padding: 3px 0px 3px 0px;
+    
+    -webkit-border-top-left-radius: 0px;
+    -moz-border-top-left-radius: 0px;
+    border-top-left-radius: 0px;
+    -webkit-border-bottom-left-radius: 0px;
+    -moz-border-bottom-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+#site .categories .level-3 .have-child .container
+{
+    background: url("../images/level-3.gif") repeat-y;
+    background-position: right;
+}
+#site .categories .level-3 .have-child .level-4 .container
+{
+    background: none;
+}
+#site .categories .level-4
+{
+    display: none;
+}
+
+
+#site .timetable
+{
+    padding: 15px 0px 0px 0px;
+    margin: 0px 5px 0px 5px;
+}
+#site .timetable .day
+{
+    font-size: 11px;
+}
+#site .timetable .day .name-time
+{
+    background: #e9e9e9;
+    padding: 2px 10px 2px 10px;
+}
+#site .timetable .day .name
+{
+    float: left;
+    border: 0px solid #cccccc;
+    width: 100px;
+}
+#site .timetable .day .time
+{
+    float: left;
+    border: 0px solid #cccccc;
+    width: 65px;
+}
+#site .timetable .day .break
+{
+    padding: 4px 15px 4px 15px;
+}
+#site .timetable .weekend
+{
+    margin: 10px 0px 0px 0px;
+    font-size: 11px;
+    text-align: center;
+}
+
+
+#site .sidebar .content .info
+{
+    padding: 15px 20px 15px 20px;
+    font-size: 11px;
+    color: #141414;
+}
+#site .sidebar .content .info p
+{
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    line-height: 22px;
+}
+
+/* Кнопка отправки почты */
+.send-mail
+{
+    display: inline-block;
+    background: url("../images/mail-big.png") no-repeat;
+    margin: 2px;
+    padding: 10px 10px 10px 30px;
+    color: #b3b3b3;
+    text-decoration: none;
+    vertical-align: middle;
+}
+/* Кнопка позвонить */
+.call-up
+{
+    display: inline-block;
+    vertical-align: middle;
+    background: url("../images/call-up.png");
+    width: 166px;
+    height: 34px;
+    margin: 2px;
+}
+
+
+
+#site .container section.content
+{
+    border: 0px solid #cccccc;
+    min-height: 50px;
+    float: left;
+    margin: 15px 15px 15px 10px;
+    background: #fff;
+    width: 655px; /* +3 ??? */
+    
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+
+/* Основной подвал */
+#site footer
+{
+    background: #838fa0;
+
+    border: 0px solid #cccccc;
+    min-height: 50px;
+    
+    -webkit-border-bottom-left-radius: 10px;
+    -moz-border-bottom-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    
+    -webkit-border-bottom-right-radius: 10px;
+    -moz-border-bottom-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    
+    margin: 0px 0px 15px 0px;
+}
+#site footer .left
+{
+    float: left;
+    width: 405px;
+    border: 0px solid #000;
+}
+#site footer .info
+{
+    margin: 10px 20px 10px 20px;
+}
+#site footer .info p
+{
+    margin: 5px 0px 5px 0px;
+    padding: 0px;
+    color: #ffffff;
+}
+#site footer .right
+{
+    width: 505px;
+    float: left;
+    border: 0px solid #000;
+    text-align: right;
+}
+#site footer .right .counters
+{
+    list-style: none;
+    margin: 30px;
+}
+#site footer .right .counters li
+{
+    display: inline-block;
+}
+
+#site footer .navigation
+{
+    list-style: none;
+    text-align: center;
+    padding: 50px 0px 50px 0px;
+}
+#site footer .navigation li
+{
+    display: inline-block;
+    margin: 0px 15px 0px 15px;
+}
+#site footer .navigation li a
+{
+    color: #fff;
+    text-decoration: none;
+}
+#site footer .navigation li a:hover
+{
+    text-decoration: underline;
+}

@@ -1,0 +1,68 @@
+<div class="entity-title">
+    <h2>Акции</h2>
+    <p></p>
+    <div class="clear"></div>
+</div>
+
+<h1 class="blue-title"><%= @campaign.name %></h1>
+
+<div class="entity campaign">
+    <div class="header">
+        <div class="left">
+            <img src="<%= @campaign.image.thumb %>" alt="" />
+        </div>
+        <div class="right">
+            <div class="info">
+                <p><a href="#"><%= @company.address %></a></p>
+                <p>тел.: <%= @company.phone %></p>
+                <p><a class="call-up" href="#"></a></p>
+                <%= render :partial => 'minisite/shared/likes', :locals => { :entity => @campaign } %>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    
+    
+    <!-- Блок отправки акции -->
+    <div class="send-campaign hidden" id="sendCampaignBlock">
+      <%= form_for @campaign, :url => campaign_send_campaign_path(@campaign), :html => { :remote => true, :method => 'post' } do |f| %>
+        <div class="to">
+            <input type="text" placeholder="Введите адрес электронной почты" name="campaign[email]" id="campaign_email" />
+        </div>
+        <div class="buttons">
+            <a class="left send" href="#">Отправить</a><a class="right cancel" href="#">Отмена</a>
+        </div>
+      <% end %>
+    </div>
+    <!-- end | Блок отправки акции -->
+    
+    <!--Блок с вкладками-->
+    <div class="tabs">
+        <ul class="tabs-items">
+            <li><a href="#" data-tab="0" class="active">Описание</a></li>
+            <li><a href="#" data-tab="popup" id="sendCampaign">Отправить акцию</a></li>
+            <li><a href="#" data-tab="2">Комментарии (<%= @campaign.comments_count %>)</a></li>
+        </ul>
+        <div class="tabs-content">
+            
+        <!--Описание-->
+            <div class="tab-content" data-tab="0">
+                <p class="campaign-description">
+                  <%=raw @campaign.description %>
+                </p>
+            </div>
+        <!--Отправить акцию-->
+            <div class="tab-content" data-tab="1">
+                
+            </div>
+        <!--Комменарии-->
+            <div class="tab-content hidden" data-tab="2">
+              <%= render :partial => 'minisite/comments/comments_block', :locals => { :entity => @campaign, :comments => @campaign.comments.last(Comment::LAST_COUNT) } %>
+            </div>
+            
+        </div>
+    </div>
+    
+		<%= render :partial => 'minisite/shared/footer_sharing', :locals => { :entity => @campaign } %>
+    
+</div>

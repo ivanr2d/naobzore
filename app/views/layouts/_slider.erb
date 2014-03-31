@@ -1,0 +1,39 @@
+<!---
+Размер картинки в слайде: weight: 700px; height: 190px;
+        <img src="img/temp/companys-header.png" />
+--->
+<section id="slider">
+<% if @this_banners && @this_banners.count > 0 %>
+  <div id="bannerContainer">
+    <div class="banner-image" id="bannerSlider">
+      <ul>
+        <!----
+        <li><a href="http://hi.ru/view/1"><img src="/assets/temp/companys-header-mini-700_190.png" /></a></li>
+        <li><a href="http://hi.ru/view/1"><img src="/assets/temp/companys-header-mini-700_190.png" /></a></li>
+        ----->
+				
+        <% @this_banners.each do |banner| %>
+        <li><%= link_to(image_tag(banner.banner.other), banner.link) %></li>
+        <% end %>
+
+      </ul>
+    </div>
+    <div class="banner-menu">
+      <ul class="banner-buttons">
+        <!----
+        <li id="sl_1" data-view-url="http://hi.ru/view/1">Связной</li>
+        <li id="sl_2" data-view-url="http://hi.ru/view/2">Белый ветер цифровой</li>
+				----->
+				
+        <% @this_banners.each do |banner| %>
+          <li id="sl_<%= banner.id %>" data-view-url="<%= banner.link %>"><%= banner.title %></li>
+        <% end %>
+         
+      </ul>
+    </div>
+    <div class="clear"></div>
+  </div>
+<% else %>
+	<a href="/company_panel/banners/new" target="_blank"><img src="/assets/banner-def.gif"></a>
+<% end %>
+</section>

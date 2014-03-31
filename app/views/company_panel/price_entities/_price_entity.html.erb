@@ -1,0 +1,85 @@
+<% 
+price_entity.save
+error_columns = price_entity.errors.messages.keys
+%>
+<tr data-entity_id="<%= price_entity.id %>" <%= price_entity.valid? ? '' : 'class=error' %>>
+  <td>
+    <%= form_for price_entity, :as => :entity, :url => company_panel_price_entity_path(price_entity, :format => :js), :remote => true do |f| %>
+    <% end %>
+    <input type="checkbox" class="row-checkbox" />
+  </td>
+  <td class="dynamic-cell <%= error_columns.include?(:article) ? 'error' : '' %>" data-type="text">
+      <div class="title"><%= price_entity.article %></div>
+      <div class="input hidden"><input type="text" name="entity[article]" value="<%= price_entity.article %>" size="2" /></div>
+  </td>
+  <td class="dynamic-cell <%= error_columns.include?(:name) ? 'error' : '' %>" data-type="text">
+      <div class="cell">
+      <div class="title"><%= truncate price_entity.name, :limit => 7 %></div>
+      <div class="input hidden"><input type="text" name="entity[name]" value="<%= price_entity.name %>" size="10" /></div>
+      </div>
+  </td>
+  <td class="ext-coll <%= error_columns.include?(:category_id) ? 'error' : '' %>" data-type="popup">
+      <div class="right"><a href="#" class="points" data-item="2" data-type="popup-categories"></a>
+          <!--popup-categories-->
+      </div>
+      <div class="left"><%= price_entity.category.try(:title) %></div>
+      <input type="hidden" name="entity[category]" value="<%= price_entity.category.try(:title) %>" />
+  </td>
+  <td>
+      <div class="cell">
+      <a href="#" class="link-simple view-popup" data-type="description" data-description="<%= price_entity.description %>"><%= raw truncate(price_entity.description, :limit => 15) %></a>
+      <input type="hidden" name="entity[description]" value="<%= price_entity.description %>" />
+      </div>
+  </td>
+  <td>
+    <a href="#" class="link-simple view-popup" data-item="<%= price_entity.id %>" data-type="characteristics" data-characteristics="<%= price_entity.characteristics_str %>"><%= price_entity.characteristics_str.empty? ? 'Добавить' : truncate(price_entity.characteristics_str, :limit => 12) %></a>
+  </td>
+  <td class="dynamic-cell <%= error_columns.include?(:price) ? 'error' : '' %>" data-type="text">
+      <div class="cell">
+      <div class="title"><%= price_entity.price %></div>
+      <div class="input hidden"><input type="text" name="entity[price]" value="<%= price_entity.price %>" size="2" /></div>
+      </div>
+  </td>
+  <td class="dynamic-cell <%= error_columns.include?(:measure) ? 'error' : '' %>" data-type="select">
+      <div class="cell">
+      <div class="title"><%= price_entity.measure %></div>
+      <div class="input hidden">
+          <select name="entity[measure]"><option value="">Не выбрано</option><%= options_for_select ['шт.', 'упак.'], price_entity.measure %></select>
+      </div>
+      </div>
+  </td>
+  <td class="link-simple" data-entity_id="<%= price_entity.id %>">
+    <div class="title"><%= link_to (price_entity.image.blank? ? 'no-image' : File.basename(price_entity.image.to_s)), load_image_company_panel_price_entity_path(price_entity), :remote => true, :class => 'load-popup', :"data-type" => 'load-image' %></div>
+    <div class="preview preview-dynamic"><img src="<%= price_entity.image %>"></div>
+  </td>
+  <td style="text-align:left !important;" <%= error_columns.include?(:available) ? 'class=error' : '' %>>
+    <label><input type="checkbox" class="available" name="entity[available]" value="1" <%= price_entity.available? ? 'checked=checked' : '' %> /></label><br />
+  </td>
+  <td class="dynamic-cell" data-type="text">
+      <div class="cell">
+      <div class="title"><%= price_entity.state %></div>
+      <div class="input hidden"><input type="text" name="entity[state]" value="<%= price_entity.state %>" size="2" /></div>
+      </div>
+  </td>
+  <td class="dynamic-cell" data-type="text">
+      <div class="cell">
+      <div class="title"><%= price_entity.maker %></div>
+      <div class="input hidden"><input type="text" name="entity[maker]" value="<%= price_entity.maker %>" size="2" /></div>
+      </div>
+  </td>
+  <td class="dynamic-cell <%= error_columns.include?(:folder_id) ? 'error' : '' %>" data-type="select">
+      <div class="cell">
+      <div class="title"><%= price_entity.folder.try(:name) %></div>
+      <div class="input hidden">
+          <select name="entity[folder_id]"><option value="">Не выбрано</option><%= options_from_collection_for_select(current_user.account.folders, :id, :name, price_entity.folder_id) %></select>
+      </div>
+      </div>
+  </td>
+  <td class="dynamic-cell <%= error_columns.include?(:warranty_time) ? 'error' : '' %>" data-type="text">
+      <div class="cell">
+      <div class="title"><%= price_entity.warranty_time %></div>
+      <div class="input hidden"><input type="text" name="entity[warranty_time]" value="<%= price_entity.warranty_time %>" size="2" /></div>
+      </div>
+  </td>
+  
+</tr>

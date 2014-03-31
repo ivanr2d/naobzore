@@ -1,0 +1,689 @@
+﻿<!doctype html>
+<html>
+<head>
+    <title>На обзоре</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="css/selectbox.css" />
+    
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jcarousel.js"></script>
+    <script type="text/javascript" src="js/jselectbox.js"></script>
+    <script type="text/javascript" src="js/kepCarousel.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    
+    <!--[if lt IE 9]>
+    <script>
+        document.createElement('nav');
+        document.createElement('header');
+        document.createElement('footer');
+        document.createElement('section');
+        document.createElement('aside');
+        document.createElement('article');
+    </script>
+    <![endif]-->
+</head>
+<body>
+	
+	<section id="container">
+		 <header id="header">
+            <div id="header_main">
+                <img id="logotype" src="img/logotype.png" alt="" />
+            </div>
+            <div id="header_buts">
+                <div id="mini_buts">
+                    <a href="#" class="top-link"><img src="img/icons/home.png" alt="" /></a>
+                    <a href="#" class="top-link"><img src="img/icons/mail.png" alt="" /></a>
+                    <a href="#" class="top-link"><img src="img/icons/map.png" alt="" /></a>
+                </div>
+                <nav id="top_nav">
+                    <ul>
+                        <li class="top-nav"><a href="#" id="view_add" class="vinous">Добавить компанию</a></li>
+                        <li class="top-nav"><a href="#" id="view_registration">Регистрация</a></li>
+                        <li class="top-nav"><a href="#" id="view_login">Войти</a></li>
+                        <li class="top-nav"><a href="#">Справка</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div id="header_wave"></div>
+            <div id="header_righ"></div>
+            <nav id="main_nav">
+                <ul>
+                    <li><a href="#">ТОВАРЫ</a></li>
+                    <li><a href="#">УСЛУГИ</a></li>
+                    <li><a href="#">ВАКАНСИИ</a></li>
+                    <li class="main-nav-active"><a href="#">ПРЕДПРИЯТИЯ</a></li>
+                    <li><a href="#">НОВОСТИ</a></li>
+                    <li><a href="#">АКЦИИ</a></li>
+                    <li><a href="#">ОТЗЫВЫ</a></li>
+                    <li><a href="#">ОБЪЯВЛЕНИЯ</a></li>
+                </ul>
+                <div class="clear"></div>
+            </nav>
+        </header>
+
+        <!---
+        Размер картинки в слайде: weight: 556px; height: 266px;
+        --->
+        <section id="slider">
+            <div id="kepCarousel">
+                <div class="carousel-all">
+                    <ul>
+                        <li><img src="img/temp/slide-1.png" alt="" /></li>
+                        <li><img src="img/temp/slide-2.png" alt="" /></li>
+                        <li><img src="img/temp/slide-3.png" alt="" /></li>
+                        <li><img src="img/temp/slide-4.png" alt="" /></li>
+                    </ul>
+                </div>
+                <div class="carousel-left">
+                    <div class="slide-prev"></div>
+                </div>
+                <div class="carousel-right">
+                    <div class="slide-next"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="search">
+            <div id="search_main">
+                <!-- Search field -->
+                <div id="search_child">
+                    <div id="search_but">
+                        <input type="submit" value="НАЙТИ" />
+                    </div>
+                    <div id="search_field">
+                        <input type="text" name="SEARCH" />
+                        <a href="#" id="search_ext_view">Расширенный поиск <img src="img/view-search.png" alt="" /></a>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div id="search_ext">
+                    <div class="search-shadow"></div><!--тень сверху-->
+                    <div class="search-category">
+                        <span>Категория</span> <input type="text" name="" />
+                    </div>
+                    <div class="search-price">
+                        <span>Цена от</span> <input type="text" name="" size="5" />
+                        <span>до</span> <input type="text" name="" size="5" />
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+
+    
+        <div id="main_container">
+            <!-- Левый блок -->
+            <div id="left">
+                <nav class="sub_nav">
+                    <header>
+                        <p class="left-tit-first">КАТАЛОГ</p>
+                        <p class="left-tit-second">ТОВАРЫ - УСЛУГИ</p>
+                    </header>
+                    <ul>
+                        <li><a href="#">Строительство и недвижимость</a>
+                            <ul>
+                                <li><a href="#">Квартиры</a><p>1800</p><div class="clear"></div></li>
+                                <li><a href="#">Дома</a><p>2010</p><div class="clear"></div>
+                                    <ul>
+                                        <li><a href="#">-Однокомнатные</a><p>454</p><div class="clear"></div></li>
+                                        <li><a href="#">-Двухкомнатные</a><p>454</p><div class="clear"></div></li>
+                                        <li><a href="#">-Трехкомнатные</a><p>454</p><div class="clear"></div></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Гаражи</a><p>1020</p><div class="clear"></div></li>
+                                <li><a href="#">Склады</a><p>2300</p><div class="clear"></div>
+                                    <ul>
+                                        <li><a href="#">-Однокомнатные</a><p>454</p><div class="clear"></div></li>
+                                        <li><a href="#">-Двухкомнатные</a><p>454</p><div class="clear"></div></li>
+                                        <li><a href="#">-Трехкомнатные</a><p>454</p><div class="clear"></div></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Оборудование</a></li>
+                        <li><a href="#">Промышленные изделия</a></li>
+                        <li><a href="#">Металлопрокат, металлоизделия</a></li>
+                        <li><a href="#">Сырье и материалы</a></li>
+                        
+                        
+                        <li><a href="#">Транспорт</a></li>
+                        <li><a href="#">Товары для офиса</a></li>
+                        <li><a href="#">Связь, интернет</a></li>
+                        <li><a href="#">Мебель</a></li>
+                        
+                    </ul>
+                    <ul class="sub-nav-more" data-nav="1">
+                    	
+                        <li><a href="#">Связь, интернет</a></li>
+                        <li><a href="#">Строительство и недвижимость</a>
+                            <ul>
+                                <li><a href="#">Квартиры</a><p>1800</p><div class="clear"></div></li>
+                                <li><a href="#">Дома</a><p>2010</p><div class="clear"></div>
+                                    <ul>
+                                        <li><a href="#">-Однокомнатные</a><p>454</p><div class="clear"></div></li>
+                                        <li><a href="#">-Двухкомнатные</a><p>454</p><div class="clear"></div></li>
+                                        <li><a href="#">-Трехкомнатные</a><p>454</p><div class="clear"></div></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Гаражи</a><p>1020</p><div class="clear"></div></li>
+                                <li><a href="#">Склады</a><p>2300</p><div class="clear"></div>
+                                    <ul>
+                                        <li><a href="#">-Однокомнатные</a><p>454</p><div class="clear"></div></li>
+                                        <li><a href="#">-Двухкомнатные</a><p>454</p><div class="clear"></div></li>
+                                        <li><a href="#">-Трехкомнатные</a><p>454</p><div class="clear"></div></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="sub-nav-more-view-block">
+						<li><a href="#" class="sub-nav-more-view" data-nav="1">Показать все категории</a></li>
+                    </ul>
+                    
+                    <footer></footer>
+                </nav>
+
+                <nav class="sub_nav">
+                    <header>
+                        <p class="left-tit-first">КАТАЛОГ</p>
+                        <p class="left-tit-second">ТОВАРЫ - УСЛУГИ</p>
+                    </header>
+                    <ul>
+                        <li><a href="#">Строительство и недвижимость</a>
+                            <ul>
+                                <li><a href="#">Квартиры</a><p>1800</p><div class="clear"></div></li>
+                                <li><a href="#">Дома</a><p>2010</p><div class="clear"></div>
+                                    <ul>
+                                        <li><a href="#">-Однокомнатные</a><p>454</p><div class="clear"></div></li>
+                                        <li><a href="#">-Двухкомнатные</a><p>454</p><div class="clear"></div></li>
+                                        <li><a href="#">-Трехкомнатные</a><p>454</p><div class="clear"></div></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Гаражи</a><p>1020</p><div class="clear"></div></li>
+                                <li><a href="#">Склады</a><p>2300</p><div class="clear"></div>
+                                    <ul>
+                                        <li><a href="#">-Однокомнатные</a><p>454</p><div class="clear"></div></li>
+                                        <li><a href="#">-Двухкомнатные</a><p>454</p><div class="clear"></div></li>
+                                        <li><a href="#">-Трехкомнатные</a><p>454</p><div class="clear"></div></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Оборудование</a></li>
+                        <li><a href="#">Промышленные изделия</a></li>
+                        <li><a href="#">Металлопрокат, металлоизделия</a></li>
+                        <li><a href="#">Сырье и материалы</a></li>
+                        <li><a href="#">Транспорт</a></li>
+                        <li><a href="#">Товары для офиса</a></li>
+                        <li><a href="#">Связь, интернет</a></li>
+                        <li><a href="#">Мебель</a></li>
+                    </ul>
+                    <footer></footer>
+                </nav>
+
+            </div>
+            <!-- / Левый блок -->
+
+            <!-- Контент -->
+            <div id="content">
+                <header>
+                    <!-- Обычно хлебные крошки или статистика -->
+                    На сайте присутствует 806 671 компаний, 4 096 623 товаров, города Оренбурга и области.
+                </header>
+                <div id="main">
+                    <!-- Заголовок контента -->
+                    <div id="main_title">
+                        <div id="main_title_left">Знакомство с системой!</div>
+                        <div id="main_title_right"></div>
+                    </div>
+                    <!-- / Заголовок контента -->
+
+                    <!-- Секция с текстом и слайдером видео -->
+                    <section id="about_slider">
+
+                        <div id="about_slider_slides">
+                            <ul>
+                                <li class="about-slide">
+                                    <div class="about-text">
+                                        <h4>Приветствуем Вас в системе НаОбзоре.рф!</h4>
+                                        <p>Для Вашего удобства, мы создали уникальную
+                                        возможность поиска нужного товара и услуг,
+                                        представленного Оренбургскими фирмами, 
+                                        на одном ресурсе.
+                                        Для более гибкого использования сайта,
+                                        предлагаем Вашему просмотру презентацию.</p>
+                                    </div>
+                                    <div class="about-video">
+                                        <img src="img/video/video-1.png" alt="" />
+                                    </div>
+                                    <div class="clear"></div>
+                                </li>
+                                <li class="about-slide">
+                                    <div class="about-text">
+                                        <h4>Приветствуем Вас в системе НаОбзоре.рф!</h4>
+                                        <p>Для Вашего удобства, мы создали уникальную
+                                        возможность поиска нужного товара и услуг,
+                                        представленного Оренбургскими фирмами, 
+                                        на одном ресурсе.
+                                        Для более гибкого использования сайта,
+                                        предлагаем Вашему просмотру презентацию.</p>
+                                    </div>
+                                    <div class="about-video">
+                                        <img src="img/video/video-2.png" alt="" />
+                                    </div>
+                                </li>
+                                <li class="about-slide">
+                                    <div class="about-text">
+                                        <h4>Приветствуем Вас в системе НаОбзоре.рф!</h4>
+                                        <p>Для Вашего удобства, мы создали уникальную
+                                        возможность поиска нужного товара и услуг,
+                                        представленного Оренбургскими фирмами, 
+                                        на одном ресурсе.
+                                        Для более гибкого использования сайта,
+                                        предлагаем Вашему просмотру презентацию.</p>
+                                    </div>
+                                    <div class="about-video">
+                                        <img src="img/video/video-3.png" alt="" />
+                                    </div>
+                                </li>
+                                <li class="about-slide">
+                                    <div class="about-text">
+                                        <h4>Приветствуем Вас в системе НаОбзоре.рф!</h4>
+                                        <p>Для Вашего удобства, мы создали уникальную
+                                        возможность поиска нужного товара и услуг,
+                                        представленного Оренбургскими фирмами, 
+                                        на одном ресурсе.
+                                        Для более гибкого использования сайта,
+                                        предлагаем Вашему просмотру презентацию.</p>
+                                    </div>
+                                    <div class="about-video">
+                                        <img src="img/video/video-4.png" alt="" />
+                                    </div>
+                                    <div class="clear"></div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="clear"></div>
+
+                        <ul id="about_slider_buttons">
+                            <li class="slide-active" id="btn_1">1</li>
+                            <li id="btn_2">2</li>
+                            <li id="btn_3">3</li>
+                            <li id="btn_4">4</li>
+                        </ul>
+                        <div class="clear"></div>
+                    </section>
+                    <!-- / Секция с текстом и слайдером видео -->
+
+
+                    <!-- Блок с вкладками -->
+                    <section class="block-with-tabs">
+                        <div class="with-tabs">
+                            <ul>
+                                <li class="tab-active" data-tab="1">Популярные фирмы</li>
+                                <li data-tab="2">Новые фирмы</li>
+                            </ul>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="with-content" id="pop_companys">
+                            <div class="sub-cont" data-con="1">
+                                <div class="cont-left">
+                                    <p><a href="#">ТС "Центер"</a> | Компьютерная техника | 26.05.2012</p>
+                                    <p><a href="#">ТС "Центер"</a> | Компьютерная техника | 26.05.2012</p>
+                                    <p><a href="#">ТС "Центер"</a> | Компьютерная техника | 26.05.2012</p>
+                                    <p><a href="#">ТС "Центер"</a> | Компьютерная техника | 26.05.2012</p>
+                                </div>
+                                <div class="cont-right">
+                                    <p><a href="#">ТС "Центер"</a> | Компьютерная техника | 26.05.2012</p>
+                                    <p><a href="#">ТС "Центер"</a> | Компьютерная техника | 26.05.2012</p>
+                                    <p><a href="#">ТС "Центер"</a> | Компьютерная техника | 26.05.2012</p>
+                                    <p><a href="#">ТС "Центер"</a> | Компьютерная техника | 26.05.2012</p>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+
+                            <div class="sub-cont" data-con="2">
+                                <div class="cont-left">
+                                    <p><a href="#">Евросеть один</a> | Интернет, связь | 26.05.2012</p>
+                                    <p><a href="#">Евросеть</a> | Интернет, связь | 26.05.2012</p>
+                                    <p><a href="#">Евросеть два</a> | Интернет, связь | 26.05.2012</p>
+                                    <p><a href="#">Евросеть</a> | Интернет, связь | 26.05.2012</p>
+                                </div>
+                                <div class="cont-right">
+                                    <p><a href="#">Евросеть</a> | Интернет, связь | 26.05.2012</p>
+                                    <p><a href="#">Евросеть три</a> | Интернет, связь | 26.05.2012</p>
+                                    <p><a href="#">Евросеть</a> | Интернет, связь | 26.05.2012</p>
+                                    <p><a href="#">Евросеть четыре</a> | Интернет, связь | 26.05.2012</p>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- / Блок с вкладками -->   
+
+                    <!-- Блок с вкладками с слайдером -->
+                    <section class="block-with-tabs">
+                        <div class="with-tabs">
+                            <ul>
+                                <li class="tab-active" data-tab="1">Популярные товары</li>
+                                <li data-tab="2">Новые товары</li>
+                                <li data-tab="3">Специальные предложения</li>
+                            </ul>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="with-content" id="slider_goods">
+
+                            <div class="sub-cont" data-con="1">
+                                <div class="cont-slider">
+                                    <div class="cont-slider-left"><div class="cont-slide-prev" id="cont_slider_prev_0"></div></div>
+                                    <div class="cont-slider-right"><div class="cont-slide-next" id="cont_slider_next_0"></div></div>
+                                    <div class="cont-slider-cont" id="cont_slider_1">
+                                        <ul>
+                                            <li class="cont-slide-block">
+                                                <img src="img/temp/image-4.png" alt="" />
+                                                <p class="cont-slide-name"><a href="">KS KIDS Подвеска гусеница, руль</a></p>
+                                                <p class="cont-slide-price">3400руб.</p>
+                                            </li>
+                                            <li class="cont-slide-block">
+                                                <img src="img/temp/image-1.png" alt="" />
+                                                <p class="cont-slide-name"><a href="">KS KIDS Подвеска гусеница, руль</a></p>
+                                                <p class="cont-slide-price">3400руб.</p>
+                                            </li>
+                                            <li class="cont-slide-block">
+                                                <img src="img/temp/image-2.png" alt="" />
+                                                <p class="cont-slide-name"><a href="">KS KIDS Подвеска гусеница, руль</a></p>
+                                                <p class="cont-slide-price">3400руб.</p>
+                                            </li>
+                                            <li class="cont-slide-block">
+                                                <img src="img/temp/image-1.png" alt="" />
+                                                <p class="cont-slide-name"><a href="">KS KIDS Подвеска гусеница, руль</a></p>
+                                                <p class="cont-slide-price">3400руб.</p>
+                                            </li>
+                                            <li class="cont-slide-block">
+                                                <img src="img/temp/image-3.png" alt="" />
+                                                <p class="cont-slide-name"><a href="">KS KIDS Подвеска гусеница, руль</a></p>
+                                                <p class="cont-slide-price">3400руб.</p>
+                                            </li>
+                                            <li class="cont-slide-block">
+                                                <img src="img/temp/image-2.png" alt="" />
+                                                <p class="cont-slide-name"><a href="">KS KIDS Подвеска гусеница, руль</a></p>
+                                                <p class="cont-slide-price">3400руб.</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="sub-cont" data-con="2">
+                                <div class="cont-slider">
+                                    <div class="cont-slider-left"><div class="cont-slide-prev" id="cont_slider_prev_1"></div></div>
+                                    <div class="cont-slider-right"><div class="cont-slide-next" id="cont_slider_next_1"></div></div>
+                                    <div class="cont-slider-cont" id="cont_slider_2">
+                                        <ul>
+                                            <li class="cont-slide-block">
+                                                <img src="img/temp/image-3.png" alt="" />
+                                                <p class="cont-slide-name"><a href="">KS KIDS Подвеска гусеница, руль</a></p>
+                                                <p class="cont-slide-price">3400руб.</p>
+                                            </li>
+                                            <li class="cont-slide-block">
+                                                <img src="img/temp/image-4.png" alt="" />
+                                                <p class="cont-slide-name"><a href="">KS KIDS Подвеска гусеница, руль</a></p>
+                                                <p class="cont-slide-price">3400руб.</p>
+                                            </li>
+                                            <li class="cont-slide-block">
+                                                <img src="img/temp/image-1.png" alt="" />
+                                                <p class="cont-slide-name"><a href="">KS KIDS Подвеска гусеница, руль</a></p>
+                                                <p class="cont-slide-price">3400руб.</p>
+                                            </li>
+                                            <li class="cont-slide-block">
+                                                <img src="img/temp/image-2.png" alt="" />
+                                                <p class="cont-slide-name"><a href="">KS KIDS Подвеска гусеница, руль</a></p>
+                                                <p class="cont-slide-price">3400руб.</p>
+                                            </li>
+                                            <li class="cont-slide-block">
+                                                <img src="img/temp/image-1.png" alt="" />
+                                                <p class="cont-slide-name"><a href="">KS KIDS Подвеска гусеница, руль</a></p>
+                                                <p class="cont-slide-price">3400руб.</p>
+                                            </li>
+                                            <li class="cont-slide-block">
+                                                <img src="img/temp/image-2.png" alt="" />
+                                                <p class="cont-slide-name"><a href="">KS KIDS Подвеска гусеница, руль</a></p>
+                                                <p class="cont-slide-price">3400руб.</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="sub-cont" data-con="3">
+                                <div class="cont-slider">
+                                    <div class="cont-slider-left"><div class="cont-slide-prev" id="cont_slider_prev_2"></div></div>
+                                    <div class="cont-slider-right"><div class="cont-slide-next" id="cont_slider_next_2"></div></div>
+                                    <div class="cont-slider-cont" id="cont_slider_3">
+                                        <ul>
+                                            <li class="cont-slide-block">
+                                                <img src="img/temp/image-1.png" alt="" />
+                                                <p class="cont-slide-name"><a href="">KS KIDS Подвеска гусеница, руль</a></p>
+                                                <p class="cont-slide-price">3400руб.</p>
+                                            </li>
+                                            <li class="cont-slide-block">
+                                                <img src="img/temp/image-2.png" alt="" />
+                                                <p class="cont-slide-name"><a href="">KS KIDS Подвеска гусеница, руль</a></p>
+                                                <p class="cont-slide-price">3400руб.</p>
+                                            </li>
+                                            <li class="cont-slide-block">
+                                                <img src="img/temp/image-3.png" alt="" />
+                                                <p class="cont-slide-name"><a href="">KS KIDS Подвеска гусеница, руль</a></p>
+                                                <p class="cont-slide-price">3400руб.</p>
+                                            </li>
+                                            <li class="cont-slide-block">
+                                                <img src="img/temp/image-4.png" alt="" />
+                                                <p class="cont-slide-name"><a href="">KS KIDS Подвеска гусеница, руль</a></p>
+                                                <p class="cont-slide-price">3400руб.</p>
+                                            </li>
+                                            <li class="cont-slide-block">
+                                                <img src="img/temp/image-1.png" alt="" />
+                                                <p class="cont-slide-name"><a href="">KS KIDS Подвеска гусеница, руль</a></p>
+                                                <p class="cont-slide-price">3400руб.</p>
+                                            </li>
+                                            <li class="cont-slide-block">
+                                                <img src="img/temp/image-2.png" alt="" />
+                                                <p class="cont-slide-name"><a href="">KS KIDS Подвеска гусеница, руль</a></p>
+                                                <p class="cont-slide-price">3400руб.</p>
+                                            </li>
+                                            <li class="cont-slide-block">
+                                                <img src="img/temp/image-4.png" alt="" />
+                                                <p class="cont-slide-name"><a href="">KS KIDS Подвеска гусеница, руль</a></p>
+                                                <p class="cont-slide-price">3400руб.</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </section>
+
+
+                    <!-- Блок с вкладками с слайдером -->
+                    <section class="block-with-tabs">
+                        <div class="with-tabs">
+                            <ul>
+                                <li class="tab-active" data-tab="1">Активные пользователи</li>
+                            </ul>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="with-content" id="slider_goods">
+
+                            <div class="sub-cont" data-con="1">
+                                <div class="cont-slider">
+                                    <div class="cont-slider-left"><div class="cont-slide-prev" id="cont_slider_prev_4"></div></div>
+                                    <div class="cont-slider-right"><div class="cont-slide-next" id="cont_slider_next_4"></div></div>
+                                    <div class="cont-slider-cont" id="cont_slider_4">
+                                        <ul>
+                                            <li class="cont-slide-block">
+                                                <img src="img/temp/ava-4.png" alt="" />
+                                                <p class="cont-slide-name"><a href="">NameUser 1</a></p>
+                                            </li>
+                                            <li class="cont-slide-block">
+                                                <img src="img/temp/ava-1.png" alt="" />
+                                                <p class="cont-slide-name"><a href="">NameUser 2</a></p>
+                                            </li>
+                                            <li class="cont-slide-block">
+                                                <img src="img/temp/ava-2.png" alt="" />
+                                                <p class="cont-slide-name"><a href="">NameUser 3</a></p>
+                                            </li>
+                                            <li class="cont-slide-block">
+                                                <img src="img/temp/ava-1.png" alt="" />
+                                                <p class="cont-slide-name"><a href="">NameUser 4</a></p>
+                                            </li>
+                                            <li class="cont-slide-block">
+                                                <img src="img/temp/ava-3.png" alt="" />
+                                                <p class="cont-slide-name"><a href="">NameUser 5</a></p>
+                                            </li>
+                                            <li class="cont-slide-block">
+                                                <img src="img/temp/ava-2.png" alt="" />
+                                                <p class="cont-slide-name"><a href="">NameUser 6</a></p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </section>
+                    <!-- / Блок с вкладками с слайдером -->
+                    
+                    <div class="new-block-other">
+                    	<div class="new-block-other-title">
+                    		Активные пользователи
+                    	</div>
+                        <div class="cont-slider-left"><div class="cont-slide-prev" id="cont_slider_prev_5"></div></div>
+                        <div class="cont-slider-right"><div class="cont-slide-next" id="cont_slider_next_5"></div></div>
+                        <div class="cont-slider-cont" id="cont_slider_5">
+                            <ul>
+                                <li class="cont-slide-block">
+                                    <img src="img/temp/ava-4.png" alt="" />
+                                    <p class="cont-slide-name"><a href="">NameUser 1</a></p>
+                                </li>
+                                <li class="cont-slide-block">
+                                    <img src="img/temp/ava-1.png" alt="" />
+                                    <p class="cont-slide-name"><a href="">NameUser 2</a></p>
+                                </li>
+                                <li class="cont-slide-block">
+                                    <img src="img/temp/ava-2.png" alt="" />
+                                    <p class="cont-slide-name"><a href="">NameUser 3</a></p>
+                                </li>
+                                <li class="cont-slide-block">
+                                    <img src="img/temp/ava-1.png" alt="" />
+                                    <p class="cont-slide-name"><a href="">NameUser 4</a></p>
+                                </li>
+                                <li class="cont-slide-block">
+                                    <img src="img/temp/ava-3.png" alt="" />
+                                    <p class="cont-slide-name"><a href="">NameUser 5</a></p>
+                                </li>
+                                <li class="cont-slide-block">
+                                    <img src="img/temp/ava-2.png" alt="" />
+                                    <p class="cont-slide-name"><a href="">NameUser 6</a></p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+                <footer>
+                    <div class="other-info-left">
+                        <p class="other-info-title">
+                            Возможности сайта:
+                        </p>
+                        <p class="other-info-text">
+                            Бесплатные звонки прямо с сайта
+                            Возможность добавления товара в избранное
+                            Пьтвптвлдргеш впвичды аррвии ктворы
+                            Типоаопшга тм аргешщалоо арвов
+                            Воп плвтвтаа мщктвм плвшеи
+                        </p>
+                    </div>
+                    <div class="other-info-right">
+                        <p class="other-info-title">
+                            Возможности сайта:
+                        </p>
+                        <p class="other-info-text">
+                            Бесплатные звонки прямо с сайта
+                            Возможность добавления товара в избранное
+                            Пьтвптвлдргеш впвичды аррвии ктворы
+                            Типоаопшга тм аргешщалоо арвов
+                            Воп плвтвтаа мщктвм плвшеи
+                        </p>
+                    </div>
+                </footer>
+            </div>
+            <!-- / Контент -->
+        </div>
+        
+        <div class="clear"></div>
+    </section>
+    
+    <div class="clear"></div>
+    
+    <!-- Подвал -->
+    <footer id="last_footer">
+        <div id="info_footer">
+            <div class="info-head">
+                <div class="info-head-auto">
+                    <div class="info-row">Полезная информация</div>
+                    <div class="info-row">Организациям</div>
+                    <div class="info-row">О нас</div>
+                    <div class="info-row">Мы в социальных сетях</div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="info-body">
+                <div class="info-head-auto">
+                    <div class="info-col">
+                        <p><a href="#">Пользовательское соглашение</a></p>
+                        <p><a href="#">Политика кофидициальности</a></p>
+                        <p><a href="#">Договор оферты</a></p>
+                    </div>
+                    <div class="info-col">
+                        <p><a href="#">Правила размещения</a></p>
+                        <p><a href="#">Правила оформления</a></p>
+                        <p><a href="#">Добавить компанию</a></p>
+                        <p><a href="#">Добавить товар</a></p>
+                        <p><a href="#">Заказать рекламу</a></p>
+                    </div>
+                    <div class="info-col">
+                        <p><a href="#">Наши услуги</a></p>
+                        <p><a href="#">Работа у нас</a></p>
+                        <p><a href="#">Контакты</a></p>
+                    </div>
+                    <div class="info-col">
+                        <p><a href="#"><img src="img/social/twitter.png" />Twitter</a></p>
+                        <p><a href="#"><img src="img/social/vk.png" />Вконтакте</a></p>
+                        <p><a href="#"><img src="img/social/facebook.png" />Facebook</a></p>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- / Подвал -->
+    
+    <div class="popup-pass">
+        <div class="popup-pass-close"><a href="#"><img src="img/popup-close.png" alt="" /></a></div>
+        <div class="popup-title">
+            Восстановление пароля
+        </div>
+        <div class="popup-content-simple">
+            <p>Для восстановления доступа к сайту, введите адрес электронной почты, указанный при регистрации. На указанный Вами адрес, будет выслано письмо с новым паролем.</p>
+        </div>
+        <div class="popup-email">
+            E - mail <input type="text" /><input type="submit" value="Выслать пароль" />
+        </div>
+    </div>
+
+</body>
+</html>

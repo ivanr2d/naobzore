@@ -1,0 +1,36 @@
+<!-- footer : background -->
+        <div data-setting="footer::background" class="setting hidden">
+            <div class="container">
+                <!--Полный блок с вкладками-->
+                <ul class="tabs">
+                    <li><a data-tab="1" href="#" class="active">Цвет Фона</a></li>
+                </ul>
+                <div class="tabs-content">
+                    <div data-tab="1" class="tab-content visible">
+                      <%= form_for @site, :url => company_panel_site_path(@site), :html => { :target => :minisite } do |f| %>
+                        <div class="picker">
+                            <div class="plugin"><%= f.text_field :tmp_footer_background_color, :value => @site.get_footer_background_color(true) %></div>
+                            <div class="result"></div>
+                            <div class="clear"></div>
+                        </div>
+                      <% end %>
+                    </div>
+                </div>
+            </div>
+            <!--Тег говорит сам за себя-->
+            <footer>
+              <div class="buttons">
+                <div style="float:left;">
+                  <%= render :partial => 'company_panel/sites/construct/commit_form' %>
+                </div>
+                <div style="float:left;">
+                  <%= form_for @site, :url => company_panel_site_path(@site), :html => { :target => :minisite } do |f| %>
+                    <input type="hidden" name="site[footer_background_color]" value="" />
+                    <input type="hidden" name="site[tmp_footer_background_color]" value="" />
+                    <input type="submit" class="button" value="Сбросить" />
+                  <% end %>
+                </div>
+                <div class="clear"></div>
+              </div>
+            </footer>
+        </div>

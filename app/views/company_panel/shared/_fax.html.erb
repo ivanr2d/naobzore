@@ -1,0 +1,7 @@
++7 <input type="text" size="2" placeholder="Код" name="fax_code[]" value="<%= local_assigns[:fax_code] %>" /> 
+<input type="text" size="7" placeholder="Номер" name="fax_number[]" value="<%= local_assigns[:fax_number] %>" />
+<% if local_assigns[:add] %>
+  <a href="#" id="addFax">Добавить еще номер</a>
+<% else %>
+  <a href="#" class="del-phone">Удалить</a>
+<% end %>

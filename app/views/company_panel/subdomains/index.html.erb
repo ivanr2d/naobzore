@@ -1,0 +1,44 @@
+<div class="form">
+  <div class="body-blue">
+    <%= form_for @site, :url => company_panel_site_path(@site, :format => :json), :html => { :remote => true } do |f| %>
+      <div class="row">
+        <div class="label"><label>Текущий адрес сайта</label></div>
+        <div class="field default edited-subdomain">
+          <span id="current_site_subdomen"><%= @company.site.subdomen %></span>.naobzore.ru&nbsp;&nbsp;
+          <a href="javascript:void(0);" class="edit-subdomain"><img src="/controlPanel/images/edit.png" style="position:absolute;"></a>
+        </div>
+        <div class="field default hidden editable-subdomain">
+          <input type="text" name="site[subdomen]" id="site_subdomen" value="<%= @company.site.subdomen %>" />.naobzore.ru&nbsp;&nbsp;
+          <input type="submit" class="ok" value="OK" />&nbsp;
+          <input type="button" class="cancel" value="Cancel" />
+        </div>
+        <div class="clear"></div>
+      </div>
+    <% end %>
+
+    <%= form_for :subdomain, :url => mass_save_company_panel_subdomains_path do |f| %>
+      <div class="row">
+        <div class="label"><label>Домен второго уровня</label></div>
+        <div class="field">
+          <div class="domens">
+            <%= render :partial => 'subdomain', :locals => { :dynamic => true, :id => 'newDomen', :hidden => true } %>
+            <%= render :partial => 'subdomain', :collection => @company.subdomains%>
+            <div class="domen"><a href="javascript:void(0);" id="addDomen">+Добавить еще домен</a></div>
+          </div>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="row">
+        <div class="full-center">
+                          <p>Если у Вас еще нет домена второго уровня, Вы можете купить его у наших партнеров.</p>
+                          <div class="button">
+                              <a href="#" class="dark-button">Купить домен</a>
+                          </div>
+                      </div>
+      </div>
+    </div>
+    <div class="buts" style="text-align:right;margin-right:30px">
+      <input type="submit" class="blue-button big" value="Сохранить" />
+    </div>
+  </div>
+<% end %>

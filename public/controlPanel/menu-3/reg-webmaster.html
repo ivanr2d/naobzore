@@ -1,0 +1,291 @@
+﻿<!doctype html>
+<html>
+<head>
+    <title>На обзоре</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="../css/selectbox.css" />
+    
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+    <script type="text/javascript" src="../js/jselectbox.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+    
+    <!--[if lt IE 9]>
+    <script>
+        document.createElement('nav');
+        document.createElement('header');
+        document.createElement('footer');
+        document.createElement('section');
+        document.createElement('aside');
+        document.createElement('article');
+    </script>
+    <![endif]-->
+</head>
+<body>
+	
+	<div id="main_container">
+		
+		<!-- Шапка -->
+		<header id="main_header">
+			<div class="header-secl">
+				<div id="logotype"><img src="../images/logotype.png" /></div>
+	                
+                <div id="siteNav">
+                    <a href="#" class="top-link"><img src="../images/home.png" alt="" /></a>
+                    <a href="#" class="top-link"><img src="../images/mail.png" alt="" /></a>
+                    <a href="#" class="top-link"><img src="../images/map.png" alt="" /></a>
+                </div>
+
+				<div class="clear"></div>
+			</div>
+			<div class="header-secr">
+	            <div id="headerNav">
+					<nav id="top_nav">
+	                    <ul>
+	                        <li class="top-nav"><a href="#" class="vinous">Добавить компанию</a></li>
+	                        <li class="top-nav"><a href="#">Выход</a></li>
+	                        <li class="top-nav"><a href="#">Справка</a></li>
+	                    </ul>
+	                </nav>
+	            </div>
+			</div>
+			<div class="clear"></div>
+		</header>
+		<!-- end | Шапка -->
+		
+		<!-- Основная навигация -->
+		<nav id="navigation">
+			
+			<ul class="nav-level-1">
+				
+				<li><a href="#">Мой кабинет</a>
+					<ul class="nav-level-2">
+						<li><a href="#">Панель управления кабинетом</a></li>
+						<li><a href="#">Настройка кабинета</a>
+							<ul class="nav-level-3">
+								<li><a href="#">Редактировать персональные данные</a></li>
+								<li><a href="#">Изменить пароль</a></li>
+								<li><a href="#">Изменить адрес электронной почты</a></li>
+								<li><a href="#">Удалить учетную запись</a></li>
+								<li><a href="#">Уведомления</a></li>
+							</ul>
+						</li>
+						<li><a href="#">Статистика просмотров</a></li>
+						<li><a href="#">Возможности Наобзоре.РФ</a></li>
+					</ul>
+				</li>
+				
+				<li><a href="#">Управление контентом</a>
+					<ul class="nav-level-2">
+						<li><a href="#">Панель управления контентом</a></li>
+						<li><a href="#">Добавить</a>
+							<ul class="nav-level-3">
+								<li><a href="#">Товар</a></li>
+								<li><a href="#">Услугу</a></li>
+								<li><a href="#">Вакансию</a></li>
+								<li><a href="#">Скидку/Акцию</a></li>
+							</ul>
+						</li>
+						<li><a href="/">Импорт прайс-листа</a>
+							<ul class="nav-level-3">
+								<li><a href="#">Описание загрузки прайс-листа</a></li>
+								<li><a href="#">Загрузить прайс-лист</a></li>
+								<li><a href="#">Коды категорий</a></li>
+							</ul>
+						</li>
+						<li><a href="#">Каталог фото</a></li>
+					</ul>
+				</li>
+				
+				<li><a href="">Управление сайтом</a>
+					<ul class="nav-level-2">
+						<li><a href="#">Панель управления сайтом</a></li>
+						<li><a href="#">Конструктор  дизайна сайта</a></li>
+						<li><a href="#">Настройка сайта</a>
+							<ul class="nav-level-3">
+								<li><a href="#">Адрес сайта</a></li>
+								<li><a href="#">Настройка меню</a></li>
+							</ul>
+						</li>
+						<li><a href="/cp/campaigns">Инструменты веб-мастера</a>
+							<ul class="nav-level-3">
+								<li><a href="#">Настройка внешней статистики</a></li>
+								<li><a href="#">Подключение инструментов веб-мастера</a></li>
+								<li><a href="#">Карта сайта (sitemap)</a></li>
+								<li><a href="#">Управление robots.txt</a></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				
+				<li><a href="#">Документооборот</a>
+					<ul class="nav-level-2">
+						<li><a href="#">Баланс</a></li>
+						<li><a href="#">Счета</a></li>
+						<li><a href="#">Акты</a></li>
+						<li><a href="#">Счет-фактуры</a></li>
+					</ul>
+				</li>
+				
+				<li><a href="#">Почта и связь</a>
+					<ul class="nav-level-2">
+						<li><a href="#">Панель управления</a></li>
+						<li><a href="#">Сообщения</a>
+							<ul class="nav-level-3">
+								<li><a href="#">Входящие</a></li>
+								<li><a href="#">Отправленные</a></li>
+							</ul>
+						</li>
+						<li><a href="#">Sms-биллинг</a></li>
+						<li><a href="#">Менеджер звонков</a></li>
+						<li><a href="#">Рассылки</a></li>
+					</ul>
+				</li>
+				
+				<li><a href="#">Платные услуги</a>
+					<ul class="nav-level-2">
+						<li><a href="#">Пакеты размещения</a></li>
+						<li><a href="#">Размещение рекламного баннера</a></li>
+						<li><a href="#">Пакеты смс и голосовой телефонии</a></li>
+						<li><a href="#">Услуги дизайна</a></li>
+					</ul>
+				</li>
+				
+				<li><a href="#">О компании</a>
+					<ul class="nav-level-2">
+						<li><a href="#">Общие данные</a></li>
+						<li><a href="#">Юридические данные</a></li>
+						<li><a href="#">Загрузить логотип</a></li>
+						<li><a href="#">Платежные реквизиты</a></li>
+						<li><a href="#">График работы</a></li>
+						<li><a href="#">Сотрудники компании</a></li>
+						<li><a href="#">Кредитование</a></li>
+						<li><a href="#">Доставка</a></li>
+					</ul>
+				</li>
+				
+			</ul>
+			
+		</nav>
+		<!-- end | Основная навигация -->
+		
+		<section id="contentTitle">
+			<h1>Панель управления</h1>
+		</section>
+		
+		<section id="mainContent">
+			
+			<!-- Левая часть -->
+			<section id="left">
+				
+				<div class="extra">
+					<div class="title">Служба поддержки</div>
+					<div class="content">
+						<ul>
+							<li><a href="#"><img src="../images/bell.png" alt="" /></a></li>
+							<li>ICQ: <span class="txt-blue">310-234-224</span></li>
+							<li>Номер: <span class="txt-blue">8(3532)34-56-65</span></li>
+							<li><a href="#" class="blue-button">Написать сообщение</a></li>
+						</ul>
+					</div>
+				</div>
+				
+				
+			</section>
+			<!-- end | Левая часть -->
+			
+			<!-- Главное содержательная часть -->
+			<section id="content">
+				<form method="get">
+                
+				<div class="form">
+					<h1 class="title">Настройка инструментов вебмастера</h1>
+                    <p class="info">
+                    </p>
+					<div class="body">
+                    
+                        <div class="setting-statistic-item">
+                            <p>
+                            Для того, чтобы узнать, каким видят ваш сайт Яндекс и Google, 
+                            своевременно устранять проблемы и улучшать видимость вашего 
+                            сайта для этих поисковых систем, настоятельно рекомендуется 
+                            зарегистрировать ваш сайт в этих сервисах. Это просто и бесплатно!
+                            </p>
+                        </div>
+						
+                        <div class="setting-statistic-item">
+                            <h2 class="sub-title">Подключение к Яндекс.Вебмастер в 7 шагов</h2>
+                            <p>
+                                Для подключения к инструментам Яндекс.Вебмастер вам необходимо зарегистрировать сайт в Яндексе и подтвердить свои права на управление сайтом:
+                                <ul>
+                                    <li>Зарегистрируйтесь в службе Яндекс.Паспорт. Если Вы уже зарегистрированы в Яндекс, переходите к пункту 2.</li>
+                                    <li>Выполните вход в Яндекс, введя Ваш логин и пароль.</li>
+                                    <li>Добавьте сайт http://stroimasteroren.rosfirm.ru в Яндекс.Вебмастер по ссылке http://webmaster.yandex.ru/site/add.xml?hostname=stroimasteroren.rosfirm.ru&do=add</li>
+                                    <li>Вам будет предложено два варианта подтверждения прав, выберите второй — «Разместить мета-тэг». Не нажимайте «Проверить».</li>
+                                    <li>В выбранном пункте есть следующая строка:<br />
+                                        &lt;meta name='yandex-verification' content='код подтверждения' /&gt;
+                                    </li>
+                                    <li>Скопируйте код подтверждения и введите в форму ниже, затем нажмите «Сохранить настройки».</li>
+                                    <li>После сохранения настроек нажмите кнопку «Проверить» на странице      Яндекс.Вебмастера.</li>
+                                </ul>
+                            </p>
+                            <div class="simple-row">
+                                <div class="s-field">
+                                    <input type="text" size="40" />
+                                    <div class="example">Код подтверждения для Яндекса. Например: 5dc42fc63a1017c0</div>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                            <p>
+                                После подключения Яндекс.Вебмастер Вы сможете сделать дополнительные настройки используя вашу регистрицию:
+                                указать регион вашего сайта. Это важно для продвижения вашего сайта в определенном регионе, т.к. региональная принадлежность повышает шансы вашего сайта выйти в топ 10 Яндекса по нужным вам запросам.
+                                указать контактные данные и сферу деятельности. Эти данные будут доступны пользователям, даже в том случае, если ваш сайт окажется недоступным.
+                            </p>
+                        </div>
+                        
+                        <div class="setting-statistic-item">
+                            <h2 class="sub-title">Подключение к Google Инструменты для веб-мастеров в 5 шагов</h2>
+                            <p>
+                                Для подключения к инструментам Google Webmaster Tools вам необходимо зарегистрировать сайт в Google и подтвердить свои права на управление сайтом:
+                                <ul>
+                                    <li>Перейдите на сайт http://www.google.com/webmasters/tools/</li>
+                                    <li>Добавьте свой сайт, перейдя по ссылке «Добавить сайт».</li>
+                                    <li>В форме подтверждения прав на управление сайтом выберите метод подтверждения «Добавить мета-тег».</li>
+                                    <li>После выбора способа подтверждения Google выдаст Вам код вида<br />
+                                        &lt;meta name="google-site-verification" content="код подтверждения" /&gt;
+                                    </li>
+                                    <li>Код подтверждения для Google. Например: B85ZBjnRqIjKZ9C333Y8ui6MgnuDvJ+uJJ6QddfRR0g=</li>
+                                </ul>
+                            </p>
+                            <div class="simple-row">
+                                <div class="s-field">
+                                    <input type="text" size="40" />
+                                    <div class="example">Номер счетчика: 5-10 цифр. Например, 1591345</div>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                        
+						
+					</div>
+					<div class="buts">
+						<input type="submit" class="blue-button big" value="Сохранить" />
+					</div>
+				</div>
+                
+				</form>
+			</section>
+			<!-- end | Главное содержательная часть -->
+			
+			<div class="clear"></div>
+		</section>
+		
+		<footer id="mainFooter">
+			<div id="footerShadow"><!----></div>
+			<div id="footerContent">© НаОбзоре.рф, 2012</div>
+		</footer>
+	</div>
+
+</body>
+</html>

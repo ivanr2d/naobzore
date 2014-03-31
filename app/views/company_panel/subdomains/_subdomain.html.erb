@@ -1,0 +1,12 @@
+<div class="domen <%= local_assigns[:hidden] ? 'hidden' : '' %>" <%= local_assigns[:id] ? "id=#{id}" : '' %>>
+  <div class="static <%= local_assigns[:dynamic] ? 'hidden' : '' %>">
+    <span class="value"><%= local_assigns[:subdomain].try(:name) %></span>&nbsp;&nbsp;
+    <a href="javascript:void(0);" class="edit"><img src="/controlPanel/images/edit.png" /></a>
+    <a href="javascript:void(0);" class="delete"><img src="/controlPanel/images/delete.png" /></a>
+  </div>
+  <div class="dynamic <%= local_assigns[:dynamic] ? '' : 'hidden' %>">
+    <input type="text" size="30" name="subdomain[]" class="value" value="<%= local_assigns[:subdomain].try(:name) %>" />&nbsp;&nbsp;
+    <input type="submit" class="ok" value="OK" />
+    <input type="button" class="cancel" value="Cancel" />
+  </div>
+</div>

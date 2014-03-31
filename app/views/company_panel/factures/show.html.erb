@@ -1,0 +1,280 @@
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<div class="facture-table-wrap">
+
+<TABLE CELLSPACING="0" COLS="13" BORDER="0" class="table-facture">
+	<COLGROUP WIDTH="195"></COLGROUP>
+	<COLGROUP WIDTH="41"></COLGROUP>
+	<COLGROUP WIDTH="84"></COLGROUP>
+	<COLGROUP WIDTH="71"></COLGROUP>
+	<COLGROUP WIDTH="84"></COLGROUP>
+	<COLGROUP WIDTH="82"></COLGROUP>
+	<COLGROUP WIDTH="64"></COLGROUP>
+	<COLGROUP WIDTH="91"></COLGROUP>
+	<COLGROUP WIDTH="98"></COLGROUP>
+	<COLGROUP WIDTH="103"></COLGROUP>
+	<COLGROUP WIDTH="64"></COLGROUP>
+	<COLGROUP WIDTH="97"></COLGROUP>
+	<COLGROUP WIDTH="206"></COLGROUP>
+	<TR>
+		<TD HEIGHT="60" ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="RIGHT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="RIGHT"><BR></TD>
+		<TD ALIGN="RIGHT">Приложение&nbsp;№&nbsp;1<BR>к&nbsp;постановлению Правительства Российской Федерации<BR>от 26 декабря 2011 г.  № 1137</TD>
+	</TR>
+	<TR>
+		<TD HEIGHT="15" ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+	</TR>
+	<TR>
+		<TD HEIGHT="20" ALIGN="LEFT" VALIGN=MIDDLE><B>Счет-фактура № <%= @facture.id %> от <%= l @facture.created_at, :format => '%d %B %Y' %> г.</B></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="CENTER"><BR></TD>
+		<TD ALIGN="CENTER"><BR></TD>
+		<TD ALIGN="CENTER"><BR></TD>
+		<TD ALIGN="CENTER"><BR></TD>
+		<TD ALIGN="CENTER"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+	</TR>
+	<TR>
+		<TD HEIGHT="20" ALIGN="LEFT" VALIGN=MIDDLE><B>Исправление № ---- от ----</B></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="CENTER"><BR></TD>
+		<TD ALIGN="CENTER"><BR></TD>
+		<TD ALIGN="CENTER"><BR></TD>
+		<TD ALIGN="CENTER"><BR></TD>
+		<TD ALIGN="CENTER"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+	</TR>
+	<TR>
+		<TD HEIGHT="17" ALIGN="LEFT" VALIGN=TOP COLSPAN="13">Продавец: <%= @main_company.legal_name %></TD>
+	</TR>
+	<TR>
+		<TD HEIGHT="17" ALIGN="LEFT" VALIGN=TOP COLSPAN="13">Адрес: <%= @main_company.full_address %></TD>
+	</TR>
+	<TR>
+		<TD HEIGHT="17" ALIGN="LEFT" COLSPAN="13">ИНН/КПП продавца  <%= @main_company.inn %>/<%= @main_company.kpp %></TD>
+	</TR>
+	<TR>
+		<TD HEIGHT="17" ALIGN="LEFT" COLSPAN="13">Грузоотправитель и его адрес: unknown</TD>
+	</TR>
+	<TR>
+		<TD HEIGHT="17" ALIGN="LEFT" COLSPAN="13">Грузополучатель и его адрес: unknown</TD>
+	</TR>
+	<TR>
+		<TD HEIGHT="17" ALIGN="LEFT" COLSPAN="13">К платежно-расчетному документу № unknown   от  unknown</TD>
+	</TR>
+	<TR>
+		<TD HEIGHT="17" ALIGN="LEFT" COLSPAN="13">Покупатель: <%= @company.legal_name %></TD>
+	</TR>
+	<TR>
+		<TD HEIGHT="17" ALIGN="LEFT" VALIGN=TOP COLSPAN="13">Адрес:  <%= @company.full_address %></TD>
+	</TR>
+	<TR>
+		<TD HEIGHT="17" ALIGN="LEFT" COLSPAN="13">ИНН/КПП покупателя   <%= @company.inn %>/<%= @company.kpp %></TD>
+	</TR>
+	<TR>
+		<TD HEIGHT="17" ALIGN="LEFT" VALIGN=TOP COLSPAN="13">Валюта: наименование, код  Российский рубль, 643</TD>
+	</TR>
+	<TR>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" HEIGHT="128" ALIGN="CENTER" VALIGN=MIDDLE>Наименование товара (описание выполненных работ, оказанных услуг), имущественного права</TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" COLSPAN=2 ALIGN="CENTER" VALIGN=MIDDLE>Единица<BR>измерения</TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE>Коли-<BR>чество (объем)</TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE>Цена (тариф) за единицу измере-<br>ния</TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE>Стоимость товаров (работ, услуг), имущест-<BR>венных прав<BR>без налога - всего</TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE>В том<BR>числе сумма<BR>акциза</TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE>Налоговая<BR>ставка</TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE>Сумма налога, предъяв-<br>ляемая покупа-<br>телю</TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE>Стоимость товаров<BR>(работ, услуг), имущест-<BR>венных прав с налогом - всего</TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" COLSPAN=2 ALIGN="CENTER" VALIGN=MIDDLE>Страна<BR>происхождения товара</TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE>Номер<BR>таможенной<BR>декларации</TD>
+	</TR>
+	<TR>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" HEIGHT="77" ALIGN="CENTER" VALIGN=MIDDLE><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE>код</TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE>условное обозна-<BR>чение (национа-<BR>льное)</TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE>цифровой код</TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE>краткое наимено-<br>вание</TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE><BR></TD>
+	</TR>
+	<TR>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" HEIGHT="16" ALIGN="CENTER" VALIGN=MIDDLE>1</TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE>2</TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE>2а</TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE>3</TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE>4</TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE>5</TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE>6</TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE>7</TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE>8</TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE>9</TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE>10</TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE>10а</TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE>11</TD>
+	</TR>
+	<TR>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" HEIGHT="16" ALIGN="LEFT" VALIGN=TOP><%= t "factures.entities.#{@facture.entity_type}" %></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="RIGHT" SDVAL="796" SDNUM="1049;0;0">unknown</TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER">шт</TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER">          1,000</TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="RIGHT" SDVAL="452627,12" SDNUM="1049;0;0,00"><%= @facture.price_for_one_entity %></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="RIGHT" SDVAL="452627,12" SDNUM="1049;0;0,00"><%= @facture.sum_without_nds %></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="RIGHT">без акциза???</TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER">18%</TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="RIGHT" SDVAL="81472,88" SDNUM="1049;0;0,00"><%= @facture.nds.round(2) %></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="RIGHT" SDVAL="534100" SDNUM="1049;0;0,00"><%= @facture.sum_with_nds %></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="RIGHT">----</TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER">----</TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER">----</TD>
+	</TR>
+	<TR>
+		<TD STYLE="border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c" HEIGHT="16" ALIGN="LEFT"><B>Всего к оплате</B></TD>
+		<TD STYLE="border-bottom: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-bottom: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-bottom: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-bottom: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="RIGHT" SDVAL="<%= @facture.sum_with_nds %>" SDNUM="1049;0;0,00"><%= @facture.sum_without_nds %></TD>
+		<TD STYLE="border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" COLSPAN=2 ALIGN="CENTER" VALIGN=MIDDLE>Х</TD>
+		<TD STYLE="border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="RIGHT" SDVAL="<%= @facture.nds %>" SDNUM="1049;0;0,00"><%= @facture.nds.round(2) %></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="RIGHT" SDVAL="<%= @facture.sum_with_nds %>" SDNUM="1049;0;0,00"><%= @facture.sum_with_nds %></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
+	</TR>
+	<TR>
+		<TD HEIGHT="16" ALIGN="LEFT"><B><BR></B></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+	</TR>
+	<TR>
+		<TD HEIGHT="16" ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+	</TR>
+	<TR>
+		<TD HEIGHT="96" ALIGN="LEFT">Руководитель организации<BR> или иное уполномоченное лицо</TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT">/<%= @facture.company.director_fio %>/</TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD COLSPAN=2 ALIGN="LEFT">Главный бухгалтер или иное <BR>уполномоченное лицо</TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT">/тоже директор?/</TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+	</TR>
+	<TR>
+		<TD HEIGHT="16" ALIGN="LEFT"><BR></TD>
+		<TD COLSPAN=2 ALIGN="LEFT"><BR><IMG SRC="%D1%81%D1%87-%D1%84_html_m3adea0af.jpg" WIDTH=101 HEIGHT=16 HSPACE=12 VSPACE=0>
+		</TD>
+		<TD COLSPAN=3 ALIGN="LEFT"><BR><IMG SRC="%D1%81%D1%87-%D1%84_html_498d5f28.jpg" WIDTH=153 HEIGHT=16 HSPACE=43 VSPACE=0>
+		</TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD COLSPAN=2 ALIGN="LEFT"><BR><IMG SRC="%D1%81%D1%87-%D1%84_html_3527a2d7.jpg" WIDTH=133 HEIGHT=16 HSPACE=34 VSPACE=0>
+		</TD>
+		<TD COLSPAN=3 ALIGN="LEFT"><BR><IMG SRC="%D1%81%D1%87-%D1%84_html_m504d41c5.jpg" WIDTH=164 HEIGHT=16 HSPACE=102 VSPACE=0>
+		</TD>
+		</TR>
+	<TR>
+		<TD HEIGHT="16" ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+	</TR>
+	<TR>
+		<TD HEIGHT="16" ALIGN="LEFT">Индивидуальный предприниматель</TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD COLSPAN=5 ROWSPAN=2 ALIGN="LEFT"><BR><IMG SRC="%D1%81%D1%87-%D1%84_html_m45125ea4.jpg" WIDTH=353 HEIGHT=1 HSPACE=35 VSPACE=47>
+		</TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+	</TR>
+	<TR>
+		<TD HEIGHT="78" ALIGN="LEFT"><BR></TD>
+		<TD COLSPAN=3 ALIGN="LEFT"><BR><IMG SRC="<%= @main_company.director_signature_url %>" WIDTH=125 HEIGHT=42 HSPACE=36 VSPACE=18>
+		</TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+	</TR>
+</TABLE>
+</div>
+<% if request.format == :html %>
+  <div class="facture-table-links">
+    <%= link_to 'Скачать', company_panel_facture_path(@facture, :format => :pdf), :download => @facture.pdf_name %>
+    &nbsp;
+    <%= link_to 'Счёт-фактуры', company_panel_factures_path %>
+  </div>
+	<div class="clear"></div>
+<% end %>

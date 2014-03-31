@@ -1,0 +1,42 @@
+<div class="list">
+  <div class="content">
+	<div class="kegrid-wrap">
+	  <table class="table-akty style-silver" cellpadding="0" cellspacing="0">
+		  <thead>
+			  <tr>
+				  <th width="2">№</th>
+				  <th>Название</th>
+				  <th>Дата выписки</th>
+				  <th>Сумма</th>
+				  <th>Вид услуг</th>
+				  <th>Действия</th>
+			  </tr>
+		  </thead>
+		  
+		  <tbody>
+			<% @factures.each do |facture| %>
+			  <tr>
+				  <td><%= facture.id %></td>
+				  <td><%= link_to facture.name, company_panel_facture_path(facture) %></td>
+				  <td><%= facture.created_at.strftime('%d.%m.%y') %></td>
+				  <td><%= facture.sum %></td>
+				  <td><%= t "factures.entities.#{facture.entity_type}" %></td>
+				  <td>
+					<%= link_to 'Просмотр', company_panel_facture_path(facture) %>
+					&nbsp;
+					<%= link_to 'Скачать', company_panel_facture_path(facture, :format => :pdf), :download => facture.pdf_name %>
+				  </td>
+			  </tr>
+			<% end %>
+		  </tbody>
+		  
+	  </table>
+	</div>  
+        
+    <!-- Подвальчик -->
+    <footer class="footer text-right">
+       <%= render :partial => 'company_panel/shared/pagination', :locals => {:obj => @factures} %> 
+    </footer>
+                
+  </div>
+</div>

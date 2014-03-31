@@ -1,0 +1,120 @@
+<section id="search">
+  <div id="search_main">
+    <!-- Search field -->
+    <div id="search_child">
+      <div id="search_but">
+        <input type="submit" value="НАЙТИ" />
+      </div>
+      <div id="search_field">
+        <input type="text" name="SEARCH" id="search_inp"/>
+				<span class="search-clear-cross"></span>
+        <a href="#" id="search_ext_view">Расширенный поиск <img src="/assets/view-search.png" alt="" /></a>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div id="search_ext">
+      <div class="search-shadow"></div><!--тень сверху-->
+      <div class="search-category">
+        <label class="sc-label">Категория</label>
+				<select class="selectbox search-category-select">
+					<option value="goods" selected>Товары</option>
+					<option value="services">Услуги</option>
+					<option value="reviews">Отзывы</option>
+					<option value="campaings">Акции</option>
+					<option value="jobs">Вакансии</option>
+					<option value="companies">Предприятия</option>
+				</select>
+				
+				<label class="sc-label">Каталог</label>
+				<select class="selectbox">
+					<option>Товары</option>
+					<option>Услуги</option>
+				</select>
+				<div class="clear"></div>
+      </div>
+      <div class="search-price">
+				<div class="filter-label">Цена</div>
+				<div class="filter-element">
+					<input type="text" id="ext_price_from" name="ext_price_from" size="3" value="0" class="filter" />
+				</div>
+		
+				<div class="filter-label">до</div>
+				<div class="filter-element">
+						<input type="text" id="ext_price_to" name="ext_price_to" size="3" value="0" class="filter" />
+				</div>
+          	  
+        <div id="search_ext_price" class="polzunok"></div>				
+      </div>
+			<div class="search-checkgroup">
+				<label><input type="checkbox" name="with_campaign"> Со скидкой</label><br>
+				<label><input type="checkbox" name="with_free_delivery"> Бесплатная доставка</label>
+			</div>
+			<div class="clear"></div>
+    </div>
+		<div id="search_smart" class="search-smart" style="display: none;">
+			<div class="search-smart-group">
+				<div class="ssg-l">Товары:</div>
+				<div class="ssg-r">
+					<a href="#" class="ssg-r-item">Товар1</a>
+					<a href="#" class="ssg-r-item">Товар2</a>
+					<a href="#" class="ssg-r-item">Товар3</a>
+					<a href="#" class="ssg-r-item">Товар4</a>
+					<a href="#" class="ssg-r-item">Товар5</a>
+					<a href="#" class="ssg-r-item">Товар6</a>
+					<a href="#" class="ssg-r-item">Товар7</a>
+					<a href="#" class="ssg-r-item">Товар8</a>
+					<a href="#" class="ssg-r-item">Товар9</a>
+					<a href="#" class="ssg-r-item">Товар10</a>
+					<a href="#" class="ssg-r-item">Товар11</a>
+					<a href="#" class="ssg-r-item">Товар12</a>
+				</div>
+				<div class="clear"></div>
+			</div>
+			
+			<div class="search-smart-group">
+				<div class="ssg-l">Услуги:</div>
+				<div class="ssg-r">
+					<a href="#" class="ssg-r-item">Услуга1</a>
+					<a href="#" class="ssg-r-item">Услуга2 с длинным названием, которое идет в несколько строк и продолжается на второй строке</a>
+					<a href="#" class="ssg-r-item">Услуга3</a>
+					<a href="#" class="ssg-r-item">Услуга4</a>
+					<a href="#" class="ssg-r-item">Услуга5</a>
+					<a href="#" class="ssg-r-item">Услуга6</a>
+					<a href="#" class="ssg-r-item">Услуга4</a>
+					<a href="#" class="ssg-r-item">Услуга5</a>
+					<a href="#" class="ssg-r-item">Услуга6</a>
+					<a href="#" class="ssg-r-item">Услуга4</a>
+					<a href="#" class="ssg-r-item">Услуга5</a>
+					<a href="#" class="ssg-r-item">Услуга6</a>
+				</div>
+				<div class="clear"></div>
+			</div>
+			
+			<div class="search-smart-group">
+				<div class="ssg-l">Вакансии:</div>
+				<div class="ssg-r">
+					<a href="#" class="ssg-r-item">Вакансия1</a>
+					<a href="#" class="ssg-r-item">Вакансия2</a>
+					<a href="#" class="ssg-r-item">Вакансия3</a>
+					<a href="#" class="ssg-r-item">Вакансия4</a>
+					<a href="#" class="ssg-r-item">Вакансия5</a>
+										<a href="#" class="ssg-r-item">Вакансия1</a>
+					<a href="#" class="ssg-r-item">Вакансия2</a>
+					<a href="#" class="ssg-r-item">Вакансия3</a>
+					<a href="#" class="ssg-r-item">Вакансия4</a>
+					<a href="#" class="ssg-r-item">Вакансия5</a>
+				</div>
+				<div class="clear"></div>
+			</div>
+			
+			<div class="search-smart-group">
+				<div class="ssg-l">Предприятия:</div>
+				<div class="ssg-r">
+					<a href="#" class="ssg-r-item">Наш komp-ремонт</a>
+				</div>
+				<div class="clear"></div>
+			</div>
+						
+		</div>
+  </div>
+</section>

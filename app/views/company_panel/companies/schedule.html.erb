@@ -1,0 +1,38 @@
+<%= form_for @company, :url => company_panel_company_path(@company, :format => :js), :remote => true do |f| %>
+  <%= f.hidden_field :schedule %>
+<% end %>
+
+<div class="timetable">
+    
+    <div class="title">
+        График работы будет отображаться на вашем сайте, звонки будут 
+        доступны из выбранного графика работы
+    </div>
+    
+    <div class="days" data-schedule="<%= @company.schedule.to_json %>">
+      <% @company.schedule.each_with_index do |s, i| %>
+        <div class="day" data-index="<%= i %>">
+            <div class="title"><%= l (DateTime.now.beginning_of_week + i.days), :format => '%A' %></div>
+            <div class="content">
+              <% unless s[:w] %>
+                <p class="key">Время работы</p>
+                <p class="val work">с <%= s[:f] %> до <%= s[:t] %></p>
+                <% if s[:bf] %>
+                  <p class="key">Перерыв</p>
+                  <p class="val break">с <%= s[:bf] %> до <%= s[:bt] %></p>
+                <% else %>
+                  <p class="key">&nbsp;</p><p class="val break">&nbsp;</p>
+                <% end %>
+              <% else %>
+                <p class="key weekend">Выходной</p><p class="val work"></p>
+                <p class="key"></p><p class="val break">&nbsp;</p>
+              <% end %>
+            </div>
+        </div>
+      <% end %>
+      <div class="clear"></div>
+    </div>
+    
+</div>
+
+<%= render :partial => 'schedule_popup' %>

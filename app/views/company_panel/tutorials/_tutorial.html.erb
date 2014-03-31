@@ -1,0 +1,19 @@
+<div class="capability">
+	<h2 class="title"><%= tutorial.title %></h2>
+	<div class="body">
+	  <div class="capability-video" data-capability="<%= tutorial.id %>">
+		<img src="<%= tutorial.preview_url(:big) || '/company-panel/images/temp/capability-video.png' %>" alt="Видео возможностей НаОбзоре.рф">
+		<span class="play-arr"></span>
+	  </div>
+	  <div class="info info-mini" style="display: block">
+      <%= truncate tutorial.text, :length => 200 %>
+		  <% if tutorial.text.length > 200 %>
+        <a href="#" class="read-more-link">Читать полностью</a>
+      <% end %>
+	  </div>
+	  <div class="info info-full" style="display: none">
+      <%= tutorial.text %>
+		  <a href="#" class="read-more-link">Свернуть</a>
+	  </div>
+	</div>  
+</div>

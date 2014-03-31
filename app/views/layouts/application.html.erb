@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>На обзоре</title>
+  
+	<script src="http://api-maps.yandex.ru/2.0-stable/?load=package.full&lang=ru-RU" type="text/javascript"></script>
+  
+	<link rel="stylesheet" href="/assets/main.css" />
+	<link rel="stylesheet" href="/assets/login.css" />
+	<link rel="stylesheet" href="/assets/top_panel.css" />
+    <link rel="stylesheet" href="/assets/lightbox.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/selectbox.css" />
+    
+    <script type="text/javascript" src="/assets/jquery.js"></script>
+    <script type="text/javascript" src="/assets/lightbox.js"></script>
+    
+    <script type="text/javascript" src="/assets/jquery.mousewheel.js"></script>
+    <script type="text/javascript" src="/assets/jquery.jscrollpane.js"></script>
+    
+    <script type="text/javascript" src="/assets/jcarousel.js"></script>
+    <script type="text/javascript" src="/assets/jselectbox.js"></script>
+    <script type="text/javascript" src="/assets/kepCarousel.js"></script>
+		<script type="text/javascript" src="/assets/ui-slider.js"></script>
+		<script type="text/javascript" src="/assets/old_browser_check.js"></script>
+    <script type="text/javascript" src="/assets/common.js"></script>
+
+    <link rel="stylesheet" href="/assets/jquery.jscrollpane.css" />
+    
+	<!---%= stylesheet_link_tag    "application", :media => "all" %--->
+	<!---%= javascript_include_tag "application" %--->
+	
+	<%= csrf_meta_tags %>
+
+    <!--[if lt IE 9]>
+    <script>
+        document.createElement('nav');
+        document.createElement('header');
+        document.createElement('footer');
+        document.createElement('section');
+        document.createElement('aside');
+        document.createElement('article');
+    </script>
+    <![endif]-->
+  
+</head>
+<body data-controller="<%= @curent_controller %>">
+	<%= render :partial => 'layouts/top_panel' %>
+    
+    <section id="container">
+
+        <%= render "layouts/header" %>
+    
+        <!-- Слайдер -->
+        <% if @curent_controller == "home" %>
+          <%= render "layouts/slider_main" %>
+        <% else %>
+          <%= render "layouts/slider" %>
+        <% end %>
+        <!-- / Слайдер -->
+
+        <!-- Поиск -->
+        <%= render "layouts/search" %>
+        <!-- / Поиск -->
+    
+        <div id="main_container">
+        	
+            <!-- Левый блок -->
+			<% if @block_categories == 1 %>
+				<%= render 'layouts/categories/one', :locals => {:categories => @this_categories} %>
+			<% elsif @block_categories == 2 %>
+				<%= render 'layouts/categories/common', :locals => {:g_categories => @this_categories_goods, :s_categories => @this_categories_services} %>
+			<% elsif @block_categories == 3 %>
+				<%= render 'layouts/categories/two', :locals => {:g_categories => @this_categories_goods, :s_categories => @this_categories_services} %>
+			<% end %>
+            <!-- / Левый блок -->
+
+            <!-- Контент -->
+            <div id="content">
+								<a href="#" class="map-show-btn">Показать<br>на&nbsp;карте</a>
+								<div class="clear"></div>
+                <header>
+                	<!-- Обычно хлебные крошки или статистика -->
+                    <% if @breadcrumbs.length > 0 %>
+	                    <div class="breadcrumbs">
+	                        <a href="/">НаОбзоре</a>
+                    		<% @breadcrumbs.each do |el| %>
+		                        <span class="breadcrumbs-separator">»</span>
+		                        <a href="/<%= el[:url] %>"><%= el[:title] %></a>
+                			<% end %>
+                			<% if @category %>
+		                        <span class="breadcrumbs-separator">»</span>
+		                        <span><%= @category.title %></span>
+                			<% end %>
+	                    </div>
+                    <% else %>
+                    На сайте присутствует <%= Company.count %> компаний, <%= Good.count %> товаров, города Оренбурга и области.
+                	<% end %>
+                </header>
+                
+                <% if notice %>
+                	<div class="notice-block"><%= notice %></div>
+                <% end %>
+                
+                <div id="main">
+                    <%= yield %>
+                </div>
+
+                <footer>
+                	<% if @curent_controller == 'home' %>
+                    <div class="other-info-left">
+                        <p class="other-info-title">
+                            <%= @info_blocks[0].key %>
+                        </p>
+                        <p class="other-info-text">
+                            <%= @info_blocks[0].value %>
+                        </p>
+                    </div>
+                    <div class="other-info-right">
+                        <p class="other-info-title">
+                           <%= @info_blocks[1].key %>
+                        </p>
+                        <p class="other-info-text">
+                            <%= @info_blocks[1].value %>
+                        </p>
+                    </div>
+                    <% elsif @curent_controller == 'goods' %>
+                    	<%= will_paginate @goods, :renderer => 'BootstrapPaginationHelper::LinkRenderer' %>
+                    <% elsif @curent_controller == 'services' %>
+                    	<%= will_paginate @services, :renderer => 'BootstrapPaginationHelper::LinkRenderer' %>
+                    <% elsif @curent_controller == 'jobs' %>
+                    	<%= will_paginate @jobs, :renderer => 'BootstrapPaginationHelper::LinkRenderer' %>
+                    <% elsif @curent_controller == 'resume' %>
+                    	<%= will_paginate @resume, :renderer => 'BootstrapPaginationHelper::LinkRenderer' %>
+                    <% elsif @curent_controller == 'companies' %>
+                    	<%= will_paginate @companies, :renderer => 'BootstrapPaginationHelper::LinkRenderer' %>
+                    <% elsif @curent_controller == 'campaigns' %>
+                    	<%= will_paginate @campaigns, :renderer => 'BootstrapPaginationHelper::LinkRenderer' %>
+                    <% elsif @curent_controller == 'feedbacks' %>
+                    	<%= will_paginate @feedbacks, :renderer => 'BootstrapPaginationHelper::LinkRenderer' %>
+                    <% end %>
+                </footer>
+            </div>
+            <!-- / Контент -->
+        	<div class="clear"></div>
+        </div>
+        
+        <%= render "layouts/footer" %>
+    </section>
+    
+    <div class="clear"></div>
+    
+    <!-- Подвал -->
+    
+    <!-- / Подвал -->
+
+    <!-- Форма востановления пароля -->
+    <%= render "layouts/recovery_password" %>
+    <!-- / Форма востановления пароля -->
+
+	<div id="btn_goto_top" class="btn-goto-top"><div class="bgt-link"><span class="bgt-link-text">Наверх</span></div></div>
+
+</body>
+</html>

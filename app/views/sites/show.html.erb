@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b> company:</b>
+  <%= @site.company_id %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @site.title %>
+</p>
+
+<p>
+  <b>Subdomen:</b>
+  <%= @site.subdomen %>
+</p>
+
+<p>
+  <b>Menu items:</b>
+  <%= @site.menu_items %>
+</p>
+
+<p>
+  <b>Contacts:</b>
+  <%= @site.contacts %>
+</p>
+
+<p>
+  <b>Color:</b>
+  <%= @site.color %>
+</p>
+
+<p>
+  <b>Template:</b>
+  <%= @site.template %>
+</p>
+
+
+<%= link_to 'Edit', edit_site_path(@site) %> |
+<%= link_to 'Back', sites_path %>

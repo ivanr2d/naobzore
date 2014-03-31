@@ -1,0 +1,23 @@
+<!-- ------ --------- ---------- ------------- -->
+<section class="main-title">
+    <div class="main-title-title">
+        <p class="page-title">Подтверждение</p>
+    </div>
+    <div class="main-title-categories">
+    <div class="clear"></div>
+</section>
+<%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
+<section class="filter-elements">
+	<%= devise_error_messages! %>
+</section>
+    <div class="other-form">
+    	
+        <%= error_messages_for :email %>
+        <div class="other-form-field"><%= f.email_field :email, :class => "text-field", :placeholder => "E -mail" %></div>
+        
+        <div><%= f.submit "Выслать инструкцию", :class => "form-submit" %></div>
+        
+        <div class="other-form-field"><%= render "links" %></div>
+        
+    </div>
+<% end %>

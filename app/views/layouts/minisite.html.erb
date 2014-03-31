@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= @breadcrumbs.first.try(:name) || 'Сайт' %> "<%= @site.title %>"</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+    <% @meta.to_a.each do |attrs| %>
+      <%= tag 'meta', attrs %>
+    <% end %>
+    <link rel="icon" href="<%= @site.get_favicon %>" />
+    <% @links.to_a.each do |attrs| %>
+      <%= tag 'link', attrs %>
+    <% end %>
+    <%= csrf_meta_tag %>
+
+    <%= render :partial => 'layouts/minisite/dynamic_styles' %>
+		<%= stylesheet_link_tag 'login' %>
+    <%= stylesheet_link_tag 'selectbox' %>
+    <%= stylesheet_link_tag 'ui-slider' %>
+    <%= stylesheet_link_tag 'jquery.jscrollpane' %>
+    <%= stylesheet_link_tag 'lightbox' %>
+    
+    <%= javascript_include_tag 'jquery' %>
+    <%= javascript_include_tag :defaults, "jquery_ujs.js" %>
+    <%= javascript_include_tag 'jselectbox' %>
+    <%= javascript_include_tag 'ui-slider' %>
+    <%= javascript_include_tag 'jquery.mousewheel' %>
+    <%= javascript_include_tag 'jquery.jscrollpane' %>
+    <%= javascript_include_tag 'lightbox' %>
+    <%= javascript_include_tag 'minisite' %>
+    <%= yield :javascripts %>
+    <%= javascript_include_tag params[:controller] %>
+    
+    <!--[if lt IE 9]>
+    <script>
+        document.createElement('nav');
+        document.createElement('header');
+        document.createElement('footer');
+        document.createElement('section');
+        document.createElement('aside');
+        document.createElement('article');
+    </script>
+    <![endif]-->
+    
+</head>
+<body>
+    <%= render :partial => 'layouts/minisite/top_panel' unless @construct_mode %>
+
+    <div id="container" <% if @construct_mode %> style="margin-top:8px;" <% end %>>
+        <!-- Шапочка -->
+        <header>
+            <div class="left">
+                <div class="logo">
+                    <a href="<%= root_path %>"><img src="<%= @site.get_header_logotype(@construct_mode) %>" /></a>
+                </div>
+            </div>
+            <div class="right">
+                <div class="search">
+                  <%= form_for :search, :url => search_path, :html => { :method => :get } do |f| %>
+                    <input type="text" name="q" value="Поиск по сайту" class="holder" />
+										<input type="submit" value="">
+                  <% end %>
+                </div>
+                <ul class="navigation">
+                  <% @company.menus.each do |menu| %>
+                    <% if [:goods, :services, :jobs, :news, :campaigns].include?(entities = menu.entities) %>
+                      <% entities = @company.send(entities) %>
+                      <% entities = entities.for_user(current_user) if user_signed_in? %>
+                      <% next if entities.empty? %>
+                    <% end %>
+                    <li><%= link_to menu.name, menu.path %></a></li>
+                  <% end %>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </header>
+        
+        <!-- Левая навигация и контент -->
+        <div id="content">
+        
+            <section class="sidebar">
+              <% if (catalog = @company.catalog(@company.goods.for_user(current_user) + @company.services.for_user(current_user))).any? %>
+                <aside>
+                    <div class="title">Каталог Товары/Услуги</div>
+                    <div class="content">
+                        <%#= raw render_company_catalog(catalog) %>
+                    </div>
+                </aside>
+              <% end %>
+                <aside>
+                    <div class="title">Контактная информация</div>
+                    <div class="content">
+                        <div class="info">
+                            <p><%= @company.legal_name %></p>
+                            <p><%= @company.full_address %></p>
+                            <p>Тел.: <%= @company.main_phone %></p>
+                            
+                            <a class="send-mail <%= user_signed_in? ? 'view-popup' : 'view-login' %>" data-type="send-message" data-mtype="support" href="#">Написать сообщение</a>
+                            <a class="call-up" href="#"></a>
+                        </div>
+                    </div>
+                    <div class="title">График работы</div>
+                    <div class="content">
+                        <div class="timetable">
+                          <% weekends = [] %>
+                          <% @company.schedule.each_with_index do |s,i| %>
+                            <% unless s[:w] %>
+                              <div class="day">
+                                <div class="name-time">
+                                  <div class="name"><%= l (DateTime.now.beginning_of_week + i.days), :format => '%A' %></div>
+                                  <div class="time"><%= s[:f] %>-<%= s[:t] %></div>
+                                  <div class="clear"></div>
+                                </div>
+                                <div class="break">Перерыв: <%= s[:bf] %>-<%= s[:bt] %></div>
+                              </div>
+                            <% else %>
+                              <% weekends << l((DateTime.now.beginning_of_week + i.days), :format => '%a') %>
+                            <% end %>
+                          <% end %>
+                          <div class="day">
+                            <div class="name-time">
+                              <div class="name">Выходные дни</div>
+                              <div class="time"><%= weekends.join(',') %></div>
+                              <div class="clear"></div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </aside>
+            </section>
+            
+            <section class="content">
+                <div class="title">
+                    <p class="breadcrumbs">
+                        <a href="/">Главная</a>
+                        <% if @breadcrumbs.present? %><span>»</span><% end %>
+                        <%= render_breadcrumbs :separator => '<span>&nbsp;»&nbsp;</span>' %>
+                    </p>
+                </div>
+                
+                <%= yield %>
+            </section>
+            <div class="clear"></div>
+        </div>
+        
+        <!-- Тег говорит сам за себя -->
+        <footer>
+            <div class="left">
+                <div class="info">
+                    <p><%= @company.full_address %></p>
+                    <p>тел.: <%= @company.main_phone %></p>
+                    <p>Сайт создан на платформе наОбзоре.рф</p>
+                    <p>© 2013 "<%= @site.title %>"</p>
+                </div>
+            </div>
+            <div class="right">
+                <ul class="counters">
+                    <li><img src="/miniSite/images/temp/counter-1.gif" /></li>
+                    <li><img src="/miniSite/images/temp/counter-2.gif" /></li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </footer>
+    </div>
+    
+    <!--Попап для отправки сообщения-->
+    <%= render :partial => 'minisite/shared/send_message' %>
+    
+</body>
+</html>

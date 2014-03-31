@@ -1,0 +1,139 @@
+<%= form_for @user, :url => company_panel_user_path(@user) do |f| %>
+  <%= render_error_explanation @user %>
+  <div class="form">
+    <h1 class="title">Редактирование персональных данных</h1>
+    <div class="body">
+      
+      <div class="row">
+        <div class="label"><%= f.label :f_name %></div>
+        <div class="field"><%= f.text_field :f_name %></div>
+        <div class="clear"></div>
+      </div>
+      <div class="row">
+        <div class="label"><%= f.label :l_name %></div>
+        <div class="field"><%= f.text_field :l_name %></div>
+        <div class="clear"></div>
+      </div>
+      <div class="row">
+        <div class="label"><%= f.label :m_name %></div>
+        <div class="field"><%= f.text_field :m_name %></div>
+        <div class="clear"></div>
+      </div>
+      <div class="row">
+        <div class="label"><label>Фото</label></div>
+        <div class="field">
+          <!-- блок с фотографией -->
+          <div class="photo">
+			<div class="preview-wrap">
+			  <div class="preview"><img src="<%= @user.main_photo.present? ? @user.main_photo : '/assets/images/not-photo.png' %>" width="100" height="128" /></div>
+			</div>
+            <div class="field">
+              <label>Загрузить фото с компьютера</label>
+                <div class="input-file" style="">
+                  <input type="text" size="5" />
+                  <input type="button" value="Обзор..." />
+                  <%= f.file_field :main_photo %>
+                </div>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <!-- end | блок с фотографией -->
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="row">
+        <div class="label"><label>Пол</label></div>
+        <div class="field">
+          <%= f.select :sex, options_for_select({'Мужской' => 1, 'Женский' => 0, 'Средний' => 2}, @user.sex), {:include_blank => 'Не выбрано'}, {:class => 'selectbox'} %>
+        </div>
+        <div class="clear"></div>
+      </div>
+      
+      <div class="row">
+        <h2>Адрес</h2>
+      </div>
+      
+      <div class="row">
+        <div class="label"><label>Страна</label></div>
+        <div class="field">
+          <select class="selectbox" disabled="disabled">
+						<option value="">Не выбрано</option>
+            <option value="0">Россия</option>
+          </select>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="row">
+        <div class="label"><%= f.label :city_id %></div>
+        <div class="field">
+          <%= f.select :city_id, options_from_collection_for_select(City.all, :id, :name, @user.city_id), {:include_blank => 'Не выбрано'}, {:class => 'selectbox'} %>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="row">
+        <div class="label"><%= f.label :post_index %></div>
+        <div class="field"><%= f.text_field :post_index, :size => nil %></div>
+        <div class="clear"></div>
+      </div>
+      <div class="row">
+        <div class="label"><%= f.label :address %></div>
+        <div class="field">
+          <%= f.text_field :address, :size => nil %>
+          <div class="example">Пример: ул. Советская, 23 офис 4</div>
+        </div>
+        <div class="clear"></div>
+      </div>
+      
+      <div class="row">
+        <div class="label"><label>Телефон</label></div>
+        <div class="field">
+          <div class="phones">
+            
+            <div class="phone hidden" id="newPhone">
+              <%= render :partial => 'company_panel/shared/phone' %>
+            </div>
+            <% (@user.phones.blank? ? [{}] : @user.phones).each_with_index do |phone, index| %>
+              <div class="phone">
+                <%= render :partial => 'company_panel/shared/phone', :locals => phone.merge(:add => index == 0) %>
+              </div>
+            <% end %>
+          
+          </div>
+          <div class="example">Пример: +7(3532) 332321</div>
+        </div>
+        <div class="clear"></div>
+      </div>
+      
+      <div class="row">
+        <div class="label"><%= f.label :email %></div>
+        <div class="field"><%= f.text_field :email %></div>
+        <div class="clear"></div>
+      </div>
+      <div class="row">
+        <div class="label"><%= f.label :skype %></div>
+        <div class="field"><%= f.text_field :skype %></div>
+        <div class="clear"></div>
+      </div>
+      <div class="row">
+        <div class="label"><%= f.label :icq %></div>
+        <div class="field"><%= f.text_field :icq %></div>
+        <div class="clear"></div>
+      </div>
+      <div class="row">
+        <div class="label big"><%= f.label :prefered_contact %>:</div>
+        <div class="field">
+                          <div class="margin-5">
+                              <label><input type="checkbox" name="prefered_contact[]" value="phone" <%= @user.prefered_contacts.include?('phone') ? 'checked=checked' : '' %> /> Телефон </label>
+                              <label><input type="checkbox" name="prefered_contact[]" value="email" <%= @user.prefered_contacts.include?('email') ? 'checked=checked' : '' %> /> E-mail </label>
+                              <label><input type="checkbox" name="prefered_contact[]" value="skype" <%= @user.prefered_contacts.include?('skype') ? 'checked=checked' : '' %> /> Skype </label>
+                              <label><input type="checkbox" name="prefered_contact[]" value="icq" <%= @user.prefered_contacts.include?('icq') ? 'checked=checked' : '' %> /> ICQ </label>
+                          </div>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div class="buts">
+      <input type="submit" class="blue-button big" value="Сохранить" />
+    </div>
+  </div>
+<% end %>

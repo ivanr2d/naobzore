@@ -1,0 +1,55 @@
+<%= render 'company_panel/layouts/head' %>
+
+<div id="main_container">
+
+<!-- Шапка -->
+<header id="main_header">
+  <div class="header-secl">
+    <div id="logotype"><a href="/"><img src="/company-panel/images/logotype2.png" /></a></div>
+
+    <div id="siteNav">
+      <a href="#" class="top-link"><img src="/company-panel/images/home.png" alt="" /></a>
+      <a href="#" class="top-link"><img src="/company-panel/images/mail.png" alt="" /></a>
+      <a href="#" class="top-link"><img src="/company-panel/images/map.png" alt="" /></a>
+    </div>
+
+    <div class="clear"></div>
+  </div>
+  <div class="header-secr">
+    <div id="headerNav">
+      <nav id="top_nav">
+        <ul>
+          <li class="top-nav"><a href="#" class="vinous">Добавить компанию</a></li>
+          <li class="top-nav"><a href="#">Выход</a></li>
+          <li class="top-nav"><a href="#">Справка</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="clear"></div>
+</header>
+<!-- end | Шапка -->
+
+<!-- Основная навигация -->
+<nav id="navigation">
+  <%= render_menu %>
+</nav>
+<!-- end | Основная навигация -->
+
+<section id="contentTitle">
+  <h1><% if @h1 %><%=@h1%><% else %> <%=(menu_siblings.select { |m| parse_erb(m['href']) == request.path }.first['name'] rescue nil) || 'Панель управления' %> <% end %></h1>
+</section>
+
+<section id="mainContent">
+    <div class="notice"><%= flash[:notice] %></div>
+    <%= yield %>
+</section>
+
+<footer id="mainFooter">
+  <div id="footerShadow"><!----></div>
+  <div id="footerContent"><%= copyright %></div>
+</footer>
+</div>
+<%= render :partial => 'company_panel/shared/send_message' %>
+</body>
+</html>

@@ -1,0 +1,56 @@
+ <%= render_error_explanation @banner %>
+<div class="load-banner">
+                
+  <h2>Выберите нужную категорию и месяц для размещения баннера.</h2>
+        
+  <ul class="tabs mini">
+    <% types = [[:home, 'Главная'], [:good, 'Товары'], [:service, 'Услуги'], [:job, 'Вакансии'], [:enterprise, 'Предприятия'], [:news, 'Новости'], [:campaign, 'Акции/скидки'], [:response, 'Отзывы']].each_with_index do |type, index| %>
+      <li><a href="#" data-id="<%= index %>" <%= index == 0 ? 'class=active' : '' %> data-type="<%= type.first %>"><%= type.last %></a></li>
+    <% end %>
+  </ul>
+  <div class="content">
+    <% types.each_with_index do |type, index| %>
+      <div class="tab-content <%= index == 0 ? '' : 'hidden' %>" data-id="<%= index %>">
+        <%= render :partial => 'month' %>
+        <%= render :partial => 'calendar', :locals => {:type => type.first} %>
+      </div>
+    <% end %>
+
+    <div class="help">
+      <span class="busy-icon"></span>
+      <span class="small">Нет мест для размещения</span>
+    </div>
+
+    <div class="result">
+        <p class="small">Срок размещения <span class="period"></span></p>
+        <p class="small">Итого: <span class="average"><span class="sum" data-week_price="<%= Banner.week_price %>">0</span> руб.</span></p>
+    </div>
+
+    <div class="banner home">
+      <div class="banner-home-arr-l"></div>
+			<img src="/company-panel/images/banner-home-inner.png" class="img-home">
+			<img src="/company-panel/images/banner-other.png" class="img-other">
+			<img src="#" class="img-loaded" style="display: none;">
+			<div class="banner-reload" style="display: none;"></div>
+			<div class="banner-home-arr-r"></div>
+			<div class="clear"></div>
+    </div>
+
+    <%= form_for @banner, :url => company_panel_banners_path do |f| %>
+      <div class="row">
+        <div class="label"><%= f.label :link, 'Ссылка на страницу' %></div>
+        <div class="field">
+            <%= f.text_field :link, :size => 30 %>
+            <div class="example">Укажите адрес страницы, на который должен ссылаться баннер </div>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <!-- кнопки -->
+      <div class="buts">
+          <%= f.file_field :banner, :class => 'hidden' %>
+          <%= hidden_field_tag :weeks %>
+          <input type="submit" class="blue-button" value="Разместить" />
+      </div>
+    <% end %>
+  </div>
+</div>

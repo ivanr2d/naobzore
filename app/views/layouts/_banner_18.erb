@@ -1,0 +1,19 @@
+<% if params[:adults_only].present? %> <!-- временное условие показа для демо -->
+<!-- if for adults only - show: -->
+<div class="ca-banner18 hiddable banner18-popup">
+	<div class="ca-banner18-txt">
+		Данная страница содержит материалы, предназначенные для лиц, достигших совершеннолетного возраста.
+	</div>
+	<div class="ca-banner18-btns">
+		Подтвердите свое совершеннолетие:<br>
+		<span class="ca-banner18-btn" data-role="hide">Мне 18 лет и более</span>
+		<a href="/" class="ca-banner18-btn" data-role="blink">Мне меньше 18 лет</a>
+	</div>
+</div>
+<script>
+	$(function(){
+		$('#mask').show();
+	})
+</script>
+<!-- end if -->
+<% end %>

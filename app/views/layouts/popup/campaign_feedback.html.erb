@@ -1,0 +1,52 @@
+
+		<form id="feedbackAdd">
+			
+			<div class="fb-add-top">
+            	<div class="fb-add-top-left"><div class="popup-fb-photo"><img src="<%= current_user.mini_photo.url %>" /></div></div>
+            	<div class="fb-add-top-cont">
+            		<div class="fb-add-top-tit">Отзыв к <%= @campaign.name %></div>
+            		<div class="fb-add-top-info"><%= current_user.f_name %> <%= current_user.l_name %></div>
+            	</div>
+        		<div class="clear"></div>
+        	</div>
+        	
+        	<div class="fb-error"></div>
+        	
+        	<div class="fb-add-form">
+        		<div class="fb-add-form-row">
+        			<div class="fb-add-form-col-l">Отзыв</div>
+        			<div class="fb-add-form-col-r">
+        				<div class="fb-radios">
+        					Положительный<input type="radio" class="fb-radio" name="feedback[contentment]" value="1" checked="checked" /> 
+        					Отрицательный<input type="radio" class="fb-radio" name="feedback[contentment]" value="0" />
+        				</div>
+        			</div>
+        			<div class="clear"></div>
+        		</div>
+        		<div class="fb-add-form-row">
+        			<div class="fb-add-form-col-l">Достоинства</div>
+        			<div class="fb-add-form-col-r"><textarea name="feedback[plus]" cols="50" class="fb-field" rows="3"></textarea></div>
+        			<div class="clear"></div>
+        		</div>
+        		<div class="fb-add-form-row">
+        			<div class="fb-add-form-col-l">Недостатки</div>
+        			<div class="fb-add-form-col-r"><textarea name="feedback[minus]" cols="50" class="fb-field" rows="3"></textarea></div>
+        			<div class="clear"></div>
+        		</div>
+        		<div class="fb-add-form-row">
+        			<div class="fb-add-form-col-l">Отзыв</div>
+        			<div class="fb-add-form-col-r"><textarea name="feedback[comment]" cols="50" class="fb-field" rows="3"></textarea></div>
+        			<div class="clear"></div>
+        		</div>
+        		
+        		<input type="hidden" name="feedback[entity_id]" value="<%= @campaign.id %>" />
+        		<input type="hidden" name="feedback[category_id]" value="<%= @campaign.category.id %>" />
+        		<input type="hidden" name="feedback[entity_type]" value="Campaign" />
+        		
+        		<div class="fb-add-form-row-one">
+        			<input type="button" value="Назад" class="blue-but-prev fb-close" />
+        			<input type="submit" value="Добавить" class="blue-but" id="feddbackSend" />
+        		</div>
+        	</div>
+        	
+		</form>

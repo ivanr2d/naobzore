@@ -1,0 +1,50 @@
+<article class="review">
+  <div class="review-container">
+    <div class="review-image"><a href="<%= entity_path(feedback.entity) %>"><img src="<%= feedback.entity.image %>"></a></div>
+    <div class="review-content">
+      <p class="review-title"><a href="#" class="review-view"><%= feedback.title %></a></p>
+      <div class="review-detail">
+        <div class="detail-full" style="display: none;">
+          <p><b>Достоинства:</b>
+          <% feedback.pluses.each do |plus| %>
+            + <%= plus %><br>
+          <% end %></p>
+
+          <p><b>Недостатки:</b>
+          <% feedback.minuses.each do |minus| %>
+            - <%= minus %><br />
+          <% end %></p>
+
+          <p><b>Отзыв:</b><%= feedback.comment %></p>
+        </div>
+        <div class="detail-mini" style="display: block;">
+          <p><%= truncate feedback.comment, :length => 100 %><a href="#" class="review-view">Читать отзыв</a></p>
+          <div class="review-info">
+            <div class="review-info-author"><a href="/cabinet/<%= feedback.user_id %>"><%= feedback.user.fi %></a><!-- Ссылка на личную страницу пользователя--> - <%= l feedback.created_at, :format => "%d %B %Y" %></div>
+            <%= render :partial => 'minisite/shared/likes', :locals => { :entity => feedback } %>
+            <div class="clear"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="review-other" style="display: none;">
+    <div class="review-author"><a href="/cabinet/<%= feedback.user_id %>"><%= feedback.user.fi %></a><!-- Ссылка на личную страницу пользователя--> - <%= l feedback.created_at, :format => '%d %B %Y' %></div>
+    <div class="review-good"><a href="<%= entity_path(feedback.entity) %>"><img src="/miniSite/images/go-good.png"></a></div>
+    <div class="review-soc">
+      
+      <a href="#"><img src="/miniSite/images/social/vk_small.png"></a>
+      <a href="#"><img src="/miniSite/images/social/odnoklassniki_small.png"></a>
+      <a href="#"><img src="/miniSite/images/social/mail_small.png"></a>
+      <a href="#"><img src="/miniSite/images/social/facebook_small.png"></a>
+      <a href="#"><img src="/miniSite/images/social/twitter_small.png"></a>
+      <a href="#"><img src="/miniSite/images/social/google_small.png"></a>
+
+    </div>
+    <div class="review-count">
+      <%= render :partial => 'minisite/shared/likes', :locals => { :entity => feedback } %>
+    </div>
+    <div class="clear"></div>
+  </div>
+</article>

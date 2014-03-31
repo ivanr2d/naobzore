@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  f_name: MyString
+  l_name: MyString
+  m_name: MyString
+  sex: 1
+  birthday: 2013-01-31
+  photo: MyString
+  mob_phone: MyString
+  home_phone: MyString
+  email: MyString
+  skype: MyString
+  icq: MyString
+  type_connection: 1
+  family_status: 1
+  children: 1
+  driving_permit: MyString
+
+two:
+  f_name: MyString
+  l_name: MyString
+  m_name: MyString
+  sex: 1
+  birthday: 2013-01-31
+  photo: MyString
+  mob_phone: MyString
+  home_phone: MyString
+  email: MyString
+  skype: MyString
+  icq: MyString
+  type_connection: 1
+  family_status: 1
+  children: 1
+  driving_permit: MyString

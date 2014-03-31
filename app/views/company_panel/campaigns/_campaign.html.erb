@@ -1,0 +1,61 @@
+<tr data-entity_id="<%= campaign.id %>" <%= campaign.published? ? '' : 'class=not-public' %> data-entity_translit="<%= campaign.translit %>">
+  <td>
+    <%= form_for campaign, :as => :entity, :url => company_panel_campaign_path(campaign, :format => :js), :remote => true do |f| %>
+    <% end %>
+    <input type="checkbox" class="row-checkbox" />
+  </td>
+  <td><a href="<%= edit_company_panel_campaign_path(campaign) %>" class="silver-button">Изменить</a></td>
+  <% modes = {'Акция' => :action, 'Скидка' => :sale} %>
+  <td class="dynamic-cell" data-type="select">
+      <div class="cell">
+      <div class="title"><%= modes.invert[campaign.mode] %></div>
+      <div class="input hidden">
+          <select name="entity[mode]"><option value="">Не выбрано</option><%= options_for_select(modes, campaign.mode) %></select>
+      </div>
+      </div>
+  </td>
+  <td class="dynamic-cell" data-type="text">
+      <div class="cell">
+      <div class="title"><%= truncate campaign.name, :limit => 7 %></div>
+      <div class="input hidden"><input type="text" name="entity[name]" value="<%= campaign.name %>" size="10" /></div>
+      </div>
+  </td>
+  <td class="dynamic-cell" data-type="text">
+      <div class="cell field field-for-group">
+        <a href="#" id="entity_folder_name" class="link-simple" data-role="select-group" data-item="<%= campaign.folder_id %>"><%= campaign.folder.try(:name) || 'no-group' %></a>
+        <input type="hidden" id="entity_folder_id" name="entity[folder_id]" value="<%= campaign.folder_id %>" />
+        <%= render :partial => 'company_panel/folders/folders' %>
+      </div>
+  </td>
+  <td>
+      <div class="cell">
+      <a href="#" class="link-simple view-popup" data-type="description" data-description="<%= campaign.description %>"><%= raw truncate(campaign.description, :limit => 15) %></a>
+      <input type="hidden" name="entity[description]" value="<%= campaign.description %>" />
+      </div>
+  </td>
+  <td class="link-simple" data-entity_id="<%= campaign.id %>">
+    <div class="title"><%= link_to (campaign.main_photo ? File.basename(campaign.main_photo.path) : 'no-image'), load_image_company_panel_campaign_path(campaign), :remote => true, :class => 'load-popup', :"data-type" => 'load-image' %></div>
+    <% if campaign.main_photo %>
+      <div class="preview preview-dynamic"><img src="<%= campaign.main_photo.url %>"></div>
+    <% end %>
+  </td>
+  <% start_at = campaign.start_at.try(:strftime, '%d.%m.%Y') %>
+  <td class="dynamic-cell" data-type="text">
+      <div class="cell">
+      <div class="title"><%= start_at %></div>
+      <div class="input hidden"><input type="text" name="entity[start_at]" value="<%= start_at %>" size="10" /></div>
+      </div>
+  </td>
+  <% end_at = campaign.end_at.try(:strftime, '%d.%m.%Y') %>
+  <td class="dynamic-cell" data-type="text">
+      <div class="cell">
+      <div class="title"><%= end_at %></div>
+      <div class="input hidden"><input type="text" name="entity[end_at]" value="<%= end_at %>" size="10" /></div>
+      </div>
+  </td>
+  <% notifications = campaign.notifications.to_s.split(',') %>
+  <td style="text-align:left !important;" class="checkbox-group">
+    <label class="input"><input type="checkbox" class="live-checkbox notifications" name="entity[notifications][]" value="sms" <%= notifications.include?('sms') ? 'checked=checked' : '' %> disabled="disabled" /> SMS</label><br />
+    <label class="input"><input type="checkbox" class="live-checkbox notifications" name="entity[notifications][]" value="email" <%= notifications.include?('email') ? 'checked=checked' : '' %> /> E-mail</label>
+  </td>
+</tr>

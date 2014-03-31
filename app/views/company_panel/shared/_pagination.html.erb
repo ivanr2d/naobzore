@@ -1,0 +1,13 @@
+<div class="element">
+  <ul class="pagination">
+    <%= will_paginate obj, :renderer => 'BootstrapPaginationHelper::LinkRenderer', :previous_label => '', :next_label => '' %>
+  </ul>
+</div>
+<div class="element">
+  <ul>
+    <li>Отображать:</li>
+    <% [10, 20, 30].each do |per_page| %>
+      <li><a href="<%= per_page == @per_page ? '#' : "?per_page=#{per_page}" %>" <% if per_page == @per_page %> class="active" <% end %>><%= per_page %></a></li>
+    <% end %>
+  </ul>
+</div>

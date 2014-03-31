@@ -1,0 +1,8 @@
+<div>
+<% good.images.each do |image| %>
+	<%= image_tag(image.url, :width => 100, :height => 100) %>
+<% end %>
+</div>
+<div>
+	<%= link_to "Управление картинками", :controller => "images", :action => "index", 'q[entity_type_eq]' => "good", 'q[entity_id_eq]' => "#{good.id}".html_safe %>
+</div>

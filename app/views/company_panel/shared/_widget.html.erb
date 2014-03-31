@@ -1,0 +1,6 @@
+<div class="<%= local_assigns.has_key?(:class_name) ? class_name : "portlet#{widget.dual? ? ' dual' : ''}" %>" data-id="<%= widget.id %>" <%= widget.translit.blank? ? '' : "id=#{widget.translit}" %>>
+  <div class="title"><%= raw parse_erb(widget.title) %></div>
+  <div class="content">
+    <%= raw parse_erb(widget.text) %>
+  </div>
+</div>

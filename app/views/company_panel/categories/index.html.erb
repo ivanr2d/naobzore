@@ -1,0 +1,48 @@
+<div class="categories">
+					
+					<h3>Чтобы узнать код нужной категории, выберите из списка нужную категорию</h3>
+					
+					<ul class="tabs">
+						<li><a href="#" data-id="1" class="active">Товары</a></li>
+						<li><a href="#" data-id="2">Услуги</a></li>
+					</ul>
+					<div class="content">
+						<div class="tab-content" data-id="1">
+							
+							<ul class="list-categories" data-level="1">
+								<% Category.main.good_type.each do |c| %>
+                  <li data-cid="<%= c.id %>" data-pid="<%= c.parent_id %>"><a href="#"><%= c.title %></a></li>
+                <% end %>
+							</ul>
+							
+							<ul class="list-categories" data-level="2"></ul>
+							<ul class="list-categories" data-level="3"></ul>
+							<ul class="list-categories" data-level="4"></ul>
+							
+						</div>
+						<div class="tab-content hidden" data-id="2">
+							
+							<ul class="list-categories" data-level="1">
+                <% Category.main.service_type.each do |c| %>
+                  <li data-cid="<%= c.id %>" data-pid="<%= c.parent_id %>"><a href="#"><%= c.title %></a></li>
+                <% end %>
+              </ul>
+                
+              <ul class="list-categories" data-level="2"></ul>
+              <ul class="list-categories" data-level="3"></ul>
+              <ul class="list-categories" data-level="4"></ul>
+							
+						</div>
+					</div>
+					
+					<ul id="listCategories" class="hidden">
+						<% Category.all.each do |c| %>
+              <li data-cid="<%= c.id %>" data-pid="<%= c.parent_id %>"><input type="checkbox"><a href="#"><%= c.title %></a></li>
+            <% end %>					
+          </ul>
+				
+					<footer>
+						<p><span class="info-key">Выбрана категория:</span><span id="selectCategories"></span></p>
+						<p><span class="info-key">Код категории: </span><span id="codeCategory"></span></p>
+					</footer>
+				</div>

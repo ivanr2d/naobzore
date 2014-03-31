@@ -1,0 +1,32 @@
+<section class="main-title">
+    <div class="main-title-title">
+        <p class="page-title">Регистрация</p>
+    </div>
+    <div class="main-title-categories">
+    <div class="clear"></div>
+</section>
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+<section class="filter-elements">
+	<%= devise_error_messages! %>
+</section>
+    <div class="other-form">
+    	  <div class="other-form-field"><%= raw Settings.find_by_key(:registration_advantages).value %></div>
+        <div class="other-form-field"><%= f.text_field :f_name, :class => "text-field", :placeholder => "Фамилия" %></div>
+        <div class="other-form-field"><%= f.text_field :l_name, :class => "text-field", :placeholder => "Имя" %></div>
+        <div class="other-form-field"><%= f.text_field :m_name, :class => "text-field", :placeholder => "Отчество" %></div>
+        
+        <%= error_messages_for :email %>
+        <div class="other-form-field"><%= f.email_field :email, :class => "text-field", :placeholder => "E -mail" %></div>
+        <div class="other-form-field"><%= f.password_field :password, :class => "text-field", :placeholder => "Пароль" %></div>
+        <div class="other-form-field"><%= f.password_field :password_confirmation, :class => "text-field", :placeholder => "Повтор пароля" %></div>
+
+		<div class="other-form-field">
+		<%= check_box_tag "user[lic]", '1', (!resource.lic) ? false : true %> Я принимаю условия <a href="#"  class="pop-link">пользовательского соглашения</a>		
+        </div>
+        
+        <div><%= f.submit "Зарегистрироваться", :class => "form-submit" %></div>
+        
+        <div class="other-form-field"><%= render "links" %></div>
+        
+    </div>
+<% end %>

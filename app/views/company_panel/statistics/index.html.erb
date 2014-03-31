@@ -1,0 +1,41 @@
+<div class="list">
+	<%= render :partial => 'tabs' %>
+	<div class="content">
+		
+		<div class="tab-content" data-id="1">
+		<table class="style-blue" cellpadding="0" cellspacing="0">
+			
+			<thead>
+				<tr class="top">
+					<th>Просмотры</th>
+					<% 6.times do |n| %>
+            <% # TODO переписать %>
+						<th><%= (Time.now - n.days).day %> <%= ['', 'января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'][(Time.now - n.days).month] %></th>
+					<% end %>
+				</tr>
+				<tr class="bottom">
+					<th>Общее</th>
+					<% 5.downto(0) do |n| %>
+						<th><%= @statistics.values.map { |s| s['data'][n][1] }.sum %></th>
+					<% end %>
+				</tr>
+			</thead>
+			
+			<tbody>
+			<% @statistics.each do |entity_id, entity| %>
+				<tr>
+					<td><%= entity['label'] %></td>
+					<% entity['data'].reverse.each do |data| %>
+						<td><%= data.last %></td>
+					<% end %>
+				</tr>
+			<% end %>
+			</tbody>
+			
+		</table>
+		<div class="footer">
+			<!--FOOOOOTEEERRR-->
+		</div>
+	</div>
+</div>
+<div id="stat_canvas" style="width:660px;height:206px"></div>

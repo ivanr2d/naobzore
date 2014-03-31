@@ -1,0 +1,39 @@
+<%= form_for @invoice, :url => company_panel_invoices_path do |f| %>
+  <%= render_error_explanation @invoice %>
+  <%= render_error_explanation @company %>
+  <div class="form">
+    <div class="body">
+      <div class="row">
+        <div class="label"><%= f.label :sum %></div>
+        <div class="field"><%= f.text_field :sum, :size => 20 %> руб.</div>
+        <div class="clear"></div>
+      </div>
+      <%= fields_for @company do |c| %>
+        <div class="row">
+          <div class="label big"><label>Юридический адрес организации</label></div>
+          <div class="field"><%= @company.full_address %></div>
+          <div class="clear"></div>
+        </div>
+        <div class="row">
+          <div class="label big"><%= c.label :legal_name %></div>
+          <div class="field"><%= c.text_field :legal_name, :size => 20 %></div>
+          <div class="clear"></div>
+        </div>
+        <div class="row">
+          <div class="label"><%= c.label :inn %></div>
+          <div class="field"><%= c.text_field :inn, :size => 20 %></div>
+          <div class="clear"></div>
+        </div>
+        <div class="row">
+          <div class="label"><%= c.label :kpp %></div>
+          <div class="field"><%= c.text_field :kpp, :size => 20 %></div>
+          <div class="clear"></div>
+        </div>
+      <% end %>
+    </div>
+    <div class="buts">
+      <input type="submit" class="blue-button big" value="Выписать счет" />
+    </div>
+  </div>
+  </form>
+<% end %>

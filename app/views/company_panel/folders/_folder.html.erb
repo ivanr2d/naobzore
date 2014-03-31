@@ -1,0 +1,9 @@
+<tr class="folder" data-folder_id="<%= folder.id %>" data-folder_number="<%= folder.number %>" data-folder_name="<%= folder.name %>">
+	<td class="tgl-small"><%= folder.number %></td>
+	<td class="tgl-big">
+		<span class="text-overflow" title="<%= folder.name %>"><%= folder.name %></span>
+		<a href="#" class="link-edit view-popup" data-item="<!-- group.id -->" data-type="edit-group"></a>
+		<%= link_to '', company_panel_folder_path(folder, :format => :json), :class => "link-del", :method => 'delete', :remote => true, :confirm => "Удалить \"#{folder.name}\"?" %>
+	</td>
+	<td class="tgl-small"><%= folder.entities.count %></td>
+</tr>

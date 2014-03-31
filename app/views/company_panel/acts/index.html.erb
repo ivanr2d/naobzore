@@ -1,0 +1,42 @@
+<div class="list">
+  <div class="content">
+	<div class="kegrid-wrap">
+	  <table class="table-akty style-silver" cellpadding="0" cellspacing="0">
+		  
+		  <thead>
+			  <tr>
+				  <th width="2">№</th>
+				  <th>Название акта</th>
+				  <th>Дата</th>
+				  <th>Сумма</th>
+				  <th>Счёт фактура</th>
+				  <th>Действия</th>
+			  </tr>
+		  </thead>
+		  
+		  <tbody>
+			<% @acts.each do |act| %>
+			  <tr>
+				  <td><%= act.id %></td>
+				  <td><%= link_to act.name, company_panel_act_path(act) %></td>
+				  <td><%= act.created_at.strftime('%d.%m.%y') %></td>
+				  <td><%= act.sum %></td>
+				  <td><%= link_to act.facture.name, company_panel_facture_path(act.facture) if act.facture %></td>
+				  <td>
+					<%= link_to 'Просмотр', company_panel_act_path(act) %>
+					&nbsp;
+					<%= link_to 'Скачать', company_panel_act_path(act, :format => :pdf), :download => act.pdf_name %>
+				  </td>
+			  </tr>
+			<% end %>
+		  </tbody>
+	  </table>
+	</div>
+        
+    <!-- Подвальчик -->
+    <footer class="footer text-right">
+       <%= render :partial => 'company_panel/shared/pagination', :locals => {:obj => @acts} %> 
+    </footer>
+    
+  </div>
+</div>

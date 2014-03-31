@@ -1,0 +1,116 @@
+<%= form_for @entity, :as => :entity, :url => @entity.new_record? ? company_panel_campaigns_path : company_panel_campaign_path(@entity), :html => { :id => 'entity_form' } do |f| %>
+  <%= render_error_explanation @entity %>
+  <div class="form">
+    <div class="body">
+
+      <h1 class="title">Описание<%= @entity.mode == :sale ? ' скидки' : ' акции' %></h1>
+      <%= f.hidden_field :company_id, :value => current_user.account.id %>
+	  <div class="row">
+		<div class="label">Тип: </div>
+		<div class="field">
+		  <span class="slider-button-title sb-action">Акция</span>
+		  <div class="slider-frame">
+			<span class="slider-button <%= @entity.mode == :sale ? 'on' : '' %>"></span>
+			<%= f.check_box :mode, {:checked => @entity.mode == :sale ? false : true}, :action, :sale %>
+		  </div>
+		  <span class="slider-button-title sb-sale">Скидка</span>
+	   </div>
+		<div class="clear"></div>
+	  </div>
+
+	    <div class="row">
+        <div class="label"><%= f.label :name, 'Название' %></div>
+        <div class="field"><%= f.text_field :name, :maxlength => 128, :class => 'input-normal' %></div>
+        <div class="clear"></div>
+      </div>
+      <div class="row">
+        <div class="label"><%= f.label :description, 'Описание' %></div>
+        <div class="field"><%= f.text_area :description, :class => :ckeditor %></div>
+        <div class="clear"></div>
+      </div>
+			<div class="row field-sale-size" <% if @entity.mode == :action %> style="display:none"<% end %>>
+				<div class="label"><%= f.label 'sale_size', 'Размер скидки' %></div> <%# replase 'sale_size' %>
+				<div class="field field-sale-size"><input type="text" size="12"> %</div>
+				<div class="clear"></div>
+			</div>
+			
+			<div class="row">
+        <div class="label"><%= f.label 'spread', 'Распространяется на' %></div> <%# replase 'spread' %>
+        <div class="field field-select-normal">
+          <%= f.select :spread, options_for_select(Campaign.columns_hash['spread'].limit.map { |s| [t("campaigns.spreads.#{s}"), s] }, @entity.spread), {}, :class => "selectbox select-spread", :id => "entity_spread" %>
+				</div>
+	      <div class="clear"></div>
+      </div>
+			<div class="row" <%= @entity.spread == :folder ? '' : 'style=display:none;' %> data-spread="folder">
+        <div class="label"><%= f.label 'folder_id', 'Группа' %></div><%# replase 'folder_id' %>
+        <div class="field field-select-normal">
+          <%= f.select :folder_id, options_from_collection_for_select(@company.folders, :id, :name), {}, :class => "selectbox select-spread-group" %>
+				</div>
+        <div class="clear"></div>
+      </div>
+			
+			<div class="row" <%= @entity.spread == :entity ? '' : 'style=display:none;' %> data-spread="entity">
+        <div class="label"><%= f.label 'spread_entity', 'Товар/услуга' %></div><%# replase 'spread_entity' %>
+        <div class="field field-spread-entity">
+          <input type="text" class="input-normal view-popup" data-type="search-entity"  value="<%= @entity.entity.try(:name) %>">
+          <%= f.hidden_field :entity_id %>
+          <%= f.hidden_field :entity_type %>
+        </div>
+        <div class="clear"></div>
+      </div>
+						
+      <div class="row">
+        <div class="label"><label>Изображение <span class="img-for"><%= @entity.mode == :sale ? ' скидки' : ' акции' %></span></label></div>
+        <div class="field">
+          <!-- блок с фотографией -->
+          <div class="photo">
+            <div class="preview-wrap" data-entity_id="<%= @entity.id %>">
+              <div class="preview">
+              <% if @entity.main_photo %>
+                <img src="<%= @entity.main_photo.url %>" width="100" height="128" />
+              <% else %>
+                <img src="/company-panel/images/no_image.png" width="100" height="128" />
+              <% end %>
+              </div>
+            </div>
+            <div class="field view-popup" data-type="load-image">
+              <label>Загрузить изображение</label>
+                <div class="input-file" style="">
+                  <input type="text" size="5" />
+                  <input type="button" value="Обзор..." />
+                  <%= f.file_field :main_photo %>
+                </div>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <!-- end | блок с фотографией -->
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="row">
+        <div class="label"><%= f.label :start_at, 'Дата проведения' %></div>
+        <div class="field">          
+          <div class="select-date-label"><%= f.label :start_at, 'с' %></div>
+          <div class="select-date sel-mini"><%= f.date_select :start_at %> <div class="clear"></div></div>
+          <br><br>
+          <div class="select-date-label"><%= f.label :end_at, 'по' %></div>
+          <div class="select-date sel-mini"><%= f.date_select :end_at %> <div class="clear"></div></div>
+        </div> 
+        <div class="clear"></div>
+	  </div>
+    <% notifications = @entity.notifications.to_s.split(',') %>
+    <div class="row">
+      <div class="label label-long"><%= f.label :notifications, 'Оповестить подписчиков' %></div>
+      <div class="field">
+        <label><input type="checkbox" class="row-checkbox notifications" name="entity[notifications][]" value="sms" <%= notifications.include?('sms') ? 'checked=checked' : '' %> disabled="disabled" /> SMS рассылка</label><br />
+        <label><input type="checkbox" class="row-checkbox notifications" name="entity[notifications][]" value="email" <%= notifications.include?('email') ? 'checked=checked' : '' %> /> E-mail рассылка</label>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="buts">
+      <input type="submit" class="blue-button big <% if @entity.new_record? %>btn-with-arrow<% end %>" value="<%= @entity.new_record? ? 'Разместить' : 'Сохранить' %>" />
+    </div>
+  </div>
+  <%= render :partial => 'company_panel/shared/image_popup', :locals => { :f => f } %>
+<% end %>
+<%= render :partial => 'company_panel/shared/search_entity_popup', :locals => { :url => company_panel_campaigns_entities_path(:format => :json) } %>

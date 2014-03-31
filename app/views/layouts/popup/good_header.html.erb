@@ -1,0 +1,51 @@
+				<div class="popup-images">
+                    <div class="popup-image">
+                    	<ul class=" lightbox">
+                    		<li><a href="<%= @good.image.url %>"><img src="<%= @good.image.url %>" alt="" /></a></li>
+                    	</ul>
+                    </div>
+                    <ul class="lightbox">
+                        
+                        <% @good.images.each do |image| %>
+                        	<li><a href="<%= image.url %>"><img src="<%= image.url %>" alt="" width="32" height="32" /></a></li>
+                        <% end %>
+                    </ul>
+                </div>
+								<div class="popup-name"><a href="/goods/<%= @good.category.alias %>/<%= @good.id %>"><%= @good.title %></a></div>			
+                <div class="popup-map-wrap">
+									<div class="popup-map">
+											<div class="popup-map-title view-map-full" data-full-map="<%= @good.company.name %>::<%= @good.company.address %>">
+												<div class="popup-map-title-tit">Показать во весь экран</div>
+												<div class="popup-map-title-cont"></div>
+											</div>
+											<div class="popup-map-content" id="map"></div>
+									</div>
+									<h3 class="popup-address"><p><%= @good.company.address %></p></h3>
+								</div>
+                <div class="popup-info">
+                    <p class="popup-name"><a href="/goods/<%= @good.category.alias %>/<%= @good.id %>"><%= @good.title %></a></p>
+                    <p class="popup-price">Цена: <span><span id="good_price"><%= @good.price %></span> р.</span></p>
+                    <h2 class="popup-company"><p><a href="#"><%= @good.company.name %></a></p></h2>
+                    <h3 class="popup-address popup-price"><p><%= @good.company.address %></p></h3>
+                    <p class="popup-phone">Тел.: <span><%= @good.company.phone %></span></p>
+                    <div><a href="#"><img src="/assets/bell.png" alt="" /></a></div>
+                    <div>Отзывы: <span class="bell-true">+<%= Feedback.get_p_count('Good', @good.id) %></span> / <span class="bell-false">-<%= Feedback.get_n_count('Good', @good.id) %></span></div>
+                    <% if user_signed_in? %>
+                    <div class="popup-stat">
+						<div class="favorite-active">
+							<a href="#" data-favorite="Good:<%= @good.id %>" class="favorite"><%= image_tag "reviews-1.png" %></a>
+							<a href="#" data-favorite="Good:<%= @good.id %>" class="favorite"><%= image_tag "reviews-0.png" %></a>
+							<a href="#" data-like="Good:<%= @good.id %>" class="like"><%= image_tag "reviews-2.png" %></a><span>(<small class="like-count"><%= @good.likes.count %></small>)</span>
+						</div>
+						<div class="favorite-notactive">
+						 	<%= image_tag "loading-mini.gif" %>
+						</div>
+                    </div>
+                    <% else %>
+                    <div class="popup-stat">
+                          <%= image_tag "no-reviews-1.png" %>
+                          <%= image_tag "no-reviews-0.png" %>
+                          <%= image_tag "no-reviews-2.png" %><span>(<%= @good.likes.count %>)</span>
+                    </div>
+                    <% end %>
+                </div>

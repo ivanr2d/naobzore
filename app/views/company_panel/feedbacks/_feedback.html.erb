@@ -1,0 +1,45 @@
+  <!-- Контент -->
+	<article class="review">
+		<div class="review-container">
+			<div class="review-image"><%= image_tag feedback.entity.try(:image_url) %></div>
+			<div class="review-content">
+				<p class="review-title"><a href="#" class="review-view"><%= feedback.name %></a></p>
+				<div class="review-detail">
+					<div class="detail-full" style="display: none;">
+						<p><b>Достоинства:</b> <%= feedback.plus %></p>
+	
+						<p><b>Недостатки:</b> <%= feedback.minus %></p>
+	
+						<p><b>Отзыв:</b> <%= feedback.comment %></p>
+					</div>
+					<div class="detail-mini" style="display: block;">
+						<p> <%= truncate feedback.comment, :length => 200 %> <% if feedback.comment.length > 200 %><a href="#" class="review-view">Читать отзыв</a><% end %></p>
+						<div class="review-info">
+							<div class="review-info-author"><a href="/cabinet/<%= feedback.user_id %>"><%= feedback.user.fi %></a><!-- Ссылка на личную страницу пользователя--> - <%= l feedback.created_at, :format => '%d %B %Y' %></div>
+							<div class="review-info-count"><a href="#"><img src="/assets/reviews-2.png" alt=""></a><span>(<%= feedback.likes_count %>)</span></div>
+							<div class="clear"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="review-other" style="display: none;">
+			<div class="review-author"><a href="/cabinet/<%= feedback.user_id %>"><%= feedback.user.fi %></a> <!-- Ссылка на личную страницу пользователя--> - <%= l feedback.created_at, :format => '%d %B %Y' %></div>
+			<div class="review-good"><a href="<%= feedback.entity ? @company.site.main_url + entity_path(feedback.entity) : '#' %>"><img src="/assets/go-good.png"></a></div>
+			<div class="review-soc">
+				
+				<a href="#"><img src="/assets/social/vk_small.png"></a>
+				<a href="#"><img src="/assets/social/odnoklassniki_small.png"></a>
+				<a href="#"><img src="/assets/social/mail_small.png"></a>
+				<a href="#"><img src="/assets/social/facebook_small.png"></a>
+				<a href="#"><img src="/assets/social/twitter_small.png"></a>
+				<a href="#"><img src="/assets/social/google_small.png"></a>
+
+			</div>
+			<div class="review-count">
+				<a href="#"><img src="/assets/reviews-2.png" alt=""></a><span>(<%= feedback.likes_count %>)</span>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</article>

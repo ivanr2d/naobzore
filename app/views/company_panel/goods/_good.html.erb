@@ -1,0 +1,85 @@
+<tr data-entity_id="<%= good.id %>" <%= good.published? ? '' : 'class=not-public' %> data-entity_translit="<%= good.translit %>">
+  <td>
+    <%= form_for good, :as => :entity, :url => company_panel_good_path(good, :format => :js), :remote => true do |f| %>
+    <% end %>
+    <input type="checkbox" class="row-checkbox" />
+  </td>
+  <td><a href="<%= edit_company_panel_good_path(good) %>" class="silver-button">Изменить</a></td>
+  <td class="dynamic-cell" data-type="text">
+      <div class="title"><%= good.article %></div>
+      <div class="input hidden"><input type="text" name="entity[article]" value="<%= good.article %>" size="2" /></div>
+  </td>
+  <td class="ext-coll" data-type="popup">
+    <div class="right"><a href="#" class="points" data-item="2" data-type="popup-categories" data-id="<%= good.category_id %>"></a>
+          <!--popup-categories-->
+      </div>
+      <div class="left"><%= good.category.try(:title) %></div>
+      <input type="hidden" name="entity[category]" value="<%= good.category.try(:title) %>" />
+  </td>
+  <td class="dynamic-cell" data-type="text">
+      <div class="cell">
+      <div class="title"><%= truncate good.name, :limit => 7 %></div>
+      <div class="input hidden"><input type="text" name="entity[name]" value="<%= good.name %>" size="10" /></div>
+      </div>
+  </td>
+	<td class="dynamic-cell" data-type="text">
+      <div class="cell field field-for-group">
+				<a href="#" id="entity_folder_name" class="link-simple" data-role="select-group" data-item="<%= good.folder_id %>"><%= good.folder.try(:name) || 'no-group' %></a>
+				<input type="hidden" id="entity_folder_id" name="entity[folder_id]" value="<%= good.folder_id %>" />
+				<%= render :partial => 'company_panel/folders/folders' %>
+			</div>
+  </td>
+  <td class="dynamic-cell" data-type="text">
+      <div class="cell">
+      <div class="title"><%= good.price %></div>
+      <div class="input hidden"><input type="text" name="entity[price]" value="<%= good.price %>" size="2" /></div>
+      </div>
+  </td>
+  <td class="dynamic-cell" data-type="select">
+      <div class="cell">
+      <div class="title"><%= good.measure %></div>
+      <div class="input hidden">
+          <select name="entity[measure]"><option value="">Не выбрано</option><%= options_for_select ['шт.', 'упак.'], good.measure %></select>
+      </div>
+      </div>
+  </td>
+  <td>
+      <div class="cell">
+      <a href="#" class="link-simple view-popup" data-type="description" data-description="<%= good.description %>"><%= raw truncate(good.description, :limit => 15) %></a>
+      <input type="hidden" name="entity[description]" value="<%= good.description %>" />
+      </div>
+  </td>
+  <td class="dynamic-cell" data-type="select">
+    <div class="cell">
+      <div class="title"><%= t("goods.states.#{good.state}") %></div>
+    <div class="input hidden">
+      <%= select_tag 'entity[state]', options_for_select(Good.columns_hash['state'].limit.map { |state| [t("goods.states.#{state}"), state] }, good.state) %>
+    </div>
+    </div>
+  </td>
+  <td class="link-simple" data-entity_id="<%= good.id %>">
+    <div class="title"><%= link_to (good.main_photo ? File.basename(good.main_photo.path) : 'no-image'), load_image_company_panel_good_path(good), :remote => true, :class => 'load-popup', :"data-type" => 'load-image' %></div>
+    <% if good.main_photo %>
+      <div class="preview preview-dynamic"><img src="<%= good.main_photo.url %>"></div>
+    <% end %>
+  </td>
+  <td class="dynamic-cell" data-type="select">
+      <div class="cell">
+      <div class="title"><%= good.delivety.try(:title) %></div>
+      <div class="input hidden">
+        <%= select_tag 'entity[delivety_id]', options_from_collection_for_select(@company.deliveties, :id, :title, good.delivety_id), :include_blank => true %>
+      </div>
+      </div>
+  </td>
+  <td class="dynamic-cell" data-type="select">
+      <div class="cell">
+      <div class="title"><%= good.warranty.try(:title) %></div>
+      <div class="input hidden">
+        <%= select_tag 'entity[warranty_id]', options_from_collection_for_select(@company.warranties, :id, :title, good.warranty_id), :include_blank => 'Не выбрано' %>
+      </div>
+      </div>
+  </td>
+  <td>
+    <a href="#" class="link-simple view-popup" data-item="<%= good.id %>" data-type="characteristics" data-characteristics="<%= good.characteristics_str %>"><%= good.characteristics_str.empty? ? 'Добавить' : truncate(good.characteristics_str, :limit => 12) %></a>
+  </td>
+</tr>

@@ -1,0 +1,47 @@
+
+				<div class="account-info">
+                    <div class="account-title">
+                        <div class="account-name"><%= @user.fio || User.get_name(@user.email) %></div>
+                        <div class="account-status"><span class="user-status online">Онлайн</span></div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="account-content">
+                        
+                    </div>
+                </div>
+                
+                <div class="cabinet-content">
+                    <div class="cabinet-content-title">
+                        <div class="content-title-left"><%= @mini_title %></div>
+                        <div class="content-title-right"><%= @count %> записей</div>
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <!-- фильтры -->
+                    
+                    <div class="cabinet-items" data-one-type='true'>
+                    
+                    	<% if @favorites.count > 0 %>
+                        <% @favorites.each do |favorite| %>
+                        	
+                        	<%= render :partial => "cabinet/items/" + favorite.entity_type.underscore, :locals => { :favorite => favorite } %>
+                        	
+                        <% end %>
+                        <% end %>
+                    
+                    </div>
+                </div>
+                
+                <!-- Попап -->
+				<%= render :partial => "cabinet/popups/" + params[:type].underscore + "_popup" %>
+				
+    <div id="mask"></div>
+    
+    <div class="map-full">
+    	<div class="map-full-title">
+    		<div class="map-full-left" id="map_full_title">Планета</div>
+    		<div class="map-full-right"><a href="#" id="map_full_close"></a></div>
+    		<div class="clear"></div>
+    	</div>
+    	<div class="map-full-content" id="map_full"></div>
+    </div>

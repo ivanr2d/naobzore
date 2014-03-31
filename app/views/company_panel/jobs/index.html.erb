@@ -1,0 +1,84 @@
+<div class="list">
+  <%= render :partial => 'company_panel/goods/tabs', :locals => {:reload => true} %>
+  <div class="content">
+    
+    <div class="tab-content" data-id="1">
+      
+      <div class="top-bar">
+        <ul class="hint">
+          <li><div class="row-not-public"></div> Позиция не опубликованна</li>
+        </ul>
+      </div>
+
+      <div class="kegrid-wrap">
+        <table class="kegrid style-silver" cellpadding="0" cellspacing="0">
+          
+          <thead>
+            <tr>
+              <th><input type="checkbox" class="checked-all" /></th>
+              <th><!-- edit -->&nbsp;</th>
+              <th>Название</th>
+              <th>Сфера</th>
+              <th>ЗП от</th>
+              <th>ЗП до</th>
+              <th>Описание</th>
+              <th>График работы</th>
+              <th>Опыт работы в аналогичной области</th>
+              <th>Образование</th>
+              <th>Предпочтительный пол</th>
+              <th>Возраст от</th>
+              <th>Возраст до</th>
+              <th>Адрес места работы</th>
+              <th>Контактное лицо</th>
+              <th>E-mail</th>
+              <th>Телефон</th>
+              <th>Факс</th>
+              <!--<th>Деятельность компании</th>-->
+            </tr>
+          </thead>
+          
+          <tbody>
+            <%= render :partial => 'job', :collection => @entities %>
+          </tbody>
+          
+        </table>
+	  </div>
+	  
+	  <div class="flr"><br>
+		<input class="blue-button" type="submit" value="Сохранить">
+	  </div>
+      
+      <!-- Подвальчик -->
+      <footer class="footer">
+        <%= render :partial => 'company_panel/shared/mass_actions' %>
+        <%= render :partial => 'company_panel/shared/pagination', :locals => {:obj => @entities} %>
+      </footer>
+    </div>
+    
+    <div class="tab-content hidden" data-id="2">
+      <!--j-->
+      <div class="footer">
+        <!--FOOOOOTEEERRR-->
+      </div>
+    </div>
+    
+    <div class="tab-content hidden" data-id="3">
+      <!--s-->
+      <div class="footer">
+        <!--FOOOOOTEEERRR-->
+      </div>
+    </div>
+    
+    <div class="tab-content hidden" data-id="4">
+      <!--c-->
+      <div class="footer">
+        <!--FOOOOOTEEERRR-->
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+<%= render :partial => 'company_panel/shared/categories_popup' %>
+<%= render :partial => 'company_panel/shared/characteristics_popup' %>
+<%= render :partial => 'company_panel/shared/description_popup' %>

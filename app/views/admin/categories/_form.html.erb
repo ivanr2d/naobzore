@@ -1,0 +1,69 @@
+<div class="action-table">
+	
+	<%= form_for([:admin, @category]) do |f| %>
+	
+	<%= render_error_explanation @category %>
+	
+	<table cellpadding="0" cellspacing="0" border="0" >
+		
+		<tr>
+			<th colspan="2"><h3 class="action-table-title">Обязательные данные</h3></th>
+		</tr>
+		
+		<tr>
+			<td>Название</td>
+			<td><%= f.text_field :title %></td>
+		</tr>
+
+		<tr>
+			<td>Псевдоним</td>
+			<td><%= f.text_field :alias %></td>
+		</tr>
+		
+		<tr>
+			<td>Позиция</td>
+			<td><%= f.text_field :position %></td>
+		</tr>
+
+    <tr>
+      <td>Тип</td>
+      <td><%= f.select :cat_type, options_for_select(Category.cat_types.map { |t| [t("activerecord.models.#{t.downcase}"), t] }, @category.cat_type || (params[:q] || {})['cat_type_eq']) %></td>
+    </tr>
+	
+		<tr>
+			<td>Родитель</td>
+			<td id="parent_categories">
+        <% (params[:parents_ids] ? [params[:parents_ids].to_i] : @category.parents_ids).each do |parent_id| %>
+          <div class="category">
+            <select name="category[parents_ids][]">
+              <option value="0" <%= parent_id == 0 ? 'selected' : '' %>>Первый уровень</option>
+              <%= render_category_options(parent_id) %>
+            </select>
+            <a href="javascript:void(0)" class="add-parent-category">Добавить</a>
+          </div>
+        <% end %>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>Описание</td>
+			<td><%= f.cktext_area :description %></td>
+		</tr>
+		
+
+		<tr>
+			<td>Изображение</td>
+			<td><%= f.file_field :image %></td>
+		</tr>
+		
+		<tr>
+			<td colspan="2" class="last_ceil">
+				<a class="other-action" href="/<%= params[:controller] %>/index/<%= @category.cat_type || params[:type] %>">К списку</a>
+				<input type="submit" value="Готово" />
+			</td>
+		</tr>
+		
+	</table>
+	<% end %>
+	
+</div>

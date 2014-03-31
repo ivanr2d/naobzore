@@ -1,0 +1,6 @@
+<div class="element">
+  <img src="/controlPanel/images/checkbox.png" /> <span id="checkedCount">0</span>
+</div>
+<div class="element">
+  <%= select_tag 'mass_actions', options_for_select([['Опубликовать', 1], ['Снять с публикации', 2], ['Удалить', 3]]), :prompt => 'Выберите действие', :class => 'mass-action' %>
+</div>

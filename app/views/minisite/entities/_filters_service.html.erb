@@ -1,0 +1,65 @@
+<!-- Блок с фильтрами -->
+<div class="filters">
+	<%= form_for @entity_type.underscore.to_sym, :url => params.merge(:format => :js), :html => { :remote => true, :method => :get } do |f| %>
+		<!--Левый блок-->
+		<div class="left">
+				<div class="row">
+						Цена от <input type="text" class="diapazon-field" id="minCost" name="min_price" value="<%= @min_price %>" /> 
+						до <input type="text" class="diapazon-field" id="maxCost" name="max_price" value="<%= @max_price %>" />
+				</div>
+				<div>
+						<div class="slider" id="cost"></div>
+				</div>
+		</div>
+		<!--Центральный блок-->
+		<div class="center">
+				<div class="row">
+						<div class="cell left">Сортировать по</div>
+						<div class="cell right">
+								<select class="selectbox" name="order">
+									<option value="created_at">Дате добавления</option>
+									<option value="feedbacks_count">Комментариям</option>
+									<option value="views">Популярности</option>
+								</select>
+						</div>
+						<div class="clear"></div>
+				</div>
+				<div class="row">
+						<div class="cell left"></div>
+						<div class="cell right">
+								<label><input type="checkbox" name="with_campaign" value="1" id="with_campaign" /> Со скидкой</label>
+						</div>
+						<div class="clear"></div>
+				</div>
+		</div>
+		<!--Правый блок-->
+		<div class="right">
+				<div class="row"><!--none--></div>
+				<div class="row">
+						<ul class="count-page">
+								<li>Показать:</li>
+								<% [10,20,30].each do |per_page| %>
+									<li><%= link_to per_page.to_s, params.merge(:per_page => per_page, :format => :js), :remote => true, :class => (params[:per_page] == per_page || per_page == 20 && params[:per_page].blank?) ? 'active' : '' %></li>
+								<% end %>
+						</ul>
+				</div>
+		</div>
+		<div class="clear"></div>
+	<% end %>
+</div>
+<div class="found-res text-center" style="display: none;">
+	<span class="found-res-btn">
+		Показать 100 результатов
+	</span>
+</div>
+
+<!-- Блок с подписаться и управлением колличеством элементов -->
+<div class="sub-filters">
+		<div class="left">
+			<%= render :partial => 'minisite/shared/subscribe' %>
+		</div>
+		<div class="right">
+				<!-- Чтонить сюда можно воткнуть -->
+		</div>
+		<div class="clear"></div>
+</div>

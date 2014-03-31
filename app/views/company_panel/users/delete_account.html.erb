@@ -1,0 +1,20 @@
+<%= form_for @user, :url => company_panel_user_path(@user), :html => { :method => :delete, :onsubmit => 'return confirm("Вы уверены, что хотите удалить аккаунт?")' } do |f| %>
+  <%= render_error_explanation @user %>
+  <div class="form">
+    <h1 class="title">Удаление учетной записи</h1>
+    <div class="info">
+      После удаления учетной записи Ваша компания будет удалена из каталога сайта наОбзоре.рф,
+      а  Ваш сайт будет не доступен пользователям.
+    </div>
+    <div class="body-blue">
+      <div class="row">
+        <div class="label"><%= f.label :password, 'Текущий пароль' %></div>
+        <div class="field"><%= f.password_field :password %></div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div class="buts">
+      <input type="submit" class="blue-button big" value="Удалить учетную запись" />
+    </div>
+  </div>
+<% end %>

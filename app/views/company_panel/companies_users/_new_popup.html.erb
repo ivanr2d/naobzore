@@ -1,0 +1,72 @@
+<!--Попап для описания-->
+<div class="popup hidden" data-type="employee">
+    <header class="blue">
+        <div class="left" style="padding:5px; min-height: 0px;">Добавление сотрудника</div>
+        <div class="right"><a class="close" href="#"></a></div>
+    </header>
+    
+    <div class="search">
+    
+        <div class="field">
+            <label>Поиск</label><input type="text" class="placeholder" id="autocomplete" size="30" placeholder="Введите Фамилию, Имя сотрудника" />
+            <div class="autocomplite hidden">
+                <div class="inner"></div>
+            </div>
+        </div>
+        
+        <div class="found-employee hidden">
+            <div class="top">
+                <div class="photo">
+                    <img src="/company-panel/images/temp/ava-2.png" alt="" />
+                </div>
+                <div class="data">
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="bottom">
+               <input type="hidden" value="" id="user_id"/>
+                <p>тел.: <span class="phone"></span> <input type="text" class="phone-inp hidden" value=""> <a href="#" class="change-data">Изменить</a></p>
+                <p>e-mail: <span class="email"></span> <input type="text" class="email-inp hidden" value=""> <a href="#" class="change-data">Изменить</a></p>
+            </div>
+            <%= form_for :company_user, :url => company_panel_companies_users_path do |f| %>
+              <%= f.hidden_field :user_id %>
+              <div class="buttons">
+                <input type="submit" value="Добавить" class="blue-button" />
+                <input type="button" value="Отмена" class="blue-button cancel" />
+              </div>
+            <% end %>
+        </div>
+        
+        <div class="notfound-employee hidden">
+            <p>Сотрудник не найден. <br>Зарегистрировать нового сотрудника?</p>
+            <div class="buttons">
+                <input type="button" value="Зарегистрировать" class="blue-button register" />
+                <input type="button" value="Отмена" class="blue-button cancel" />
+            </div>
+        </div>
+        
+    </div>
+    
+    <div class="register-employee hidden">
+      <%= form_for :company_user, :url => invite_company_panel_companies_users_path, :html => { :remote => true, :id => 'register_employee' } do |f| %>
+        <div class="field">
+          <label>Email:</label>&nbsp;&nbsp;<input type="text" size="30" name="company_user[email]" />
+          <p class="register-employee-email">На указанный email будет отправлено приглашение.</p>
+          <div class="buttons">
+            <input type="submit" value="Зарегистрировать" class="blue-button" />
+            <input type="button" value="Назад" class="blue-button back" />
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="hidden search-item">
+      <div style="float:left; width:142px;" class="fio"></div>
+      <div style="float:left; width:90px;" class="birthday"></div>
+      <div class="clear"></div>
+      <div class="company"></div>
+    </div>
+</div>

@@ -1,0 +1,5 @@
+<div class="simple-item">
+  <div class="image"><a href="<%= entity_path entity %>"><img src="<%= entity.main_photo.try(:url) %>" alt="" /></a></div>
+  <a href="<%= entity_path entity %>" class="tit"><%= entity.name %></a>
+  <p class="bold"><%= entity.price %>р.</p>
+</div>

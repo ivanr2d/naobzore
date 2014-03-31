@@ -1,0 +1,11 @@
+<div class="packets">
+  <%= render :partial => 'placing', :collection => @packages %> 
+  <%= render :partial => 'individual' %>
+</div>
+<%= render :partial => 'company_panel/shared/send_message' %>
+
+
+<div class="packets-notices">
+<div class="packets-notices-item"><span class="pni-stars">*</span><span class="pni-text">Цены указаны с учетом НДС. Цена указана сроком размещения на 30 календарных дней. Минимальный срок размещения 30 календарных дней.</span><div class="clear"></div></div>
+<div class="packets-notices-item"><span class="pni-stars">**</span><span class="pni-text">При окончании срока размещения выбранного пакета, происходит автоматическое продление срока размещения, со списанием аналогичного количества денежных средств с вашего лицевого счета.</span><div class="clear"></div></div>
+</div>

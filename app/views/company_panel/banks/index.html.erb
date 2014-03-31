@@ -1,0 +1,48 @@
+<div class="TabControl">
+  <ul class="reload-tabs">
+    <li><a href="<%= crediting_company_panel_company_path(current_user.account) %>" data-id="1">Собственное кредитование</a></li>
+    <li><a href="#" data-id="2" class="active">Банк партнер</a></li>
+  </ul>
+  <div class="content">
+    
+    <div class="tab-content" data-id="2">
+                
+                    <a class="green-button margin-5" href="<%= new_company_panel_bank_path %>">Добавить банк</a>
+                
+                    <h2 class="title">Банки</h2>
+                
+                    <!-- Блок пришедший с фронтенда -->
+                  <% @banks.each do |bank| %>
+                    <div class="entity">
+                        <div class="image">
+                          <% unless bank.logotype.blank? %>
+                            <img src="<%= bank.logotype_url(:thumb) %>" alt="" />
+                          <% end %>
+                        </div>
+                        <div class="data">
+                            <div class="title"><a href="#"><%= bank.name %></a></div>
+                            <div class="condition">
+                                <div class="key">Условия</div>
+                                <div class="value">
+                                  <%= raw bank.condition %>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                        <div class="info">
+                            <p><%= bank.address %></p>
+                            <p><%= bank.phone %></p>
+                        </div>
+                        
+                        <ul class="control">
+                            <li><a href="<%= edit_company_panel_bank_path(bank) %>">Редактировать</a></li>
+                            <li><%= link_to 'Удалить', company_panel_bank_path(bank), :method => 'delete', :confirm => 'Удалить банк "' + bank.name + '"?' %></li>
+                        </ul>
+                        
+                        <div class="clear"></div>
+                    </div>
+                  <% end %>
+    </div>
+    
+  </div>
+</div>

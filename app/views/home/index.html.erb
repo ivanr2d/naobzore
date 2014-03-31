@@ -1,0 +1,228 @@
+                    <!-- Заголовок контента -->
+                    <div id="main_title">
+                        <h1 id="main_title_left">Знакомство с системой!</h1>
+                        <div id="main_title_right"></div>
+                    </div>
+                    <!-- / Заголовок контента -->
+
+                    <!-- Секция с текстом и слайдером видео -->
+                    <section id="about_slider">
+
+                        <div id="about_slider_slides">
+                            <ul>
+                              <% @tutorials.each do |tutorial| %>
+                              <li class="about-slide">
+                                <div class="about-text">
+                                  <h4><%= tutorial.title %></h4>
+                                  <p><%= tutorial.text %></p>
+                                </div>
+                                <div class="about-video" data-about="<%= tutorial.id %>">
+                                  <img src="<%= tutorial.preview.url %>" alt="" />
+                                </div>
+                                <div class="clear"></div>
+                              </li>
+                              <% end %>
+                            </ul>
+                        </div>
+
+                        <div class="clear"></div>
+
+                        <ul id="about_slider_buttons">
+                          <% i = 1 %>
+                          <% @tutorials.each do |tutorial| %>
+                            <li id="btn_<%= i %>" class="<%= tutorial == @tutorials.first ? 'slide-active' : '' %>"><%= i %></li>
+                            <% i+=1 %>
+                          <% end %>
+                        </ul>
+                        <div class="clear"></div>
+                    </section>
+                    <!-- / Секция с текстом и слайдером видео -->  
+
+					<!-- НОВЫЙ БЛОК С ВКЛАДКАМИ -->
+					<section class="new-block-tabs">
+			            <div class="new-other-tabs">
+			                <ul>
+			                    <li data-other-tab="1" class="new-tab-curent"><div class="new-tab-wave"></div><div class="new-tab-shadow"></div><h3 class="new-tab-cont">Популярные фирмы</h3></li>
+			                    <li  data-other-tab="2"><div class="new-tab-wave"></div><div class="new-tab-shadow"></div><h3 class="new-tab-cont">Новые фирмы</h3></li>
+			                </ul>
+			                <div class="clear"></div>
+			            </div>
+			            <div class="new-other-content">
+			                <div class="new-tab-content" data-other-con="1">
+			                    <div class="new-content-text">
+			                        <div class="cont-left">
+	                                <% i=0 %>
+	                                <% @pop_companies.each do |company| %>
+	                                	<p><h2 class="cont-left-header"><a href="#"><%= company.name %></a></h2> | <%= company.category.title %> | <%= company.created_at.strftime("%d.%m.%Y") %></p>
+	                                	
+	                                <% if i == 5 %>
+	                                </div>
+	                                <div class="cont-right">
+	                                <% end %>
+	                                	
+	                                <% i+=1 %>
+	                                <% end %>
+	                                </div>
+	                                <div class="clear"></div>
+			                    </div>
+			                </div>
+			                <div class="new-tab-content" data-other-con="2">
+			                    <div class="new-content-text">
+			                        <div class="cont-left">
+	                                <% i=0 %>
+	                                <% @new_companies.each do |company| %>
+	                                	<p><h2 class="cont-left-header"><a href="#"><%= company.name %></a></h2> | <%= company.category.title %> | <%= company.created_at.strftime("%d.%m.%Y") %></p>
+	                                	
+	                                	<% if i == 5 %>
+	                                </div>
+	                                <div class="cont-right">
+	                                	<% end %>
+	                                	
+	                                	<% i+=1 %>
+	                                <% end %>
+	                                </div>
+	                                <div class="clear"></div>
+			                    </div>
+			                </div>
+			            </div>
+					</section>
+					<!-- end | НОВЫЙ БЛОК С ВКЛАДКАМИ -->
+
+					<!-- НОВЫЙ БЛОК С ВКЛАДКАМИ -->
+					<section class="new-block-tabs">
+			            <div class="new-other-tabs">
+			                <ul>
+			                    <li data-other-tab="1" class="new-tab-curent"><div class="new-tab-wave"></div><div class="new-tab-shadow"></div><h3 class="new-tab-cont">Популярные товары</h3></li>
+			                    <li  data-other-tab="2"><div class="new-tab-wave"></div><div class="new-tab-shadow"></div><h3 class="new-tab-cont">Новые товары</h3></li>
+			                    <li  data-other-tab="3"><div class="new-tab-wave"></div><div class="new-tab-shadow"></div><h3 class="new-tab-cont">Специальные предложения</h3></li>
+			                </ul>
+			                <div class="clear"></div>
+			            </div>
+			            <div class="new-other-content">
+			                <div class="new-tab-content" data-other-con="1">
+			                    <div class="new-content-text"><!--1-->
+			                    	<div class="cont-slider-left"><div class="cont-slide-prev" id="cont_slider_prev_0"></div></div>
+                                    <div class="cont-slider-right"><div class="cont-slide-next" id="cont_slider_next_0"></div></div>
+                                    <div class="cont-slider-cont" id="cont_slider_1">
+	                                    <ul>
+	                                    	<% @pop_goods.each do |good| %>
+	                                        <li class="cont-slide-block">
+	                                            <a href="/goods/<%= good.category.alias %>/<%= good.id %>"><%= image_tag(good.main_photo.url) if good.main_photo %></a>
+	                                            <h2 class="cont-slide-name"><a href="/goods/<%= good.category.alias %>/<%= good.id %>"><%= good.title %></a></h2>
+	                                            <p class="cont-slide-price"><%= good.price %> руб.</p>
+	                                        </li>
+	                                        <% end %>
+	                                    </ul>
+                                    </div>
+			                    </div>
+			                </div>
+			                <div class="new-tab-content" data-other-con="2">
+			                    <div class="new-content-text"><!--2-->
+			                    	<div class="cont-slider-left"><div class="cont-slide-prev" id="cont_slider_prev_1"></div></div>
+                                    <div class="cont-slider-right"><div class="cont-slide-next" id="cont_slider_next_1"></div></div>
+                                    <div class="cont-slider-cont" id="cont_slider_2">
+	                                    <ul>
+	                                    	<% @new_goods.each do |good| %>
+	                                        <li class="cont-slide-block">
+	                                            <a href="/goods/<%= good.category.alias %>/<%= good.id %>"><%= image_tag(good.main_photo.url) if good.main_photo %></a>
+	                                            <p class="cont-slide-name"><a href="/goods/<%= good.category.alias %>/<%= good.id %>"><%= good.title %></a></p>
+	                                            <p class="cont-slide-price"><%= good.price %> руб.</p>
+	                                        </li>
+	                                        <% end %>
+	                                    </ul>
+                                    </div>
+			                    </div>
+			                </div>
+			                <div class="new-tab-content" data-other-con="3">
+			                    <div class="new-content-text"><!--3-->
+			                    	<div class="cont-slider-left"><div class="cont-slide-prev" id="cont_slider_prev_2"></div></div>
+                                    <div class="cont-slider-right"><div class="cont-slide-next" id="cont_slider_next_2"></div></div>
+                                    <div class="cont-slider-cont" id="cont_slider_3">
+	                                    <ul>
+	                                    	<% @special_goods.each do |good| %>
+	                                        <li class="cont-slide-block">
+	                                            <a href="/goods/<%= good.category.alias %>/<%= good.id %>"><%= image_tag(good.main_photo.url) if good.main_photo %></a>
+	                                            <p class="cont-slide-name"><a href="/goods/<%= good.category.alias %>/<%= good.id %>"><%= good.title %></a></p>
+	                                            <p class="cont-slide-price"><%= good.price %> руб.</p>
+	                                        </li>
+	                                        <% end %>
+	                                    </ul>
+                                    </div>  
+			                    </div>
+			                </div>
+			            </div>
+					</section>
+					<!-- end | НОВЫЙ БЛОК С ВКЛАДКАМИ -->
+
+                    
+                    
+					<!-- НОВЫЙ БЛОК С ВКЛАДКАМИ -->
+					<!--section class="new-block-tabs">
+			            <div class="new-other-tabs">
+			                <ul>
+			                    <li data-other-tab="1" class="new-tab-curent"><div class="new-tab-wave"></div><div class="new-tab-shadow"></div><div class="new-tab-cont">Активные пользователи</div></li>
+			                </ul>
+			                <div class="clear"></div>
+			            </div>
+			            <div class="new-other-content">
+			                <div class="new-tab-content" data-other-con="1">
+			                    <div class="new-content-title">Активные пользователи</div>
+			                    <div class="new-content-text"><!--1--
+			                    	<div class="cont-slider-left"><div class="cont-slide-prev" id="cont_slider_prev_0"></div></div>
+                                    <div class="cont-slider-right"><div class="cont-slide-next" id="cont_slider_next_0"></div></div>
+                                    <div class="cont-slider-cont" id="cont_slider_4">
+	                                    <ul>
+	                                    	<% @active_users.each do |user| %>
+                                            <li class="cont-slide-block">
+                                                <%= image_tag(user.main_photo) %>
+                                                <p class="cont-slide-name"><a href=""><%= User.get_name(user.email) %></a></p>
+                                            </li>
+                                            <% end %>
+	                                    </ul>
+                                    </div>
+			                    </div>
+			                </div>
+			            </div>
+					</section-->
+					<!-- end | НОВЫЙ БЛОК С ВКЛАДКАМИ -->
+				
+					<div class="new-block-other">
+                    	<h3 class="new-block-other-title">
+                    		Активные пользователи
+                    	</h3>
+                        <div class="cont-slider-left"><div class="cont-slide-prev" id="cont_slider_prev_5"></div></div>
+                        <div class="cont-slider-right"><div class="cont-slide-next" id="cont_slider_next_5"></div></div>
+                        <div class="cont-slider-cont" id="cont_slider_5">
+                            <ul>
+                            	
+                            	<% @active_users.each do |user| %>
+                                <li class="cont-slide-block">
+                                    <%= image_tag(user.main_photo) %>
+                                    <p class="cont-slide-name"><a href=""><%= User.get_name(user.email) %></a></p>
+                                </li>
+                                <% end %>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    
+    <div id="mask"></div>
+    
+    <% @tutorials.each do |tutorial| %>
+   	<div class="video-about" id="video_about_<%= tutorial.id %>">
+    	<div class="video-about-title">
+    		<div class="video-about-left" id="tutorial_full_title"></div>
+    		<div class="video-about-right"><a href="#" class="video-about-close"></a></div>
+    		<div class="clear"></div>
+    	</div>
+    	<div class="video-about-content">
+          <object id="uppod_<%= tutorial.id %>" type="application/x-shockwave-flash" data="/uppod.swf" width="890" height="570">
+            <param name="bgcolor" value="#ffffff" />
+            <param name="allowFullScreen" value="true" />
+            <param name="wmode" value="window" />
+            <param name="movie" value="/uppod.swf" />
+            <param name="flashvars" value="file=<%= (tutorial.file_type.to_i == 0) ? tutorial.local_file : tutorial.link %>" />
+          </object>
+    	</div>
+    </div>
+    <% end %>

@@ -1,0 +1,54 @@
+<div class="popup hidden" data-type="categories">
+        <header>
+            <div class="left"><h2 class="title">Выбор категории</h2></div>
+            <div class="right"><a class="close" href="#"></a></div>
+        </header>
+        
+        <div class="categories">
+            
+            <ul class="tabs">
+                <li><a href="#" data-id="0" class="active">Товары</a></li>
+                <li><a href="#" data-id="1">Услуги</a></li>
+            </ul>
+            <div class="content">
+                <div class="tab-content" data-id="0">
+                    
+                    <ul class="list-categories" data-level="1">
+                      <% Category.main.good_type.each do |c| %>
+                        <li data-cid="<%= c.id %>" data-pid="<%= c.parent_id %>"><a href="#"><%= c.title %></a></li>
+                      <% end %>
+                    </ul>
+                    
+                    <ul class="list-categories" data-level="2"></ul>
+                    <ul class="list-categories" data-level="3"></ul>
+                    <ul class="list-categories" data-level="4"></ul>
+                    
+                </div>
+                <div class="tab-content hidden" data-id="1">
+                  <ul class="list-categories" data-level="1">
+                    <% Category.main.service_type.each do |c| %>
+                      <li data-cid="<%= c.id %>" data-pid="<%= c.parent_id %>"><a href="#"><%= c.title %></a></li>
+                    <% end %>
+                  </ul>
+                    
+                  <ul class="list-categories" data-level="2"></ul>
+                  <ul class="list-categories" data-level="3"></ul>
+                  <ul class="list-categories" data-level="4"></ul>
+                </div>
+            </div>
+            
+            <ul id="listCategories" class="hidden">
+              <% Category.all.each do |c| %>
+                <li data-cid="<%= c.id %>" data-pid="<%= c.parent_id %>"><input type="checkbox"><a href="#"><%= c.title %></a></li>
+              <% end %>
+            </ul>
+        
+        </div>
+        
+        <footer>
+            <div class="left"><span class="info-key">Выбрана категория:</span><span id="selectCategories"></span></div>
+            <div class="right"><a href="#" class="blue-button choice">Выбрать</a></div>
+        </footer>
+        <input type="hidden" name="result" value="-" />
+    </div>
+

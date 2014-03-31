@@ -1,0 +1,28 @@
+<div class="feedback odd">
+    <div class="left">
+        <a href="users/50"><img src="<%= feedback.user.mini_photo %>" alt="" class="photo" /></a> <!-- Ссылка на Личную страницу пользователя -->
+    </div>
+    <div class="right">
+        <a href="#" class="tit">Отзыв к <%= @entity.name %><span class="true">(<%= feedback.human_contentment %>)</span></a>
+        <div class="text mini">
+          <%= truncate feedback.comment, :limit => 20 %>
+          <a href="#" class="view">Читать отзыв</a>
+        </div>
+        <div class="text full hidden">
+					<p><b>Достоинства:</b> <%= feedback.plus %></p>
+					<p><b>Недостатки:</b> <%= feedback.minus %></p>
+          <p><%= feedback.comment %></p>
+          <a href="#" class="hide">Скрыть</a>
+        </div>
+        <div class="bottom">
+            <div class="info"><a href="users/50"><%= feedback.user.fi %></a> - <%= l feedback.created_at, :format => '%d %B %Y' %></div> <!-- Ссылка на Личную страницу пользователя -->
+            <div class="like">
+                <div class="likes">
+                    <img src="/miniSite/images/hare-3.png" alt="" />
+                    <span>(<%= @entity.plus_count %>)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>

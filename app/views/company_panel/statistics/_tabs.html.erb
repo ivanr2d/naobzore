@@ -1,0 +1,9 @@
+<ul class="tabs">
+	<% [['Товары', company_panel_statistics_path], ['Услуги', company_panel_statistics_path(:entity_type => 'Service')], ['Вакансии', company_panel_statistics_path(:entity_type => 'Job')], ['Акции/Скидки', company_panel_statistics_path(:entity_type => 'Campaign')]].each_with_index do |tab, index| %>
+		<li>
+			<%= link_to_unless(request.fullpath == tab.last, tab.first, tab.last, {'data-id' => index + 1}) do 
+				link_to tab.first, '#', {'data-id' => index + 1, :class => 'active'}
+			end %>
+		</li>
+	<% end %>
+</ul>

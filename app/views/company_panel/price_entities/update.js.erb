@@ -1,0 +1,5 @@
+<% if @entity.valid? %>
+  $('tr[date-entity_id=<%= @entity.id %>]').removeClass('error');
+<% else %>
+  $('tr[data-entity_id=<%= @entity.id %>]').addClass('error');
+<% end %>

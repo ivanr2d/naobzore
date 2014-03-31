@@ -1,0 +1,72 @@
+<!-- Форма доставки -->
+<%= form_for @delivety, :url => @delivety.new_record? ? company_panel_deliveties_path : company_panel_delivety_path(@delivety) do |f| %>
+  <%= render_error_explanation @delivety %>
+  <div class="form">
+    <div class="row">
+      <div class="label"><%= f.label :default %></div>
+      <div class="field"><%= f.check_box :default %></div>
+      <div class="clear"></div>
+    </div>
+    <div class="row">
+      <div class="label"><%= f.label :graph %></div>
+      <div class="field">
+        <div><input type="radio" name="delivety[graph]" value="Пятидневный" <%= @delivety.graph == 'Пятидневный' || !@delivety.graph ? 'checked=checked' : '' %> /> Пятидневный</div>
+        <div><input type="radio" name="delivety[graph]" value="Шестидневный" <%= @delivety.graph == 'Шестидневный' ? 'checked=checked' : '' %> /> Шестидневный</div>
+        <div><input type="radio" name="delivety[graph]" value="Без выходных" <%= @delivety.graph == 'Без выходных' ? 'checked=checked' : '' %> /> Без выходных</div>
+      <div class="clear"></div>
+    </div>
+    <div class="row timetable-form">
+      <div class="label"><label>Доставка осуществляется</label></div>
+      <div class="field">
+        <% p = @delivety.parsed_period %>
+        <div class="from">
+            <label>с&nbsp;&nbsp;</label>
+            <div class="select">
+              <%= select_tag 'from_hour', options_for_select((0..23).to_a.map { |n| sprintf('%02d', n) }.unshift(''), p.from_hour || '10'), :class => 'selectbox from-hour' %>
+            </div>
+            <label>ч.</label>
+            <div class="select">
+              <%= select_tag 'from_minute', options_for_select(%w(00 15 30 45).unshift(''), p.from_minute || '00'), :class => 'selectbox from-minute' %>
+            </div>
+            <label>мин.</label>
+        </div>
+        <br />
+        <div class="to">
+            <label>до</label>
+            <div class="select">
+              <%= select_tag 'to_hour', options_for_select((0..23).to_a.map { |n| sprintf('%02d', n) }.unshift(''), p.to_hour || '19'), :class => 'selectbox to-hour' %>
+            </div>
+            <label>ч.</label>
+            <div class="select">
+              <%= select_tag 'to_minute', options_for_select(%w(00 15 30 45).unshift(''), p.to_minute || '00'), :class => 'selectbox to-minute' %>
+            </div>
+            <label>мин.</label>
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="row">
+      <div class="label"><%= f.label :free %></div>
+      <div class="field"><%= f.check_box :free %></div>
+      <div class="clear"></div>
+    </div>
+    <div class="row">
+      <div class="label"><%= f.label :code, 'Код доставки' %></div>
+      <div class="field"><%= f.text_field :code%></div>
+      <div class="clear"></div>
+    </div>
+    <div class="row">
+      <div class="label"><%= f.label :cost %></div>
+      <div class="field"><%= f.text_field :cost, :size => 5 %> руб.</div>
+      <div class="clear"></div>
+    </div>
+    <div class="row">
+      <div class="label"><%= f.label :conditions %></div>
+      <div class="clear"></div>
+      <div><%= f.text_area :conditions, :class => 'ckeditor' %></div>
+    </div>
+    <div class="buttons" style="float:left; margin-left:200px;">
+      <input class="blue-button big" type="submit" value="Сохранить" />
+    </div>
+  </div>
+<% end %>

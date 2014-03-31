@@ -1,0 +1,2 @@
+module CompanyPanel::EmailsHelper
+end

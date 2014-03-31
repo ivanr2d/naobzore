@@ -1,0 +1,43 @@
+<div class="popup hidden" data-type="load-image">
+    <header>
+        <div class="left gray"><h2>Выбор изображения</h2></div>
+        <div class="right"><a class="close" href="#"></a></div>
+    </header>
+
+<div class="description">
+     
+	<div class="field">
+          <label>Загрузить изображение с компьютера</label>
+		<div class="input-file" style="">
+              <input type="text" size="5" name="result">
+              <input type="button" value="Загрузить">
+              <%= f.file_field :main_photo %>
+            </div>
+	 </div>
+
+	<div class="field with-cat-popup">
+          <label>Найти изображение из каталога</label>
+		<div class="autocomplite-wrap">
+		  <input type="text" class="cat-sel-inp live-filter" value="" placeholder="Введите название изображения" name="result">
+		</div>
+	</div>
+
+	<div class="image-list">
+    <% @entity.possible_photos.each do |photo| %>
+      <div class="image-list-item">
+        <%= check_box_tag 'photos_ids[]', photo.id, !!photo.entity_id %>
+        <div class="image-list-preview"><img src="<%= photo.url %>"></div>
+        <div class="clear"></div>
+        <div class="image-list-name"><%= photo[:file] %></div>
+      </div>
+    <% end %>
+	  <div class="clear"></div>
+	</div>
+</div>
+
+    
+    <footer>
+        <div class="left"></div>
+        <div class="right"><input class="blue-button choice mass-set-photos" data-entity_id="<%= @entity.translit %>" data-entity_table="<%= @entity.class.to_s.tableize %>" type="submit" value="OK"></div>
+    </footer>
+</div>

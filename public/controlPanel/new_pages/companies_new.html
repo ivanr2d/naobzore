@@ -1,0 +1,508 @@
+<!doctype html>
+<html>
+	<head>
+	<title>На обзоре</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+	<script src="http://api-maps.yandex.ru/2.0-stable/?load=package.full&lang=ru-RU" type="text/javascript"></script>
+  
+	<link rel="stylesheet" href="/assets/main.css" />
+	<link rel="stylesheet" href="/assets/login.css" />
+  <link rel="stylesheet" href="/assets/lightbox.css" />
+	<link href="/assets/company-panel-main.css?body=1" media="screen" rel="stylesheet" type="text/css">
+  <link href="/assets/selectbox.css?body=1" media="screen" rel="stylesheet" type="text/css">
+  <link href="/assets/jquery.jscrollpane.css?body=1" media="screen" rel="stylesheet" type="text/css">
+		
+  <script src="/assets/jquery.js?body=1" type="text/javascript"></script>
+  <script src="/assets/defaults.js" type="text/javascript"></script>
+	<script src="/assets/jquery_ujs.js?body=1" type="text/javascript"></script>
+  <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" type="text/javascript"></script>
+  <script src="/assets/jquery.ui.datepicker-ru.js?body=1" type="text/javascript"></script>
+  <script src="/assets/jquery.flot.min.js?body=1" type="text/javascript"></script>
+  <script src="http://malsup.github.com/jquery.form.js" type="text/javascript"></script> 
+  <script src="/controlPanel/js/kegrid.js" type="text/javascript"></script>
+  <script src="/controlPanel/js/jselectbox.js" type="text/javascript"></script>
+  <script src="/controlPanel/js/jcarousel.js" type="text/javascript"></script>
+  <script type="text/javascript">
+  var CKEDITOR_BASEPATH = '/assets/ckeditor/';
+  </script>
+  <script src="/assets/ckeditor/ckeditor.js?body=1" type="text/javascript"></script><style>.cke{visibility:hidden;}</style>
+  <script src="/assets/jquery.maskedinput.min.js?body=1" type="text/javascript"></script>
+  <script src="/assets/jquery.zclip.min.js?body=1" type="text/javascript"></script>
+
+  <script src="/assets/jquery.jscrollpane.js?body=1" type="text/javascript"></script>
+  <script src="/assets/jquery.mousewheel.js?body=1" type="text/javascript"></script>
+  <script src="/assets/company-panel-common.js?body=1" type="text/javascript"></script>
+	<script src="/assets/company_panel/companies.js" type="text/javascript"></script> <!-- !!! -->  
+    <script src="/assets/company_panel/reviews.js" type="text/javascript"></script> <!-- !!! -->
+
+  <!--[if lt IE 9]>
+  <script>
+      document.createElement('nav');
+      document.createElement('header');
+      document.createElement('footer');
+      document.createElement('section');
+      document.createElement('aside');
+      document.createElement('article');
+  </script>
+  <![endif]-->
+  
+</head>
+<body data-controller="help">
+    
+    <section id="container">
+
+        <header id="header">
+					
+            <div id="header_main">
+                <a href="/"><img id="logotype" src="/assets/logotype.png" alt="" style="width: auto;"/></a>
+            </div>
+            <div id="header_buts">
+                <div id="mini_buts">
+                    <a href="/" class="top-link"><img src="/assets/icons/home.png" alt="" /></a>
+                    <a href="#" class="top-link"><img src="/assets/icons/mail.png" alt="" /></a>
+                    <a href="#" class="top-link"><img src="/assets/icons/map.png" alt="" /></a>
+                </div>
+                
+                <nav id="top_nav">
+	<ul>
+		
+			<li class="top-nav"><a href="#" class="vinous">Добавить компанию</a></li>
+			
+<li class="top-nav"><a href="#" id="view_registration">Регистрация</a>
+					<!-- Выподающий блок регистрации -->
+					<div id="registration">
+							<div class="pop-form">
+								<form accept-charset="UTF-8" action="/users" class="new_user" id="new_user" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="WvcsVkGgsyWmA4f7T6KDDe89Ft5sAX+5/3TAg8ESA5o=" /></div>
+									<div class="pop-table">
+										<div><!--%= devise_error_messages! %--></div>
+											<div class="pop-table-row">
+												write hear registration advantages
+											</div>
+											<div class="pop-table-row">
+													<div class="pop-table-coll">Фамилия</div>
+													<div class="pop-table-colr"><input id="user_f_name" name="user[f_name]" size="20" type="text" /></div>
+											</div>
+											<div class="pop-table-row">
+													<div class="pop-table-coll">Имя</div>
+													<div class="pop-table-colr"><input id="user_l_name" name="user[l_name]" size="20" type="text" /></div>
+											</div>
+											<div class="pop-table-row">
+													<div class="pop-table-coll">Отчество</div>
+													<div class="pop-table-colr"><input id="user_m_name" name="user[m_name]" size="20" type="text" /></div>
+											</div>
+											<div class="pop-table-row">
+													<div class="pop-table-coll">E - mail</div>
+													<div class="pop-table-colr"><input id="user_email" name="user[email]" size="20" type="email" /></div>
+											</div>
+											<div class="pop-table-row">
+													<div class="pop-table-coll">Пароль</div>
+													<div class="pop-table-colr"><input id="user_password" name="user[password]" size="20" type="password" /></div>
+											</div>
+											<div class="pop-table-row">
+													<div class="pop-table-coll">Повтор пароля</div>
+													<div class="pop-table-colr"><input id="user_password_confirmation" name="user[password_confirmation]" size="20" type="password" /></div>
+											</div>
+											<div class="pop-table-row">
+													<div class="pop-table-coll-captcha">
+															<img src="/assets/temp/captha.png" alt="" />
+															<p><a href="#" class="pop-link">Новое изображение</a></p>
+													</div>
+													<div class="pop-table-colr-captcha">
+															<p>Что Вы видите?</p><input type="text" name="" size="11" />
+													</div>
+											</div>
+											<div class="pop-table-row">
+													<div class="pop-table-col-full">
+															<input id="user_lic" name="user[lic]" type="checkbox" value="1" /> Я принимаю условия <a href="#"  class="pop-link">пользовательского соглашения</a>
+													</div>
+											</div>
+									</div>
+
+							</div>
+							<div class="pop-form-send">
+									<input name="commit" type="submit" value="Зарегистрироваться" />
+							</div>
+</form>							
+							<div class="pop-form-social">
+									Вход без регистрации 
+									<a href="#"><img src="/assets/social/facebook.png" /></a>
+									<a href="#"><img src="/assets/social/vk.png" /></a>
+									<a href="#"><img src="/assets/social/twitter.png" /></a>
+							</div>
+					</div>
+					<!-- end | Выподающий блок регистрации -->
+			</li>
+			<li class="top-nav"><a href="#" id="view_login">Войти</a>
+
+					<!-- Всплывающий блок Входа -->
+					<div id="login">
+					<form accept-charset="UTF-8" action="/users/sign_in" class="new_user" id="new_user" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="WvcsVkGgsyWmA4f7T6KDDe89Ft5sAX+5/3TAg8ESA5o=" /></div>
+							<div id="login_form">
+									<div class="pop-form-login">
+											<div class="pop-form-login-table">
+													<div class="pop-form-login-row">
+															<div class="pop-form-login-coll">E-mail</div>
+															<div class="pop-form-login-colr"><input id="user_email" name="user[email]" size="18" type="email" /></div>
+													</div>
+													<div class="pop-form-login-row">
+															<div class="pop-form-login-coll">Пароль</div>
+															<div class="pop-form-login-colr"><input id="user_password" name="user[password]" size="18" type="password" /></div>
+													</div>
+											</div>
+									</div>
+									<div class="pop-form-button">
+											<div class="pop-form-button-left"><a href="#" id="view_rec_pass">Забыли пароль?</a></div>
+											<div class="pop-form-button-right"><input name="commit" type="submit" value="Вход" /></div>
+									</div>
+							</div>
+							<div id="login_social">
+									Войти с помощью... 
+									<a href="#"><img src="/assets/social/facebook.png" /></a>
+									<a href="#"><img src="/assets/social/vk.png" /></a>
+									<a href="#"><img src="/assets/social/twitter.png" /></a>
+							</div>
+</form>					</div>
+					<!-- end | Всплывающий блок Входа -->
+
+			</li>
+			<li class="top-nav"><a href="/help">Справка</a></li>
+	</ul>
+</nav>
+                
+            </div>
+            <div id="header_wave"></div>
+            <div id="header_righ">
+							
+						</div>
+        </header>
+        
+        <section id="simple-title">
+            Регистрация вашего предприятия
+        </section>
+        
+        <div id="cabinetContainer">
+		
+            
+            <section id="simple_content" style="margin: 0; border: 0; float: none; width: auto;">
+            	
+            	<div id="main" style="margin: 0 auto; border: 0;">
+            	
+						<!-- Главное содержательная часть -->
+  <section id="content" style="margin: 0 auto; border: 0; float: none;">
+    <div class="notice"></div>
+    
+ 
+  <!-- Контент -->
+  <div class="form">
+    <h1 class="title"><!-- Заголовок --></h1>
+    <div class="body">
+      
+      <div class="row">
+        <div class="label">Фактическое название предприятия</label></div>
+        <div class="field"><input type="text" size="30"></div>
+        <div class="clear"></div>
+      </div>
+      <div class="row">
+        <div class="label">Организационно-правовая форма</div>
+        <div class="field">
+					<select class="selectbox">
+						<option value="">Не выбрано</option>
+						<option value="ООО">ООО</option>
+						<option value="ЗАО">ЗАО</option>
+						<option value="ОАО" selected="selected">ОАО</option>
+						<option value="ИП">ИП</option>
+					</select>
+				</div>
+        <div class="clear"></div>
+      </div>
+      <div class="row">
+        <div class="label">Полное юридическое название</div>
+        <div class="field"><input type="text" size="30"></div>
+        <div class="clear"></div>
+      </div>
+      <div class="row">
+        <div class="label">ИНН</div>
+        <div class="field"><input id="company_inn" type="text" size="30" maxlength="12" pattern="\d*"></div>
+        <div class="clear"></div>
+      </div>
+			<div class="row">
+        <div class="label">КПП</div>
+        <div class="field"><input id="company_kpp" type="text" size="30" maxlength="9" pattern="\d*"></div>
+        <div class="clear"></div>
+      </div>
+			<div class="row">
+        <div class="label">ОГРН</div>
+        <div class="field"><input id="company_ogrn" type="text" size="30" maxlength="13" pattern="\d*"></div>
+        <div class="clear"></div>
+      </div>
+			<div class="row">
+        <div class="label">Адрес сайта</div>
+        <div class="field"><input type="text" size="15">.naobzore.ru &nbsp; <a href="#" class="link-blue link-nounderline check-adress-link">Проверить</a></div>
+        <div class="check-adress-text"></div>
+				<div class="clear"></div>
+      </div>
+			
+			<div class="row">
+				<h2>Фактический адрес</h2>
+			</div>
+			
+			<div class="row">
+        <div class="label">Область</div>
+        <div class="field">
+					<select class="selectbox disabled" style="width: 227px;">
+						<option value="" selected="selected">Оренбургская область</option>
+					</select>
+				</div>
+        <div class="clear"></div>
+      </div>
+			<div class="row">
+        <div class="label">Город</div>
+        <div class="field">
+					<select class="selectbox disabled" style="width: 227px;">
+						<option value="" selected="selected">Оренбург</option>
+					</select>
+				</div>
+        <div class="clear"></div>
+      </div>
+			<div class="row">
+        <div class="label">Улица</div>
+        <div class="field"><input type="text" size="30"></div>
+        <div class="clear"></div>
+      </div>
+			<div class="row">
+        <div class="label">Дом</div>
+        <div class="field"><input type="text" size="12"></div>
+        <div class="clear"></div>
+      </div>
+			<div class="row">
+        <div class="label">Корпус</div>
+        <div class="field"><input type="text" size="12"></div>
+        <div class="clear"></div>
+      </div>
+			<div class="row">
+        <div class="label">Офис</div>
+        <div class="field"><input type="text" size="12"></div>
+        <div class="clear"></div>
+      </div>
+			
+			<div class="row">
+				<h2>Контакты организации</h2>
+			</div>
+			
+			<div class="row">
+        <div class="label"><label>Телефон</label></div>
+        <div class="field">
+          <div class="phones">
+            
+            <div class="phone hidden" id="newPhone">
+              +7 <input type="text" size="2" placeholder="Код" name="phone_code[]" value=""> 
+							<input type="text" size="7" placeholder="Номер" name="phone_number[]" value="">
+							Доб. <input type="text" size="3" name="phone_dob[]" value="">
+							<a href="#" class="del-phone">Удалить</a>
+
+            </div>
+              <div class="phone">
+                +7 <input type="text" size="2" placeholder="Код" name="phone_code[]" value=""> 
+								<input type="text" size="7" placeholder="Номер" name="phone_number[]" value="">
+								Доб. <input type="text" size="3" name="phone_dob[]" value="">
+								<a href="#" id="addPhone">Добавить еще номер</a>
+              </div>
+          
+          </div>
+          <div class="example">Пример: +7(3532) 332321</div>
+        </div>
+        <div class="clear"></div>
+      </div>
+			
+			<div class="row">
+        <div class="label">Skype</div>
+        <div class="field"><input type="text" size="30"></div>
+        <div class="clear"></div>
+      </div>
+      <div class="row">
+        <div class="label">ICQ</div>
+        <div class="field"><input type="text" size="30" pattern="\d*"></div>
+        <div class="clear"></div>
+      </div>
+			<div class="row">
+        <div class="label">E-mail</div>
+        <div class="field"><input type="email" size="30"></div>
+        <div class="clear"></div>
+      </div>
+			
+			
+			<div class="row">
+				<h2>Информация о представителе</h2>
+			</div>
+			
+			<div class="row">
+        <div class="label">Фамилия</div>
+        <div class="field"><input type="text" size="30"></div>
+        <div class="clear"></div>
+      </div>
+      <div class="row">
+        <div class="label">Имя</div>
+        <div class="field"><input type="text" size="30"></div>
+        <div class="clear"></div>
+      </div>
+			<div class="row">
+        <div class="label">Отчество</div>
+        <div class="field"><input type="text" size="30"></div>
+        <div class="clear"></div>
+      </div>
+			
+			<div class="row">
+        <div class="label"><label>Контактный телефон</label></div>
+        <div class="field">
+          <div class="phones">
+            
+            <div class="phone hidden" id="newPhone">
+              +7 <input type="text" size="2" placeholder="Код" name="phone_code[]" value=""> 
+							<input type="text" size="7" placeholder="Номер" name="phone_number[]" value="">
+							Доб. <input type="text" size="3" name="phone_dob[]" value="">
+							<a href="#" class="del-phone">Удалить</a>
+
+            </div>
+              <div class="phone">
+                +7 <input type="text" size="2" placeholder="Код" name="phone_code[]" value=""> 
+								<input type="text" size="7" placeholder="Номер" name="phone_number[]" value="">
+								Доб. <input type="text" size="3" name="phone_dob[]" value="">
+								<a href="#" id="addPhone">Добавить еще номер</a>
+              </div>
+          
+          </div>
+          <div class="example">Пример: +7(3532) 332321</div>
+        </div>
+        <div class="clear"></div>
+      </div>
+			
+			
+			<div class="row">
+				<h2>Регистрационные данные</h2>
+			</div>
+			
+			<div class="row">
+        <div class="label">E-mail</div>
+        <div class="field"><input type="text" size="30"></div>
+        <div class="clear"></div>
+      </div>
+      <div class="row">
+        <div class="label">Пароль</div>
+        <div class="field"><input type="text" size="30"></div>
+        <div class="clear"></div>
+      </div>
+			<div class="row">
+        <div class="label">Подтвердите пароль</div>
+        <div class="field"><input type="text" size="30"></div>
+        <div class="clear"></div>
+      </div>
+			
+		
+			<div class="company-reg-agreement">
+				<input type="checkbox"> Принимаю условия <a href="#" class="link-blue link-nounderline" target="_blank">Пользовательского соглашения</a>
+			</div>
+			
+                  
+    </div>
+    <div class="buts">
+      <input type="submit" class="blue-button big" value="Сохранить" />
+    </div>
+  </div>
+<!-- end  Контент -->
+
+  </section>
+
+	<div class="clear"></div>
+</section>
+							
+							
+							
+							
+
+            	</div>
+            	
+				<footer>
+                    	
+                </footer>
+            </section>
+            
+            <div class="clear"></div>
+        </div>
+    
+	    <!-- Подвал -->
+	    <footer id="last_footer">
+  <div id="info_footer">
+    <div class="info-head">
+      <div class="info-head-auto">
+        <div class="info-row">Полезная информация</div>
+        <div class="info-row">Организациям</div>
+        <div class="info-row">О нас</div>
+        <div class="info-row">Мы в социальных сетях</div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div class="info-body">
+      <div class="info-head-auto">
+        <div class="info-col">
+          <p><a href="/pages/1">Page 1</a></p>
+          <p><a href="/pages/2">Page 2</a></p>
+          <p><a href="/pages/3">Page 3</a></p>
+        </div>
+        <div class="info-col">
+          <p><a href="/pages/4">Page 4</a></p>
+          <p><a href="/pages/5">Page 5</a></p>
+          <p><a href="#">Добавить компанию</a></p>
+          <p><a href="#">Добавить товар</a></p>
+          <p><a href="#">Заказать рекламу</a></p>
+        </div>
+        <div class="info-col">
+          <p><a href="/pages/6">Page 6</a></p>
+          <p><a href="/pages/7">Page 7</a></p>
+          <p><a href="/pages/8">Page 8</a></p>
+        </div>
+        <div class="info-col">
+          <p><a href="#"><img src="/assets/social/twitter.png" />Twitter</a></p>
+          <p><a href="#"><img src="/assets/social/vk.png" />Вконтакте</a></p>
+          <p><a href="#"><img src="/assets/social/facebook.png" />Facebook</a></p>
+			<!--LiveInternet counter--><script type="text/javascript"><!--
+			document.write("<a href='http://www.liveinternet.ru/click' "+
+			"target=_blank><img src='//counter.yadro.ru/hit?t44.6;r"+
+			escape(document.referrer)+((typeof(screen)=="undefined")?"":
+			";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+			screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+			";"+Math.random()+
+			"' alt='' title='LiveInternet' "+
+			"border='0' width='31' height='31'><\/a>")
+			//--></script><!--/LiveInternet-->
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div class="copy">
+    	© НаОбзоре.рф, 2014
+    </div>
+  </div>
+  
+</footer>
+
+
+	    <!-- / Подвал -->
+    </section>
+    
+
+    
+    <div class="popup-pass">
+        <div class="popup-pass-close"><a href="#"><img src="img/popup-close.png" alt="" /></a></div>
+        <div class="popup-title">
+            Восстановление пароля
+        </div>
+        <div class="popup-content-simple">
+            <p>Для восстановления доступа к сайту, введите адрес электронной почты, указанный при регистрации. На указанный Вами адрес, будет выслано письмо с новым паролем.</p>
+        </div>
+        <div class="popup-email">
+            E - mail <input type="text" /><input type="submit" value="Выслать пароль" />
+        </div>
+    </div>
+
+</body>
+</html>

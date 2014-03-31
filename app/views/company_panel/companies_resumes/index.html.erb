@@ -1,0 +1,66 @@
+<div class="list">
+  <%= render :partial => 'tabs' %>
+  <div class="content">
+    <div class="tab-content" data-id="1">
+      <div class="kegrid-wrap">
+        <table class="kegrid style-silver" cellpadding="0" cellspacing="0">
+          <thead>
+            <tr>
+              <th><input type="checkbox" class="checked-all" /></th>
+              <th>Резюме</th>
+               <% if params[:status] %><th>Вакансия</th><% end %>
+              <th>Пользователь</th>
+              <th>Статус</th>
+              <th></th>
+              <!--<th>Деятельность компании</th>-->
+            </tr>
+          </thead>
+          <tbody>
+            <%= render :partial => 'companies_resume', :collection => @companies_resumes %>
+          </tbody>
+        </table>
+	  </div>
+	  
+	  <div class="flr"><br>
+		<input class="blue-button" type="submit" value="Сохранить">
+	  </div>
+      
+      <!-- Подвальчик -->
+      <footer class="footer">
+        <div class="element">
+          <img src="/controlPanel/images/checkbox.png" /> <span id="checkedCount">0</span>
+        </div>
+        <div class="element">
+          <select class="mass-action">
+            <option>Массовые действия</option>
+            <option value="reject">Отказать</option>
+            <option value="destroy">Удалить</option>
+          </select>
+        </div>
+        <%= render :partial => 'company_panel/shared/pagination', :locals => {:obj => @companies_resumes} %>
+      </footer>
+    </div>
+    
+    <div class="tab-content hidden" data-id="2">
+      <!--j-->
+      <div class="footer">
+        <!--FOOOOOTEEERRR-->
+      </div>
+    </div>
+    
+    <div class="tab-content hidden" data-id="3">
+      <!--s-->
+      <div class="footer">
+        <!--FOOOOOTEEERRR-->
+      </div>
+    </div>
+    
+    <div class="tab-content hidden" data-id="4">
+      <!--c-->
+      <div class="footer">
+        <!--FOOOOOTEEERRR-->
+      </div>
+    </div>
+    
+  </div>
+</div>

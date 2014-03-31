@@ -1,0 +1,25 @@
+<div class="form">
+  <h1 class="title"><%= @resume.name %></h1>
+  <% [
+    [:fio, link_to(@resume.user.fio, edit_company_panel_user_path(@resume.user))],
+    [:photo, @resume.photo_url(:thumb)],
+    [:sex, human_sex(@resume.sex)],
+    :birthday, :mob_phone, :home_phone, :email, :skype, :icq, :computer_user, :computer_skills, :recommendations, :progress, :about_me,
+    [:created_at, l(@resume.created_at, :format => '%d %B %Y')]
+  ].each do |field| %>
+    <%
+    if field.is_a?(Array)
+      value = field.last
+      field = field.first
+    else
+      value = @resume.send(field)
+    end
+    next if value.blank?
+    %>
+    <div class="row">
+      <div class="label"><%= t "activerecord.attributes.resume.#{field}" %></div>
+      <div class="label"><%= value %></div>
+      <div class="clear"></div>
+    </div>
+  <% end %>
+</div>

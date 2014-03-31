@@ -1,0 +1,83 @@
+<!--Попап для описания-->
+<div class="popup hidden" data-type="timetable">
+    <header class="brown">
+        <div class="left day-name"><h2 class="title">Понедельник</h2></div>
+        <div class="right"><a class="close" href="#"></a></div>
+    </header>
+    
+    <div class="timetable-form">
+        
+        <p>Выходной <input type="checkbox" class="weekend" /></p>
+        
+        <div class="group">
+            <div class="label">Время работы:</div>
+            <div class="field">
+            
+                <div class="from">
+                    <label>с</label>
+                    <div class="select">
+                      <%= select_tag 'from_hour', options_for_select((0..23).to_a.map { |n| sprintf('%02d', n) }.unshift(''), '10'), :class => 'selectbox from-hour' %>
+                    </div>
+                    <label>ч.</label>
+                    <div class="select">
+                      <%= select_tag 'from_minute', options_for_select(%w(00 15 30 45).unshift(''), '00'), :class => 'selectbox from-minute' %>
+                    </div>
+                    <label>мин.</label>
+                </div>
+
+                <div class="to">
+                    <label>до</label>
+                    <div class="select">
+                      <%= select_tag 'to_hour', options_for_select((0..23).to_a.map { |n| sprintf('%02d', n) }.unshift(''), '19'), :class => 'selectbox to-hour' %>
+                    </div>
+                    <label>ч.</label>
+                    <div class="select">
+                      <%= select_tag 'to_minute', options_for_select(%w(00 15 30 45).unshift(''), '00'), :class => 'selectbox to-minute' %>
+                    </div>
+                    <label>мин.</label>
+                </div>
+                
+            </div><!--field-->
+            <div class="clear"></div>
+        </div><!--row-->
+        
+        <p>Перерыв <input type="checkbox" class="break" /></p>
+        
+        <div class="group">
+            <div class="label">Время перерыва:</div>
+            <div class="field">
+            
+                <div class="from">
+                    <label>с</label>
+                    <div class="select">
+                      <%= select_tag 'break_from_hour', options_for_select((0..23).to_a.map { |n| sprintf('%02d', n) }.unshift(''), '13'), :class => 'selectbox break-from-hour' %>
+                    </div>
+                    <label>ч.</label>
+                    <div class="select">
+                      <%= select_tag 'break_from_minute', options_for_select(%w(00 15 30 45).unshift(''), '00'), :class => 'selectbox break-from-minute' %>
+                    </div>
+                    <label>мин.</label>
+                </div>
+
+                <div class="to">
+                    <label>до</label>
+                    <div class="select">
+                      <%= select_tag 'break_to_hour', options_for_select((0..23).to_a.map { |n| sprintf('%02d', n) }.unshift(''), '14'), :class => 'selectbox break-to-hour' %>
+                    </div>
+                    <label>ч.</label>
+                    <div class="select">
+                      <%= select_tag 'break_to_minute', options_for_select(%w(00 15 30 45).unshift(''), '00'), :class => 'selectbox break-to-minute' %>
+                    </div>
+                    <label>мин.</label>
+                </div>
+                
+            </div><!--field-->
+            <div class="clear"></div>
+        </div><!--row-->
+            
+    </div>
+    
+    <footer>
+        <a href="#" class="brown-button choice">Сохранить</a>
+    </footer>
+</div>

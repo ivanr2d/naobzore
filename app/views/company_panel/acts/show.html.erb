@@ -1,0 +1,275 @@
+<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+<STYLE TYPE="text/css">
+<!--
+  @page { size: 21cm 29.7cm; margin-right: 1.5cm; margin-top: 2cm; margin-bottom: 2cm }
+  P { margin-bottom: 0.21cm; direction: ltr; color: #000000; widows: 2; orphans: 2 }
+  P.western { font-family: "Times New Roman", serif; font-size: 10pt; so-language: ru-RU }
+  P.cjk { font-family: "Times New Roman", serif; font-size: 10pt }
+  P.ctl { font-family: "Times New Roman", serif; font-size: 10pt; so-language: ar-SA }
+  A:link { color: #0000ff; text-decoration: underline }
+-->
+</STYLE>
+<P CLASS="western" ALIGN=CENTER STYLE="margin-bottom: 0cm"><FONT FACE="Arial, sans-serif"><FONT SIZE=3><B><FONT COLOR="#0000ff"><A HREF="http://forms-docs.ru/doc/akt-vypolnennykh-rabot"><FONT COLOR="#000000"><SPAN STYLE="text-decoration: none">Акт
+о приемке выполненных работ</SPAN></FONT></A></FONT>
+<U>№ <%= @act.id %></U></B></FONT></FONT></P>
+<P CLASS="western" ALIGN=CENTER STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P CLASS="western" ALIGN=CENTER STYLE="margin-bottom: 0cm"><FONT SIZE=3>от
+«<U> <%= @act.created_at.strftime('%d') %> </U>» <U>&nbsp;&nbsp;<%= l @act.created_at, :format => '%B' %>&nbsp;&nbsp;</U> <U>&nbsp;<%= @act.created_at.strftime('%Y') %>&nbsp;</U> г.</FONT></P>
+<P CLASS="western" ALIGN=CENTER STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm; line-height: 150%">Исполнитель
+<U><%= @main_company.legal_name %></U></P>
+<P CLASS="western" STYLE="margin-bottom: 0.07cm">Заказчик 
+<U><%= @company.legal_name %></U></P>
+<P CLASS="western" STYLE="margin-bottom: 0.07cm"><BR><BR>
+</P>
+<TABLE WIDTH=625 CELLPADDING=0 CELLSPACING=0>
+	<COL WIDTH=24>
+	<COL WIDTH=318>
+	<COL WIDTH=51>
+	<COL WIDTH=73>
+	<COL WIDTH=52>
+	<COL WIDTH=105>
+	<TBODY>
+		<TR>
+			<TD WIDTH=24 HEIGHT=25 STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding: 0cm">
+				<P CLASS="western" ALIGN=CENTER>№</P>
+			</TD>
+			<TD WIDTH=318 STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding: 0cm">
+				<P CLASS="western" ALIGN=CENTER><FONT SIZE=2 STYLE="font-size: 9pt">Наименование
+				работы (услуги)</FONT></P>
+			</TD>
+			<TD WIDTH=51 STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding: 0cm">
+				<P CLASS="western" ALIGN=CENTER><FONT SIZE=2 STYLE="font-size: 9pt">Ед.
+				изм.</FONT></P>
+			</TD>
+			<TD WIDTH=73 STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding: 0cm">
+				<P CLASS="western" ALIGN=CENTER><FONT SIZE=2 STYLE="font-size: 9pt">Количество</FONT></P>
+			</TD>
+			<TD WIDTH=52 STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding: 0cm">
+				<P CLASS="western" ALIGN=CENTER><FONT SIZE=2 STYLE="font-size: 9pt">Цена</FONT></P>
+			</TD>
+			<TD WIDTH=105 STYLE="border: 1px solid #000000; padding: 0cm">
+				<P CLASS="western" ALIGN=CENTER><FONT SIZE=2 STYLE="font-size: 9pt">Сумма</FONT></P>
+			</TD>
+		</TR>
+	</TBODY>
+	<TBODY>
+		<TR>
+			<TD WIDTH=24 HEIGHT=23 STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding: 0cm">
+				<P CLASS="western" ALIGN=CENTER>1</P>
+			</TD>
+			<TD WIDTH=318 STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding: 0cm">
+				<P CLASS="western" STYLE="margin-left: 0.1cm"><%= t "acts.entities.#{@act.entity_type}" %></P>
+			</TD>
+			<TD WIDTH=51 STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding: 0cm">
+				<P CLASS="western" ALIGN=CENTER>шт.</P>
+			</TD>
+			<TD WIDTH=73 STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding: 0cm">
+				<P CLASS="western" ALIGN=CENTER>1</P>
+			</TD>
+			<TD WIDTH=52 STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding: 0cm">
+				<P CLASS="western" ALIGN=CENTER><%= @act.sum %></P>
+			</TD>
+			<TD WIDTH=105 STYLE="border: 1px solid #000000; padding: 0cm">
+				<P CLASS="western" ALIGN=CENTER><%= @act.sum %></P>
+			</TD>
+		</TR>
+	</TBODY>
+	<TBODY>
+		<TR>
+			<TD WIDTH=24 HEIGHT=23 STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding: 0cm">
+				<P CLASS="western" ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD WIDTH=318 STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding: 0cm">
+				<P CLASS="western" STYLE="margin-left: 0.1cm"><BR>
+				</P>
+			</TD>
+			<TD WIDTH=51 STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding: 0cm">
+				<P CLASS="western" ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD WIDTH=73 STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding: 0cm">
+				<P CLASS="western" ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD WIDTH=52 STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding: 0cm">
+				<P CLASS="western" ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD WIDTH=105 STYLE="border: 1px solid #000000; padding: 0cm">
+				<P CLASS="western" ALIGN=CENTER><BR>
+				</P>
+			</TD>
+		</TR>
+	</TBODY>
+	<TBODY>
+		<TR>
+			<TD WIDTH=24 HEIGHT=23 STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding: 0cm">
+				<P CLASS="western" ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD WIDTH=318 STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding: 0cm">
+				<P CLASS="western" STYLE="margin-left: 0.1cm"><BR>
+				</P>
+			</TD>
+			<TD WIDTH=51 STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding: 0cm">
+				<P CLASS="western" ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD WIDTH=73 STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding: 0cm">
+				<P CLASS="western" ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD WIDTH=52 STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding: 0cm">
+				<P CLASS="western" ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD WIDTH=105 STYLE="border: 1px solid #000000; padding: 0cm">
+				<P CLASS="western" ALIGN=CENTER><BR>
+				</P>
+			</TD>
+		</TR>
+	</TBODY>
+	<TBODY>
+		<TR>
+			<TD WIDTH=24 HEIGHT=23 STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding: 0cm">
+				<P CLASS="western" ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD WIDTH=318 STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding: 0cm">
+				<P CLASS="western" STYLE="margin-left: 0.1cm"><BR>
+				</P>
+			</TD>
+			<TD WIDTH=51 STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding: 0cm">
+				<P CLASS="western" ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD WIDTH=73 STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding: 0cm">
+				<P CLASS="western" ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD WIDTH=52 STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding: 0cm">
+				<P CLASS="western" ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD WIDTH=105 STYLE="border: 1px solid #000000; padding: 0cm">
+				<P CLASS="western" ALIGN=CENTER><BR>
+				</P>
+			</TD>
+		</TR>
+	</TBODY>
+	<TBODY>
+		<TR>
+			<TD WIDTH=24 HEIGHT=23 STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding: 0cm">
+				<P CLASS="western" ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD WIDTH=318 STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding: 0cm">
+				<P CLASS="western" STYLE="margin-left: 0.1cm"><BR>
+				</P>
+			</TD>
+			<TD WIDTH=51 STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding: 0cm">
+				<P CLASS="western" ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD WIDTH=73 STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding: 0cm">
+				<P CLASS="western" ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD WIDTH=52 STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding: 0cm">
+				<P CLASS="western" ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD WIDTH=105 STYLE="border: 1px solid #000000; padding: 0cm">
+				<P CLASS="western" ALIGN=CENTER><BR>
+				</P>
+			</TD>
+		</TR>
+	</TBODY>
+	<TBODY>
+		<TR>
+			<TD COLSPAN=5 WIDTH=519 HEIGHT=23 STYLE="border-top: 1px solid #000000; border-bottom: none; border-left: none; border-right: none; padding: 0cm">
+				<P CLASS="western" ALIGN=RIGHT STYLE="margin-right: 0.2cm"><FONT SIZE=2 STYLE="font-size: 9pt"><B><FONT COLOR="#0000ff"><A HREF="http://blanker.ru/doc/akt-vypolnennyh-rabot"><FONT COLOR="#000000"><SPAN STYLE="text-decoration: none">Итого</SPAN></FONT></A></FONT>:</B></FONT></P>
+			</TD>
+			<TD WIDTH=105 STYLE="border: 1px solid #000000; padding: 0cm">
+				<P CLASS="western" ALIGN=CENTER><%= @act.sum_without_nds %></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD COLSPAN=5 WIDTH=519 HEIGHT=23 STYLE="border: none; padding: 0cm">
+				<P CLASS="western" ALIGN=RIGHT STYLE="margin-right: 0.2cm"><FONT SIZE=2 STYLE="font-size: 9pt"><B>Без
+				налога (НДС)</B></FONT></P>
+			</TD>
+			<TD WIDTH=105 STYLE="border: 1px solid #000000; padding: 0cm">
+				<P CLASS="western" ALIGN=CENTER><%= @act.sum_without_nds %></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD COLSPAN=5 WIDTH=519 HEIGHT=23 STYLE="border: none; padding: 0cm">
+				<P CLASS="western" ALIGN=RIGHT STYLE="margin-right: 0.2cm"><FONT SIZE=2 STYLE="font-size: 9pt"><B>Всего
+				(с учетом НДС)</B></FONT></P>
+			</TD>
+			<TD WIDTH=105 STYLE="border: 1px solid #000000; padding: 0cm">
+				<P CLASS="western" ALIGN=CENTER><%= @act.sum_with_nds %></P>
+			</TD>
+		</TR>
+	</TBODY>
+</TABLE>
+<P CLASS="western" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm; line-height: 150%"><FONT SIZE=3><I>Всего
+оказано услуг на сумму:
+<U><%= RuPropisju.rublej(@act.sum_with_nds) %></U>,</I></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0cm"> <FONT SIZE=3><I>в
+т.ч. НДС – <U><%= RuPropisju.rublej(@act.nds) %></U></I></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm"><FONT SIZE=3><I>Вышеперечисленные
+работы (услуги) выполнены полностью и
+в срок. Заказчик претензий по объему,
+качеству и срокам оказания услуг
+претензий не имеет.</I></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<TABLE>
+  <TR>
+    <TD>
+      <P CLASS="western" STYLE="margin-bottom: 0cm"><FONT SIZE=3>Исполнитель</FONT></P>
+    </TD>
+    <TD>
+      <U><IMG SRC="<%= @main_company.director_signature_url %>" /></U>
+    </TD>
+    <TD WIDTH="100px"></TD>
+    <TD>
+      <P CLASS="western" STYLE="margin-bottom: 0cm"><FONT SIZE=3>Заказчик</FONT></P>
+    </TD>
+    <TD>
+      <U><IMG SRC="<%= @company.director_signature_url %>" /></U>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE>
+  <TR>
+    <TD WIDTH="150px"></TD>
+    <TD>
+      <P CLASS="western" STYLE="margin-bottom: 0cm">М.П.</P>
+    </TD>
+    <TD WIDTH="280px"></TD>
+    <TD>
+      <P CLASS="western" STYLE="margin-bottom: 0cm">М.П.</P>
+    </TD>
+  </TR>
+</TABLE>
+<% if request.format == :html %>
+  <br />
+  <div style="float:right;">
+    <%= link_to 'Скачать', company_panel_act_path(@act, :format => :pdf), :download => @act.pdf_name %>
+    &nbsp;
+    <%= link_to 'Акты выполненных работ', company_panel_acts_path %>
+  </div>
+<% end %>

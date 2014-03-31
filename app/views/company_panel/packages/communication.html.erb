@@ -1,0 +1,5 @@
+<div class="packets">
+  <% @packages.each do |package| %>
+    <%= render :partial => package.ptype.to_s, :locals => {:communication => package} %> 
+  <% end %>
+</div>

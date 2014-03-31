@@ -1,0 +1,123 @@
+<%= form_for @company, :url => company_panel_company_path(@company) do |f| %>
+<%= render_error_explanation @company %>
+<div class="form">
+  <h1 class="title">Юридическая информация</h1>
+  <div class="body">
+    
+    <div class="row">
+      <div class="label"><%= f.label :tallage %></div>
+      <div class="field">
+                        <div><input type="radio" name="company[tallage]" value="common" <%= @company.tallage == :common ? 'checked=checked' : '' %> /> Общий режим налогооблажения</div>
+                        <div><input type="radio" name="company[tallage]" value="simple" <%= @company.tallage == :simple ? 'checked=checked' : '' %> /> Упрощенная система налогооблажения</div>
+                    </div>
+      <div class="clear"></div>
+    </div>
+                
+    <div class="row">
+      <h2>Юридические данные Вашей компании:</h2>
+    </div>
+                
+    <div class="row">
+      <div class="label"><%= f.label :inn %></div>
+      <div class="field"><%= f.text_field :inn, :maxlength => 12, :size => 30 %></div>
+      <div class="clear"></div>
+    </div>
+                
+    <div class="row">
+      <div class="label"><%= f.label :kpp %></div>
+      <div class="field"><%= f.text_field :kpp, :maxlength => 9, :size => 30 %></div>
+      <div class="clear"></div>
+    </div>
+                
+    <div class="row">
+      <div class="label"><%= f.label :org_form %></div>
+      <div class="field">
+        <%= f.select :org_form, options_for_select(%w(ООО ЗАО ОАО ИП), @company.org_form), {:include_blank => 'Не выбрано'}, :class => 'selectbox' %>
+      </div>
+      <div class="clear"></div>
+    </div>
+                
+    <div class="row">
+      <div class="label"><%= f.label :legal_name %></div>
+      <div class="field"><%= f.text_field :legal_name %></div>
+      <div class="clear"></div>
+    </div>
+                
+    <div class="row">
+      <h2>Банковские реквизиты</h2>
+    </div>
+                
+    <div class="row">
+      <div class="label"><%= f.label :settlement_account %></div>
+      <div class="field"><%= f.text_field :settlement_account, :maxlength => 20, :size => 30 %></div>
+      <div class="clear"></div>
+    </div>
+                
+    <div class="row">
+      <div class="label"><%= f.label :bank_name %></div>
+      <div class="field"><%= f.text_field :bank_name %></div>
+      <div class="clear"></div>
+    </div>
+                
+    <div class="row">
+      <div class="label"><%= f.label :bik %></div>
+      <div class="field"><%= f.text_field :bik, :maxlength => 9, :size => 30 %></div>
+      <div class="clear"></div>
+    </div>
+                
+    <div class="row">
+      <div class="label"><%= f.label :bank_cor_account %></div>
+      <div class="field"><%= f.text_field :bank_cor_account, :maxlength => 20, :size => 30 %></div>
+      <div class="clear"></div>
+    </div>
+                
+    <div class="row">
+      <h2>Юридический адрес:</h2>
+    </div>
+                
+    <div class="row">
+      <div class="label"><%= f.label :ur_index %></div>
+      <div class="field"><%= f.text_field :ur_index %></div>
+      <div class="clear"></div>
+    </div>
+                
+    <div class="row">
+      <div class="label"><%= f.label :ur_city %></div>
+      <div class="field"><%= f.text_field :ur_city %></div>
+      <div class="clear"></div>
+    </div>
+                
+    <div class="row">
+        <div class="label"><%= f.label :ur_street %></div>
+        <div class="field"><%= f.text_field :ur_street %></div>
+        <div class="clear"></div>
+      </div>
+                
+    <div class="row">
+        <div class="label"><%= f.label :ur_home %></div>
+        <div class="field">
+          <%= f.text_field :ur_home, :size => 5 %>
+          Корпус <%= f.text_field :ur_corp, :size => 5 %>
+          Офис <%= f.text_field :ur_office, :size => 5 %>
+        </div>
+        <div class="clear"></div>
+      </div>
+                
+    <div class="row">
+      <h2>Директор:</h2>
+    </div>
+               
+    <% [:director_fname, :director_lname, :director_mname].each do |field| %>
+      <div class="row">
+        <div class="label"><%= f.label field %></div>
+        <div class="field"><%= f.text_field field %></div>
+        <div class="clear"></div>
+      </div>
+    <% end %> 
+                
+  </div>
+  <div class="buts">
+    <input type="submit" class="blue-button big" value="Сохранить" />
+  </div>
+</div>
+<% end %>

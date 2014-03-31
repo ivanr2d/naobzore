@@ -1,0 +1,2 @@
+$('.packet[data-package_id=<%= @package.id %>]').replaceWith('<%= escape_javascript(render :partial => "company_panel/packages/#{@package.ptype}", :object => @package, :locals => {:communication => @package}) %>');
+$('.selectbox').selectbox({animationSpeed: 50}).bind('change', function(){});

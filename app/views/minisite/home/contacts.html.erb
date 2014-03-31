@@ -1,0 +1,60 @@
+<% coords = @company.coords.split(',').map(&:to_f) %>
+<% content_for :javascripts do %>
+  <script src="http://api-maps.yandex.ru/2.0-stable/?load=package.standard&lang=ru-RU" type="text/javascript"></script>
+  <script type="text/javascript">
+    ymaps.ready(init);
+    var myMap, myPlacemark;
+
+    function init(){     
+      myMap = new ymaps.Map ("map", {
+        center: [<%= coords.first %>, <%= coords.last %>],
+        zoom: 12,
+      });
+
+      myPlacemark = new ymaps.Placemark([<%= coords.first %>, <%= coords.last %>], { 
+        content: 'Ваше местоположение', 
+        balloonContent: 'Ваше местоположение' 
+      });
+
+      myMap.geoObjects.add(myPlacemark);
+
+      myMap.controls.add(
+        new ymaps.control.ZoomControl()
+      );
+    }
+  </script>
+<% end %>
+
+<!-- Блок с заголовком -->
+<div class="entity-title">
+    <h2>Контакты</h2>
+    <p></p>
+    <div class="clear"></div>
+</div>
+
+<div class="contacts">
+    
+    <div class="header">
+        <div class="left">
+            <p>Тел.: <%= @company.phone %></p>
+            <p>Факс: <%= @company.fax %></p>
+            <p>E-mail: <%= @company.email %></p>
+        </div>
+        <div class="right">
+            <p><a class="call-up" href="#"></a></p>
+            <p><a class="send-mail view-popup" data-type="send-message" href="#">Написать сообщение</a></p>
+        </div>
+        <div class="clear"></div>
+    </div>
+    
+    <div class="section">
+        <h2>Адресс</h2>
+        <p><%= @company.address %></p>
+    </div>
+    
+    <div class="map-wrapper">
+        <h2>Карта</h2>
+        <div class="map" id="map"></div>
+    </div>
+    
+</div>

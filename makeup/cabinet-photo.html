@@ -1,0 +1,448 @@
+﻿<!doctype html>
+<html>
+<head>
+    <title>На обзоре</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="css/selectbox.css" />
+    
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jcarousel.js"></script>
+    <script type="text/javascript" src="js/jselectbox.js"></script>
+    <script type="text/javascript" src="js/kepCarousel.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    
+    <!--[if lt IE 9]>
+    <script>
+        document.createElement('nav');
+        document.createElement('header');
+        document.createElement('footer');
+        document.createElement('section');
+        document.createElement('aside');
+        document.createElement('article');
+    </script>
+    <![endif]-->
+</head>
+<body>
+    
+    <section id="container">
+
+        <header id="header">
+            <div id="header_main">
+                <img id="logotype" src="img/logotype.png" alt="" />
+            </div>
+            <div id="header_buts">
+                <div id="mini_buts">
+                    <a href="#" class="top-link"><img src="img/icons/home.png" alt="" /></a>
+                    <a href="#" class="top-link"><img src="img/icons/mail.png" alt="" /></a>
+                    <a href="#" class="top-link"><img src="img/icons/map.png" alt="" /></a>
+                </div>
+                <nav id="top_nav">
+                    <ul>
+                        <li class="top-nav"><a href="#" id="view_add" class="vinous">Добавить компанию</a>
+                            <div id="add">
+                                <ul>
+                                    <li><a href="#">Объявление</a></li>
+                                    <li><a href="#">Резюме</a></li>
+                                    <li><a href="#">Предприятие</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="top-nav"><a href="#" id="view_registration">Регистрация</a>
+                            <!-- Выподающий блок регистрации -->
+                            <div id="registration">
+                                <div class="pop-form">
+
+                                    <div class="pop-table">
+                                        <div class="pop-table-row">
+                                            <div class="pop-table-coll">ФИО</div>
+                                            <div class="pop-table-colr"><input type="text" name="" /></div>
+                                        </div>
+                                        <div class="pop-table-row">
+                                            <div class="pop-table-coll">Логин</div>
+                                            <div class="pop-table-colr"><input type="text" name="" /></div>
+                                        </div>
+                                        <div class="pop-table-row">
+                                            <div class="pop-table-coll">Пароль</div>
+                                            <div class="pop-table-colr"><input type="text" name="" /></div>
+                                        </div>
+                                        <div class="pop-table-row">
+                                            <div class="pop-table-coll">E - mail</div>
+                                            <div class="pop-table-colr"><input type="text" name="" /></div>
+                                        </div>
+                                        <div class="pop-table-row">
+                                            <div class="pop-table-coll-captcha">
+                                                <img src="img/temp/captha.png" alt="" />
+                                                <p><a href="#" class="pop-link">Новое изображение</a></p>
+                                            </div>
+                                            <div class="pop-table-colr-captcha">
+                                                <p>Что Вы видите?</p><input type="text" name="" size="10" />
+                                            </div>
+                                        </div>
+                                        <div class="pop-table-row">
+                                            <div class="pop-table-col-full">
+                                                <input type="checkbox" name="" /> Я принимаю условия <a href="#"  class="pop-link">пользовательского соглашения</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="pop-form-send">
+                                    <input type="submit" value="Зарегистрироваться" />
+                                </div>
+                                <div class="pop-form-social">
+                                    Вход без регистрации 
+                                    <a href="#"><img src="img/social/facebook.png" /></a>
+                                    <a href="#"><img src="img/social/vk.png" /></a>
+                                    <a href="#"><img src="img/social/twitter.png" /></a>
+                                </div>
+                            </div>
+                            <!-- end | Выподающий блок регистрации -->
+                        </li>
+                        <li class="top-nav"><a href="#" id="view_login">Войти</a>
+
+                            <!-- Всплывающий блок Входа -->
+                            <div id="login">
+                                <div id="login_form">
+                                    <div class="pop-form-login">
+                                        <div class="pop-form-login-table">
+                                            <div class="pop-form-login-row">
+                                                <div class="pop-form-login-coll">Логин</div>
+                                                <div class="pop-form-login-colr"><input type="text" name="" /></div>
+                                            </div>
+                                            <div class="pop-form-login-row">
+                                                <div class="pop-form-login-coll">Пароль</div>
+                                                <div class="pop-form-login-colr"><input type="text" name="" /></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pop-form-button">
+                                        <div class="pop-form-button-left"><a href="#" id="view_rec_pass">Забыли пароль?</a></div>
+                                        <div class="pop-form-button-right"><input type="submit" value="Войти" /></div>
+                                    </div>
+                                </div>
+                                <div id="login_social">
+                                    Войти с помощью... 
+                                    <a href="#"><img src="img/social/facebook.png" /></a>
+                                    <a href="#"><img src="img/social/vk.png" /></a>
+                                    <a href="#"><img src="img/social/twitter.png" /></a>
+                                </div>
+                            </div>
+                            <!-- end | Всплывающий блок Входа -->
+
+                        </li>
+                        <li class="top-nav"><a href="#">Справка</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div id="header_wave"></div>
+            <div id="header_righ"></div>
+        </header>
+        
+        <section id="cabinetHeader">
+            <div class="user-container">
+                <div class="user-ava">
+                    <img src="img/temp/ava-5.png" alt="" />
+                </div>
+                <div class="user-menu">
+                    <ul>
+                        <li><a href="#">Моя страница</a></li>
+                        <li><a href="#">Мои сообщения</a><div class="user-notic">+2</div></li>
+                        <li><a href="#">Мои друзья</a></li>
+                        <li><a href="#">Мои настройки</a></li>
+                    </ul>
+                </div>
+                <div class="user-search">
+                    <div class="user-search-container">
+                        <div class="user-search-field">
+                            <input type="text" name="SEARCH" />
+                            <a href="#"></a>
+                        </div>
+                        <div class="user-search-but">
+                            <input type="submit" value="НАЙТИ" />
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </section>
+        
+        <div id="cabinetContainer">
+		
+            <section id="cabinetLeft">
+                
+                <div id="cabinetLeftPart1">
+                    <ul class="min-nav">
+                        <li><a href="#">В друзья</a></li>
+                        <li>|</li>
+                        <li><a href="#">Сообщение</a></li>
+                    </ul>
+                    <div class="main-photo">
+                        <img src="img/temp/main-photo.png" alt="" />
+                    </div>
+                </div>
+                <ul class="left-menu">
+                    <li class="left-menu-item">
+                        <div class="left-menu-tit"><a href="#" rel="0">Друзья</a></div>
+                        <div class="left-menu-num">6</div>
+                        <div class="clear"></div>
+                    </li>
+                    <li class="left-menu-content" id="menu_content_0">
+                        <div class="left-menu-content-child">
+                            <div class="left-menu-photos">
+                                <div class="left-menu-photo">
+                                    <img src="img/temp/ava-1.png" />
+                                    <a href="#">Имя Фамилия</a>
+                                </div>
+                                <div class="left-menu-photo">
+                                    <img src="img/temp/ava-2.png" />
+                                    <a href="#">Имя Фамилия</a>                               
+                                </div>
+                                <div class="left-menu-photo">
+                                    <img src="img/temp/ava-3.png" />
+                                    <a href="#">Имя Фамилия</a>                               
+                                </div>
+                                <div class="left-menu-photo">
+                                    <img src="img/temp/ava-4.png" />
+                                    <a href="#">Имя Фамилия</a>                               
+                                </div>
+                                <div class="left-menu-photo">
+                                    <img src="img/temp/ava-5.png" />
+                                    <a href="#">Имя Фамилия</a>                               
+                                </div>
+                                <div class="left-menu-photo">
+                                    <img src="img/temp/ava-2.png" />
+                                    <a href="#">Имя Фамилия</a>                                
+                                </div>
+                                <div class="clear"></div>
+                                
+                                <a href="#" class="left-menu-item-more">Все друзья</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="left-menu-item">
+                        <div class="left-menu-tit"><a href="#" rel="1">Отзывы</a></div>
+                        <div class="left-menu-num">163</div>
+                        <div class="clear"></div>
+                    </li>
+                    <li class="left-menu-content none" id="menu_content_1">
+                        <div class="left-menu-content-child">
+                            <a class="left-menu-link" href="#">Отзыв о сотовом телефоне Fly E 170</a>
+                            <a class="left-menu-link" href="#">Отзыв о сотовом телефоне Fly E 170</a>
+                            <a class="left-menu-link" href="#">Отзыв о сотовом телефоне Fly E 170</a>
+                            <a class="left-menu-link" href="#">Отзыв о сотовом телефоне Fly E 170</a>
+                            <a class="left-menu-link" href="#">Отзыв о сотовом телефоне Fly E 170</a>
+
+                            <a href="#" class="left-menu-item-more">Все отзывы</a>
+                        </div>
+                    </li>
+                    <li class="left-menu-item">
+                        <div class="left-menu-tit"><a href="#" rel="2">Объявления</a></div>
+                        <div class="left-menu-num">1502</div>
+                        <div class="clear"></div>
+                    </li>
+                    <li class="left-menu-content none" id="menu_content_2">
+                        <div class="left-menu-content-child">
+                            <a class="left-menu-link" href="#">Отзыв о сотовом телефоне Fly E 170</a>
+                            <a class="left-menu-link" href="#">Отзыв о сотовом телефоне Fly E 170</a>
+                            <a class="left-menu-link" href="#">Отзыв о сотовом телефоне Fly E 170</a>
+                            <a class="left-menu-link" href="#">Отзыв о сотовом телефоне Fly E 170</a>
+                            <a class="left-menu-link" href="#">Отзыв о сотовом телефоне Fly E 170</a>
+
+                            <a href="#" class="left-menu-item-more">Все объявления</a>
+                        </div>
+                    </li>
+                    <li class="left-menu-item">
+                        <div class="left-menu-tit"><a href="#" rel="3">Акции</a></div>
+                        <div class="left-menu-num">1</div>
+                        <div class="clear"></div>
+                    </li>
+                    <li class="left-menu-content none" id="menu_content_3">
+                        <div class="left-menu-content-child">
+                            <a class="left-menu-link" href="#">Отзыв о сотовом телефоне Fly E 170</a>
+
+                            <a href="#" class="left-menu-item-more">Все акции</a>
+                        </div>
+                    </li>
+                    <li class="left-menu-item">
+                        <div class="left-menu-tit"><a href="#" rel="4">Товары</a></div>
+                        <div class="left-menu-num">5</div>
+                        <div class="clear"></div>
+                    </li>
+                    <li class="left-menu-content none" id="menu_content_4">
+                        <div class="left-menu-content-child">
+                            <div class="left-menu-photos">
+                                <div class="left-menu-photo">
+                                    <img src="img/temp/image-1.png" />
+                                    <a href="#">Назывние товара</a>
+                                </div>
+                                <div class="left-menu-photo">
+                                    <img src="img/temp/image-2.png" />
+                                    <a href="#">Назывние товара</a>                               
+                                </div>
+                                <div class="left-menu-photo">
+                                    <img src="img/temp/image-3.png" />
+                                    <a href="#">Назывние товара</a>                               
+                                </div>
+                                <div class="left-menu-photo">
+                                    <img src="img/temp/image-4.png" />
+                                    <a href="#">Назывние товара</a>                               
+                                </div>
+                                <div class="left-menu-photo">
+                                    <img src="img/temp/image-1.png" />
+                                    <a href="#">Назывние товара</a>                               
+                                </div>
+                                <div class="left-menu-photo">
+                                    <img src="img/temp/image-2.png" />
+                                    <a href="#">Назывние товара</a>                                
+                                </div>
+                                <div class="clear"></div>
+                                
+                                <a href="#" class="left-menu-item-more">Все друзья</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="left-menu-item-last"><!--Пустой блок для красоты--></li>
+                </ul>
+                <footer></footer>
+            </section>
+			
+            <section id="cabinetContent">
+            
+                <div class="account-info">
+                    <div class="account-title">
+                        <div class="account-name">Иван Иванов</div>
+                        <div class="account-status"><span class="user-status online">Онлайн</span></div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="account-content">
+                        
+                    </div>
+                </div>
+                
+                <div class="cabinet-content">
+                    <div class="cabinet-content-title">
+                        <div class="content-title-left">Фотографии</div>
+                        <div class="content-title-right">365</div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="cabinet-mini-items">
+                    
+                        <div class="cabinet-mini-item">
+                            <img src="img/temp/ava-1.png" />
+                            <a href="#">Имя Фамилия</a>
+                        </div>
+                        <div class="cabinet-mini-item">
+                            <img src="img/temp/ava-2.png" />
+                            <a href="#">Имя Фамилия</a>
+                        </div>
+                        <div class="cabinet-mini-item">
+                            <img src="img/temp/ava-3.png" />
+                            <a href="#">Имя Фамилия</a>
+                        </div>
+                        <div class="cabinet-mini-item">
+                            <img src="img/temp/ava-4.png" />
+                            <a href="#">Имя Фамилия</a>
+                        </div>
+                        <div class="cabinet-mini-item">
+                            <img src="img/temp/ava-1.png" />
+                            <a href="#">Очень длинное Имя и Фамилия</a>
+                        </div>
+                        <div class="cabinet-mini-item">
+                            <img src="img/temp/ava-5.png" />
+                            <a href="#">Имя Фамилия</a>
+                        </div>
+                        <div class="cabinet-mini-item">
+                            <img src="img/temp/ava-2.png" />
+                            <a href="#">Имя Фамилия</a>
+                        </div>
+                        <div class="cabinet-mini-item">
+                            <img src="img/temp/ava-1.png" />
+                            <a href="#">Имя Фамилия</a>
+                        </div>
+                        <div class="cabinet-mini-item">
+                            <img src="img/temp/ava-4.png" />
+                            <a href="#">Имя Фамилия</a>
+                        </div>
+                        <div class="cabinet-mini-item">
+                            <img src="img/temp/ava-5.png" />
+                            <a href="#">Имя Фамилия</a>
+                        </div>
+                        <div class="cabinet-mini-item">
+                            <img src="img/temp/ava-3.png" />
+                            <a href="#">Имя Фамилия</a>
+                        </div>
+                        <div class="cabinet-mini-item">
+                            <img src="img/temp/ava-2.png" />
+                            <a href="#">Имя Фамилия</a>
+                        </div>
+                    
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                
+            </section>
+            <div class="clear"></div>
+        </div>
+    
+    </section>
+    
+    <!-- Подвал -->
+    <footer id="last_footer">
+        <div id="info_footer">
+            <div class="info-head">
+                <div class="info-head-auto">
+                    <div class="info-row">Полезная информация</div>
+                    <div class="info-row">Организациям</div>
+                    <div class="info-row">О нас</div>
+                    <div class="info-row">Мы в социальных сетях</div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="info-body">
+                <div class="info-head-auto">
+                    <div class="info-col">
+                        <p><a href="#">Пользовательское соглашение</a></p>
+                        <p><a href="#">Политика кофидициальности</a></p>
+                        <p><a href="#">Договор оферты</a></p>
+                    </div>
+                    <div class="info-col">
+                        <p><a href="#">Правила размещения</a></p>
+                        <p><a href="#">Правила оформления</a></p>
+                        <p><a href="#">Добавить компанию</a></p>
+                        <p><a href="#">Добавить товар</a></p>
+                        <p><a href="#">Заказать рекламу</a></p>
+                    </div>
+                    <div class="info-col">
+                        <p><a href="#">Наши услуги</a></p>
+                        <p><a href="#">Работа у нас</a></p>
+                        <p><a href="#">Контакты</a></p>
+                    </div>
+                    <div class="info-col">
+                        <p><a href="#"><img src="img/social/twitter.png" />Twitter</a></p>
+                        <p><a href="#"><img src="img/social/vk.png" />Вконтакте</a></p>
+                        <p><a href="#"><img src="img/social/facebook.png" />Facebook</a></p>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- / Подвал -->
+    
+    <div class="popup-pass">
+        <div class="popup-pass-close"><a href="#"><img src="img/popup-close.png" alt="" /></a></div>
+        <div class="popup-title">
+            Восстановление пароля
+        </div>
+        <div class="popup-content-simple">
+            <p>Для восстановления доступа к сайту, введите адрес электронной почты, указанный при регистрации. На указанный Вами адрес, будет выслано письмо с новым паролем.</p>
+        </div>
+        <div class="popup-email">
+            E - mail <input type="text" /><input type="submit" value="Выслать пароль" />
+        </div>
+    </div>
+
+</body>
+</html>

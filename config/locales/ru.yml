@@ -1,0 +1,339 @@
+ru:
+  activerecord:
+    models:
+      user: Пользователь
+      category: Категории
+      message: Сообщения
+      good: Товары
+      service: Услуги
+      job: Вакансии
+      campaign: Акции
+      price_entity: Запись в прайс листе
+      photo: Фото
+      company: Компания
+      bank: Банк
+      delivety: Доставка
+      warranty: Гарантия
+      invoice: Счёт
+      facture: Счёт-фактура
+      news: Новости
+      help: Справка
+      constructor_track: Видеоролик конструктора сайта
+      email_template: Шаблон письма
+    # Названия моделей в винительном падеже
+    # TODO вместо ignore_confirms, favorite_confirms использовать перевод отсюда
+    to_models:
+      good: товар
+      service: услугу
+      job: вакансию
+      campaign: акцию
+      news: новость
+    tables:
+      goods: Товары
+      services: Услуги
+      jobs: Вакансии
+      campaigns: Акции
+      news: Новости
+    activation_statuses:
+      activation: Активация
+      active: Активен
+      locked: Заблокирован
+    banner_types:
+      home: Главная
+      good: Товары
+      service: Услуги
+      job: Вакансии
+      enterprise: Предприятия
+      news: Новости
+      campaign: Акции
+      response: Отзывы
+    package_types:
+      placing: Пакет размещения
+      sms: Пакет sms
+      minutes: Пакет минут
+    attributes:
+      user:
+        f_name: "Имя"
+        l_name: "Фамилия"
+        m_name: "Отчество"
+        city_id: "Город"
+        post_index: "Почтовый индекс"
+        address: "Физический адрес"
+        email: "E-mail"
+        password: "Пароль"
+        password_confirmation: "Повтор пароля"
+        lic: "Лицензионное соглашение"
+        skype: "Skype"
+        icq: "ICQ"
+        prefered_contact: "Предпочтительный способ связи"
+      category:
+        title: Название
+        alias: Алиас
+        parents_ids: Родители
+        image: Изображение
+        created_at: Создана
+      message:
+        subject: Тема
+        text: Текст сообщения
+        from_id: От
+        from: От
+        to_id: Кому
+        to: Кому
+        created_at: Создано
+        updated_at: Изменено
+        readed: Прочитано
+        receivers: Получатели
+        sender: Отправитель
+      good:
+        article: Артикул
+        category_id: Категория
+        name: Название
+        price: Цена
+        measure: Ед.изм.
+        description: Описание
+        delivety_id: Доставка
+        warranty_id: Гарантия
+        translit: Транслит
+        state: Состояние
+      service:
+        name: Название
+        price: Цена
+        maker: Производитель
+        article: Артикул
+        translit: Транслит
+        warranty_id: Гарантия
+      price_entity:
+        article: Артикул
+        name: Название
+        category_id: Категория
+        description: Описание
+        characteristics: Характеристики
+        price: Цена
+        measure: Ед.изм.
+        image: Изображение
+        remote_image_url: Изображение
+        available: Наличие
+        state: Состояние
+        maker: Производитель
+        folder_id: Группа
+        warranty_time: Гарантия
+        company_id: Компания
+        price_list_id: Прайс-лист
+      photo:
+        file: Файл
+      company:
+        name: Фактическое название предприятия
+        post_index: Почтовый индекс
+        city: Город
+        street: Улица
+        house: Дом
+        building: Корпус
+        office: Офис
+        address_comment: Примечание к адресу
+        phone: Телефон
+        fax: Факс
+        email: E-mail
+        skype: Skype
+        icq: ICQ
+        site_address: Адрес сайта в Интернет
+        creation_year: Год основания компании
+        short_description: Краткая информация о компании
+        description: Информация о компании
+        tallage: Система налогооблажения
+        inn: ИНН
+        kpp: КПП
+        org_form: Организационно-правовая форма
+        legal_name: Полное юридическое название
+        settlement_account: Расчетный счет
+        crediting: Условия кредитования
+        bik: БИК
+        bank_cor_account: Корресподентский счет банка
+        director_fname: Имя директора
+        director_lname: Фамилия директора
+        director_mname: Отчество директора
+        bank_name: Название банка
+        status: Статус
+        user: Пользователь
+        logotype: Логотип
+        category: Категория
+        ogrn: ОГРН
+        director_signature: Подпись директора
+        print: Печать
+        ur_index: Индекс (Юр. адресс)
+        ur_city: Город (Юр. адресс)
+        ur_street: Улица (Юр. адресс)
+        ur_home: Дом (Юр. адресс)
+        ur_corp: Корпус (Юр. адресс)
+        ur_office: Офис (Юр. адресс)
+      bank:
+        name: Название банка
+        phone: Телефон
+        address: Адрес
+      delivety:
+        graph: График работы
+        period: Период
+        cost: Стоимость
+        code: Код
+        conditions: Условия доставки
+        default: Использовать доставку для всех товаров
+        free: Бесплатная доставка
+      warranty:
+        code: Код
+        months: Срок (мес.)
+        conditions: Условия
+        default: По умолчанию
+        company_id: Компания
+      invoice:
+        sum: Сумма
+        sum_with_nds: Сумма с НДС
+        company_id: Компания
+        type: Тип
+      facture:
+        invoice_id: Счёт
+        ftype: Тип
+      news:
+        name: Название новости
+        content: Текст новости
+        translit: Транслит
+      job:
+        translit: Транслит
+      campaign:
+        translit: Транслит
+      package:
+        id: ID
+        name: Название
+        price: Цена
+        goods_and_services: Товаров и услуг
+        jobs: Вакансий
+        campaigns: Акций
+        sms: СМС
+        calls: Минут
+        delete_after: Удалить после
+        company_id: Для компании
+      settings:
+        key: Ключ
+        value: Значение
+        title: Название
+        file: Файл
+      help:
+        title: Название
+        alias: Алиас
+        category: Категория
+        text: Текст
+        created_at: Создано
+        updated_at: Изменено
+      constructor_track:
+        category: Категория
+        video: Видео
+        created_at: Создан
+      email_template:
+        name: Название
+        description: Описание
+        body: Тело
+        created_at: Создан
+        updated_at: Изменён
+      tutorial:
+        preview: Изображение
+        local_file: Видео
+        title: Название
+        text: Текст
+      resume:
+        fio: ФИО
+        sex: Пол
+        photo: Фото
+        birthday: День рождения
+        mob_phone: Мобильный телефон
+        home_phone: Домашний телефон
+        email: Email
+        skype: Skype
+        icq: ICQ
+        created_at: Создана
+        # XXX who is who
+        computer_user: Владение компьютером
+        computer_skills: Владение компьютером
+        recommendations: Рекоммендации
+        progress: Прогресс
+        about_me: О себе
+      folder:
+        name: Название
+        company_id: Компания
+        number: Код группы
+      site:
+        subdomen: Субдомен
+  next_page: "Следующая"
+  prev_page: "Предыдущая" 
+  will_paginate:
+    previous_label: "Предыдущая"
+    next_label: "Следующая"
+    page_gap: "&hellip;"
+  errors:
+    messages:
+      extension_white_list_error: недопустимого разрешения
+      only_for_companies_whish_pai_nds: Только для компаний плательщиков НДС
+      not_enough_money: Недостаточно средств на счету
+  invoices:
+    statuses:
+      process: В обработке
+      complete: Оплачен
+      cancel: Не оплачен
+    entities:
+      Fill: Пополнение счёта
+      Banner: Рекламный баннер
+      CompaniesPackage: Пакет размещения или смс
+  factures:
+    entities:
+      Invoice: Оплата счёта
+      Banner: Рекламный баннер
+      CompaniesPackage: Пакет размещения или смс
+  acts:
+    entities:
+      Invoice: Оплата счёта
+      Banner: Рекламный баннер
+      CompaniesPackage: Пакет размещения или смс
+  companies:
+    tallages:
+      common: Общая
+      simple: Упрощённая
+    statuses:
+      activation: Активация
+      active: Активирована
+      locked: Заблокирована
+  ignore_confirms:
+    good: Игнорировать товар
+    service: Игнорировать услугу
+    job: Игнорировать вакансию
+    campaign: Игнорировать акцию
+    feedback: Игнорировать фидбэк
+    news: Игнорировать новость
+  favorite_confirms:
+    good: Добавить товар
+    service: Добавить услугу
+    job: Добавить вакансию
+    campaign: Добавить акцию
+    feedback: Добавить фидбэк
+    news: Добавить новость
+  sharings:
+    good: Мне понравился товар
+    service: Мне понравилась услуга
+    job: Мне понравилась вакансия
+    campaign: Мне понравилась акция
+    news: Мне понравилась новость 
+  companies_resumes:
+    statuses:
+      new: Новая
+      responded: Отвечено
+      rejected: Отказано
+  goods:
+    states:
+      new: Новый
+      used: Б/у
+  campaigns:
+    spreads:
+      all: Все товары/услуги
+      folder: Группу товаров/услуг
+      entity: Товар/услугу
+  minisite:
+    entities:
+      show:
+        similar_goods: Похожие товары
+        similar_services: Похожие услуги

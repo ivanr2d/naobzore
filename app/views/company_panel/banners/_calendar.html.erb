@@ -1,0 +1,4 @@
+<% Banner.period_in_months.times do |n| %>
+  <%= render :partial => 'callendar_table', :locals => {:year => (Time.now + n.months).year, :month => (Time.now + n.months).month, :hidden => n > 0, :type => type} %>
+<% end %>
+

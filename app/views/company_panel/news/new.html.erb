@@ -1,0 +1,60 @@
+<%= form_for @entity, :as => :entity, :url => company_panel_news_index_path, :html => { :id => :entity_form, :multipart => true } do |f| %>
+  <%= render_error_explanation @entity %>
+	<div class="form">
+		<div class="body">
+      <%= f.hidden_field :company_id, :value => @company.id %>
+      <%= f.hidden_field :category_id, :value => @company.category_id %>
+			<div class="row">
+        <div class="label"><%= f.label :name %></div>
+        <div class="field"><%= f.text_field :name, :class => "input-normal", :size => 30 %></div>
+        <div class="clear"></div>
+      </div>
+      <div class="row">
+        <div class="label"><%= f.label :translit %></div>
+        <div class="field"><%= f.text_field :translit, :class => "input-normal", :size => 30 %></div>
+        <div class="clear"></div>
+      </div>
+
+			<div class="row">
+        <div class="label"><label>Изображение</label></div>
+        <div class="field">
+          <!-- блок с фотографией -->
+          <div class="photo">
+            <div class="preview-wrap" data-entity_id="<%= @entity.id %>">
+              <div class="preview">
+              <% if @entity.main_photo %>
+                <img src="<%= @entity.main_photo.url %>" width="100" height="128" />
+              <% else %>
+                <img src="/company-panel/images/no_image.png" width="100" height="128" />
+              <% end %>
+              </div>
+            </div>
+            <div class="field view-popup" data-type="load-image">
+              <label>Загрузить изображение</label>
+                <div class="input-file" style="">
+                  <input type="text" size="5" />
+                  <input type="button" value="Обзор..." />
+                  <%= f.file_field :main_photo %>
+                </div>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <!-- end | блок с фотографией -->
+        </div>
+        <div class="clear"></div>
+      </div>
+			
+			<div class="row row-multiline">
+        <div class="label"><%= f.label :content %></div>
+        <div class="field"><%= f.text_area :content, :class => 'ckeditor' %></div>
+        <div class="clear"></div>
+      </div>
+			
+			<div class="buts">
+				<input type="submit" class="blue-button big btn-with-arrow" value="Разместить"><!-- if 'edit' mode don't add class 'btn-with-arrow'-->
+			</div>
+			
+		</div>
+	</div>
+  <%= render :partial => 'company_panel/shared/image_popup', :locals => { :f => f } %>
+<% end %>

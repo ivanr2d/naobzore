@@ -1,0 +1,226 @@
+* {margin: 0; padding: 0;}
+body {
+	background: #02050a url('page404_bg.jpg') 50% 0 no-repeat; color: #fff; font-family: Arial, sans-serif;
+}
+
+.clear
+{
+    clear:both;
+}
+
+#main_nav
+{
+    border-top: 1px solid #c5f585;
+    margin: 24px 0 0 0;
+    background: #bdfd6b;
+		font-family: Verdana, sans-serif;
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+		-moz-border-radius: 12px;
+}
+.main-nav-content
+{
+    border-top: 1px solid #dafeac;
+    border-radius: 12px;
+		-webkit-border-radius: 12px;
+		-moz-border-radius: 12px;
+}
+#main_nav ul
+{
+    padding: 0px 20px 0px 47px;
+    margin: 0px;
+}
+#main_nav ul li
+{
+    display: block;
+    float: left;
+    background: url(nav-border.png) no-repeat;
+    background-position: right;
+}
+#main_nav ul li:last-child
+{
+	background: none;
+}
+#main_nav ul li a
+{
+    color: #6c6c6c;
+    text-decoration: none;
+    font-size: 12px;
+    height: 20px;
+    padding: 15px 15px 10px 15px;
+    display: block;
+    margin: auto;
+}
+#main_nav ul li:hover
+{
+  
+}
+#main_nav ul li:hover a
+{
+    color: #4a4a4a;
+    background: #abeb58;
+}
+.main-nav-active
+{
+    box-shadow: inset 1px 1px 4px 2px rgba(0,0,0,0.3);
+		-webkit-box-shadow: inset 1px 1px 4px 2px rgba(0,0,0,0.3); 
+}
+.main-nav-clear
+{
+    display: block;
+    clear: both;
+}
+
+#search_main
+{
+    margin: 12px 18px 0 0;
+    height: 34px;
+    border: 8px solid #FFF;
+    border-bottom: 14px solid #fff;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    position: relative;
+    background:  #fff;
+}
+#search_child
+{
+    background: url(search/background.png) repeat-x;
+    height: 30px;
+    border: 1px solid #fff;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    padding: 4px;
+}
+#search_field
+{
+    border: 0px solid #fff;
+    margin: 1px 160px 0px 2px;
+    height: 25px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    background: url(search/icon.png) 0 0 no-repeat #fff;
+    background-position: 2% 8px;
+    box-shadow: inset 0px 1px 1px 1px rgba(0,0,0,0.3);
+    padding: 1px;
+}
+#search_field ::-ms-clear {
+	width: 0;
+	height: 0;
+}
+#search_field.active
+{
+	background-position: 0 -18px;
+}
+#search_field input
+{
+    margin: 5px 0px 0px 30px;
+    width: 213px;
+    border: none;
+    float: left;
+		outline: none;
+}
+#search_field a
+{
+    border: 0px solid #fff;
+    margin: 0px 0px 0px 310px;
+    display: block;
+    height: 20px;
+    background: url(search/background.png) repeat-x;
+    background-position: -15px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 0px 0px 0px;
+}
+#search_field img
+{
+    vertical-align: middle;
+}
+#search_but
+{
+    border: 1px solid #fff;
+    height: 26px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    float: right;
+    width: 150px;
+    margin: 0px 2px 0px 0px;
+    overflow: hidden;
+}
+#search_but input
+{
+    width: 150px;
+    height: 26px;
+    border: 0px;
+    cursor: pointer;
+    background: transparent;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Arial;
+		outline: none;
+}
+#search_but input:hover
+{
+    background: url(search/background-hover.png) repeat-x;
+}
+
+.container-404
+{
+	width: 930px;
+	margin: 0 auto;
+}
+
+.search-404
+{
+	float: right;
+}
+
+.error-404
+{
+	width: 433px;
+	float: right;
+	margin-top: 2px;
+	font-family: Verdana, sans-serif;
+}
+
+.error-404-code
+{
+	font-size: 26px;
+}
+
+.error-404-code strong
+{
+	font-size: 83px;
+}
+
+.error-404-txt
+{
+	font-size: 33px;
+	line-height: 23px;
+}
+
+.desc-404
+{
+	background: url('page404-logo.png') 100% 0 no-repeat;
+	width: 273px;
+	min-height: 229px;
+	padding: 282px 311px 0 20px;
+	margin-top: -56px;
+	line-height: 25px;
+	font-size: 13px;
+}
+
+.copy-404
+{
+	font: 11px Verdana, sans-serif;
+	margin: 45px 18px 120px 0;
+	float: right;
+}

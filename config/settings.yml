@@ -1,0 +1,21 @@
+development: &common
+  host: naobzore.dev
+  port: 3000
+  socials:
+    google: 'https://plus.google.com/share?%{data}'
+    odnoklassniki: 'http://www.odnoklassniki.ru/dk?%{data}'
+    vk: 'http://vkontakte.ru/share.php?%{data}'
+    mailru: 'http://connect.mail.ru/share?%{data}'
+    facebook: 'http://www.facebook.com/sharer/sharer.php?%{data}'
+    twitter: 'http://twitter.com/share?%{data}'
+   # lj: 'http://www.livejournal.com/update.bml?%{data}'
+  from_email: naobzore@naobzore.ru
+  per_page: 20
+
+test:
+  <<: *common
+
+production: &production
+  <<: *common
+  host: naobzore.ru
+  port: 80

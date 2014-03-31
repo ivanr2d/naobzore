@@ -1,0 +1,51 @@
+				<div class="popup-images">
+                    <div class="popup-image">
+                    	<ul class=" lightbox">
+                    		<li><a href="<%= @service.image.url %>"><img src="<%= @service.image.url %>" alt="" /></a></li>
+                    	</ul>
+                    </div>
+                    <ul class="lightbox">
+                        
+                        <% @service.images.each do |image| %>
+                        	<li><a href="<%= image.url %>"><img src="<%= image.url %>" alt="" width="32" height="32" /></a></li>
+                        <% end %>
+                    </ul>
+                </div>
+								<div class="popup-name"><a href="/services/<%= @service.category.alias %>/<%= @service.id %>"><%= @service.name %></a></div>
+                <div class="popup-map-wrap">
+									<div class="popup-map">
+											<div class="popup-map-title view-map-full" data-full-map="<%= @service.company.name %>::<%= @service.company.address %>">
+												<div class="popup-map-title-tit">Показать во весь экран</div>
+												<div class="popup-map-title-cont"></div>
+											</div>
+											<div class="popup-map-content" id="map"></div>
+									</div>
+									<h3 class="popup-address"><p><%= @service.company.address %></p></h3>
+								</div>
+                <div class="popup-info">
+                    <p class="popup-name"><a href="/services/<%= @service.category.alias %>/<%= @service.id %>"><%= @service.name %></a></p>
+                    <p class="popup-price">Цена от: <span><span id="good_price"><%= @service.cost_from %></span> р.</span> до: <span><span id="good_price"><%= @service.cost_to %></span> р.</span></p>
+                    <h2 class="popup-company"><p><a href="#"><%= @service.company.name %></a></p></2>
+                    <h3 class="popup-address popup-price"><p><%= @service.company.address %></p></h3>
+                    <p class="popup-phone">Тел.: <span><%= @service.company.phone %></span></p>
+                    <div><a href="#"><img src="/assets/bell.png" alt="" /></a></div>
+                    <div>Отзывы: <span class="bell-true">+<%= Feedback.get_p_count('Service', @service.id) %></span> / <span class="bell-false">-<%= Feedback.get_n_count('Service', @service.id) %></span></div>
+                    <% if user_signed_in? %>
+                    <div class="popup-stat">
+						<div class="favorite-active">
+							<a href="#" data-favorite="Service:<%= @service.id %>:1" class="favorite"><%= image_tag "reviews-1.png" %></a>
+							<a href="#" data-favorite="Service:<%= @service.id %>:0" class="favorite"><%= image_tag "reviews-0.png" %></a>
+							<a href="#" data-like="Service:<%= @service.id %>" class="like"><%= image_tag "reviews-2.png" %></a><span>(<small class="like-count"><%= @service.likes.count %></small>)</span>
+						</div>
+						<div class="favorite-notactive">
+						 	<%= image_tag "loading-mini.gif" %>
+						</div>
+                    </div>
+                    <% else %>
+                    <div class="popup-stat">
+                          <%= image_tag "no-reviews-1.png" %>
+                          <%= image_tag "no-reviews-0.png" %>
+                          <%= image_tag "no-reviews-2.png" %><span>(<%= @service.likes.count %>)</span>
+                    </div>
+                    <% end %>
+                </div>

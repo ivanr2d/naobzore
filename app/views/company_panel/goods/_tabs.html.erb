@@ -1,0 +1,9 @@
+<ul class="<%= (reload rescue nil) ? 'reload-tabs' : 'tabs' %>">
+  <% [['Товары', company_panel_goods_path], ['Услуги', company_panel_services_path], ['Вакансии', company_panel_jobs_path], ['Акции/Скидки', company_panel_campaigns_path]].each_with_index do |tab, index| %>
+    <li>
+      <%= link_to_unless_current tab.first, tab.last, 'data-id' => index + 1 do %>
+        <a href="#" data-id="<%= index + 1 %>" class="active"><%= tab.first %></a>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

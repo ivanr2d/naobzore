@@ -1,0 +1,23 @@
+<!-- Блок с заголовком -->
+<div class="entity-title">
+    <h2>Новости</h2>
+    <p>Добавлено: <%= @news.created_at.strftime('%d.%m.%Y') %>, Обновлено: <%= @news.updated_at.strftime('%d.%m.%Y') %></p>
+    <div class="clear"></div>
+</div>
+
+<h1 class="blue-title"><%= @news.title %></h1>
+
+<div class="entity">
+  
+  <div class="entity-news-image">
+    <div class="simp-item-image"><img src="<%= @news.image.thumb %>"></div>
+    <div class="simp-item-link"></div>
+  </div>
+  <div class="entity-description text-justify">
+    <%= raw @news.content %>
+  </div>
+  <div class="clear"></div>
+
+	<%= render :partial => 'minisite/shared/footer_sharing', :locals => { :entity => @news } %>
+  
+  <%= render :partial => 'minisite/comments/comments_block', :locals => { :entity => @news, :comments => @news.comments.last(Comment::LAST_COUNT) } %>

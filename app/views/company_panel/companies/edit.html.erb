@@ -1,0 +1,180 @@
+<% coords = (@company.coords.blank? ? '51.8049,55.147347' : @company.coords).split(',').map(&:to_f) %>
+<% content_for :javascripts do %>
+  <script src="http://api-maps.yandex.ru/2.0-stable/?load=package.standard&lang=ru-RU" type="text/javascript"></script>
+  <script type="text/javascript">
+    ymaps.ready(init);
+    var myMap, myPlacemark;
+
+    function init(){     
+      myMap = new ymaps.Map ("map", {
+        center: [<%= coords.first %>, <%= coords.last %>],
+        zoom: 10,
+      });
+
+      myPlacemark = new ymaps.Placemark([<%= coords.first %>, <%= coords.last %>], { 
+        content: 'Ваше местоположение', 
+        balloonContent: 'Ваше местоположение' 
+      }, {
+        draggable: true
+      });
+
+      myPlacemark.events.add('dragend', function(e) {
+        // Получение ссылки на объект, который был передвинут. 
+        var thisPlacemark = e.get('target');
+        // Определение координат метки 
+        var coords = thisPlacemark.geometry.getCoordinates();
+        $('#company_coords').val(coords);
+      });
+
+      myMap.geoObjects.add(myPlacemark);
+
+      myMap.controls.add(
+        new ymaps.control.ZoomControl()
+      );
+    }
+  </script>
+<% end %>
+
+<%= form_for @company, :url => company_panel_company_path(@company) do |f| %>
+  <%= render_error_explanation @company %>
+  <%= f.hidden_field :coords %>
+  <div class="form">
+    <h1 class="title">Общие данные</h1>
+    <div class="body">
+      
+      <div class="row">
+        <div class="label"><%= f.label :name %></label></div>
+        <div class="field"><%= f.text_field :name, :maxlength => 128, :size => 30 %></div>
+        <div class="clear"></div>
+      </div>
+      <div class="row">
+        <div class="label"><%= f.label :post_index %></div>
+        <div class="field"><%= f.text_field :post_index %></div>
+        <div class="clear"></div>
+      </div>
+      <div class="row">
+        <div class="label"><%= f.label :city %></div>
+        <div class="field"><%= f.text_field :city %></div>
+        <div class="clear"></div>
+      </div>
+      <div class="row">
+        <div class="label"><%= f.label :street %></div>
+        <div class="field"><%= f.text_field :street %></div>
+        <div class="clear"></div>
+      </div>
+                  
+      <div class="row">
+        <div class="label"><%= f.label :house %></div>
+        <div class="field">
+          <%= f.text_field :house, :size => 5 %>
+          Корпус <%= f.text_field :building, :size => 5 %>
+          Офис <%= f.text_field :office, :size => 5 %>
+          <div class="example">Указывайте ФАКТИЧЕСКИЙ адрес организации</div>
+        </div>
+        <div class="clear"></div>
+      </div>
+                  
+                  <div class="row">
+        <div class="label"><label>Положение на карте</label></div>
+        <div class="field">
+          <div class="map" id="map"></div>
+        </div>
+        <div class="clear"></div>
+      </div>
+                  
+                  <div class="row">
+        <div class="label"><%= f.label :address_comment %></div>
+        <div class="field">
+          <%= f.text_field :address_comment %>
+          <div class="example">Например "первый подъезд", "вход с улицы Советской" </div>
+        </div>
+        <div class="clear"></div>
+      </div>
+                  
+      <div class="row">
+        <div class="label"><label>Телефон</label></div>
+        <div class="field">
+          <div class="phones">
+            
+            <div class="phone hidden" id="newPhone">
+              <%= render :partial => 'company_panel/shared/phone' %>
+            </div>
+            <% (@company.phones.blank? ? [{}] : @company.phones).each_with_index do |phone, index| %>
+              <div class="phone">
+                <%= render :partial => 'company_panel/shared/phone', :locals => phone.merge(:add => index == 0) %>
+              </div>
+            <% end %>
+          
+          </div>
+          <div class="example">Пример: +7(3532) 332321</div>
+        </div>
+        <div class="clear"></div>
+      </div>
+                  
+      <div class="row">
+        <div class="label"><%= f.label :fax %></div>
+        <div class="field">
+          <div class="phones">
+            <div class="phone hidden" id="newFax">
+              <%= render :partial => 'company_panel/shared/fax' %>
+            </div>
+            <% (@company.faxes.blank? ? [{}] : @company.faxes).each_with_index do |fax, index| %>
+              <div class="phone">
+                <%= render :partial => 'company_panel/shared/fax', :locals => fax.merge(:add => index == 0) %>
+              </div>
+            <% end %>
+          </div>
+          <div class="example">Пример: +7(3532) 332321</div>
+        </div>
+        <div class="clear"></div>
+      </div>
+                  
+      <div class="row">
+        <div class="label"><%= f.label :email %></div>
+        <div class="field">
+          <%= f.text_field :email %>
+          <div class="example">Адрес не публикуется в открытом доступе</div>
+        </div>
+        <div class="clear"></div>
+      </div>
+                  
+      <div class="row">
+        <div class="label"><%= f.label :skype %></div>
+        <div class="field"><%= f.text_field :skype %></div>
+        <div class="clear"></div>
+      </div>
+                  
+      <div class="row">
+        <div class="label"><%= f.label :icq %></div>
+        <div class="field"><%= f.text_field :icq %></div>
+        <div class="clear"></div>
+      </div>
+                  
+      <div class="row">
+        <div class="label"><%= f.label :site_address %></div>
+        <div class="field"><%= f.text_field :site_address %></div>
+        <div class="clear"></div>
+      </div>
+                  
+      <div class="row">
+        <div class="label"><%= f.label :creation_year %></div>
+        <div class="field"><%= f.text_field :creation_year %></div>
+        <div class="clear"></div>
+      </div>
+                  
+      <div class="row-ext">
+          <div class="label"><%= f.label :short_description %> <br />(не более 500 символов)</div>
+          <div><%= f.text_area :short_description, :class => 'ckeditor' %></div>
+      </div>
+
+      <div class="row-ext">
+          <div class="label"><%= f.label :description %></div>
+          <div><%= f.text_area :description, :class => 'ckeditor' %></div>
+      </div>
+                  
+    </div>
+    <div class="buts">
+      <input type="submit" class="blue-button big" value="Сохранить" />
+    </div>
+  </div>
+<% end %>

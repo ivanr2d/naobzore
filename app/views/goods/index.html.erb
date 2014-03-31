@@ -1,0 +1,289 @@
+	
+	<span id="maxPrice" data-value="<%= @max_price %>"></span>
+	
+      <!-- заголовочный блок -->
+      <section class="main-title">
+          <div class="main-title-full">
+              <h1 class="page-title" id="currentCategory" data-value="<%= (@category) ? @category.alias : 0 %>"><%= (@category) ? @category.title : 'Товары' %> <span class="page-title-ext">(<%= (@category) ? Category.get_count_entity(@curent_controller, @category.id) : Good.count %>)</span></h1>
+          </div>
+          <div class="clear"></div>
+      </section>
+      <!-- end | заголовочный блок -->
+			
+			<% if @category && @category.children != nil %>
+				<div class="category-items">
+					<% @category.children.each_slice(3) do |subcat_slice| %>
+						<% subcat_slice.each do |subcat| -%>
+							<div class="category-item">
+								<div class="category-item-img">
+									<img src="/assets/temp/category-photo.png">
+								</div>
+								<a href="#" class="category-item-title"><%= subcat.title %></a>
+									<span class="cit-count">(4823)</span>
+								
+								<div class="category-item-subcat">
+									<a href="#">Ноутбуки</a> |
+									<a href="#">Планшеты</a> |
+									<a href="#">Ноутбуки</a> |
+									<a href="#">Планшеты</a> |
+									<a href="#">Ноутбуки</a> |
+									<a href="#">Планшеты</a> |
+									<a href="#">Ноутбуки</a> |
+									<a href="#">Планшеты</a> |
+									<a href="#">Ноутбуки</a> |
+									<a href="#">Планшеты</a> |
+									<a href="#">Ноутбуки</a> |
+									<a href="#">Планшеты</a>
+								</div>
+								<div class="cis-show">Раскрыть...</div>
+							</div>
+						<% end %>
+						<div class="clear"></div>
+					<% end %>
+						
+						<div class="clear"></div>
+				</div>
+			<% end %>
+				
+				
+			
+			
+			<!-- Фильтры -->
+			<div class="filters" <% if @category && @category.children != nil %>style="display: none;"<% end %>>
+					<!--Левый блок-->
+					<div class="left">
+							<div class="row">
+									Цена от <input type="text" class="diapazon-field filter" id="price_from" name="price_from" value="<%= (params[:price_from]) ? params[:price_from] : '' %>" /> 
+									до <input type="text" class="diapazon-field filter" id="price_to" name="price_to" value="<%= (params[:price_to]) ? params[:price_to] : '' %>" />
+							</div>
+							<div>
+									<div id="polzunok_good_price" class="polzunok"></div>
+							</div>
+					</div>
+					<!--Центральный блок-->
+					<div class="center">
+							<div class="row">
+									<div class="cell left">Сортировать по</div>
+									<div class="cell right">
+											<select name="sort" id="sort" class="selectbox" style="width: 100px;">
+												<option value="empty">Выбрать</option>
+												<option <%= (params[:sort] == "views" && params[:order] == "DESC") ? 'selected' : '' %> value="<%= url_for params.merge(:sort => "views", :order => 'DESC') %>">Популярности (по убыванию)</option>
+												<option <%= (params[:sort] == "views" && params[:order] == "ASC") ? 'selected' : '' %> value="<%= url_for params.merge(:sort => "views", :order => 'ASC') %>">Популярности (по возрастанию)</option>
+												<option <%= (params[:sort] == "price" && params[:order] == "DESC") ? 'selected' : '' %> value="<%= url_for params.merge(:sort => "price", :order => 'DESC') %>">Цене (по убыванию)</option>
+												<option <%= (params[:sort] == "price" && params[:order] == "ASC") ? 'selected' : '' %> value="<%= url_for params.merge(:sort => "price", :order => 'ASC') %>">Цене (по возрастанию)</option>
+												<option <%= (params[:sort] == "created_at" && params[:order] == "DESC") ? 'selected' : '' %> value="<%= url_for params.merge(:sort => "created_at", :order => 'DESC') %>">Дате (по убыванию)</option>
+												<option <%= (params[:sort] == "created_at" && params[:order] == "ASC") ? 'selected' : '' %> value="<%= url_for params.merge(:sort => "created_at", :order => 'ASC') %>">Дате (по возрастанию)</option>
+											</select>
+									</div>
+									<div class="clear"></div>
+							</div>
+							<div class="row">
+									<div class="cell left">Производитель</div>
+									<div class="cell right">
+											<select name="maker" class="filter other-selectbox" style="width: 100px;">
+												<option value="empty">Все</option>
+												<% @makers.each do |maker| %>
+												<option <%= (params[:maker] && params[:maker] == maker.name) ? 'selected' : '' %> value="<%= maker.name %>"><%= maker.name %></option>
+												<% end %>
+											</select>
+									</div>
+									<div class="clear"></div>
+							</div>
+					</div>
+					<!--Правый блок-->
+					<div class="right">
+							<div class="row double-cell">
+									<div class="cell left"></div>
+									<div class="cell right">
+											<label><input type="checkbox" name="campaign" class="filter" value="1" <%= (params[:campaign]) ? 'checked' : '' %> /> Со скидкой</label>
+									</div>
+									<div class="clear"></div>
+							</div>
+							<div class="row double-cell">
+									<div class="cell left"></div>
+									<div class="cell right">
+											<label><input type="checkbox" name="delevery" class="filter" <%= (params[:develery]) ? 'checked' : '' %> /> Бесплатная доставка</label>
+									</div>
+									<div class="clear"></div>
+							</div>
+					</div>
+					<div class="clear"></div>
+			</div>
+			<div class="found-res text-center" style="display: none;">
+				<span class="found-res-btn">
+					Показать 100 результатов
+				</span>
+			</div>
+			
+			<!-- Блок с подписаться и управлением колличеством элементов -->
+			<div class="sub-filters">
+					<div class="left">
+						<%= render :partial => 'shared/subscribe' %>
+					</div>
+					<div class="right">
+							<!-- Чтонить сюда можно воткнуть -->
+							<div class="row">
+									<ul class="count-page">
+											<li>Показать:</li>
+											<li><%= link_to "10", {:controller => "goods", :action => "index", :count => 10}, :class => (params[:count] == '10' || !params[:count]) ? 'count-active' : '' %></li>
+											<li><%= link_to "20", {:controller => "goods", :action => "index", :count => 20}, :class => (params[:count] == '20') ? 'count-active' : '' %></li>
+											<li><%= link_to "30", {:controller => "goods", :action => "index", :count => 30}, :class => (params[:count] == '30') ? 'count-active' : '' %></li>
+									</ul>
+							</div>
+					</div>
+					<div class="clear"></div>
+			</div>
+			<!-- end | Фильтры -->
+		
+
+      <section class="indent"></section>
+
+      <section class="content-items">
+				
+			<div class="other-tabs">
+				<ul>
+					<li data-other-tab="1" class="tab-curent" style="z-index: 4007;"><div class="tab-wave"></div><div class="tab-shadow"></div><div class="tab-cont">Новые товары</div></li>
+					<li data-other-tab="2" style="z-index: 4006;"><div class="tab-wave"></div><div class="tab-shadow"></div><div class="tab-cont">Популярные товары</div></li>
+					<li data-other-tab="3" style="z-index: 4005;"><div class="tab-wave"></div><div class="tab-shadow"></div><div class="tab-cont">Специальные предложения</div></li>
+				</ul>
+				<div class="clear"></div>
+			</div>
+
+			<% if @goods.count > 0 %>
+				<% @goods.each do |good| %>
+						<article class="content-item" data-item-type="Good" data-item-id="<%= good.id %>">
+								<div class="item-container-1">
+										<div class="item-image">
+											<%# if good.campaign %>
+												<%# if good.campaign.mode == 'sale'%>
+													<span class="label-discount">Скидка -20%<%#= good.campaign.name %></span>
+												<%# else %>
+													<span class="label-campaign"></span>
+												<%# end %>
+											<%# end %>
+											<!-- if бесплатная доставка -->
+												<span class="label-delivery"></span>
+											<!-- end if -->
+											<a href="#" data-item-id="<%= good.id %>"><%= image_tag(good.image) %></a>
+										</div>
+										<div class="item-info">
+												<div class="item-info-block">
+														<h3 class="info-block-title"><a href="#"><%= good.company.name %></a></h3>
+														<p class="info-block-adress"><%= good.company.address %></p>
+														<p class="info-block-phone" title="<%= good.company.phone %>">Тел.:&nbsp;<%= good.company.phone %></p>
+														<p><a href="#" class="view-map-full" data-full-map="<%= good.company.name %>::<%= good.company.address %>">Посмотреть на карте</a></p>
+														
+														<% if user_signed_in? %>
+														<!-- Добавление в избранное -->
+														<div class="item-info-block-stat likes">
+								<div class="favorite-active">
+									<a href="#" data-favorite="Good:<%= good.id %>" class="favorite <%= good.favorited_by_user?(current_user) ? 'actived' : '' %>"></a>
+									<a href="#" data-favorite="Good:<%= good.id %>" class="ignore"></a>
+									<a href="#" data-like="Good:<%= good.id %>" class="like"></a><span>(<small class="like-count"><%= good.likes.count %></small>)</span>
+								</div>
+								<div class="favorite-notactive">
+									<%= image_tag "loading-mini.gif" %>
+								</div>
+														</div>
+														<div class="item-info-block-bell">
+																<a href="#"><%= image_tag "bell.png" %></a>
+														</div>
+														<% else %>
+														<div class="item-info-block-stat">
+																<%= image_tag "no-reviews-1.png" %>
+																<%= image_tag "no-reviews-0.png" %>
+																<%= image_tag "no-reviews-2.png" %><span>(<%= good.likes.count %>)</span>
+														</div>
+														<div class="item-info-block-bell">
+																<%= image_tag "no-bell.png" %>
+														</div>
+														<% end %>
+														
+														<p class="info-block-price">Цена: <span><%= good.price %> р.</span>
+															<%# if цена снижена add class 'icon-price-course-down' else 'icon-price-course-up' %>
+															<span class="icon-price-course icon-price-course-up"></span>
+														</p>
+												</div>
+										</div>
+										<div class="item-text" data-item-id="<%= good.id %>">
+												<h2 class="item-title"><a href="#" data-item-id="<%= good.id %>"><%= good.title %></a></h2>
+												<p><%= raw truncate good.description, :length => 160 %></p>
+										</div>
+										<div class="clear"></div>
+										<div class="item-other"><!---
+												<div class="item-control">
+														<div class="control-edit"><a href="#">Редактировать</a></div>
+														<div class="control-delete"><a href="#">Удалить</a></div>
+												</div>--->
+												<div class="item-bell ib-for-good">
+														<div class="info-bell-left"><!--для фона--></div>
+														<div class="info-bell-right">
+																<p>Отзывы: <span class="bell-true">+<%= Feedback.get_p_count('Good', good.id) %></span> / <span class="bell-false">-<%= Feedback.get_n_count('Good', good.id) %></span></p>
+														</div>
+												</div>
+												<div class="item-bell-good">
+													<div class="ibg-inner"><%= good.presence ? 'В наличии' : 'Под заказ' %> | Новый</div>
+												</div>
+												<div class="clear"></div>
+										</div>
+	
+								</div>
+						</article>
+				<% end %>
+	
+				
+				<div class="pagination-separator" style="display:none;"><div class="ps-page">Страница <span class="ps-page-num" data-page="1">1</span></div></div>
+				<a href="#" class="pagination-link">
+					Показать еще <%=  params[:count] || 10%>
+				</a>
+	
+				</section>
+				
+			<% else %>
+				<div class="empty-content">Товаров нет</div>
+			<% end %>
+      
+    <div class="popup-slider">
+        <div class="popup-main">
+            <div class="popup-close"><a href="#" class="button-close"></a></div>
+            <!-- Главный блок с инфой -->
+            <div class="popup-content" id="popupHeader">
+                <!--- HEAD --->
+            </div>
+            <!-- end | Главный блок с инфой -->
+        </div>
+        
+        <!--блок с кнопками-->
+        <div class="popup-buts">
+            <div class="popup-but-prev" id="popupPrev"></div>
+            <div class="popup-but-next" id="popupNext"></div>
+            <div class="popup-but-cent">
+            	<div id="popup_loading"><%= image_tag "loading-2.gif" %></div>
+            	<div id="popup_notic"></div>
+            </div>
+        </div>
+        
+        <div class="feedback-add" id="feedbackForm">
+        	<!--- FEEDBACK --->
+        </div>
+        <!--end | блок с кнопками-->
+        
+        <div class="popup-other">
+        	<div id="popupContent">
+        	<!--- CONTENT --->
+        	</div>
+        </div>
+    </div>
+    
+    <div id="mask"></div>
+    
+    <div class="map-full">
+    	<div class="map-full-title">
+    		<div class="map-full-left" id="map_full_title"></div>
+    		<div class="map-full-right"><a href="#" id="map_full_close"></a></div>
+    		<div class="clear"></div>
+    	</div>
+    	<div class="map-full-content" id="map_full"></div>
+    </div>
+  
+	<%= render :partial => 'shared/sharing' %>

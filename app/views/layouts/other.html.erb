@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+<head>
+	<title>На обзоре</title>
+  
+	<script src="http://api-maps.yandex.ru/2.0-stable/?load=package.full&lang=ru-RU" type="text/javascript"></script>
+  
+	<link rel="stylesheet" href="/assets/main.css" />
+	<link rel="stylesheet" href="/assets/login.css" />
+	<link rel="stylesheet" href="/assets/top_panel.css" />
+    <link rel="stylesheet" href="/assets/lightbox.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/selectbox.css" />
+    
+    <script type="text/javascript" src="/assets/jquery.js"></script>
+    <script type="text/javascript" src="/assets/lightbox.js"></script>
+    <script type="text/javascript" src="/assets/jcarousel.js"></script>
+    <script type="text/javascript" src="/assets/jselectbox.js"></script>
+    <script type="text/javascript" src="/assets/kepCarousel.js"></script>
+		<script type="text/javascript" src="/assets/ui-slider.js"></script>
+		<script type="text/javascript" src="/assets/old_browser_check.js"></script>
+    <script type="text/javascript" src="/assets/common.js"></script>
+  
+	<!---%= stylesheet_link_tag    "application", :media => "all" %--->
+	<!---%= javascript_include_tag "application" %--->
+	<%= csrf_meta_tags %>
+
+    <!--[if lt IE 9]>
+    <script>
+        document.createElement('nav');
+        document.createElement('header');
+        document.createElement('footer');
+        document.createElement('section');
+        document.createElement('aside');
+        document.createElement('article');
+    </script>
+    <![endif]-->
+  
+</head>
+<body data-controller="<%= @curent_controller %>">
+    <%= render :partial => 'layouts/top_panel' %>
+		
+    <section id="container">
+
+        <header id="header">
+					
+            <div id="header_main">
+                <img id="logotype" src="/assets/logotype.png" alt="" />
+            </div>
+            <div id="header_buts">
+                <div id="mini_buts">
+                    <a href="/" class="top-link"><img src="/assets/icons/home.png" alt="" /></a>
+                    <a href="#" class="top-link"><img src="/assets/icons/mail.png" alt="" /></a>
+                    <a href="#" class="top-link"><img src="/assets/icons/map.png" alt="" /></a>
+                </div>
+                
+                <%= render "layouts/top_nav" %>
+                
+            </div>
+            <div id="header_wave"></div>
+            <div id="header_righ">
+							<%= render "layouts/cabinet_panel" %>
+						</div>
+        </header>
+        
+        <section id="simple-title">
+            Справка
+        </section>
+        
+        <div id="cabinetContainer">
+		
+            <section id="simple_left">
+				<%= render "layouts/categories", :locals => {:title => "СОДЕРЖАНИЕ", :categories => @this_categories} %>
+            </section>
+            
+            <section id="simple_content">
+            	
+            	<div id="main">
+            	<%= yield %>
+            	</div>
+            	
+				<footer>
+                	<% if @curent_controller == 'help' && params[:action] == "index" %>
+                    	<%= will_paginate @helps, :renderer => 'BootstrapPaginationHelper::LinkRenderer' %>
+                    <% end %>
+                </footer>
+            </section>
+            
+            <div class="clear"></div>
+        </div>
+    
+	    <!-- Подвал -->
+	    <%= render "layouts/footer" %>
+	    <!-- / Подвал -->
+    </section>
+    
+
+    
+    <div class="popup-pass">
+        <div class="popup-pass-close"><a href="#"><img src="img/popup-close.png" alt="" /></a></div>
+        <div class="popup-title">
+            Восстановление пароля
+        </div>
+        <div class="popup-content-simple">
+            <p>Для восстановления доступа к сайту, введите адрес электронной почты, указанный при регистрации. На указанный Вами адрес, будет выслано письмо с новым паролем.</p>
+        </div>
+        <div class="popup-email">
+            E - mail <input type="text" /><input type="submit" value="Выслать пароль" />
+        </div>
+    </div>
+		
+		<div id="btn_goto_top" class="btn-goto-top"><div class="bgt-link"><span class="bgt-link-text">Наверх</span></div></div>
+
+</body>
+</html>

@@ -1,0 +1,298 @@
+﻿<!doctype html>
+<html>
+<head>
+    <title>На обзоре</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="../css/selectbox.css" />
+    
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+    <script type="text/javascript" src="../js/jselectbox.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+    
+    <!--[if lt IE 9]>
+    <script>
+        document.createElement('nav');
+        document.createElement('header');
+        document.createElement('footer');
+        document.createElement('section');
+        document.createElement('aside');
+        document.createElement('article');
+    </script>
+    <![endif]-->
+</head>
+<body>
+	
+	<div id="main_container">
+		
+		<!-- Шапка -->
+		<header id="main_header">
+			<div class="header-secl">
+				<div id="logotype"><img src="../images/logotype.png" /></div>
+	                
+                <div id="siteNav">
+                    <a href="#" class="top-link"><img src="../images/home.png" alt="" /></a>
+                    <a href="#" class="top-link"><img src="../images/mail.png" alt="" /></a>
+                    <a href="#" class="top-link"><img src="../images/map.png" alt="" /></a>
+                </div>
+
+				<div class="clear"></div>
+			</div>
+			<div class="header-secr">
+	            <div id="headerNav">
+					<nav id="top_nav">
+	                    <ul>
+	                        <li class="top-nav"><a href="#" class="vinous">Добавить компанию</a></li>
+	                        <li class="top-nav"><a href="#">Выход</a></li>
+	                        <li class="top-nav"><a href="#">Справка</a></li>
+	                    </ul>
+	                </nav>
+	            </div>
+			</div>
+			<div class="clear"></div>
+		</header>
+		<!-- end | Шапка -->
+		
+		<!-- Основная навигация -->
+		<nav id="navigation">
+			
+			<ul class="nav-level-1">
+				
+				<li><a href="#">Мой кабинет</a>
+					<ul class="nav-level-2">
+						<li><a href="#">Панель управления кабинетом</a></li>
+						<li><a href="#">Настройка кабинета</a>
+							<ul class="nav-level-3">
+								<li><a href="#">Редактировать персональные данные</a></li>
+								<li><a href="#">Изменить пароль</a></li>
+								<li><a href="#">Изменить адрес электронной почты</a></li>
+								<li><a href="#">Удалить учетную запись</a></li>
+								<li><a href="#">Уведомления</a></li>
+							</ul>
+						</li>
+						<li><a href="#">Статистика просмотров</a></li>
+						<li><a href="#">Возможности Наобзоре.РФ</a></li>
+					</ul>
+				</li>
+				
+				<li><a href="#">Управление контентом</a>
+					<ul class="nav-level-2">
+						<li><a href="#">Панель управления контентом</a></li>
+						<li><a href="#">Добавить</a>
+							<ul class="nav-level-3">
+								<li><a href="#">Товар</a></li>
+								<li><a href="#">Услугу</a></li>
+								<li><a href="#">Вакансию</a></li>
+								<li><a href="#">Скидку/Акцию</a></li>
+							</ul>
+						</li>
+						<li><a href="/">Импорт прайс-листа</a>
+							<ul class="nav-level-3">
+								<li><a href="#">Описание загрузки прайс-листа</a></li>
+								<li><a href="#">Загрузить прайс-лист</a></li>
+								<li><a href="#">Коды категорий</a></li>
+							</ul>
+						</li>
+						<li><a href="#">Каталог фото</a></li>
+					</ul>
+				</li>
+				
+				<li><a href="">Управление сайтом</a>
+					<ul class="nav-level-2">
+						<li><a href="#">Панель управления сайтом</a></li>
+						<li><a href="#">Конструктор  дизайна сайта</a></li>
+						<li><a href="#">Настройка сайта</a>
+							<ul class="nav-level-3">
+								<li><a href="#">Адрес сайта</a></li>
+								<li><a href="#">Настройка меню</a></li>
+							</ul>
+						</li>
+						<li><a href="/cp/campaigns">Инструменты веб-мастера</a>
+							<ul class="nav-level-3">
+								<li><a href="#">Настройка внешней статистики</a></li>
+								<li><a href="#">Подключение инструментов веб-мастера</a></li>
+								<li><a href="#">Карта сайта (sitemap)</a></li>
+								<li><a href="#">Управление robots.txt</a></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				
+				<li><a href="#">Документооборот</a>
+					<ul class="nav-level-2">
+						<li><a href="#">Баланс</a></li>
+						<li><a href="#">Счета</a></li>
+						<li><a href="#">Акты</a></li>
+						<li><a href="#">Счет-фактуры</a></li>
+					</ul>
+				</li>
+				
+				<li><a href="#">Почта и связь</a>
+					<ul class="nav-level-2">
+						<li><a href="#">Панель управления</a></li>
+						<li><a href="#">Сообщения</a>
+							<ul class="nav-level-3">
+								<li><a href="#">Входящие</a></li>
+								<li><a href="#">Отправленные</a></li>
+							</ul>
+						</li>
+						<li><a href="#">Sms-биллинг</a></li>
+						<li><a href="#">Менеджер звонков</a></li>
+						<li><a href="#">Рассылки</a></li>
+					</ul>
+				</li>
+				
+				<li><a href="#">Платные услуги</a>
+					<ul class="nav-level-2">
+						<li><a href="#">Пакеты размещения</a></li>
+						<li><a href="#">Размещение рекламного баннера</a></li>
+						<li><a href="#">Пакеты смс и голосовой телефонии</a></li>
+						<li><a href="#">Услуги дизайна</a></li>
+					</ul>
+				</li>
+				
+				<li><a href="#">О компании</a>
+					<ul class="nav-level-2">
+						<li><a href="#">Общие данные</a></li>
+						<li><a href="#">Юридические данные</a></li>
+						<li><a href="#">Загрузить логотип</a></li>
+						<li><a href="#">Платежные реквизиты</a></li>
+						<li><a href="#">График работы</a></li>
+						<li><a href="#">Сотрудники компании</a></li>
+						<li><a href="#">Кредитование</a></li>
+						<li><a href="#">Доставка</a></li>
+					</ul>
+				</li>
+				
+			</ul>
+			
+		</nav>
+		<!-- end | Основная навигация -->
+		
+		<section id="contentTitle">
+			<h1>Панель управления</h1>
+		</section>
+		
+		<section id="mainContent">
+			
+			<!-- Левая часть -->
+			<section id="left">
+				
+				<div class="extra">
+					<div class="title">Служба поддержки</div>
+					<div class="content">
+						<ul>
+							<li><a href="#"><img src="../images/bell.png" alt="" /></a></li>
+							<li>ICQ: <span class="txt-blue">310-234-224</span></li>
+							<li>Номер: <span class="txt-blue">8(3532)34-56-65</span></li>
+							<li><a href="#" class="blue-button">Написать сообщение</a></li>
+						</ul>
+					</div>
+				</div>
+				
+				
+			</section>
+			<!-- end | Левая часть -->
+			
+			<!-- Главное содержательная часть -->
+			<section id="content">
+				<form method="get">
+                
+				<div class="form">
+					<h1 class="title">Подключение внешней статистики</h1>
+                    <p class="info">
+                    </p>
+					<div class="body">
+                    
+                        <div class="setting-statistic-item">
+                            <p>
+                            Для того, чтобы отслеживать эффективность работы вашего веб-сайта, количество посетителей и источники их появления, а также много другой полезной информации, мы предлагаем вам воспользоваться мощными и бесплатными аналитическими системами от компании Google и Яндекс - Google Analytics и Яндекс.Метрика.
+                            Эти системы обладают интуитивно понятными интерфейсами и доступны не только профессионалам, но и новичкам в деле раскрутки и продвижения сайтов.
+                            Подробнее о работе с системами аналитики для веб сайтов вы можете ознакомиться на официальных страницах Google Analytics и Яндекс.Метрика.
+                            </p>
+                        </div>
+						
+                        <div class="setting-statistic-item">
+                            <h2 class="sub-title">Как подключиться к Яндекс.Метрике</h2>
+                            <p>
+                                Для того, чтобы начать работу с аналитической системой Яндекс Метрика вам необходимо пройти 6 простых шагов:
+                                <ul>
+                                    <li>Зарегистрируйтесь в службе Яндекс.Паспорт. Если Вы уже зарегистрированы в Яндекс, переходите к пункту 2.</li>
+                                    <li>Выполните вход в Яндекс.Метрику, введя Ваш логин и пароль.</li>
+                                    <li>Перейдите по ссылке "Добавить счётчик" и укажите адрес вашего сайта http://stroimasteroren.rosfirm.ru</li>
+                                    <li>Во вкладке "Код счетчика" Яндекс выдаст Вам JavaScript код следующего вида:<br />
+                                        &lt;!-- Yandex.Metrika counter --&gt;<br />
+                                        &lt;script src="//mc.yandex.ru/metrika/watch.js" type="text/javascript"&gt;&lt;/script&gt;<br /> 
+                                        &lt;div style="display:none;"&gt;&lt;script type="text/javascript"&gt; <br />
+                                        try { var yaCounterНОМЕР_СЧЕТЧИКА = new Ya.Metrika(НОМЕР_СЧЕТЧИКА);} catch(e){} &lt;/script&gt;&lt;/div&gt; <br />
+                                        &lt;noscript&gt;&lt;div style="position:absolute"&gt;&lt;img src="//mc.yandex.ru/watch/НОМЕР_СЧЕТЧИКА" alt="" /&gt;&lt;/div&gt;&lt;/noscript&gt; <br />
+                                        &lt;!-- /Yandex.Metrika counter --&gt; 
+                                    </li>
+                                    <li>В выбранном пункте есть следующая строка:<br />
+                                    &lt;img src="//mc.yandex.ru/watch/НОМЕР_СЧЕТЧИКА" alt="" /&gt;</li>
+                                    <li>Скопируйте номер счетчика и введите в форму ниже, затем нажмите «Сохранить настройки».</li>
+                                    <li>Как только вы это сделаете, Яндекс.Метрика начнет собирать и анализировать информацию о посещениях вашего сайта. Статистика становится доступна на следующий день на сайте службы.</li>
+                                </ul>
+                            </p>
+                            <div class="simple-row">
+                                <div class="s-field">
+                                    <input type="text" size="40" />
+                                    <div class="example">Номер счетчика: 5-10 цифр. Например, 1591345</div>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="setting-statistic-item">
+                            <h2 class="sub-title">Как подключиться к Google Analytics</h2>
+                            <p>
+                                Для того, чтобы начать работу с аналитической системой Google Analytics вам необходимо пройти 3 простых шагов:
+                                <ul>
+                                    <li>Зарегистрируйтесь в службе Google Analytics (для этого может потребоваться создать учетную запись Google, в случае если у вас ее еще нет).</li>
+                                    <li>Создайте профиль вашего сайта http://stroimasteroren.rosfirm.ru в службе Google Analytics.</li>
+                                    <li>После создания профиля, Google Analytics выдаст Вам JavaScript код следующего вида:<br />
+                                        &lt;script type="text/javascript"&gt;<br />
+                                        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");<br />
+                                        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));<br />
+                                        &lt;/script&gt;<br />
+                                        &lt;script type="text/javascript"&gt;<br />
+                                        try {<br />
+                                        var pageTracker = _gat._getTracker("КОД-ОТСЛЕЖИВАНИЯ");<br />
+                                        pageTracker._trackPageview();<br />
+                                        } catch(err) {}&lt;/script&gt;<br />
+                                        Скопируйте код отслеживания вида UA-8цифр-1цифра, который вам дала служба Google Analytics в форму, приведенную ниже, и сохраните.
+                                    </li>
+                                    <li>Как только вы это сделаете, служба Google Analytics начнет собирать и анализировать информацию о посещениях вашего сайта. Статистика становится доступна на следующий день на сайте службы.</li>
+                                </ul>
+                            </p>
+                            <div class="simple-row">
+                                <div class="s-field">
+                                    <input type="text" size="40" />
+                                    <div class="example">Код отслеживания: код вида UA-8цифр-1цифра. Например, UA-4584549-1</div>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+						
+					</div>
+					<div class="buts">
+						<input type="submit" class="blue-button big" value="Сохранить" />
+					</div>
+				</div>
+                
+				</form>
+			</section>
+			<!-- end | Главное содержательная часть -->
+			
+			<div class="clear"></div>
+		</section>
+		
+		<footer id="mainFooter">
+			<div id="footerShadow"><!----></div>
+			<div id="footerContent">© НаОбзоре.рф, 2012</div>
+		</footer>
+	</div>
+
+</body>
+</html>

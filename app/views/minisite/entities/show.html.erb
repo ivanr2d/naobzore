@@ -1,0 +1,132 @@
+<div class="entity-title">
+    <h2>Товар</h2>
+    <p></p>
+    <div class="clear"></div>
+</div>
+
+<div class="entity">
+    <div class="header">
+        <div class="left">
+            <h1><%= @entity.name %></h1>
+            <p class="price">Цена: <span><%= number_with_delimiter @entity.price %>  руб.</span></p>
+            
+            <div class="address">
+                <p><a href="#"><%= @company.address %></a></p>
+                <p>тел.: <%= @company.phone %></p>
+            </div>
+            
+            <p><a class="call-up" href="#"></a></p>
+            
+            <p class="feedbacks">Отзывы: <span class="plus">+<%= @entity.plus_count %></span>/<span class="minus">-<%= @entity.minus_count %></span></p>
+            <%= render :partial => 'minisite/shared/likes', :locals => { :entity => @entity, :redirect => entities_path(@entity) } %>
+            
+        </div>
+        <div class="right">
+            <div class="gallery">
+                <div class="main-photo lightbox"><a href="<%= @entity.image.big %>"><img src="<%= @entity.image.thumb %>" /></a></div>
+                <ul class="lightbox">
+                  <% @entity.photos.each do |photo| %>
+                    <li><a href="<%= photo.file.big %>"><img src="<%= photo.file.thumb %>" /></a></li>
+                  <% end %>
+                </ul>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    
+    <!--Блок с вкладками-->
+    <div class="tabs">
+        <ul class="tabs-items">
+            <li><a href="#" data-tab="0" class="active">Описание</a></li>
+            <li><a href="#" data-tab="1">Отзывы</a></li>
+            <li><a href="#" data-tab="2">Акции</a></li>
+            <li><a href="#" data-tab="3">Гарантия</a></li>
+            <li><a href="#" data-tab="4">Кредитование</a></li>
+            <% if @company.deliveties.any? %><li><a href="#" data-tab="5">Доставка</a></li><% end %>
+        </ul>
+        <div class="tabs-content">
+            
+        <!--Описание-->
+            <div class="tab-content" data-tab="0">
+                <div class="entity-description">
+                  <%=raw @entity.description %>
+									
+									<h2 class="entity-cont-separator">Характеристики</h2>
+								
+									<% if @entity.characteristics.count > 0 %>
+											<table class="stripy-table st-characteristics">
+											<% @entity.characteristics.each do |character| %>
+												<tr><td><%= character.key %></td><td><%= character.value %></td></tr>
+											<% end %>
+											</table>
+										<% else %>
+										<p class="tab-content-empty">Характеристики отсутствуют</p>
+									<% end %>
+                </div>
+            </div>
+        <!--Отзывы-->
+            <div class="tab-content hidden" data-tab="1">
+                <div class="feedbacks-items">
+                  <% if @entity.feedbacks.empty? %>
+                    <p class="tab-content-empty">Отзывов нет</p>
+                  <% else %>
+                    <%= render :partial => 'feedback', :collection => @entity.feedbacks %>
+                  <% end %>
+                </div>
+            </div>
+        <!--Акции-->
+            <div class="tab-content hidden" data-tab="2">
+                <div class="campaigns-items">
+                  <% if @entity.campaign %>
+                    <%= render :partial => 'campaign', :object => @entity.campaign %>
+                  <% else %>
+                    <p class="tab-content-empty">Акций нет</p>
+                  <% end %>
+                </div>
+            </div>
+        <!--Гарантия-->
+            <div class="tab-content hidden" data-tab="3">
+                <h3>Срок гарантии: <span class="orange"><%= @entity.warranty_time %> мес.</span></h3>
+                <h3>Условия гарантии:</h3>
+                <p>
+                  <%= raw @entity.warranty_condition %>
+                </p>
+            </div>
+        <!--Кредитование-->
+            <div class="tab-content hidden" data-tab="4">
+              <% if @company.banks.any? %>
+                <h3>Банки</h3>
+                <!-- Блок пришедший с фронтенда -->
+                <%= render :partial => 'bank', :collection => @company.banks %>
+              <% else %>
+                <p class="tab-content-empty">Банки не указаны</p>
+              <% end %>
+            </div>
+        <!--Доставка-->
+            <div class="tab-content hidden" data-tab="5">
+              <% if @company.deliveties.any? %>
+                <h3>Доставка магазина</h3>
+                <%= render :partial => 'delivety', :collection => @company.deliveties %>
+								<!-- <h3>Альтернативная доставка</h3> -->
+								 <!-- ... -->
+              <% else %>
+                <p class="tab-content-empty">Условия доставки не указаны</p>
+              <% end %>
+            </div>
+            
+        </div>
+    </div>
+				
+		<%= render :partial => 'minisite/shared/footer_sharing', :locals => { :entity => @entity } %>
+    
+    <% if (similars = @entity.similars.for_user(current_user)).any? %>
+      <div class="simple-items">
+        <h2><%= t ".similar_#{@entity_type.tableize}" %></h2>
+        <% similars.each do |entity| %>
+          <%= render :partial => 'simple_entity', :locals => { :entity => entity } %>
+        <% end %>
+        <div class="clear"></div>
+      </div>
+    <% end %>
+    
+</div> 

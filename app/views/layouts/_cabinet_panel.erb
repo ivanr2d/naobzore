@@ -1,0 +1,15 @@
+<% if user_signed_in? %>
+<div class="header-user">
+	<div class="user-ava">
+		<a href="/cabinet">
+			<%= image_tag(!current_user.mini_photo.blank? ? current_user.mini_photo : 'not-photo.png') %>
+		</a>
+	</div>
+	<div class="header-user-links">
+		<a href="/cabinet">Моя страница</a><br>
+		<a href="#">Мои резюме</a><br>
+		<a href="#">Мои сообщения<span class="marked-blue">(2)</span></a>               
+	</div>
+	<div class="clear"></div>
+</div>
+<% end %>

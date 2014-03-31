@@ -1,0 +1,10 @@
+<div class="likes"><!-- add class 'actived' to link if success -->
+  <%= link_to '', favorite_entity_path(entity), :method => :post, :remote => true, :title => 'Добавить в личный кабинет', :class => "favorite #{!user_signed_in? ? 'view-login' : ''} #{user_signed_in? && entity.favorited_by_user?(current_user) ? 'actived' : ''}" %>
+  
+  <%= link_to '', ignore_entity_path(entity), :method => :post, :remote => true, :title => 'Занести в чёрный список', :class => "ignore #{!user_signed_in? ? 'view-login' : ''}", 'data-redirect' => local_assigns[:redirect] %>
+  
+  <% options = { :method => :post, :remote => true, :class => "like #{!user_signed_in? ? 'view-login' : ''} #{user_signed_in? && entity.liked_by_user?(current_user) ? 'actived' : ''}", :title => "Нравится" } %>
+  <%= link_to '', like_entity_path(entity), options %>
+  <span>(<span class="likes_count"><%= entity.likes_count %></span>)</span>
+	<div class="clear"></div>
+</div>

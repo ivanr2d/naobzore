@@ -1,0 +1,22 @@
+<div class="campaign">
+    <div class="data-container">
+        <div class="left">
+            <a href="<%= campaign_path campaign %>"><img src="<%= campaign.image.thumb %>" alt="" /></a>
+        </div>
+        <div class="right">
+            <a href="<%= campaign_path campaign %>" class="tit"><%= campaign.name %></a>
+            <div class="text">
+              <%=raw campaign.description %>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="footer">
+        <div class="comments-count">
+            <div class="l"></div>
+            <div class="r"><a href="#" class="show-comments">Комментариев (<%= campaign.comments_count %>)</a></div>
+            <div class="clear"></div>
+        </div>
+				<%= render :partial => 'minisite/shared/likes', :locals => { :entity => campaign } %>
+    </div>
+</div>

@@ -1,0 +1,212 @@
+<div id="topPanel">
+  <header>
+      <div class="left"></div>
+      <div class="right"></div>
+      <div class="content">
+      
+        <div class="logotype"><a href="http://naobzore.ru/"><img src="/miniSite/images/logo.png" alt="" /></a></div>
+         
+        <% # TODO Заполнение селектов Катаог и Категория %>
+        <%= form_for :search, :url => search_path, :html => { :method => :get } do |f| %>
+          <div class="search">
+              <div class="container">
+                  <div class="field">
+                      <span class="icon-lupa"></span>
+                      <input type="text" name="q" value="Поиск по сайту" class="holder" />
+                      <a href="#" class="show-search-submenu"></a>
+                      <div class="search-submenu">
+                        <div class="row">
+                          <label class="ss-label">Категория</label>
+                          <div class="ss-select">
+                            <select class="selectbox" style="width: 98px;">
+                              <option value="1">Категория 1</option>
+                              <option value="2">Категория 2</option>
+                            </select>
+                          </div>
+                          <div class="clear"></div>
+                        </div>
+                        
+                        <div class="row">
+                          <label class="ss-label">Каталог</label>
+                          <div class="ss-select">
+                            <select class="selectbox" style="width: 98px;">
+                              <option value="1">Каталог 1</option>
+                              <option value="2">Каталог 2</option>
+                            </select>
+                          </div>
+                          <div class="clear"></div>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="but">
+                      <input type="submit" value="НАЙТИ" />
+                  </div>
+                  <div class="clear"></div>
+              </div>
+          </div>
+        <% end %>
+          
+          <div class="navigation">
+            <div class="top">
+              <ul>
+                <% if user_signed_in? %>
+                  <li class="top-nav"><a href="/">Главная</a></li>
+                  <% if current_user.account %>
+                    <li class="top-nav"><a href="/company_panel">Админ панель</a></li>
+                    <li class="top-nav"><a href="/help">Справка</a></li>
+                  <% else %>
+                    <li class="top-nav"><a href="/cabinet">Личная страница</a></li>
+                    <li class="top-nav"><a href="/cabinet/messages">Мои сообщения</a></li>
+                  <% end %>
+                  <li class="top-nav"><%= link_to "Выход", destroy_user_session_path, :method => :delete %></li>
+                <% else %>
+                  <li class="top-nav"><a href="#" class="view-login">Войти</a></li>
+                  <li class="top-nav"><a href="#" class="view-registration">Зарегистрироваться</a></li>
+                <% end %>
+              </ul>
+                 <ul class="icons">
+                      <li><a href="/"><img src="/miniSite/images/icon-home.png" /></a></li>
+                      <li><a href="javascript:void(0)" class="<%= user_signed_in? ? 'view-popup' : 'view-login' %>" data-type="send-message" data-title="Служба поддержки Наобзоре.РФ" data-to_id="<%= User.support.try(:id) %>"><img src="/miniSite/images/icon-mail.png" /></a></li>
+                      <li><a href="#"><img src="/miniSite/images/icon-map.png" /></a></li>
+                  </ul>
+              </div>
+              <!--Нижняя навигация-->
+              <div class="bottom">
+                  <ul>
+                      <li><a href="<%= goods_path %>">Товары</a></li>
+                      <li><a href="<%= services_path %>">Услуги</a></li>
+                      <li><a href="<%= jobs_path %>">Вакансии</a></li>
+                      <li><a href="<%= campaigns_path %>">Акции</a></li>
+                      <li><a href="#" id="viewMenuItems"><img src="/miniSite/images/icon-view.png" alt="" /></a>
+                          <ul class="more hidden" id="hiddenMenuItems">
+                              <li><a href="<%= news_path %>">Новости</a></li>
+                              <li><a href="#">Отзывы</a></li>
+                              <li><a href="#">Объявления</a></li>
+                          </ul>
+                      </li>
+                  </ul>
+                  <div class="clear"></div> 
+              </div>
+          </div>
+      </div>
+  </header>
+  <footer>
+      <div class="active">
+        
+        <!-- Выподающий блок регистрации -->
+          <div id="registration">
+              <div class="pop-form">
+
+                <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+                  <div class="pop-table">
+                    <div><!--%= devise_error_messages! %--></div>
+                      <div class="pop-table-row">
+                        <%= raw Settings.find_by_key(:registration_advantages).value %>
+                      </div>
+                      <div class="pop-table-row">
+                          <div class="pop-table-coll">Фамилия</div>
+                          <div class="pop-table-colr"><%= f.text_field :f_name, :size => 20 %></div>
+                      </div>
+                      <div class="pop-table-row">
+                          <div class="pop-table-coll">Имя</div>
+                          <div class="pop-table-colr"><%= f.text_field :l_name, :size => 20 %></div>
+                      </div>
+                      <div class="pop-table-row">
+                          <div class="pop-table-coll">Отчество</div>
+                          <div class="pop-table-colr"><%= f.text_field :m_name, :size => 20 %></div>
+                      </div>
+                      <div class="pop-table-row">
+                          <div class="pop-table-coll">E - mail</div>
+                          <div class="pop-table-colr"><%= f.email_field :email, :size => 20 %></div>
+                      </div>
+                      <div class="pop-table-row">
+                          <div class="pop-table-coll">Пароль</div>
+                          <div class="pop-table-colr"><%= f.password_field :password, :size => 20 %></div>
+                      </div>
+                      <div class="pop-table-row">
+                          <div class="pop-table-coll">Повтор пароля</div>
+                          <div class="pop-table-colr"><%= f.password_field :password_confirmation, :size => 20  %></div>
+                      </div>
+                      <div class="pop-table-row">
+                          <div class="pop-table-coll-captcha">
+                              <img src="/assets/temp/captha.png" alt="" />
+                              <p><a href="#" class="pop-link">Новое изображение</a></p>
+                          </div>
+                          <div class="pop-table-colr-captcha">
+                              <p>Что Вы видите?</p><input type="text" name="" size="11" />
+                          </div>
+                      </div>
+                      <div class="pop-table-row">
+                          <div class="pop-table-col-full">
+                              <%= check_box_tag "user[lic]" %> Я принимаю условия <a href="#"  class="pop-link">пользовательского соглашения</a>
+                          </div>
+                      </div>
+                  </div>
+
+              </div>
+              <div class="pop-form-send">
+                  <%= f.submit "Зарегистрироваться" %>
+              </div>
+          <% end %>
+              
+              <div class="pop-form-social">
+                  Вход без регистрации 
+                  <a href="#"><img src="/assets/social/facebook.png" /></a>
+                  <a href="#"><img src="/assets/social/vk.png" /></a>
+                  <a href="#"><img src="/assets/social/twitter.png" /></a>
+              </div>
+          </div>
+          <!-- end | Выподающий блок регистрации -->
+        
+        <!-- Всплывающий блок Входа -->
+          <div id="login">
+          <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+              <div id="login_form">
+                  <div class="pop-form-login">
+                      <div class="pop-form-login-table">
+                          <div class="pop-form-login-row">
+                              <div class="pop-form-login-coll">E-mail</div>
+                              <div class="pop-form-login-colr"><%= f.email_field :email, :size => 18 %></div>
+                          </div>
+                          <div class="pop-form-login-row">
+                              <div class="pop-form-login-coll">Пароль</div>
+                              <div class="pop-form-login-colr"><%= f.password_field :password, :size => 18 %></div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="pop-form-button">
+                      <div class="pop-form-button-left"><a href="#" id="view_rec_pass">Забыли пароль?</a></div>
+                      <div class="pop-form-button-right"><%= f.submit "Вход" %></div>
+                  </div>
+              </div>
+              <div id="login_social">
+                  Войти с помощью... 
+                  <a href="#"><img src="/assets/social/facebook.png" /></a>
+                  <a href="#"><img src="/assets/social/vk.png" /></a>
+                  <a href="#"><img src="/assets/social/twitter.png" /></a>
+              </div>
+          <% end %>
+          </div>
+          <!-- end | Всплывающий блок Входа -->
+          
+        <span class="footer-menu">
+          <% if user_signed_in? %>
+            <a href="/">Главная</a> |
+            <% if current_user.account %>
+              <a href="/company_panel">Админ панель</a> | 
+              <a href="/help">Справка</a> | 
+            <% else %>
+              <a href="/cabinet">Личная страница</a> |
+              <a href="/cabinet/messages">Мои сообщения</a> | 
+            <% end %>
+            <%= link_to "Выход", destroy_user_session_path, :method => :delete %>
+          <% else %>
+            <a href="#" class="view-login">Войти</a> |
+            <a href="#" class="view-registration">Зарегистрироваться</a>
+          <% end %>
+        </span>
+                  
+        <a href="#" id="controlTopPanel">Свернуть</a>
+      </div>
+  </footer>
+</div>

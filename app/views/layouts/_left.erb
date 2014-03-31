@@ -1,0 +1,127 @@
+<div id="left">
+  
+<% if @this_categories != nil %>
+  <nav class="sub_nav">
+    <header>
+      <p class="left-tit-first"><a href-"#">КАТАЛОГ</a></p>
+      <p class="left-tit-second"><a href-"#">ТОВАРЫ - УСЛУГИ</a></p>
+    </header>
+
+	<ul>
+		<% @this_categories.each do |category| %>
+			<% if category.top? %>
+			<li><a href="#"><%= category.title %></a>
+				
+				<!-- 2-й уровень -->
+				<ul class="<%= category.children.count > 0 && ("#{params[:category]}" == "#{category.id}" || "#{@parents_categories[0]}" == "#{category.id}") ? 'active-cat' : '' %>">
+					
+				<% category.children.each do |child| %>
+					<li><a href="<%= child.children.count > 0 ? '#' : url_for(params.merge(:category => child.alias, :page => 1)) %>"><%= child.title %></a><p><%= Category.get_count_entity(@curent_controller, child.id) %></p><div class="clear"></div>
+						
+						<!-- 3-й уровень -->
+						<ul class="<%= child.children.count > 0 && ("#{params[:category]}" == "#{child.id}" || "#{@parents_categories[1]}" == "#{child.id}") ? 'active-cat' : '' %>">
+							
+							<% child.children.each do |subchild| %>
+							<li><div><%= link_to subchild.title, url_for(params.merge(:category => subchild.id, :page => 1)), :class => 'menu-level-2' %><p><%= Category.get_count_entity(@curent_controller, subchild.id) %></p><div class="clear"></div></div></li>
+							<% end %>
+							
+						</ul>
+						<!-- 3-й уровень -->
+						
+					</li>
+				<% end %>
+				
+				</ul>
+				<!-- 2-й уровень -->
+					
+			</li>
+			<% end %>
+		<% end %>
+	</ul>
+
+    <footer></footer>
+  </nav>
+<% else %>
+  <nav class="sub_nav">
+    <header>
+      <p class="left-tit-first"><a href="#">КАТАЛОГ</a></p>
+      <p class="left-tit-second"><a href="#">ТОВАРЫ</a></p>
+    </header>
+
+	<ul>
+		<% @this_categories_goods.each do |category| %>
+			<% if category.top? %>
+			<li><a href="#"><%= category.title %></a>
+				
+				<!-- 2-й уровень -->
+				<ul class="<%= category.children.count > 0 && ("#{params[:category]}" == "#{category.id}" || "#{@parents_categories[0]}" == "#{category.id}") ? 'active-cat' : '' %>">
+					
+				<% category.children.each do |child| %>
+					<li><a href="<%= child.children.count > 0 ? '#' : url_for(params.merge(:category => child.alias, :page => 1)) %>"><%= child.title %></a><p><%= Category.get_count_entity('goods', child.id) %></p><div class="clear"></div>
+						
+						<!-- 3-й уровень -->
+						<ul class="<%= child.children.count > 0 && ("#{params[:category]}" == "#{child.id}" || "#{@parents_categories[1]}" == "#{child.id}") ? 'active-cat' : '' %>">
+							
+							<% child.children.each do |subchild| %>
+							<li><div><%= link_to subchild.title, url_for(:controller => '/goods', :action => 'index', :category => subchild.id), :class => 'menu-level-2' %><p><%= Category.get_count_entity('goods', subchild.id) %></p><div class="clear"></div></div></li>
+							<% end %>
+							
+						</ul>
+						<!-- 3-й уровень -->
+						
+					</li>
+				<% end %>
+				
+				</ul>
+				<!-- 2-й уровень -->
+					
+			</li>
+			<% end %>
+		<% end %>
+	</ul>
+
+    <footer></footer>
+  </nav>
+  <nav class="sub_nav">
+    <header>
+      <p class="left-tit-first"><a href="#">КАТАЛОГ</a></p>
+      <p class="left-tit-second"><a href="#">УСЛУГИ</a></p>
+    </header>
+
+	<ul>
+		<% @this_categories_services.each do |category| %>
+			<% if category.top? %>
+			<li><a href="#"><%= category.title %></a>
+				
+				<!-- 2-й уровень -->
+				<ul class="<%= category.children.count > 0 && ("#{params[:category]}" == "#{category.id}" || "#{@parents_categories[0]}" == "#{category.id}") ? 'active-cat' : '' %>">
+					
+				<% category.children.each do |child| %>
+					<li><a href="<%= child.children.count > 0 ? '#' : url_for(params.merge(:category => child.alias, :page => 1)) %>"><%= child.title %></a><p><%= Category.get_count_entity('services', child.id) %></p><div class="clear"></div>
+						
+						<!-- 3-й уровень -->
+						<ul class="<%= child.children.count > 0 && ("#{params[:category]}" == "#{child.id}" || "#{@parents_categories[1]}" == "#{child.id}") ? 'active-cat' : '' %>">
+							
+							<% child.children.each do |subchild| %>
+							<li><div><%= link_to subchild.title, url_for(:controller => '/services', :action => 'index', :category => subchild.id), :class => 'menu-level-2' %><p><%= Category.get_count_entity('services', subchild.id) %></p><div class="clear"></div></div></li>
+							<% end %>
+							
+						</ul>
+						<!-- 3-й уровень -->
+
+					</li>
+				<% end %>
+
+				</ul>
+				<!-- 2-й уровень -->
+
+			</li>
+			<% end %>
+		<% end %>
+	</ul>
+
+    <footer></footer>
+  </nav>
+<% end %>
+
+</div>

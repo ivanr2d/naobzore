@@ -1,0 +1,73 @@
+Connecting to database specified by database.yml
+Creating scope :page. Overwriting existing method User.page.
+Creating scope :page. Overwriting existing method Job.page.
+Creating scope :page. Overwriting existing method Good.page.
+Creating scope :page. Overwriting existing method Campaign.page.
+Creating scope :page. Overwriting existing method Maker.page.
+Creating scope :page. Overwriting existing method Tutorial.page.
+Creating scope :page. Overwriting existing method Page.page.
+Creating scope :page. Overwriting existing method Image.page.
+Creating scope :page. Overwriting existing method Company.page.
+Creating scope :page. Overwriting existing method Settings.page.
+Creating scope :page. Overwriting existing method Banner.page.
+Creating scope :page. Overwriting existing method Feedback.page.
+Creating scope :page. Overwriting existing method Category.page.
+Creating scope :page. Overwriting existing method Service.page.
+Connecting to database specified by database.yml
+Creating scope :page. Overwriting existing method User.page.
+Creating scope :page. Overwriting existing method Job.page.
+Creating scope :page. Overwriting existing method Good.page.
+Creating scope :page. Overwriting existing method Campaign.page.
+Creating scope :page. Overwriting existing method Maker.page.
+Creating scope :page. Overwriting existing method Tutorial.page.
+Creating scope :page. Overwriting existing method Page.page.
+Creating scope :page. Overwriting existing method Image.page.
+Creating scope :page. Overwriting existing method Company.page.
+Creating scope :page. Overwriting existing method Settings.page.
+Creating scope :page. Overwriting existing method Banner.page.
+Creating scope :page. Overwriting existing method Feedback.page.
+Creating scope :page. Overwriting existing method Category.page.
+Creating scope :page. Overwriting existing method Service.page.
+Connecting to database specified by database.yml
+Creating scope :page. Overwriting existing method User.page.
+Creating scope :page. Overwriting existing method Job.page.
+Creating scope :page. Overwriting existing method Good.page.
+Creating scope :page. Overwriting existing method Campaign.page.
+Creating scope :page. Overwriting existing method Maker.page.
+Creating scope :page. Overwriting existing method Tutorial.page.
+Creating scope :page. Overwriting existing method Page.page.
+Creating scope :page. Overwriting existing method Image.page.
+Creating scope :page. Overwriting existing method Company.page.
+Creating scope :page. Overwriting existing method Settings.page.
+Creating scope :page. Overwriting existing method Banner.page.
+Creating scope :page. Overwriting existing method Feedback.page.
+Creating scope :page. Overwriting existing method Category.page.
+Creating scope :page. Overwriting existing method Service.page.
+Creating scope :page. Overwriting existing method Ckeditor::Asset.page.
+Creating scope :page. Overwriting existing method Bank.page.
+Creating scope :page. Overwriting existing method Help.page.
+Creating scope :page. Overwriting existing method News.page.
+Creating scope :page. Overwriting existing method Favorite.page.
+Creating scope :page. Overwriting existing method Like.page.
+Creating scope :page. Overwriting existing method Resume.page.
+Creating scope :page. Overwriting existing method Site.page.
+Creating scope :page. Overwriting existing method Characteristic.page.
+Creating scope :page. Overwriting existing method Delivety.page.
+Creating scope :page. Overwriting existing method Visit.page.
+Started GET "/" for 46.173.191.207 at 2013-06-03 22:31:04 +0400
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (301.2ms)
+Completed 500 Internal Server Error in 388ms
+
+ActionView::Template::Error ( isn't precompiled):
+    175: 	                                    <ul>
+    176: 	                                    	<% @active_users.each do |user| %>
+    177:                                             <li class="cont-slide-block">
+    178:                                                 <%= image_tag(user.main_photo) %>
+    179:                                                 <p class="cont-slide-name"><a href=""><%= User.get_name(user.email) %></a></p>
+    180:                                             </li>
+    181:                                             <% end %>
+  app/views/home/index.html.erb:178:in `block in _app_views_home_index_html_erb___3803732202312531916_41310000'
+  app/views/home/index.html.erb:176:in `_app_views_home_index_html_erb___3803732202312531916_41310000'
+
+

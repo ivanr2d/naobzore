@@ -1,0 +1,338 @@
+﻿<!doctype html>
+<html>
+<head>
+    <title>На обзоре</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="css/selectbox.css" />
+    
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jcarousel.js"></script>
+    <script type="text/javascript" src="js/jselectbox.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    
+    <!--[if lt IE 9]>
+    <script>
+        document.createElement('nav');
+        document.createElement('header');
+        document.createElement('footer');
+        document.createElement('section');
+        document.createElement('aside');
+        document.createElement('article');
+    </script>
+    <![endif]-->
+</head>
+<body>
+    
+    <section id="container">
+
+        <header id="header">
+            <div id="header_main">
+                <img id="logotype" src="img/logotype.png" alt="" />
+            </div>
+            <div id="header_buts">
+                <div id="mini_buts">
+                    <a href="#" class="top-link"><img src="img/icons/home.png" alt="" /></a>
+                    <a href="#" class="top-link"><img src="img/icons/mail.png" alt="" /></a>
+                    <a href="#" class="top-link"><img src="img/icons/map.png" alt="" /></a>
+                </div>
+                <nav id="top_nav">
+                    <ul>
+                        <li class="top-nav"><a href="#" id="view_add">Добавить</a>
+                            <div id="add">
+                                <ul>
+                                    <li><a href="#">Объявление</a></li>
+                                    <li><a href="#">Резюме</a></li>
+                                    <li><a href="#">Предприятие</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="top-nav"><a href="#" id="view_registration">Регистрация</a>
+                            <!-- Выподающий блок регистрации -->
+                            <div id="registration">
+                                <div class="pop-form">
+
+                                    <div class="pop-table">
+                                        <div class="pop-table-row">
+                                            <div class="pop-table-coll">ФИО</div>
+                                            <div class="pop-table-colr"><input type="text" name="" /></div>
+                                        </div>
+                                        <div class="pop-table-row">
+                                            <div class="pop-table-coll">Логин</div>
+                                            <div class="pop-table-colr"><input type="text" name="" /></div>
+                                        </div>
+                                        <div class="pop-table-row">
+                                            <div class="pop-table-coll">Пароль</div>
+                                            <div class="pop-table-colr"><input type="text" name="" /></div>
+                                        </div>
+                                        <div class="pop-table-row">
+                                            <div class="pop-table-coll">E - mail</div>
+                                            <div class="pop-table-colr"><input type="text" name="" /></div>
+                                        </div>
+                                        <div class="pop-table-row">
+                                            <div class="pop-table-coll-captcha">
+                                                <img src="img/temp/captha.png" alt="" />
+                                                <p><a href="#" class="pop-link">Новое изображение</a></p>
+                                            </div>
+                                            <div class="pop-table-colr-captcha">
+                                                <p>Что Вы видите?</p><input type="text" name="" size="10" />
+                                            </div>
+                                        </div>
+                                        <div class="pop-table-row">
+                                            <div class="pop-table-col-full">
+                                                <input type="checkbox" name="" /> Я принимаю условия <a href="#"  class="pop-link">пользовательского соглашения</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="pop-form-send">
+                                    <input type="submit" value="Зарегистрироваться" />
+                                </div>
+                                <div class="pop-form-social">
+                                    Вход без регистрации 
+                                    <a href="#"><img src="img/social/facebook.png" /></a>
+                                    <a href="#"><img src="img/social/vk.png" /></a>
+                                    <a href="#"><img src="img/social/twitter.png" /></a>
+                                </div>
+                            </div>
+                            <!-- end | Выподающий блок регистрации -->
+                        </li>
+                        <li class="top-nav"><a href="#" id="view_login">Войти</a>
+
+                            <!-- Всплывающий блок Входа -->
+                            <div id="login">
+                                <div id="login_form">
+                                    <div class="pop-form-login">
+                                        <div class="pop-form-login-table">
+                                            <div class="pop-form-login-row">
+                                                <div class="pop-form-login-coll">Логин</div>
+                                                <div class="pop-form-login-colr"><input type="text" name="" /></div>
+                                            </div>
+                                            <div class="pop-form-login-row">
+                                                <div class="pop-form-login-coll">Пароль</div>
+                                                <div class="pop-form-login-colr"><input type="text" name="" /></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pop-form-button">
+                                        <div class="pop-form-button-left"><a href="#" id="view_rec_pass">Забыли пароль?</a></div>
+                                        <div class="pop-form-button-right"><input type="submit" value="Войти" /></div>
+                                    </div>
+                                </div>
+                                <div id="login_social">
+                                    Войти с помощью... 
+                                    <a href="#"><img src="img/social/facebook.png" /></a>
+                                    <a href="#"><img src="img/social/vk.png" /></a>
+                                    <a href="#"><img src="img/social/twitter.png" /></a>
+                                </div>
+                            </div>
+                            <!-- end | Всплывающий блок Входа -->
+
+                        </li>
+                        <li class="top-nav"><a href="#">Справка</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div id="header_wave"></div>
+            <div id="header_righ"></div>
+            <nav id="main_nav">
+                <ul>
+                    <li><a href="#">ТОВАРЫ</a></li>
+                    <li><a href="#">УСЛУГИ</a></li>
+                    <li><a href="#">ВАКАНСИИ</a></li>
+                    <li class="main-nav-active"><a href="#">ПРЕДПРИЯТИЯ</a></li>
+                    <li><a href="#">НОВОСТИ</a></li>
+                    <li><a href="#">АКЦИИ</a></li>
+                    <li><a href="#">ОТЗЫВЫ</a></li>
+                    <li><a href="#">ОБЪЯВЛЕНИЯ</a></li>
+                </ul>
+                <div class="clear"></div>
+            </nav>
+        </header>
+
+        <!---
+        Размер картинки в слайде: weight: 556px; height: 266px;
+        --->
+        <section id="slider">
+            <div id="bannerView">
+                <a href="http://hi.ru/view/3"><img src="img/banner-view.png" alt="" /></a>
+            </div>
+            <div id="bannerContainer">
+                <div class="banner-image" id="bannerSlider">
+                    <ul>
+                        <li><a href="http://hi.ru/view/1"><img src="img/temp/companys-header-mini.png" /></a></li>
+                        <li><a href="http://hi.ru/view/2"><img src="img/temp/companys-header-mini.png" /></a></li>
+                        <li><a href="http://hi.ru/view/3"><img src="img/temp/companys-header-mini.png" /></a></li>
+                        <li><a href="http://hi.ru/view/4"><img src="img/temp/companys-header-mini.png" /></a></li>
+                        <li><a href="http://hi.ru/view/5"><img src="img/temp/companys-header-mini.png" /></a></li>
+                    </ul>
+                </div>
+                <div class="banner-menu">
+                    <ul class="banner-buttons">
+                        <li id="sl_1" data-view-url="http://hi.ru/view/1">Связной</li>
+                        <li id="sl_2" data-view-url="http://hi.ru/view/2">Белый ветер цыфровой</li>
+                        <li id="sl_3" data-view-url="http://hi.ru/view/3" class="banner-but-active">Константа сервис</li>
+                        <li id="sl_4" data-view-url="http://hi.ru/view/4">ТС Центер</li>
+                        <li id="sl_5" data-view-url="http://hi.ru/view/5">База 25</li>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </section>
+
+        <section id="search">
+            <div id="search_main">
+                <!-- Search field -->
+                <div id="search_child">
+                    <div id="search_but">
+                        <input type="submit" value="НАЙТИ" />
+                    </div>
+                    <div id="search_field">
+                        <input type="text" name="SEARCH" />
+                        <a href="#" id="search_ext_view">Расширенный поиск <img src="img/view-search.png" alt="" /></a>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div id="search_ext">
+                    <div class="search-shadow"></div><!--тень сверху-->
+                    <div class="search-category">
+                        <span>Категория</span> <input type="text" name="" />
+                    </div>
+                    <div class="search-price">
+                        <span>Цена от</span> <input type="text" name="" size="5" />
+                        <span>до</span> <input type="text" name="" size="5" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+
+		<div id="simp_container">
+			<div class="simp-breadcrumbs">
+			sss -> sss -> ss
+			</div>
+
+			<div class="simp-content">
+			
+				<!-- top panel -->
+				<div class="simp-top-container">
+					<div class="simp-top-left">
+						<h1 class="page-title">Новости <span class="page-title-ext">(4823)</span></h1>
+					</div>
+					<div class="simp-top-right">
+						<a href="#" class="news-rss"><img src="img/rss.png" /> RSS</a>
+						<a href="#" class="other-but left-20">Подписаться на новости</a>
+					</div>
+					<div class="simp-top-cent page-size">
+				        Новостей на странице: 
+				        <ul>
+				            <li><a href="#">10</a> |</li>
+				            <li><a href="#">20</a> |</li>
+				            <li><a href="#">30</a>  </li>
+				        </ul>
+					</div>
+					<div class="clear"><!-----></div>
+				</div>
+				<!-- top panel -->
+			  
+				<section class="blue-nav">
+					<ul>
+					   <li><a href="#">Общество</a></li>
+					   <li><a href="#">Экономика</a></li>
+					   <li><a href="#">Политика</a></li>
+					</ul>
+				</section>
+
+				<div class="simp-content-title">Последние новости</div>
+
+			  	<div class="simp-content-items">
+
+			  		<div class="simp-content-item">
+			  			<div class="simp-item-image"><img src="img/temp/news.png" /></div>
+			  			<div class="simp-item-link"><a href="#">Yandex.ru/photo</a></div>
+			  			<div class="simp-item-title"><a href="#">Портал приносит пользу</a></div>
+			  			<div class="simp-item-anonce">
+			  				Портал приносит пользу и тем, кто уже нашёл работу своей мечты. Специалисты различного профиля могут общаться и обмениваться опытом в профессиональных Сообществах. На нашем портале можно найти полезные материалы по трудоустройству, получить помощь в составлении резюме, а также оформить подписку на горячие вакансии, что сделает поиск работы более эффективным....
+			  			</div>
+			  		</div>
+			  		<div class="simp-content-item">
+			  			<div class="simp-item-image"><img src="img/temp/news.png" /></div>
+			  			<div class="simp-item-link"><a href="#">Yandex.ru/photo</a></div>
+			  			<div class="simp-item-title"><a href="#">Портал приносит пользу</a></div>
+			  			<div class="simp-item-anonce">
+			  				огут общаться и обмениваться опытом в профессиональных Сообществах. На нашем портале можно найти полезные материалы по трудоустройству, получить помощь в составлении резюме, а также оформить подписку на горячие вакансии, что сделает поиск работы более эффективным....
+			  			</div>
+			  		</div>
+			  		<div class="simp-content-item">
+			  			<div class="simp-item-image"><img src="img/temp/news.png" /></div>
+			  			<div class="simp-item-link"><a href="#">Yandex.ru/photo</a></div>
+			  			<div class="simp-item-title"><a href="#">Портал приносит пользу</a></div>
+			  			<div class="simp-item-anonce">
+			  				Портал приносит пользу и тем, кто уже нашёл работу своей мечты. Специалисты различного профиля могут общаться и обмениваться опытом в профессиональных Сообществах. На нашем портале можно найти полезные материалы по трудоустройству, получить помощь в составлении резюме, а также оформить подписку на горячие вакансии, что сделает поиск работы более эффективным....
+			  			</div>
+			  		</div>
+			  		<div class="simp-content-item">
+			  			<div class="simp-item-image"><img src="img/temp/news.png" /></div>
+			  			<div class="simp-item-link"><a href="#">Yandex.ru/photo</a></div>
+			  			<div class="simp-item-title"><a href="#">Портал приносит пользу</a></div>
+			  			<div class="simp-item-anonce">
+			  				Портал приносит пользу и тем, кто уже нашёл работу своей мечты. Специалисты различного профиля могут общаться и обмениваться опытом в профессиональных Сообществах. На нашем портале можно найти полезные материалы по трудоустройству, получить помощь в составлении резюме, а также оформить подписку на горячие вакансии, что сделает поиск работы более эффективным....
+			  			</div>
+			  		</div>
+			  		
+			  		<div class="clear"></div>
+			  	</div>
+			  
+			</div>
+          
+        </div>
+
+    </section>
+    
+    <!-- Подвал -->
+    <footer id="last_footer">
+        <div id="info_footer">
+            <div class="info-head">
+                <div class="info-head-auto">
+                    <div class="info-row">Полезная информация</div>
+                    <div class="info-row">Организациям</div>
+                    <div class="info-row">О нас</div>
+                    <div class="info-row">Мы в социальных сетях</div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="info-body">
+                <div class="info-head-auto">
+                    <div class="info-col">
+                        <p><a href="#">Пользовательское соглашение</a></p>
+                        <p><a href="#">Политика кофидициальности</a></p>
+                        <p><a href="#">Договор оферты</a></p>
+                    </div>
+                    <div class="info-col">
+                        <p><a href="#">Правила размещения</a></p>
+                        <p><a href="#">Правила оформления</a></p>
+                        <p><a href="#">Добавить компанию</a></p>
+                        <p><a href="#">Добавить товар</a></p>
+                        <p><a href="#">Заказать рекламу</a></p>
+                    </div>
+                    <div class="info-col">
+                        <p><a href="#">Наши услуги</a></p>
+                        <p><a href="#">Работа у нас</a></p>
+                        <p><a href="#">Контакты</a></p>
+                    </div>
+                    <div class="info-col">
+                        <p><a href="#"><img src="img/social/twitter.png" />Twitter</a></p>
+                        <p><a href="#"><img src="img/social/vk.png" />Вконтакте</a></p>
+                        <p><a href="#"><img src="img/social/facebook.png" />Facebook</a></p>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- / Подвал -->
+
+</body>
+</html>

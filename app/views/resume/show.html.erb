@@ -1,0 +1,85 @@
+			<div id="container_ext_content">
+				<div class="entity-top">Добавлено: <%= @resume.created_at %></div>
+				
+				<div class="entity-data-container">
+					<div class="entity-data-left">
+						<h1 class="entity-job-title"><%= @resume.name %></h1>
+						<p class="entity-job-price">от <%= @resume.salary_from %> руб.</p>
+						
+						<p class="resume-name"><%= @resume.f_name %> <%= @resume.l_name %> <%= @resume.m_name %></p>
+						
+						<div class="entity-mini-info">
+							<p><span class="entity-data-key">Дата рожденья: </span><span class="entity-data-value"><%= @resume.birthday %></span></p>
+							<p><span class="entity-data-key">Опыт работы: </span><span class="entity-data-value">-</span></p>
+							<p><span class="entity-data-key">Образование: </span><span class="entity-data-value">-</span></p>
+							<p><span class="entity-data-key">Телефон: </span><span class="entity-data-value"><%= @resume.mob_phone %></span></p>
+							<p><span class="entity-data-key">E-mail: </span><span class="entity-data-value"><%= @resume.email %></span></p>
+						</div>
+					</div>
+					<div class="entity-data-right">
+						<div class="resume-photo">
+							<img src="<%= @resume.photo.url %>" />
+						</div>
+						<a href="#" class="offer-job">Предложить работу</a>
+					</div>
+					<div class="clear"></div>
+				</div>
+				
+				<div class="entity-content">
+					
+					<div id="description">
+						<div class="entity-content-item">
+							<h2>Обязанности</h2>
+							<p>Кредитный менеджер работает в мини-офисе Банка на территории магазинов-партнеров‚ таких как «Медиамаркт»‚ «М-Видео»‚ «Техносила»‚ «Берингов» и т.д.‚ которые располагаются в различных округах Москвы и Московской области.  (место работы подбирается ближе к дому).</p>
+						</div>
+						
+						<div class="entity-content-item">
+							<h2>Обязанности</h2>
+							<p>Кредитный менеджер работает в мини-офисе Банка на территории магазинов-партнеров‚ таких как «Медиамаркт»‚ «М-Видео»‚ «Техносила»‚ «Берингов» и т.д.‚ которые располагаются в различных округах Москвы и Московской области.  (место работы подбирается ближе к дому).</p>
+						</div>
+						
+						<div class="entity-content-item">
+							<h2>Обязанности</h2>
+							<p>Кредитный менеджер работает в мини-офисе Банка на территории магазинов-партнеров‚ таких как «Медиамаркт»‚ «М-Видео»‚ «Техносила»‚ «Берингов» и т.д.‚ которые располагаются в различных округах Москвы и Московской области.  (место работы подбирается ближе к дому).</p>
+						</div>
+					</div>
+					
+				</div>
+				
+				<div class="entity-bottom sharing">
+					<div class="social-caption">Поделиться в соц. сетях</div>
+					<div class="entity-bottom-soc">
+							<a href="#"><img src="/assets/social/google.png" /></a>
+							<a href="#"><img src="/assets/social/odnoklassniki.png" /></a>
+							<a href="#"><img src="/assets/social/vk.png" /></a>
+							<a href="#"><img src="/assets/social/mail.png" /></a>
+							<a href="#"><img src="/assets/social/facebook.png" /></a>
+							<a href="#"><img src="/assets/social/twitter.png" /></a>
+					</div>
+					<div class="entity-bottom-but">
+						<a href="#"><img src="/assets/mail.png" /></a>
+						<a href="#"><img src="/assets/printer.png" /></a>
+						<a href="#" class="complain-link">Пожаловаться <br>на резюме</a>
+					</div>
+					<div class="clear"></div>
+				</div>
+				
+			</div>
+			
+			<div id="container_ext_right">
+				<div id="like_entities">
+					<div class="like-entities-title">
+						Похожие резюме
+					</div>
+					
+					<div class="like-entities-content">
+						<% @other_resume.each do |resume| %>
+						<div class="like-entity">
+							<h2 class="like-entity-title"><a href="/resume/<%= resume.id %>"><%= resume.name %></a></h2>
+							<p class="like-entity-price">от <%= resume.salary_from %> руб</p>
+						</div>
+						<% end %>
+					</div>
+					
+				</div>
+			</div>

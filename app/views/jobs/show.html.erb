@@ -1,0 +1,180 @@
+			<div id="container_ext_content">
+				<div class="entity-top">Добавлено: <%= @job.created_at %></div>
+				
+				<div class="entity-data-container">
+					<div class="entity-data-left">
+						<h1 class="entity-job-title"><%= @job.name %></h1>
+						<p class="entity-job-price">от <%= @job.salary_from %> руб.</p>
+						
+						<div class="entity-mini-info">
+							<p><span class="entity-data-key">Графика работы: </span><span class="entity-data-value"><%= Job.get_graphic(@job.graphic) %></span></p>
+							<p><span class="entity-data-key">Предпочтительный пол: </span><span class="entity-data-value"><%= Job.get_sex(@job.sex) %></span></p>
+							<p><span class="entity-data-key">Предпочтительный возраст: </span><span class="entity-data-value">от <%= @job.age_from %> лет</span></p>
+						</div>
+					</div>
+					<div class="entity-data-right">
+						<h3 class="entity-sub-title"><%= @job.company.name %></h3>
+						<div class="entity-logo"><img src="<%= @job.company.logotype.url %>" /></div>
+						<p class="company-job-count"><a href="#">Все вакансии организации(<%= @job.company.jobs.count %>)</a></p>
+						<p><a href="#"><img src="img/bell.png"></a></p>
+					</div>
+					<div class="clear"></div>
+				</div>
+				
+				<div class="entity-nav">
+					<ul>
+						<li><a href="#" class="entity-nav-but" data-block="1">Описание вакансии</a></li>
+						<li><a href="#" id="viewSendResume">Отправить резюме</a></li>
+						<li><a href="#" class="entity-nav-but" data-block="2">Комментарии(4)</a></li>
+						<li>
+							
+					<% if user_signed_in? %>
+                    <div class="entity-stat">
+						<div class="favorite-active">
+							<a href="#" data-favorite="Job:<%= @job.id %>:1" class="favorite"><%= image_tag "reviews-1.png" %></a>
+							<a href="#" data-favorite="Job:<%= @job.id %>:0" class="favorite"><%= image_tag "reviews-0.png" %></a>
+							<a href="#" data-like="Job:<%= @job.id %>" class="like"><%= image_tag "reviews-2.png" %></a><span>(<small class="like-count"><%= @job.likes.count %></small>)</span>
+						</div>
+						<div class="favorite-notactive">
+							<%= image_tag "loading-mini.gif" %>
+						</div>
+                    </div>
+                    <% else %>
+                    <div class="entity-stat">
+                          <%= image_tag "no-reviews-1.png" %>
+                          <%= image_tag "no-reviews-0.png" %>
+                          <%= image_tag "no-reviews-2.png" %><span>(<%= @job.likes.count %>)</span>
+                    </div>
+                    <% end %>
+		                    
+						</li>
+					</ul>
+				</div>
+				
+				<div class="job-list-resume hidden" id="sendResume">
+					<div>
+						<div class="list-resume-scroll-pane">
+							<ul>
+								<li><a href="#">Токарь</a></li>
+								<li><a href="#">Администратор</a></li>
+								<li><a href="#">Слесарь</a></li>
+								<li><a href="#">Продавец</a></li>
+								<li><a href="#">Токарь</a></li>
+								<li><a href="#">Администратор</a></li>
+								<li><a href="#">Слесарь</a></li>
+								<li><a href="#">Продавец</a></li>
+								<li><a href="#">Токарь</a></li>
+								<li><a href="#">Администратор</a></li>
+								<li><a href="#">Слесарь</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="list-resume-buttons">
+						<a class="list-resume-buttons-l" href="#">Отправить</a><a class="list-resume-buttons-r" href="#">Отмена</a>
+					</div>
+				</div>
+					
+				<div class="entity-content">
+					
+					<div id="description" class="entity-content-block" data-block="1">
+						<div class="entity-content-item">
+							<h2>Обязанности</h2>
+							<p>Кредитный менеджер работает в мини-офисе Банка на территории магазинов-партнеров‚ таких как «Медиамаркт»‚ «М-Видео»‚ «Техносила»‚ «Берингов» и т.д.‚ которые располагаются в различных округах Москвы и Московской области.  (место работы подбирается ближе к дому).</p>
+						</div>
+						
+						<div class="entity-content-item">
+							<h2>Обязанности</h2>
+							<p>Кредитный менеджер работает в мини-офисе Банка на территории магазинов-партнеров‚ таких как «Медиамаркт»‚ «М-Видео»‚ «Техносила»‚ «Берингов» и т.д.‚ которые располагаются в различных округах Москвы и Московской области.  (место работы подбирается ближе к дому).</p>
+						</div>
+						
+						<div class="entity-content-item">
+							<h2>Обязанности</h2>
+							<p>Кредитный менеджер работает в мини-офисе Банка на территории магазинов-партнеров‚ таких как «Медиамаркт»‚ «М-Видео»‚ «Техносила»‚ «Берингов» и т.д.‚ которые располагаются в различных округах Москвы и Московской области.  (место работы подбирается ближе к дому).</p>
+						</div>
+					</div>
+					
+					<div id="comments" class="entity-content-block hidden"  data-block="2">
+						<div class="comments-header"></div>
+						<div class="comment comment-odd">
+							<div class="comment-photo"><img src="/assets/images/temp/ava-2.png" /></div>
+							<div class="comment-data">
+								<p class="comment-info"><a href="/cabinet/18">Иван Иванов</a>, 21.09.2012 16:35</p>
+								<p class="comment-text">До следующего полета</p>
+							</div>
+							<div class="clear"></div>
+						</div>
+						<div class="comment comment-even">
+							<div class="comment-photo"><img src="/assets/images/temp/ava-2.png" /></div>
+							<div class="comment-data">
+								<p class="comment-info"><a href="/cabinet/18">Иван Иванов</a>, 21.09.2012 16:35</p>
+								<p class="comment-text">До следующего полета</p>
+							</div>
+							<div class="clear"></div>							
+						</div>
+						<div class="comment comment-odd">
+							<div class="comment-photo"><img src="/assets/images/temp/ava-2.png" /></div>
+							<div class="comment-data">
+								<p class="comment-info"><a href="/cabinet/18">Иван Иванов</a>, 21.09.2012 16:35</p>
+								<p class="comment-text">До следующего полета</p>
+							</div>
+							<div class="clear"></div>							
+						</div>
+						<div class="comment">
+							<div class="comment-photo"><img src="/assets/images/temp/ava-2.png" /></div>
+							<div class="comment-data">
+								<p class="comment-info"><a href="/cabinet/18">Иван Иванов</a>, 21.09.2012 16:35</p>
+								<p class="comment-text">До следующего полета</p>
+							</div>
+							<div class="clear"></div>							
+						</div>
+						<div class="comments-footer">
+							<div class="comments-footer-l"><a href="#">Показать все комментарии(453)</a></div>
+							<div class="comments-footer-r"><a href="#" class="show-comment-add">Комментировать</a></div>
+							<div class="clear"></div>
+						</div>
+						<div class="comment-add" style="display: none;">
+							<div class="g"></div>
+							<textarea></textarea>
+							<input type="submit" value="Отправить" class="comment-send" />
+						</div>
+					</div>
+					
+				</div>
+				
+				<div class="entity-bottom sharing">
+					<div class="social-caption">Поделиться в соц. сетях</div>
+					<div class="entity-bottom-soc">
+							<a href="#"><img src="/assets/social/google.png" /></a>
+							<a href="#"><img src="/assets/social/odnoklassniki.png" /></a>
+							<a href="#"><img src="/assets/social/vk.png" /></a>
+							<a href="#"><img src="/assets/social/mail.png" /></a>
+							<a href="#"><img src="/assets/social/facebook.png" /></a>
+							<a href="#"><img src="/assets/social/twitter.png" /></a>
+					</div>
+					<div class="entity-bottom-but">
+						<a href="#"><img src="/assets/mail.png" /></a>
+						<a href="#"><img src="/assets/printer.png" /></a>
+						<a href="#" class="complain-link">Пожаловаться <br>на вакансию</a>
+					</div>
+					<div class="clear"></div>
+				</div>
+				
+			</div>
+			
+			<div id="container_ext_right">
+				<div id="like_entities">
+					<div class="like-entities-title">
+						Похожие вакансии
+					</div>
+					<div class="like-entities-content">
+						
+						<% @other_jobs.each do |job| %>
+						<div class="like-entity">
+							<h2 class="like-entity-title"><a href="#"><%= job.name %></a></h2>
+							<p class="like-entity-price">от <%= job.salary_from %> руб</p>
+						</div>
+						<% end %>
+						
+					</div>
+				</div>
+			</div>

@@ -1,0 +1,36 @@
+<div class="row">
+  <input type="hidden" name="entity[category_id]" value="<%= obj.category_id %>" />
+  <div class="categories jobs">
+    <div class="content">
+        <div class="tab-content" data-id="0">
+            <ul class="list-categories" data-level="1">
+              <% @jobs.each do |c| %>
+              <li data-cid="<%= c.category.top_parent.id %>" data-pid="<%= c.category.top_parent.parent_id %>"><a href="#"><%= c.category.top_parent.title %></a></li>
+               <% end %>
+            </ul>
+            <ul class="list-categories" data-level="2"></ul>
+            <ul class="list-categories" data-level="3"></ul>
+            <ul class="list-categories" data-level="4"></ul>
+        </div>
+        <div class="tab-content hidden" data-id="1">
+          <ul class="list-categories" data-level="1">
+            <% Category.main.send("#{obj.class.to_s.downcase}_type".to_sym).each do |c| %>
+              <li data-cid="<%= c.id %>" data-pid="<%= c.parent_id %>"><a href="#"><%= c.title %></a></li>
+            <% end %>
+          </ul>
+          <ul class="list-categories" data-level="2"></ul>
+          <ul class="list-categories" data-level="3"></ul>
+          <ul class="list-categories" data-level="4"></ul>
+        </div>
+    </div>
+    <ul id="listCategories" class="hidden">
+      <% Category.all.each do |c| %>
+        <li data-cid="<%= c.id %>" data-pid="<%= c.parent_id %>"><input type="checkbox"><a href="#"><%= c.title %></a></li>
+      <% end %>
+    </ul>
+    <footer>
+      <p><span class="info-key">Выбрана сфера:</span><span id="selectCategories"><%= obj.category.hierarhies.map { |h| h.map(&:title).join(' » ') }.join('; ') if obj.category %></span></p>
+    </footer>
+  </div>
+</div>
+

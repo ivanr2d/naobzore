@@ -1,0 +1,163 @@
+			<div id="container_ext_content">
+				<div class="entity-top">Добавлено: 12.12.2012</div>
+				
+				<div class="entity-data-container">
+					<div class="campaign-data-left">
+						<%= image_tag(@campaign.image) %>
+					</div>
+					<div class="campaign-data-right">
+						<div class="item-info">
+							<div class="item-info-block">
+								<h3 class="info-block-title"><a href="#"><%= @campaign.company.name %></a></h3>
+								<p class="info-block-adress"><%= @campaign.company.address %></p>
+								<p class="info-block-phone" title="<%= @campaign.company.phone %>">Тел.:&nbsp;<%= @campaign.company.phone %></p>
+						        
+								<div class="item-info-block-bell">
+									<a href="#"><img src="img/bell.png" alt="" /></a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+				
+				<div class="entity-nav">
+					<ul>
+						<li><a href="#" class="entity-nav-but" data-block="1">Описание акции</a></li>
+						<li><a href="#" id="viewSendCampaign">Отправить акцию</a></li>
+						<li><a href="#" class="entity-nav-but" data-block="2">Отзывы(10)</a></li>
+						<li>
+		                    <div class="entity-stat">
+                    <% if user_signed_in? %>
+                    
+                      	<div class="favorite-active">
+							<a href="#" data-favorite="Campaign:<%= @campaign.id %>:1" class="favorite"><%= image_tag "reviews-1.png" %></a>
+							<a href="#" data-favorite="Campaign:<%= @campaign.id %>:0" class="favorite"><%= image_tag "reviews-0.png" %></a>
+							<a href="#" data-like="Campaign:<%= @campaign.id %>" class="like"><%= image_tag "reviews-2.png" %></a><span>(<small class="like-count"><%= @campaign.likes.count %></small>)</span>
+						</div>
+						<div class="favorite-notactive">
+						 	<%= image_tag "loading-mini.gif" %>
+						</div>
+                    
+                    <% else %>
+                    
+                          <%= image_tag "no-reviews-1.png" %>
+                          <%= image_tag "no-reviews-0.png" %>
+                          <%= image_tag "no-reviews-2.png" %><span>(<%= @campaign.likes.count %>)</span>
+                    
+                    <% end %>
+		                    </div>
+						</li>
+					</ul>
+				</div>
+				
+				<div class="campaign-send" id="campaignSend">
+					<div class="campaign-send-to">
+						<input type="text" placeholder="Введите адрес электронной почты" />
+					</div>
+					<div class="campaign-send-buttons">
+						<a class="campaign-send-buttons-l" href="#">Отправить</a><a class="campaign-send-buttons-r" href="#">Отмена</a>
+					</div>
+				</div>
+					
+				<div class="entity-content">
+					
+					<div class="entity-content-block" id="description" data-block="1">
+						<div class="entity-content-item">
+							<h2>Описание</h2>
+							<p><%= @campaign.text %></p>
+						</div>
+					</div>
+					
+					<div class="entity-content-block hidden"  data-block="2">
+                	
+                	<% if user_signed_in? %>
+                    <div class="content-top-but fb-add">
+                    	<a href="#">Добавить отзыв</a>
+                    </div>
+                    <% end %>
+                    
+                    <div class="content-text">
+                    	
+		                    <% if @feedbacks.count > 0 %>
+		                    	<% @feedbacks.each do |feedback| %>
+		                    	<!-- отзыв -->
+		                        <div class="entity-fb <%= cycle("fb-odd", "fb-even") -%>">
+		                        	<div class="entity-fb-left"><div class="popup-fb-photo"><img src="<%= feedback.user.mini_photo.url %>" /></div></div>
+		                        	<div class="entity-fb-cont">
+		                        		<div class="popup-fb-cont-tit">
+		                        			<a href="#"><%= feedback.entity.name %></a>
+		                        			<% if feedback.contentment == 1 %>
+		                        				<span class="popup-fb-true">(Положительный)</span>
+		                        			<% else %>
+		                        				<span class="popup-fb-false">(Отрицательный)</span>
+		                        			<% end %>
+		                        		</div>
+		                        		<div class="popup-fb-cont-text">
+		                        			
+		                        			<div class="popup-texts">
+			                  					<div class="popup-text-mini">
+			                  						<p><%= truncate feedback.comment, :length => 100 %> &nbsp;<a href="#" class="view-full-text">Читать отзыв</a></p>
+			                  					</div>
+			                  					<div class="popup-text-full">
+			                  						
+			                  						<p><b>Достоинства: </b><%= feedback.plus %></p>
+			                  						<p><b>Недостатки: </b><%= feedback.minus %></p>
+			                  						<p><b>Отзыв: </b><%= feedback.comment %></p>
+			                  						
+			                  						<p><a href="#" class="view-full-text">Скрыть</a></p>
+			                  					</div>
+		                  					</div>
+		                        			
+		                        		</div>
+		                        		<div class="popup-fb-cont-info">
+		                        			<div class="fb-cont-info-left"><a href="/cabinet/<%= feedback.user_id %>"><%= feedback.user.f_name %> <%= feedback.user.l_name %></a> - <%= feedback.created_at.strftime("%d.%m.%Y %H:%M") %></div>
+		                        			<div class="entity-fb-cont-info-right popup-stat-fb">
+		                        				
+				         					<% if user_signed_in? %>
+								            	<div class="favorite-active">
+								                	<a href="#" data-like="Feedback:<%= feedback.id %>" class="like"><%= image_tag "reviews-2.png" %></a><span>(<small class="like-count"><%= feedback.likes.count %></small>)</span>
+								            	</div>
+												<div class="favorite-notactive">
+												 	<%= image_tag "loading-mini.gif" %>
+												</div>
+				                            <% else %>
+				                            	<%= image_tag "no-reviews-2.png" %><span>(<%= feedback.likes.count %>)</span>
+				                            <% end %>
+		                        				
+		                        			</div>
+		                        			<div class="clear"></div>
+		                        		</div>
+		                        	</div>
+		                        	<div class="clear"></div>
+		                        </div>
+		                        <!-- end | отзыв -->
+		                        <% end %>
+		                    <% else %>
+		                    	<p class="tab-content-empty">Отзывы отсутствуют</p>
+		                    <% end %>
+                        
+                    </div>
+					</div>
+					
+				</div>
+				
+				<div class="entity-bottom sharing">
+					<div class="social-caption">Поделиться в соц. сетях</div>
+					<div class="entity-bottom-soc">
+							<a href="#"><img src="/assets/social/google.png" /></a>
+							<a href="#"><img src="/assets/social/odnoklassniki.png" /></a>
+							<a href="#"><img src="/assets/social/vk.png" /></a>
+							<a href="#"><img src="/assets/social/mail.png" /></a>
+							<a href="#"><img src="/assets/social/facebook.png" /></a>
+							<a href="#"><img src="/assets/social/twitter.png" /></a>
+					</div>
+					<div class="entity-bottom-but">
+						<a href="#"><img src="/assets/mail.png" /></a>
+						<a href="#"><img src="/assets/printer.png" /></a>
+						<a href="#" class="complain-link">Пожаловаться <br>на акцию</a>
+					</div>
+					<div class="clear"></div>
+				</div>
+				
+			</div>

@@ -1,0 +1,41 @@
+<!-- Блок с заголовком -->
+                <div class="home">
+                    <div class="entity-title">
+                        <h2>О компании</h2>
+                        <p></p>
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="about">
+                        <!--Заголовочек-->
+                        <div class="text"><%= raw @company.description %></div>
+                    </div>
+                    
+                    <% if @entities.any? %>
+                      <!-- Блок с заголовком -->
+                      <div class="entity-title">
+                          <h2>Каталог</h2>
+                          <p></p>
+                          <div class="clear"></div>
+                      </div>
+                      
+                      <div class="simple-items">
+                          <h2><!--Похожий товар--></h2>
+                          <%= render :partial => 'entity', :collection => @entities %>
+                          <div class="clear"></div>
+                      </div>
+                    <% end %>
+                    
+                    <% if @bottom_entities %>
+                      <!-- Блок с заголовком -->
+                      <div class="entity-title">
+                          <h2><%= @bottom_entities_title %></h2>
+                          <p></p>
+                          <div class="clear"></div>
+                      </div>
+                      
+                      <div class="campaigns">
+                        <%= render :partial => "minisite/#{@bottom_entities.first.class.to_s.tableize}/#{@bottom_entities.first.class.to_s.underscore}", :collection => @bottom_entities %>
+                      </div>
+                    <% end %>
+                </div>

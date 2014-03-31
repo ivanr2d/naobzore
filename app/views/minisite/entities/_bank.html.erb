@@ -1,0 +1,20 @@
+<div class="entity-item">
+    <div class="image">
+        <a href="#"><img src="<%= bank.logotype.thumb %>" alt="" /></a>
+    </div>
+    <div class="data">
+        <div class="tit"><a href="#"><%= bank.name %></a></div>
+        <div class="condition">
+            <div class="key">Условия</div>
+            <div class="value">
+              <%= raw(bank.condition) %>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="info">
+        <p><%= bank.address %></p>
+        <p>тел.: <%= bank.phone %></p>
+    </div>
+    <div class="clear"></div>
+</div>

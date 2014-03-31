@@ -1,0 +1,2 @@
+module Minisite::EntitiesHelper
+end

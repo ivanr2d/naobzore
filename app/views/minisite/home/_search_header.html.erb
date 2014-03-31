@@ -1,0 +1,51 @@
+<!-- Блок с фильтрами -->
+<div class="filters">
+    <!--Левый блок-->
+    <div class="left">
+      <div class="row">
+        <div class="cell left">Сортировать по</div>
+          <div class="cell right">
+            <%= form_for :search, :url => params.merge(:format => :js), :html => { :remote => true, :method => :get } do |f| %>
+              <%= select_tag :order, options_for_select(order_fields, params[:order]), :class => 'selectbox' %>
+            <% end %>
+          </div>
+          <div class="clear"></div>
+        </div>
+    </div>
+    <!--Центральный блок-->
+    <div class="center">
+			<% if local_assigns.has_key?(:makers) && makers.any? %>
+      <div class="row">
+        <div class="cell left">Производитель</div>
+        <div class="cell right">
+          <%= form_for :search, :url => params.merge(:format => :js), :html => { :remote => true, :method => :get } do |f| %>
+            <%= select_tag :maker, options_for_select(makers.map { |m| [m,m] }.unshift(['Все', nil]), params[:maker]), :class => 'selectbox' %>
+          <% end %>
+        </div>
+        <div class="clear"></div>
+      </div>
+			<% end %>
+    </div>
+    <!--Правый блок-->
+    <div class="right">
+        <div class="row">
+            <ul class="count-page">
+                <li>Показать:</li>
+                <% params[:per_page] ||= 20 %>
+                <% [10, 20, 30].each do |p| %>
+                  <li><%= link_to p, params[:per_page].to_i == p ? '#' : params.merge(:per_page => p, :format => :js), :remote => true %></li>
+                <% end %>
+            </ul>
+        </div>
+    </div>
+<div class="clear"></div>
+</div>
+<div class="found-res text-center" style="display: none;">
+	<span class="found-res-btn">
+		Показать 100 результатов
+	</span>
+</div>
+
+<div class="pagination-top-wrap">
+  <%= will_paginate entities, :renderer => 'BootstrapPaginationHelper::RemoteLinkRenderer', :previous_label => '', :next_label => '' %> 
+</div>

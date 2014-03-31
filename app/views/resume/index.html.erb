@@ -1,0 +1,74 @@
+
+	<section class="jobs-filters">
+        <div class="jobs-menu">
+            <ul>
+                <li><%= link_to 'Вакансии', url_for(params.merge(:controller => 'jobs', :probation => 0)) %> <span>(<%= @probation_counts[0] %>)</span></li>
+                <li><%= link_to 'Стажировка', url_for(params.merge(:controller => 'jobs', :probation => 1)) %> <span>(<%= @probation_counts[1] %>)</span></li>
+                <li><a href="/resume">Каталог резюме</a> <span>(<%= Resume.count %>)</span></li>
+            </ul>
+        </div>
+        <div class="jobs-filter">
+            <div class="jobs-rss">Подписаться на вакансии <a href=""><img src="/assets/rss.png" />RSS</a></div>
+            <div class="jobs-filter-page">
+            Вакансий на странице: 
+            <ul>
+				<li><%= link_to "10", {:controller => "jobs", :action => "index", :count => 10}, :class => (params[:count] == '10' || !params[:count]) ? 'count-active' : '' %> |</li>
+				<li><%= link_to "20", {:controller => "jobs", :action => "index", :count => 20}, :class => (params[:count] == '20') ? 'count-active' : '' %> |</li>
+				<li><%= link_to "30", {:controller => "jobs", :action => "index", :count => 30}, :class => (params[:count] == '30') ? 'count-active' : '' %>  </li>
+            </ul>
+        </div>
+        </div>
+    </section>
+
+	<div class="indent"></div>
+
+    <section class="content-items">
+
+        <div class="items-title">Последние добавленные резюме</div>
+
+		<% @resume.each do |resume| %>
+        <article class="simple-content-item">
+            <div class="simpale-item-container">
+                <div class="simple-item-image"><a href="/resume/<%= resume.id %>"><%= image_tag(resume.user.main_photo) %></a></div>
+                <div class="item-info">
+                    <div class="item-info-block">
+                        <h3 class="info-block-title"><a href="#"><%= resume.f_name %> <%= resume.f_name %> <%= resume.f_name %></a></h3>
+                        <p class="phone"><img src="/assets/phone.png"> <%= resume.mob_phone %></p>
+                        <p class="resume-salary">
+                        	<span class="resume-salary-tit">Желаемый заработок</span>
+                        	<br />
+                        	<span class="resume-salary-val">от <%= resume.salary_from %> руб.</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="simple-item-text">
+                    <p class="simple-item-title"><a href="/resume/<%= resume.category.alias %>/<%= resume.id %>"><%= resume.name %></a></p>
+                    <p></p>
+                </div>
+                <div class="clear"></div>
+                <div class="item-other"><!---
+                    <div class="item-control">
+                        <div class="control-edit"><a href="#">Редактировать</a></div>
+                        <div class="control-delete"><a href="#">Удалить</a></div>
+                    </div>--->
+                    <div class="item-bell">
+                        <div class="info-bell-left"><!--для фона--></div>
+                        <div class="info-bell-right">
+                            <p><a href="#" class="item-order-job-button">Предложить работу</a></p>
+                        </div>
+                    </div>
+					<div class="item-order-job">
+						<div class="campaign-send-to">
+							<textarea></textarea>
+						</div>
+						<div class="campaign-send-buttons">
+							<a class="campaign-send-buttons-l" href="#">Отправить</a><a class="campaign-send-buttons-r" href="#">Отмена</a>
+						</div>
+					</div>
+                </div>
+
+            </div>
+        </article>
+        <% end %>
+
+    </section>

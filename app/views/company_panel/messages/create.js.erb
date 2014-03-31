@@ -1,0 +1,8 @@
+<% if @success %>
+  $('#new_message #error_explanation').html('');
+  $('#new_message #message_text').val('');
+  $('#new_message #message_subject').val('');
+ $('.popup[data-type="send-message"] .close').click();
+<% else %>
+  $('#new_message #error_explanation').replaceWith('<%= raw escape_javascript(render_error_explanation @message) %>');
+<% end %>

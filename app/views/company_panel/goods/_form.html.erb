@@ -1,0 +1,132 @@
+<%= form_for @entity, :as => :entity, :url => @entity.new_record? ? company_panel_goods_path : company_panel_good_path(@entity), :html => { :id => 'entity_form' } do |f| %>
+  <%= render_error_explanation @entity %>
+  <div class="form">
+    <div class="body">
+
+      <h1 class="title">Выбор категории товара</h1>
+      <%= f.hidden_field :company_id, :value => current_user.account.id %>
+      <%= render :partial => 'company_panel/shared/categories', :locals => {:obj => @entity} %>
+
+      <h1 class="title">Описание товара</h1>
+			<div class="row">
+        <div class="label"><%= f.label :article, 'Артикул' %></div>
+        <div class="field"><%= f.text_field :article, :class => 'input-normal' %></div>
+        <div class="clear"></div>
+      </div>
+      <div class="row">
+        <div class="label"><%= f.label :name %></div>
+        <div class="field"><%= f.text_field :name, :class => 'input-normal' %></div>
+        <div class="clear"></div>
+      </div>
+      <div class="row">
+        <div class="label"><%= f.label :price, 'Цена' %></div>
+        <div class="field">
+          <%= f.text_field :price, :size => 5 %> руб. 
+          <%= f.label :measure, raw(' &nbsp; за&nbsp; ') %>
+		  <div class="sel-wrap sel-mini inline">
+          <%= f.select :measure, options_for_select(@dimension, @entity.measure), {:include_blank => 'Не выбрано'}, { :class => 'selectbox', :style => 'width: 100px;'} %>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="row">
+        <div class="label"><label>Изображение</label></div>
+        <div class="field">
+          <!-- блок с фотографией -->
+          <div class="photo">
+            <div class="preview-wrap" data-entity_id="<%= @entity.id %>">
+              <div class="preview">
+              <% if @entity.main_photo %>
+                <img src="<%= @entity.main_photo.url %>" width="100" height="128" />
+              <% else %>
+                <img src="/company-panel/images/no_image.png" width="100" height="128" />
+              <% end %>
+              </div>
+            </div>
+            <div class="field view-popup" data-type="load-image">
+              <label>Загрузить изображение</label>
+                <div class="input-file" style="">
+                  <input type="text" size="5" />
+                  <input type="button" value="Обзор..." />
+                  <%= f.file_field :main_photo, :style => 'display:none;' %>
+                </div>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <!-- end | блок с фотографией -->
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="row">
+        <div class="label"><%= f.label :description, 'Описание' %></div>
+        <div class="field"><%= f.text_area :description, :class => 'ckeditor' %></div>
+        <div class="clear"></div>
+      </div>
+      <%= render :partial => 'company_panel/shared/characteristics', :locals => { :obj => @entity } %>
+      <div class="row">
+        <div class="label"><%= f.label :folder_id, 'Присвоить группу' %></div>
+        <div class="field field-for-group">
+					<input type="text" class="placeholder input-normal" id="entity_folder_name" placeholder="Выберите группу" value="<%= @entity.folder.try(:name) %>" />
+          <%= f.hidden_field :folder_id %>
+					<!--  was select -->
+					<%#= f.select :folder_id, options_from_collection_for_select(current_user.account.folders.order(:name), :id, :name, @entity.folder_id), {:include_blank => 'Не выбрано'}, {:class => 'selectbox'} %>
+					<a href="#" class="btn-togglle-group"></a>
+					<div class="clear"></div>
+				  <%= render :partial => 'company_panel/folders/folders' %>
+				</div>
+        <div class="clear"></div>
+      </div>
+      <div class="row">
+        <div class="label"><%= f.label :maker, 'Производитель' %></div>
+        <div class="field"><%= f.text_field :maker, :class => 'input-normal' %></div>
+        <div class="clear"></div>
+      </div>
+			<div class="row">
+        <div class="label"><%= f.label 'state' %></div>
+        <div class="field field-select-normal">
+          <%= f.select :state, options_for_select(Good.columns_hash['state'].limit.map { |state| [t("goods.states.#{state}"), state] }, @entity.state), {}, { :class => 'selectbox'} %>
+				</div>
+        <div class="clear"></div>
+      </div>
+			<div class="row">
+        <div class="label"><%= f.label 'presence', 'Наличие' %></div><%# replace 'presence' %>
+        <div class="field field-select-normal">
+						<%= f.select 'presence', options_for_select(['В наличии', 'Под заказ', 'Нет на складе'], 'presence'), {:include_blank => 'Не выбрано'}, { :class => 'selectbox'} %>
+				</div>
+        <div class="clear"></div>
+      </div>
+      <div class="row">
+        <div class="label"><%= f.label :warranty_id %></div>
+        <div class="field field-select-normal">
+						<%= f.select :warranty_id, options_from_collection_for_select(@company.warranties, :id, :title, @entity.warranty_id), {:include_blank => 'Не выбрано'}, { :class => 'selectbox'} %>
+				</div>
+        <div class="clear"></div>
+      </div>
+      <div class="row">
+        <div class="label"><%= f.label :campaign_id, 'Акции' %></div>
+        <div class="field field-select-normal"><%= f.select :campaign_id, options_from_collection_for_select(Campaign.order(:name), :id, :name, @entity.campaign_id), {:include_blank => 'Не выбрано'}, {:class => 'selectbox'} %></div>
+        <div class="clear"></div>
+      </div>
+      <div class="row">
+        <div class="label"><%= f.label :delivety_id %></div>
+        <div class="field field-select-normal">
+            <%= f.select :delivety_id, options_from_collection_for_select(@company.deliveties, :id, :title, @entity.delivety_id), {:include_blank => 'Не выбрано'}, { :class => 'selectbox'} %>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <% notifications = @entity.notifications.to_s.split(',') %>
+    <div class="row">
+      <div class="label label-long"><%= f.label :notifications, 'Оповестить подписчиков' %></div>
+      <div class="field">
+        <label><input type="checkbox" class="row-checkbox notifications" name="entity[notifications][]" value="sms" <%= notifications.include?('sms') ? 'checked=checked' : '' %> disabled="disabled" /> SMS рассылка</label><br />
+        <label><input type="checkbox" class="row-checkbox notifications" name="entity[notifications][]" value="email" <%= notifications.include?('email') ? 'checked=checked' : '' %> /> E-mail рассылка</label>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="buts">
+      <input type="submit" class="blue-button big <% if @entity.new_record? %>btn-with-arrow<% end %>" value="<%= @entity.new_record? ? 'Разместить' : 'Сохранить' %>" />
+    </div>
+  </div>
+  <%= render :partial => 'company_panel/shared/image_popup', :locals => { :f => f } %>
+<% end %>
+<%= render :partial => 'company_panel/shared/groups_popup' %>

@@ -1,0 +1,16 @@
+<!-- Блок пришедший с фронтенда -->
+<div class="entity-item delivery">
+    <div class="image">
+      <img src="<%= @company.logotype_url(:thumb) %>" alt="" height="100px;" />
+    </div>
+    <div class="data">
+        <p>График работы: <%= delivety.graph %></p>
+        <p>Доставка осуществляется с <%= delivety.parsed_period.from %> до <%= delivety.parsed_period.to %></p>
+    </div>
+    <div class="info" style="padding:10px 5px 5px 5px; height:90px;">
+        <p><%= @company.address %></p>
+        <p>тел.: <%= @company.phone.to_s.gsub(';', ', ') %></p>
+        <p><a class="call-up" href="#"></a></p>
+    </div>
+    <div class="clear"></div>
+</div>

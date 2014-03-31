@@ -1,0 +1,72 @@
+<!-- Блок с заголовком -->
+<div class="entity-title">
+    <h2>Акции</h2>
+    <p></p>
+    <div class="clear"></div>
+</div>
+
+<!-- Блок с фильтрами -->
+<div class="filters">
+    <!--Левый блок-->
+    <div class="left">
+        <div class="row">
+            <div class="cell left">Сортировать по</div>
+            <div class="cell right">
+                <select class="selectbox">
+                  <option value="created_at">Дате добавления</option>
+                  <option value="feedbacks_count">Комментариям</option>
+                  <option value="views">Популярности</option>
+                </select>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <!--Центральный блок-->
+    <div class="center">
+        <div class="row">
+            
+        </div>
+    </div>
+    <!--Правый блок-->
+    <div class="right">
+        <div class="row">
+            <ul class="count-page">
+                <li>Показать:</li>
+                <% [10,20,30].each do |per_page| %>
+                  <li><%= link_to per_page.to_s, params.merge(:per_page => per_page, :format => :js), :remote => true, :class => (params[:per_page] == per_page || per_page == 20 && params[:per_page].blank?) ? 'active' : '' %></li>
+                <% end %>
+            </ul>
+        </div>
+    </div>
+<div class="clear"></div>
+</div>
+<div class="found-res text-center" style="display: none;">
+	<span class="found-res-btn">
+		Показать 100 результатов
+	</span>
+</div>
+
+<!-- Блок с подписаться и управлением колличеством элементов -->
+<div class="sub-filters">
+    <div class="left">
+      <%= render :partial => 'minisite/shared/subscribe' %>
+    </div>
+    <div class="right">
+        <!-- Чтонить сюда можно воткнуть -->
+    </div>
+    <div class="clear"></div>
+</div>
+
+
+<div class="campaigns">
+	<% if @campaigns.count > 0 %>
+		<%= render @campaigns %>
+	<% else %>
+		<div class="empty-content">Акций и скидок нет</div>
+	<% end %>
+</div>
+<%#= will_paginate @campaigns, :renderer => 'BootstrapPaginationHelper::LinkRenderer', :previous_label => '', :next_label => '' %>
+<div class="pagination-separator" style="display:none;"><div class="ps-page">Страница <span class="ps-page-num" data-page="1">1</span></div></div>
+<a href="#" class="pagination-link">
+	Показать еще <%=  !params[:count].blank? ? params[:count] : 10 %>
+</a>

@@ -1,0 +1,2 @@
+module CompanyPanel::PagesHelper
+end

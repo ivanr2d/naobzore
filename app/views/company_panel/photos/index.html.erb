@@ -1,0 +1,87 @@
+        <%= render_error_explanation @photo %>
+        <div class="list">
+					<ul class="reload-tabs">
+						<li><a href="?entity_type=Good" data-id="1" <%= params[:entity_type] == 'Good' || params[:entity_type].blank? ? 'class=active' : '' %>>Товары</a></li>
+            <% {'Service' => 'Услуги', 'Campaign' => 'Акции/Скидки', 'Other' => 'Разное'}.each do |type, name| %>
+						  <li><a href="?entity_type=<%= type %>" data-id="2" <%= params[:entity_type] == type ? 'class=active' : '' %>><%= name %></a></li>
+            <% end %>
+					</ul>
+					<div class="content">
+						
+						<div class="tab-content" data-id="1">
+							
+							<!-- Верхняя часть с информацией -->	
+							<div class="top-bar">
+								<div class="left">
+                  <%= form_for :photo, :url => company_panel_photos_path do |f| %>
+                    <%= f.hidden_field :company_id, :value => current_user.account.id %>
+                    <%= f.hidden_field :entity_type, :value => @entity_type %>
+                    <div class="input-file" style="">
+									    <a class="green-button" href="#">Загрузить изображение</a>
+                      <%= f.file_field :file %>
+                    </div>
+                  <% end %>
+								</div>
+								<div class="right">
+									<ul class="hint">
+										<li><div class="points"></div> Вызов диалогового окна "Поиск <span class="photo-match-entity">
+										  <% {'Good' => 'товара', 'Service' => 'услуги', 'Job' => 'вакансии', 'Campaign' => 'акции/cкидки', 'Other' => 'объекта'}.each do |type, name| %><%= params[:entity_type] == type ? name : ''%><% end %></span>"
+										</li>
+									</ul>
+								</div>
+							</div>
+							<!--  Сам контент -->
+							<table class="style-silver" cellpadding="0" cellspacing="0">
+								
+								<thead>
+									<tr>
+										<th width="10"><input type="checkbox" class="checked-all" /></th>
+										<th>Название картинки</th>
+										<th>Артикул/Название</th>
+										<th>Размер</th>
+										<th>Действия</th>
+									</tr>
+								</thead>
+								
+								<tbody>
+									<%= render :partial => 'photo', :collection => @photos %>
+								</tbody>
+								
+							</table>
+							<!-- Подвальчик -->
+							<footer class="footer">
+								<div class="element">
+                  <img src="/controlPanel/images/checkbox.png" /> <span id="checkedCount">0</span>
+                </div>
+                <div class="element">
+                  <select class="mass-action">
+                    <option value="3">Удалить</option>
+                  </select>
+                </div>
+								<div class="footer-pagination-wrap">
+									<%= render :partial => 'company_panel/shared/pagination', :locals => {:obj => @price_entities} %>
+								</div>
+								<div class="clear"></div>
+							</footer>
+						</div>
+						
+						<div class="tab-content hidden" data-id="2">
+							<!--j-->тут тоже самое что и в первой вкладке
+						</div>
+						
+						<div class="tab-content hidden" data-id="3">
+							<!--s-->тут тоже самое что и в первой вкладке
+						</div>
+						
+						<div class="tab-content hidden" data-id="4">
+							<!--c-->тут тоже самое что и в первой вкладке
+						</div>
+						
+						<div class="tab-content hidden" data-id="5">
+							<!--o-->тут тоже самое что и в первой вкладке
+						</div>
+						
+					</div>
+					
+				</div>
+<%= render :partial => 'company_panel/shared/search_entity_popup', :locals => { :url => entities_company_panel_photos_path(:format => :json, :entity_type => @entity_type) } %>

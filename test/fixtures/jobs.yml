@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+   category_id: 1
+  company_id: 1
+  name: MyString
+  description: MyText
+  salary_from: 9.99
+  salary_to: 9.99
+
+two:
+   category_id: 1
+  company_id: 1
+  name: MyString
+  description: MyText
+  salary_from: 9.99
+  salary_to: 9.99

@@ -1,0 +1,46 @@
+body
+{
+    width: 960px;
+    margin: 15px auto;
+    font-family: Arial, "MS Trebuchet", sans-serif;  
+}
+header
+{
+    
+}
+#header_main
+{
+    border: 1px solid #cccccc;
+    width: 430px;
+    height: 200px;
+    float: left;
+    -webkit-border-top-right-radius: 120px 70px;
+    border-top-right-radius: 120px 70px;
+    border-right: none;
+}
+#header_wave
+{
+    width: 175px;
+    height: 75px;
+    margin-left: 405px; /* Убираем рамки значение меняем на 430 */
+    margin-right: 380px; /* Убираем рамки значение меняем на 430 */
+    border-bottom: 1px solid #cccccc;
+    -webkit-border-bottom-left-radius: 110px 70px;
+    -moz-border-radius-bottomleft: 110px 70px;
+    border-bottom-left-radius: 110px 70px;
+}
+
+#header_buts
+{
+    border-bottom: 1px solid #cccccc;
+    width: 380px; /* Убираем рамки значение меняем на 380 */
+    height: 75px;
+    float: right;
+}
+#header_righ
+{
+    border-right: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+    margin-left: 430px; /* Убираем рамки значение меняем на 430 */
+    height: 125px;
+}

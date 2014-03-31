@@ -1,0 +1,9 @@
+<!-- Блок с заголовком -->
+<div class="top">
+  <h1 class="page-title"><%= @breadcrumbs.last.try(:name) %></h1>
+</div>
+
+<!-- Блок с фильтрами -->
+<%= render :partial => 'filters_' + @entity_type.underscore %>
+
+<div id="entities"><%= render :partial => 'entities' %></div>

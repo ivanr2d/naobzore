@@ -1,0 +1,15 @@
+<div class="entity">
+  <div class="data">
+    <b>По умолчанию</b>: <%= warranty.default? ? 'Да' : '' %><br />
+    <b>Код</b>: <%= warranty.code %><br />
+    <b>Срок</b>: <%= warranty.months %> мес.<br />
+    <b>Условия</b>: <%= truncate(raw(warranty.conditions), :length => 30) %>
+  </div>
+
+  <ul class="control">
+    <li><a href="<%= edit_company_panel_warranty_path(warranty) %>">Редактировать</a></li>
+    <li><%= link_to 'Удалить', company_panel_warranty_path(warranty), :method => 'delete', :confirm => 'Удалить гарантию' %></li>
+  </ul>
+    
+  <div class="clear"></div>
+</div>

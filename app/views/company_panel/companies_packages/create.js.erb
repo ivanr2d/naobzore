@@ -1,0 +1,6 @@
+<% if @res %>
+  document.location.reload();
+<% else %>
+  // TODO change by popup
+  alert('<%= escape_javascript(@companies_package.errors.full_messages.join("\n")) %>');
+<% end %>

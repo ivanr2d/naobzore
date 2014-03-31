@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ваш блазок близок к нулю</title>
+<style>
+</style>
+</head>
+<body>
+Ваш баланс равен <%= @company.balance %>, что недостаточно для покупки минимального пакета.<br />
+Пополнить баланс вы можете в <a href="<%= CONFIG[:site] %>/company_panel/invoices/new">админ панели</a>.
+</body>
+</html>

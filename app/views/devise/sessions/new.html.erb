@@ -1,0 +1,20 @@
+<section class="main-title">
+    <div class="main-title-title">
+        <p class="page-title">Вход</p>
+    </div>
+    <div class="main-title-categories">
+    <div class="clear"></div>
+</section>
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+    <div class="other-form">
+        <div class="other-form-field"><%= devise_error_messages! %></div>
+        <div class="other-form-field"><%= f.email_field :email, :class => "text-field", :placeholder => "E -mail" %></div>
+        <div class="other-form-field"><%= f.password_field :password, :class => "text-field", :placeholder => "Пароль" %></div>
+		<% if devise_mapping.rememberable? -%>
+        <div class="other-form-field"><%= f.check_box :remember_me %> Запомнить меня</div>
+		<% end -%>
+        <div><%= f.submit "Вход", :class => "form-submit" %></div>
+        <div class="other-form-field"><%= render "links" %></div>
+    </div>
+<% end %>
+

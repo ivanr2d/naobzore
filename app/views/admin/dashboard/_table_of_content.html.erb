@@ -1,0 +1,74 @@
+<script>
+  $(function() {
+    var space_size = 4;
+    $('#table_of_content').find('tr').each(function() {
+      var space = '';
+      for (var i = 0; i < $(this).data('level') * space_size; i++) {
+        space += '&nbsp;';
+      }
+      $(this).children('td:first').html(space + $(this).children('td:first').html()).after($('<td style="width:500px;' + ($(this).children('td:last').text() ? ' border-bottom:1px dashed black;' : '') + '"></td>'));
+    });
+  });
+</script>
+
+<% periods = [ ['За день', 1.day], ['За неделю', 1.week], ['За месяц', 1.month] ] %>
+
+<table style="width:500px; font-size:14pt;" id="table_of_content">
+  <tr data-level="1">
+    <td style="width:160px;"><%= link_to 'Пользователи', '/admin/users' %></td>
+    <td></td>
+  </tr>
+  <tr data-level="2">
+    <td>Всего</td>
+    <td><%= User.count %></td>
+  </tr>
+  <tr data-level="2">
+    <td>Онлайн</td>
+    <td>0</td>
+  </tr>
+  <tr data-level="1">
+    <td>Контент</td>
+    <td></td>
+  </tr>
+  <% [ ['Товары', Good], ['Услуги', Service] ].each do |entity| %>
+    <tr data-level="2">
+      <td><%= link_to entity.first, "/admin/#{entity.last.to_s.tableize}" %></td>
+      <td></td>
+    </tr>
+    <% periods.each do |period| %>
+      <tr data-level="3">
+        <td><%= period.first %></td>
+        <td><%= entity.last.created_after(period.last.ago).count %></td>
+      </tr>
+    <% end %>
+    <tr data-level="3">
+      <td>Всего</td>
+      <td><%= entity.last.count %></td>
+    </tr>
+  <% end %>
+  <tr data-level="1">
+    <td><%= link_to 'Компании', '/admin/companies' %></td>
+    <td></td>
+  </tr>
+  <% periods.each do |period| %>
+    <tr data-level="2">
+      <td><%= period.first %></td>
+      <td><%= Company.created_after(period.last.ago).count %></td>
+    </tr>
+  <% end %>
+  <tr data-level="2">
+    <td>Всего</td>
+    <td><%= Company.count %></td>
+  </tr>
+  <tr data-level="1">
+    <td>Сообщения</td>
+    <td></td>
+  </tr>
+  <% [ ['Поддержка', :support], ['Жалобы', :complaint] ].each do |message| %>
+    <tr data-level="2">
+      <td><%= message.first %></td>
+      <td><%= link_to Message.unreaded.send(message.last).count.to_s, "/admin/messages?q[mtype_eq]=#{message.last}" %></td>
+    </tr>
+  <% end %>
+</table>
+</font>

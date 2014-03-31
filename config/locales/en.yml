@@ -1,0 +1,25 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  hello: "Привет этот ужасный мир"
+  activerecord:
+    attributes:
+      user:
+        email: "E-mail"
+        password: "Пароль"
+        password_confirmation: "Повтор пароля"
+        lic: "Лицензионное соглашение"
+  next_page: "Следующая"
+  prev_page: "Предыдущая" 
+  will_paginate:
+    previous_label: "Предыдущая"
+    next_label: "Следующая"
+    page_gap: "&hellip;"
+  activerecord:
+    models:
+      categories: Категории
+    attributes:
+      categories:
+        Title: "Название"
+        Alias: "Псевдоним"

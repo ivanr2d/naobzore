@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  good_id: 1
+  user_id: 1
+  ip: MyString
+  time: 2013-06-21 08:45:25
+
+two:
+  good_id: 1
+  user_id: 1
+  ip: MyString
+  time: 2013-06-21 08:45:25

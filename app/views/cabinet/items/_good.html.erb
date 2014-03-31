@@ -1,0 +1,70 @@
+	<div class="cabinet-item">
+        <div class="item-header">
+            <div class="item-header-image"><img src="<%= favorite.user.mini_photo %>" alt="" /></div>
+            <div class="item-header-info">
+            	<%= favorite.created_at.strftime("%d.%m.%Y") %> <%= (favorite.user.l_name && favorite.user.m_name) || (favorite.user.l_name) || (User.get_name(favorite.user.email).capitalize) %> добавил товар</div>
+            <div class="clear"></div>
+        </div>
+        <article class="content-item-cabinet">
+            <div class="item-container-3">
+                <div class="cabinet-item-image"><a href="#" data-item-id="<%= favorite.entity.id %>" data-item-type="good"><%= image_tag(favorite.entity.image) %></a></div>
+                <div class="item-info">
+                    <div class="item-info-block">
+                        <h3 class="info-block-title"><a href="#"><%= favorite.entity.company.name %></a></h3>
+                        <p class="info-block-adress"><%= favorite.entity.company.address %></p>
+                        <p class="info-block-phone" title="<%= favorite.entity.company.phone %>">Тел.:&nbsp;<%= favorite.entity.company.phone %></p>
+                        <p><a href="">Посмотреть на карте</a></p>
+                        
+                        
+							<% if @my_cabinet %>
+							<div class="item-info-block-stat">
+								<%= image_tag "no-reviews-1.png" %>
+								<a href="#" data-favorite="Good:<%= favorite.entity.id %>:0" class="favorite"><%= image_tag "reviews-0.png" %></a>
+								<a href="#"><%= image_tag "reviews-2.png" %></a><span>(255)</span>
+							</div>
+							<% else %>
+                          	
+							<!-- Добавление в избранное -->
+							<div class="item-info-block-stat">
+								<div class="favorite-active">
+									<a href="#" data-favorite="Good:<%= favorite.entity.id %>:1" class="favorite"><%= image_tag "reviews-1.png" %></a>
+									<a href="#" data-favorite="Good:<%= favorite.entity.id %>:0" class="favorite"><%= image_tag "reviews-0.png" %></a>
+									<a href="#"><%= image_tag "reviews-2.png" %></a><span>(255)</span>
+								</div>
+								<div class="favorite-notactive">
+									<%= image_tag "loading-mini.gif" %>
+								</div>
+							</div>
+							<% end %>
+                          
+                          <div class="item-info-block-bell">
+                              <a href="#"><%= image_tag "bell.png" %></a>
+                          </div>
+                        
+                        <p class="info-block-price">Цена: <span><%= favorite.entity.price %> р.</span>
+													<%# if цена снижена add class 'icon-price-course-down' else 'icon-price-course-up' %>
+													<span class="icon-price-course icon-price-course-up"></span>
+												</p>
+                    </div>
+                </div>
+                <div class="cabinet-item-text" data-item-id="<%= favorite.entity.id %>" data-item-type="good">
+                    <p class="cabinet-item-title"><a href="#" data-item-id="<%= favorite.entity.id %>" data-item-type="good"><%= favorite.entity.title %></a></p>
+                    <p><%= truncate raw(favorite.entity.description), :length => 160 %></p>
+                </div>
+                <div class="clear"></div>
+                <div class="item-other">
+                    <!---div class="item-control">
+                        <div class="control-edit"><a href="#">Редактировать</a></div>
+                        <div class="control-delete"><a href="#">Удалить</a></div>
+                    </div--->
+                    <div class="item-bell">
+                        <div class="info-bell-left"><!--для фона--></div>
+                        <div class="info-bell-right">
+                            <p>Отзывы: <span class="bell-true">+40</span> / <span class="bell-false">-2</span></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </article>
+    </div>

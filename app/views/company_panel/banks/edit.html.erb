@@ -1,0 +1,15 @@
+<div class="TabControl">
+  <ul class="reload-tabs">
+    <li><a href="<%= crediting_company_panel_company_path(current_user.account) %>" data-id="1">Собственное кредитование</a></li>
+    <li><a href="#" data-id="2" class="active">Банк партнер</a></li>
+  </ul>
+  <div class="content">
+    
+    <div class="tab-content" data-id="2">
+                
+                    <h2 class="title">Редактирование банка</h2>
+                    <%= render 'form' %>
+</div>
+    
+  </div>
+</div>

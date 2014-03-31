@@ -1,0 +1,2 @@
+module Minisite::ResumesHelper
+end

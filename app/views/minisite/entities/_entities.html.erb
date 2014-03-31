@@ -1,0 +1,13 @@
+<div class="items">
+	<% if @entities.count > 0 %>
+		<%= render :partial => 'entity', :collection => @entities %>
+	<% else %>
+		<div class="empty-content"><%= @entities.first.class.name.delete(":") == 'Good' ? 'Товаров' : 'Услуг'%> нет</div>
+	<% end %>
+  <div class="clear"></div>
+</div>
+<%#= will_paginate @entities, :renderer => 'BootstrapPaginationHelper::RemoteLinkRenderer', :previous_label => '', :next_label => '' %>
+<div class="pagination-separator" style="display:none;"><div class="ps-page">Страница <span class="ps-page-num" data-page="1">1</span></div></div>
+<a href="#" class="pagination-link">
+	Показать еще <%=  !params[:count].blank? ? params[:count] : 10 %>
+</a>

@@ -1,0 +1,14 @@
+<div class="subscribe">
+  <% if current_user %>
+    <%#= form_for current_user, :url => subscribe_user_path(current_user), :html => { :remote => true, :method => :put } do |f| %>
+      <a href="#" class="view">Подписаться</a>
+      <ul>
+        <% { :lk => 'ЛК', :email => 'E-mail' }.each do |field, title| %>
+          <li><label><input type="checkbox" name="<%= field %>" <%= current_user.send("subscribe_#{field}?".to_sym) ? 'checked=checked' : '' %> /> <%= title %></label></li>
+        <% end %>
+      </ul>
+    <%# end %>
+  <% else %>
+    <a href="#" class="view-login">Подписаться</a>
+  <% end %>
+</div>

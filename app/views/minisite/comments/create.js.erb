@@ -1,0 +1,8 @@
+<% if @comment.valid? %>
+  var footer = $('.comment-add[data-entity_id=<%= @comment.entity_id %>][data-entity_type=<%= @comment.entity_type %>]');
+  footer.before('<%= escape_javascript(render :partial => 'minisite/comments/comment', :object => @comment, :locals => { :comment_counter => @comment.entity.comments_count }) %>')
+  $('.show-comment-add').click();
+  footer.replaceWith('<%= escape_javascript(render :partial => 'minisite/comments/footer', :locals => { :entity => @comment.entity, :comments => @comments }) %>');
+<% else %>
+  alert("Ошибка\n<%= @comment.errors.full_messages.join("\n") %>");
+<% end %>

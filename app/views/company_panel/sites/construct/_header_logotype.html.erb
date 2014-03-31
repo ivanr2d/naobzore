@@ -1,0 +1,83 @@
+<!-- logotype : load -->
+        <div data-setting="logotype::load" class="setting hidden">
+            <div class="container">
+                <!--Полный блок с вкладками-->
+                <ul class="tabs">
+                    <li><a data-tab="1" href="#" class="active">Загрузка логотипа</a></li>
+                </ul>
+                <div class="tabs-content">
+                    <div data-tab="1" class="tab-content visible">
+                    
+                        <p class="info">Рекомендуемый размер загружаемого изображения 185x100 пикселей</p>
+                      <%= form_for @site, :url => company_panel_site_path(@site), :html => { :target => :minisite } do |f| %>
+                        <div class="row">
+                            <div class="label">Загрузить логотип с компьютера</div>
+                            <div class="field">
+                                <div class="input-file">
+                                    <input type="text" size="5" />
+                                    <input type="button" value="Обзор..." />
+                                    <%= f.file_field :tmp_header_logotype %>
+                                </div>
+                            </div>
+                        </div>
+                      <% end %>
+                    </div>
+                </div>
+            </div>
+            <!--Тег говорит сам за себя-->
+            <footer>
+                <div class="buttons">
+                  <div style="float:left;">
+                    <%= render :partial => 'company_panel/sites/construct/commit_form' %>
+                  </div>
+                  <div style="float:left;">
+                    <%= form_for @site, :url => company_panel_site_path(@site), :html => { :target => :minisite } do |f| %>
+                      <%= f.hidden_field :clear_tmp_header_logotype, :value => true %>
+                      <%= f.hidden_field :remove_header_logotype, :value => true %>
+                      <input type="submit" class="button" value="Сбросить" />
+                    <% end %>
+                  </div>
+                  <div class="clear;"></div>           
+                </div>
+            </footer>
+        </div>
+    <!-- logotype : name -->
+        <div data-setting="logotype::name" class="setting hidden">
+          <%= form_for @company, :url => company_panel_company_path(@company) do |f| %>
+            <div class="container">
+                <!--Полный блок с вкладками-->
+                <ul class="tabs">
+                    <li><a data-tab="1" href="#" class="active">Название организации</a></li>
+                </ul>
+                <div class="tabs-content">
+                    <div data-tab="1" class="tab-content visible">
+                    
+                        <div class="row">
+                            <div class="label">Введите название организации</div>
+                            <div class="field">
+                                <input type="text" size="33" name="company[name]" value="<%= @company.name %>" form="save_site_form" />
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <!--Тег говорит сам за себя-->
+            <footer>
+                <div class="buttons">
+                    <input type="submit" class="button" value="Сохранить" form="save_site_form" />
+                </div>
+            </footer>
+          <% end %>
+        </div>
+    <!-- logotype : remove -->
+        <div data-setting="logotype::remove" class="setting hidden">
+            <div class="block-remove">
+              <%= form_for @site, :url => company_panel_site_path(@site), :html => { :target => :minisite } do |f| %>
+                <p class="info">Вы действительно хотите удалить логотип?</p>
+                <%= f.hidden_field :clear_tmp_header_logotype, :value => true %>
+                <%= f.hidden_field :remove_header_logotype, :value => true %>
+                <input type="submit" class="button" value="Удалить" />
+              <% end %>
+            </div>
+        </div>

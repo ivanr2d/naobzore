@@ -1,0 +1,2 @@
+module CompanyPanel::EntitiesHelper
+end

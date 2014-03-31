@@ -1,0 +1,29 @@
+<div class="campaign">
+    <div class="data-container">
+        <div class="left">
+            <a href="/news/<%= news.id %>"><img src="<%= news.image.thumb %>" alt="" /></a>
+        </div>
+        <div class="right">
+            <!--Заголовочек-->
+            <div class="ext-title">
+                <%= link_to news.name, show_news_path(news) %>
+                <p><%= l news.created_at, :format => '%d %A %Y' %> года</p>
+                <div class="clear"></div>
+            </div>
+            <!--Заголовочек-->
+            <div class="text"><%= raw(truncate(news.description, :length => 100)) %></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="footer">
+        <div class="comments-count">
+            <div class="l"></div>
+            <div class="r"><a href="#" class="show-comments">Комментариев (<%= news.comments.count %>)</a></div>
+            <div class="clear"></div>
+        </div>
+       
+      <%= render :partial => 'minisite/shared/likes', :locals => { :entity => news } %>
+ 
+    </div>
+    <%= render :partial => 'minisite/comments/comments_block', :locals => { :entity => news, :comments => news.comments.last(Comment::LAST_COUNT), :visible => false } %>
+</div>

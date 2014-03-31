@@ -1,0 +1,44 @@
+<div class="row">
+  <input type="hidden" name="entity[category_id]" value="<%= obj.category_id %>" />
+  <div class="categories">
+    <ul class="tabs">
+        <li><a href="#" data-id="0" class="active">Ваши категории</a></li>
+        <li><a href="#" data-id="1">Общие категории</a></li>
+    </ul>
+    <div class="content">
+        <div class="tab-content" data-id="0">
+            <ul class="list-categories" data-level="1">
+               <% @items.each do |c| %>
+              <li data-cid="<%= c.category.top_parent.id %>" data-pid="<%= c.category.top_parent.parent_id %>"><a href="#"><%= c.category.top_parent.title %></a></li>
+               <% end %>
+            </ul>
+            <ul class="list-categories" data-level="2"></ul>
+            <ul class="list-categories" data-level="3"></ul>
+            <ul class="list-categories" data-level="4"></ul>
+        </div>
+        <div class="tab-content hidden" data-id="1">
+          <ul class="list-categories" data-level="1">
+            <% Category.main.where(:cat_type => obj.class.to_s).each do |c| %>
+               <% if not c.children_ids.eql? [0] and c.parents_ids.eql? [0]%>
+               <li data-cid="<%= c.id %>" data-pid="<%= c.parent_id %>"><a href="#"><%= c.title %></a></li>
+               <% end %>
+            <% end %>
+          </ul>
+          <ul class="list-categories" data-level="2"></ul>
+          <ul class="list-categories" data-level="3"></ul>
+          <ul class="list-categories" data-level="4"></ul>
+        </div>
+    </div>
+    <ul id="listCategories" class="hidden">
+      <% Category.all.each do |c| %>
+          <% next if c.parents_ids.eql? [0] %>
+          <% c.parents_ids.each do |i| %>
+               <li data-cid="<%= c.id %>" data-pid="<%= i %>"><input type="checkbox"><a href="#"><%= c.title %></a></li>
+           <% end %>
+     <% end %>
+    </ul>
+    <footer>
+        <p><span class="info-key">Выбрана категория:</span><span id="selectCategories" data-id=""></span></p>
+    </footer>
+  </div>
+</div>

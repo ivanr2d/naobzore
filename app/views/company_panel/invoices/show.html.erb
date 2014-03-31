@@ -1,0 +1,557 @@
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<TABLE CELLSPACING="0" COLS="37" BORDER="0">
+	<COLGROUP SPAN="37" WIDTH="21"></COLGROUP>
+	<TR>
+		<TD COLSPAN=37 HEIGHT="46" ALIGN="CENTER" VALIGN=MIDDLE></TD>
+		</TR>
+	<TR>
+		<TD HEIGHT="17" ALIGN="LEFT"><FONT SIZE=2><BR></FONT></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><FONT SIZE=2><BR></FONT></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><FONT SIZE=2><BR></FONT></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+	</TR>
+	<TR>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" COLSPAN=18 ROWSPAN=2 HEIGHT="32" ALIGN="LEFT" VALIGN=TOP><FONT SIZE=2><%= @main_company.bank_name %><BR></FONT></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" COLSPAN=3 ALIGN="LEFT" VALIGN=MIDDLE><FONT SIZE=2>БИК</FONT></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" COLSPAN=16 ALIGN="LEFT" VALIGN=MIDDLE><FONT SIZE=2><%= @main_company.bik %><BR></FONT></TD>
+		</TR>
+	<TR>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" COLSPAN=3 ROWSPAN=2 ALIGN="LEFT" VALIGN=TOP><FONT SIZE=2>Сч. №</FONT></TD>
+		<TD STYLE="border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" COLSPAN=16 ROWSPAN=2 ALIGN="LEFT" VALIGN=TOP><FONT SIZE=2><%= @main_company.bank_cor_account %><BR></FONT></TD>
+		</TR>
+	<TR>
+		<TD STYLE="border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" COLSPAN=18 HEIGHT="15" ALIGN="LEFT">Банк получателя</TD>
+		</TR>
+	<TR>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c" COLSPAN=2 HEIGHT="17" ALIGN="LEFT" VALIGN=MIDDLE><FONT SIZE=2>ИНН</FONT></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" COLSPAN=7 ALIGN="LEFT" VALIGN=MIDDLE><FONT SIZE=2><%= @main_company.inn %><BR></FONT></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c" COLSPAN=2 ALIGN="LEFT" VALIGN=MIDDLE><FONT SIZE=2>КПП</FONT></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" COLSPAN=7 ALIGN="LEFT" VALIGN=MIDDLE><FONT SIZE=2><%= @main_company.kpp %><BR></FONT></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" COLSPAN=3 ROWSPAN=4 ALIGN="LEFT" VALIGN=TOP><FONT SIZE=2>Сч. №</FONT></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" COLSPAN=16 ROWSPAN=4 ALIGN="LEFT" VALIGN=TOP><FONT SIZE=2><%= @main_company.settlement_account %><BR></FONT></TD>
+		</TR>
+	<TR>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" COLSPAN=18 ROWSPAN=2 HEIGHT="30" ALIGN="LEFT" VALIGN=TOP><FONT SIZE=2><%= @main_company.legal_name %><BR></FONT></TD>
+		</TR>
+	<TR>
+		</TR>
+	<TR>
+		<TD STYLE="border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" COLSPAN=18 HEIGHT="15" ALIGN="LEFT">Получатель</TD>
+		</TR>
+	<TR>
+		<TD HEIGHT="15" ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+	</TR>
+	<TR>
+		<TD STYLE="border-bottom: 1px solid #3c3c3c" COLSPAN=37 HEIGHT="46" ALIGN="LEFT" VALIGN=MIDDLE><B><FONT SIZE=4>Счет на оплату № <%= @invoice.id %> от <%= l @invoice.created_at, :format => '%d %B %Y' %>  г.</FONT></B></TD>
+		</TR>
+	<TR>
+		<TD HEIGHT="15" ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=6 HEIGHT="17" ALIGN="LEFT" VALIGN=MIDDLE><FONT SIZE=2>Заказчик:</FONT></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" COLSPAN=31 ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><%= @company.legal_name %><BR></FONT></B></TD>
+		</TR>
+	<TR>
+		<TD HEIGHT="17" ALIGN="LEFT" VALIGN=MIDDLE><FONT SIZE=2><BR></FONT></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=6 HEIGHT="17" ALIGN="LEFT" VALIGN=MIDDLE><FONT SIZE=2>Плательщик:</FONT></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" COLSPAN=31 ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><%= @company.legal_name %><BR></FONT></B></TD>
+		</TR>
+	<TR>
+		<TD HEIGHT="15" ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+	</TR>
+	<TR>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" COLSPAN=2 HEIGHT="17" ALIGN="CENTER" VALIGN=MIDDLE><B><FONT SIZE=2>№</FONT></B></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" COLSPAN=17 ALIGN="CENTER" VALIGN=MIDDLE><B><FONT SIZE=2>Название услуги</FONT></B></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" COLSPAN=3 ALIGN="CENTER" VALIGN=MIDDLE><B><FONT SIZE=2>Ед.</FONT></B></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" COLSPAN=2 ALIGN="CENTER" VALIGN=MIDDLE><B><FONT SIZE=2>К-во</FONT></B></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" COLSPAN=4 ALIGN="CENTER" VALIGN=MIDDLE><B><FONT SIZE=2>Цена</FONT></B></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" COLSPAN=5 ALIGN="CENTER" VALIGN=MIDDLE><B><FONT SIZE=2>Сумма</FONT></B></TD>
+		</TR>
+	<TR>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" COLSPAN=2 HEIGHT="15" ALIGN="CENTER" VALIGN=TOP><%= @invoice.id %></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" COLSPAN=17 ALIGN="LEFT" VALIGN=TOP><%= @invoice.full_name %></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" COLSPAN=3 ALIGN="RIGHT" VALIGN=TOP SDNUM="1049;0;0">руб.</TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" COLSPAN=2 ALIGN="LEFT" VALIGN=TOP>услуга</TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" COLSPAN=4 ALIGN="RIGHT" VALIGN=TOP SDNUM="1049;0;0"><%= @invoice.sum_without_nds %></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" COLSPAN=5 ALIGN="RIGHT" VALIGN=TOP SDNUM="1049;0;0"><%= @invoice.sum_without_nds %></TD>
+		</TR>
+	<TR>
+		<TD STYLE="border-top: 1px solid #3c3c3c" HEIGHT="9" ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="RIGHT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="RIGHT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
+	</TR>
+	<TR>
+		<TD HEIGHT="17" ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><BR></TD>
+		<TD COLSPAN=4 ALIGN="RIGHT" VALIGN=TOP><B><FONT SIZE=2>Итого:</FONT></B></TD>
+		<TD COLSPAN=5 ALIGN="RIGHT" VALIGN=TOP SDNUM="1049;0;0"><B><FONT SIZE=2><%= @invoice.sum_not_nds %><BR></FONT></B></TD>
+		</TR>
+	<TR>
+		<TD HEIGHT="17" ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="RIGHT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="RIGHT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="RIGHT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="RIGHT" VALIGN=TOP><B><FONT SIZE=2>В том числе НДС:</FONT></B></TD>
+		<TD COLSPAN=5 ALIGN="RIGHT" VALIGN=TOP SDNUM="1049;0;0,00"><B><FONT SIZE=2><%= @invoice.nds %><BR></FONT></B></TD>
+		</TR>
+	<TR>
+		<TD HEIGHT="17" ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><BR></FONT></B></TD>
+		<TD COLSPAN=5 ALIGN="RIGHT" VALIGN=TOP><B><FONT SIZE=2>Всего к оплате:</FONT></B></TD>
+		<TD COLSPAN=5 ALIGN="RIGHT" VALIGN=TOP SDNUM="1049;0;0"><B><FONT SIZE=2><%= @invoice.sum %><BR></FONT></B></TD>
+		</TR>
+	<TR>
+		<TD COLSPAN=37 HEIGHT="17" ALIGN="LEFT"><FONT SIZE=2>Всего наименований 1, на сумму <%= @invoice.sum %> руб.</FONT></TD>
+		</TR>
+	<TR>
+		<TD COLSPAN=37 HEIGHT="17" ALIGN="LEFT" VALIGN=TOP><B><FONT SIZE=2><%= RuPropisju.rublej(@invoice.sum) %></FONT></B></TD>
+		</TR>
+	<TR>
+		<TD HEIGHT="9" ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+	</TR>
+	<TR>
+		<TD STYLE="border-top: 1px solid #3c3c3c" HEIGHT="9" ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT"><img src="<%= @main_company.print_url %>" style="position:absolute;" /><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
+	</TR>
+	<TR>
+		<TD HEIGHT="15" ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=5 HEIGHT="17" ALIGN="LEFT" VALIGN=MIDDLE><B><FONT SIZE=2>Руководитель</FONT></B></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-bottom: 1px solid #3c3c3c" COLSPAN=9 ALIGN="CENTER"><B><FONT SIZE=2><BR>Подпись</FONT></B></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-bottom: 1px solid #3c3c3c" ALIGN="LEFT"><FONT SIZE=2><BR></FONT></TD>
+		<TD STYLE="border-bottom: 1px solid #3c3c3c" ALIGN="LEFT"><FONT SIZE=2><BR></FONT></TD>
+		<TD STYLE="border-bottom: 1px solid #3c3c3c" ALIGN="LEFT"><FONT SIZE=2><BR></FONT></TD>
+		<TD STYLE="border-bottom: 1px solid #3c3c3c" ALIGN="LEFT"><FONT SIZE=2><BR></FONT></TD>
+		<TD STYLE="border-bottom: 1px solid #3c3c3c" ALIGN="LEFT"><FONT SIZE=2><BR></FONT></TD>
+		<TD STYLE="border-bottom: 1px solid #3c3c3c" ALIGN="LEFT"><FONT SIZE=2><img src="<%= @main_company.director_signature_url %>" style="position:relative;" /><BR></FONT></TD>
+		<TD STYLE="border-bottom: 1px solid #3c3c3c" ALIGN="LEFT"><FONT SIZE=2><BR></FONT></TD>
+		<TD STYLE="border-bottom: 1px solid #3c3c3c" ALIGN="LEFT"><FONT SIZE=2><BR></FONT></TD>
+		<TD STYLE="border-bottom: 1px solid #3c3c3c" ALIGN="LEFT"><FONT SIZE=2><BR></FONT></TD>
+		<TD STYLE="border-bottom: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
+		<TD STYLE="border-bottom: 1px solid #3c3c3c" ALIGN="LEFT"><FONT SIZE=2><BR></FONT></TD>
+		<TD STYLE="border-bottom: 1px solid #3c3c3c" COLSPAN=10 ALIGN="CENTER"><B><FONT SIZE=2><BR><%= @main_company.director_fio %></FONT></B></TD>
+		</TR>
+	<TR>
+		<TD HEIGHT="15" ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="LEFT"><BR></TD>
+		<TD COLSPAN=10 ALIGN="CENTER" VALIGN=TOP>подпись</TD>
+		<TD ALIGN="LEFT"><BR></TD><TD ALIGN="LEFT"><BR></TD>
+		<TD ALIGN="CENTER" VALIGN=TOP><BR></TD>
+		<TD COLSPAN=10 ALIGN="RIGHT" VALIGN=TOP>расшифровка подписи</TD>
+		</TR>
+
+</TABLE>
+<% if request.format == :html %>
+  <br />
+  <div style="float:right;">
+    <%= link_to 'Скачать', company_panel_invoice_path(@invoice, :format => :pdf), :download => @invoice.pdf_name %>
+    &nbsp;
+    <%= link_to 'Счета', company_panel_invoices_path %>
+  </div>
+<% end %>

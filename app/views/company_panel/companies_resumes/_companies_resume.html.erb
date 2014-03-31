@@ -1,0 +1,12 @@
+<tr data-entity_id="<%= companies_resume.id %>">
+  <td style="width:20px;"><input type="checkbox" class="row-checkbox" /></td>
+  <td><%= link_to companies_resume.job.name, edit_company_panel_job_path(companies_resume.job_id) if companies_resume.job %></td>
+  <td><%= link_to companies_resume.resume.name, company_panel_resume_path(companies_resume.resume_id) %></td>
+  <td><%= link_to companies_resume.resume.user.fio, edit_company_panel_user_path(companies_resume.resume.user_id) %></td>
+  <td><%= t "companies_resumes.statuses.#{companies_resume.status}" %></td>
+  <td>
+    <%= link_to_unless companies_resume.status == :responded, 'Ответить', '#', :class => "view-popup", 'data-type' => "send-message", 'data-to_id' => companies_resume.resume.user_id, 'data-title' => "Сообщение пользователю \"#{companies_resume.resume.user.fio}\"", 'data-action' => change_status_company_panel_companies_resume_path(companies_resume, :format => :js, :companies_resume => { :status => :responded }), :title => "Написать сообщение" %>
+    <%= link_to_unless companies_resume.status == :rejected, 'Отказать', change_status_company_panel_companies_resume_path(companies_resume, :format => :js, :companies_resume => { :status => :rejected }), :method => :post, :remote => true, :confirm => "Отказать пользователю \"#{companies_resume.resume.user.fio}\"?", :title => 'Отказать' %>
+    <%= link_to 'Удалить', company_panel_companies_resume_path(companies_resume), :method => :delete, :confirm => "Удалить заявку пользователя \"#{companies_resume.resume.user.fio}\"?", :title => 'Удалить' %>
+  </td>
+</tr>

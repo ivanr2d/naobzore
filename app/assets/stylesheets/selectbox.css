@@ -1,0 +1,141 @@
+@CHARSET "UTF-8";
+.jquery-selectbox {
+	position: relative;
+	height: 14px;
+	border: 1px solid #d6d6d6;
+  min-width: 115px;
+	z-index: 0;
+	float: left;
+	display: inline;
+	margin: 0px 4px 0px 0;
+    font-size: 12px;
+    font-family: verdana, sans-serif;
+	color: #444;
+	padding: 2px 5px 8px 5px;
+	background: #fff;
+  cursor: pointer;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+}
+.sel-mini .jquery-selectbox {
+	min-width: 0;
+}
+.jquery-selectbox.selecthover {
+	border-color: #cccccc;
+	background-color: #fff;
+	background-image: url("/controlPanel/img/bg-TextFieldFocused.gif");
+	z-index: 7000;
+}	
+.jquery-selectbox .jquery-selectbox-currentItem {
+	padding: 0px 0px 0px 3px;
+	white-space: nowrap;
+	display: block;
+	overflow: hidden;
+	line-height: 18px;
+}
+.jquery-selectbox .jquery-selectbox-list {
+	display: none;
+	position: absolute;
+	top: 24px;
+	padding: 5px 5px 5px 5px;
+	left: 0px;
+	background: #fff;
+	min-width: 140px;
+	min-height: 21px;
+	height: auto!important;
+	max-height: 170px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	z-index: 1000;
+	border: 1px solid #cccccc;
+}
+.jquery-selectbox-item
+{
+    padding: 2px 0px 5px 5px;
+}
+.jquery-selectbox .jquery-selectbox-moreButton {
+	
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	
+	float: right;
+	background: url("/assets/select-arrow.png") no-repeat;
+	width: 20px;
+	height: 24px;
+	cursor: pointer;
+}
+.jquery-selectbox .jquery-selectbox-moreButton.morebuttonhover {
+	background: url("/assets/select-arrow.png") no-repeat;
+}
+.jquery-selectbox .jquery-selectbox-item.listelementhover {
+	background: #52dbfd;
+	color: #565656;
+}
+.jquery-selectbox .jquery-selectbox-item {
+	display: block;
+	cursor: default;
+	white-space: nowrap;
+	padding: 0px 0px 2px 5px;
+	line-height: 23px;
+}
+
+/** ERROR classes **/
+form .error .jquery-selectbox {
+	color: #d00;
+	border-color: #d00;
+	background-image: url("/controlPanel/img/bg-TextFieldError.gif");
+}
+
+
+.tariff .jquery-selectbox
+{
+    min-width: 40px;
+    background: #fff;
+    text-align: left;
+	margin: 0px 0px 0px 0;
+}
+.tariff .jquery-selectbox-list
+{
+    min-width: 40px;
+    margin-left: 0px;
+}
+.tariff .jquery-selectbox .jquery-selectbox-currentItem
+{
+    font-size: 14px;
+    width: 20px;
+    line-height: 15px;
+}
+.tariff .jquery-selectbox-item
+{
+    padding: 0px 0px 0px 5px;
+}
+
+.timetable-form .jquery-selectbox
+{
+    min-width: 50px;
+    background: #fff;
+    text-align: left;
+	margin: 0px 0px 0px 0;
+}
+.timetable-form .jquery-selectbox-list
+{
+    min-width: 50px;
+    margin-left: 0px;
+    min-height: 70px;
+}
+.timetable-form .jquery-selectbox .jquery-selectbox-currentItem
+{
+    font-size: 14px;
+    width: 20px;
+    line-height: 15px;
+}
+.timetable-form .jquery-selectbox-item
+{
+    padding: 3px 0px 3px 5px;
+}
+
+.jquery-selectbox.disabled {
+	background: #e0e0e0;
+}

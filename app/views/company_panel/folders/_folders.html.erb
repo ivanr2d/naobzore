@@ -1,0 +1,22 @@
+<div class="autocomplite" id="folders_popup" style="display: none;">
+	<div class="inner">
+		<table class="table-group-list">
+			<tr>
+				<th class="tgl-small">Код</th>
+				<th class="tgl-big">Наименование группы</th>
+				<th class="tgl-small">Количество</th>
+			</tr>
+			<tr class="folder" data-folder_name="Не выбрано">
+				<td class="tgl-small"></td>
+				<td class="tgl-big"><span class="text-overflow" title="Не выбрано">Не выбрано</span></td>
+				<td class="tgl-small"></td>
+			</tr>
+			<% @company.folders.each do |folder| %>
+				<%= render :partial => 'company_panel/folders/folder', :object => folder %>		
+			<% end %>
+		</table>
+	</div>
+	<div class="actions">
+		<a class="tgl-create view-popup" href="#" data-type="edit-group">Создать новую группу</a>
+	</div>
+</div>

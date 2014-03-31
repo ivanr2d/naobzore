@@ -1,0 +1,22 @@
+<%= form_for @site, :url => company_panel_site_path(@site) do |f| %>
+  <div class="form">
+    <div class="body">
+      <div class="setting-statistic-item">
+          <p>
+            Robots.txt - текстовый файл, расположенный на сайте, и предназначенный для роботов поисковых систем.
+            В этом файле вебмастер может указать параметры индексирования своего сайта как для всех роботов сразу,
+            так и для каждой поисковой системы по отдельности.
+          </p>
+      </div>
+
+      <div>
+        <h2 class="sub-title">Файл Robots.txt:</h2>
+        <%= f.text_area :robots, :cols => 76 %>
+      </div>
+    </div>
+
+    <div class="buts">
+      <input type="submit" class="blue-button big" value="Сохранить" />
+    </div>
+  </div>
+<% end %>

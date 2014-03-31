@@ -1,0 +1,36 @@
+html,body
+{
+    margin: 0px;
+    padding: 0px;
+}
+#main
+{
+    margin: 0 auto;
+    width: 900px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    height: 1000px;
+}
+.kepweb_excel
+{
+    
+    
+}
+.kepweb_excel table
+{
+
+}
+.kepweb_excel table tbody
+{
+
+}
+.kepweb_excel table td, .kepweb_excel table th
+{
+    border: 1px solid #777777;
+    padding: 10px 60px 10px 60px;
+}
+.kepweb_excel .scroll-x
+{
+ 
+}
+

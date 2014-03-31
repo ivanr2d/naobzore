@@ -1,0 +1,389 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Mini site</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/selectbox.css" />
+    <link rel="stylesheet" href="css/ui-slider.css" />
+    
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jselectbox.js"></script>
+    <script type="text/javascript" src="js/ui-slider.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    
+    <!--[if lt IE 9]>
+    <script>
+        document.createElement('nav');
+        document.createElement('header');
+        document.createElement('footer');
+        document.createElement('section');
+        document.createElement('aside');
+        document.createElement('article');
+    </script>
+    <![endif]-->
+    
+    <style>
+    
+    </style>
+    
+</head>
+<body>
+
+    <div id="topPanel">
+        <header>
+            <div class="left"></div>
+            <div class="right"></div>
+            <div class="content">
+            
+                <div class="logotype"><a href="#"><img src="images/logo.png" alt="" /></a></div>
+                
+                <div class="search">
+                    <div class="container">
+                        <div class="field">
+														<span class="icon-lupa"></span>
+                            <input type="text" name="SEARCH" />
+                            <a href="#" class="show-search-submenu"></a>
+														<div class="search-submenu">
+															<div class="row">
+																<label class="ss-label">Категория</label>
+																<div class="ss-select">
+																	<select class="selectbox" style="width: 98px;">
+																		<option value="1">Категория 1</option>
+																		<option value="2">Категория 2</option>
+																	</select>
+																</div>
+																<div class="clear"></div>
+															</div>
+															
+															<div class="row">
+																<label class="ss-label">Каталог</label>
+																<div class="ss-select">
+																	<select class="selectbox" style="width: 98px;">
+																		<option value="1">Каталог 1</option>
+																		<option value="2">Каталог 2</option>
+																	</select>
+																</div>
+																<div class="clear"></div>
+															</div>
+														</div>
+                        </div>
+                        <div class="but">
+                            <input type="submit" value="НАЙТИ" />
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                
+                <div class="navigation">
+                
+                    <!--Верхняя навигация-->
+                    <div class="top">
+                        <ul class="user">
+                            <li><a href="#">Личный кабинет</a></li>
+                            <li><a href="#">Регистрация</a></li>
+                        </ul>
+                        <ul class="icons">
+                            <li><a href="#"><img src="images/icon-home.png" /></a></li>
+                            <li><a href="#"><img src="images/icon-mail.png" /></a></li>
+                            <li><a href="#"><img src="images/icon-map.png" /></a></li>
+                        </ul>
+                    </div>
+                    
+                    <!--Нижняя навигация-->
+                    <div class="bottom">
+                        <ul>
+                            <li><a href="#">Товары</a></li>
+                            <li><a href="#">Услуги</a></li>
+                            <li><a href="#">Вакансии</a></li>
+                            <li><a href="#">Предприятия</a></li>
+                            <li><a href="#" id="viewMenuItems"><img src="images/icon-view.png" alt="" /></a>
+                                <ul class="more hidden" id="hiddenMenuItems">
+                                    <li><a href="#">Новости</a></li>
+                                    <li><a href="#">Акции</a></li>
+                                    <li><a href="#">Отзывы</a></li>
+                                    <li><a href="#">Объявления</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+        </header>
+        <footer>
+            <div class="active">
+							<span class="footer-menu">
+								<!-- if пользователь авторизован -->
+								<a href="#">Главная</a> |
+								<a href="#">Личная страница</a> |
+								<a href="#">Мои сообщения</a>
+								<!-- else  -->
+								<!--
+								<a href="#">Войти</a> |
+								<a href="#">Зарегистрироваться</a>
+								-->
+								<!-- end if -->
+							</span>
+                        
+							<a href="#" id="controlTopPanel">Свернуть</a>
+            </div>
+        </footer>
+    </div>
+
+    <div id="container">
+    
+        <!-- Шапочка -->
+        <header>
+            <div class="left">
+                <div class="logo">
+                    <a href="#"><img src="images/temp/logo_kepler.png" /></a>
+                </div>
+            </div>
+            <div class="right">
+                <div class="search">
+                    <input type="text" name="SEARCH" />
+                </div>
+                <ul class="navigation">
+                    <li><a href="#">Главная</a></li>
+                    <li><a href="#">Товары</a></li>
+                    <li><a href="#">Услуги</a></li>
+                    <li><a href="#">Новости</a></li>
+                    <li><a href="#">Акции</a></li>
+                    <li><a href="#">О компании</a></li>
+                    <li><a href="#">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </header>
+        
+        <!-- Левая навигация и контент -->
+        <div id="content">
+        
+            <section class="sidebar">
+            
+                <aside>
+                    <div class="title">Каталог Товары/Услуги</div>
+                    <div class="content">
+                        <ul class="categories level-1">
+                            <li class=""><div class="container"><a href="#">Строительство</a><p>123</p><div class="clear"></div></div></li>
+                            <li class=""><div class="container"><a href="#">Котлы и котельное оборудование</a><p>123</p><div class="clear"></div></div></li>
+                            <li class="active"><div class="container"><a href="#">Одежда, спецодежда</a><p>123</p><div class="clear"></div></div>
+                                
+                                <ul class="level-2">
+                                    <li class=""><div class="container"><a href="#">Котлы и котельное оборудование</a><p>84</p><div class="clear"></div></div></li>
+                                    <li class=""><div class="container"><a href="#">Строительство</a><p>84</p><div class="clear"></div></div></li>
+                                    <li class=""><div class="container"><a href="#">Котлы и котельное оборудование</a><p>84</p><div class="clear"></div></div></li>
+                                    <li class="active"><div class="container"><a href="#">Строительство</a><p>84</p><div class="clear"></div></div>
+                                    
+                                        <ul class="level-3">
+                                            <li class=""><div class="container"><a href="#">Строительство</a><p>(48)</p><div class="clear"></div></div></li>
+                                            <li class="have-child"><div class="container"><a href="#">Газовые</a><p>(48)</p><div class="clear"></div></div>
+                                            
+                                                <ul class="level-4">
+                                                    <li class=""><div class="container"><a href="#">-Строительство</a><p>(415)</p><div class="clear"></div></div></li>
+                                                    <li class=""><div class="container"><a href="#">-Газовые </a><p>(13)</p><div class="clear"></div></div></li>
+                                                    <li class=""><div class="container"><a href="#">-Строительство</a><p>(67)</p><div class="clear"></div></div></li>
+                                                </ul>
+                                            
+                                            </li>
+                                        </ul>
+                                    
+                                    </li>
+                                    
+                                </ul>
+                                
+                            </li>
+                        </ul>
+                    </div>
+                </aside>
+                
+                <aside>
+                    <div class="title">Контактная информация</div>
+                    <div class="content">
+                        <div class="info">
+                            <p>ООО "Имя предприятия"</p>
+                            <p>4600098, г. Оренбург, ул. Просторная 23, офис 34</p>
+                            <p>Тел.: 8 (3532) 68-78-89</p>
+                            
+                            <a class="send-mail" href="#">Написать сообщение</a>
+                            <a class="call-up" href="#"></a>
+                        </div>
+                    </div>
+                    <div class="title">График работы</div>
+                    <div class="content">
+                        <div class="timetable">
+                        
+                            <div class="day">
+                                <div class="name-time">
+                                    <div class="name">Понедельник</div>
+                                    <div class="time">9:00-18:00</div>
+                                    <div class="clear"></div>
+                                </div>
+                                <div class="break">Перерыв: 13:00-14:00</div>
+                            </div>
+                        
+                            <div class="day">
+                                <div class="name-time">
+                                    <div class="name">Вторник</div>
+                                    <div class="time">9:00-18:00</div>
+                                    <div class="clear"></div>
+                                </div>
+                                <div class="break">Перерыв: 13:00-14:00</div>
+                            </div>
+                            
+                            <p class="weekend">Выходные дни: Сб,Вс</p>
+                        </div>
+                    </div>
+                </aside>
+            </section>
+            
+            <section class="content">
+                <div class="title">
+                    <p class="breadcrumbs">
+                        <a href="#">НаОбзоре</a>
+                        <span>»</span>
+                        <a href="#">Название сайта</a>
+                        <span>»</span>
+                        <a href="#">Каталог</a>
+                        <span>»</span>
+                        <a href="#">Ноутбуки</a>
+                        <span>»</span>
+                        <a href="#">Samsung 305V5A-SO</a>
+                    </p>
+                </div>
+                
+                <!-- Блок с заголовком -->
+                <div class="entity-title">
+                    <h2>Новости</h2>
+                    <p>Добавлено: 12.04.2013, Обновлено: Сегодня</p>
+                    <div class="clear"></div>
+                </div>
+								
+								<h1 class="blue-title">Название новости</h1>
+								
+                <div class="entity">
+									
+									<div class="entity-news-image">
+										<div class="simp-item-image"><img src="images/temp/news.png"></div>
+										<div class="simp-item-link"></div>
+									</div>
+									<div class="entity-description text-justify">
+										Портал приносит пользу и тем, кто уже нашел работу своей мечты. Специалисты различного профиля могут обращаться и обмениваться опытом в профессиональных Сообществах.
+										На нашем портале можно найти полезные материалы по трудоустройтву, получить помощь в составлении резюме, а также оформить подписку на горячие вакансии, что сделает поиск работы более эффективным... <br>
+										Портал приносит пользу и тем, кто уже нашел работу своей мечты. Специалисты различного профиля могут обращаться и обмениваться опытом в профессиональных Сообществах.
+										На нашем портале можно найти полезные материалы по трудоустройтву, получить помощь в составлении резюме, а также оформить подписку на горячие вакансии, что сделает поиск работы более эффективным... <br>
+										Портал приносит пользу и тем, кто уже нашел работу своей мечты. Специалисты различного профиля могут обращаться и обмениваться опытом в профессиональных Сообществах.
+										На нашем портале можно найти полезные материалы по трудоустройтву, получить помощь в составлении резюме, а также оформить подписку на горячие вакансии, что сделает поиск работы более эффективным... <br>
+										Портал приносит пользу и тем, кто уже нашел работу своей мечты. Специалисты различного профиля могут обращаться и обмениваться опытом в профессиональных Сообществах.
+										На нашем портале можно найти полезные материалы по трудоустройтву, получить помощь в составлении резюме, а также оформить подписку на горячие вакансии, что сделает поиск работы более эффективным... <br>
+										Портал приносит пользу и тем, кто уже нашел работу своей мечты. Специалисты различного профиля могут обращаться и обмениваться опытом в профессиональных Сообществах.
+										На нашем портале можно найти полезные материалы по трудоустройтву, получить помощь в составлении резюме, а также оформить подписку на горячие вакансии, что сделает поиск работы более эффективным... <br>
+									</div>
+									<div class="clear"></div>
+								
+ 
+									<div class="footer sharing">
+										 <div class="left">
+												 <div class="social-caption">Поделиться в соц. сетях</div>
+												 <div class="social">
+														 <a href="#"><img src="images/social/google.png" /></a>
+														 <a href="#"><img src="images/social/odnoklassniki.png" /></a>
+														 <a href="#"><img src="images/social/vk.png" /></a>
+														 <a href="#"><img src="images/social/mail.png" /></a>
+														 <a href="#"><img src="images/social/facebook.png" /></a>
+														 <a href="#"><img src="images/social/twitter.png" /></a>
+												 </div>
+										 </div>
+										 <div class="right">
+												 <div class="page-actions">
+														 <a href="#"><img src="images/mail.png" alt="" /></a>
+														 <a href="#"><img src="images/printer.png" alt="" /></a>
+														 <a href="#" class="complain-link">Пожаловаться <br>на новость</a>
+												 </div>
+										 </div>
+										 <div class="clear"></div>
+								 </div>
+									
+									
+								<div id="commentsBlock" class="comments">
+									<div class="comments-header"></div>
+															
+									<div class="comment odd">
+										<div class="photo"><img src="images/temp/ava-2.png" /></div>
+										<div class="data">
+											<p class="info">Иван Иванов, 21.09.2012 16:35</p>
+											<p class="text">До следующего полета</p>
+										</div>
+										<div class="clear"></div>
+									</div>
+															
+									<div class="comment even">
+										<div class="photo"><img src="images/temp/ava-2.png" /></div>
+										<div class="data">
+											<p class="info">Иван Иванов, 21.09.2012 16:35</p>
+											<p class="text">До следующего полета</p>
+										</div>
+										<div class="clear"></div>							
+									</div>
+															
+									<div class="comment odd">
+										<div class="photo"><img src="images/temp/ava-2.png" /></div>
+										<div class="data">
+											<p class="info">Иван Иванов, 21.09.2012 16:35</p>
+											<p class="text">До следующего полета</p>
+										</div>
+										<div class="clear"></div>
+									</div>
+															
+									<div class="comment">
+										<div class="photo"><img src="images/temp/ava-2.png" /></div>
+										<div class="data">
+											<p class="info">Иван Иванов, 21.09.2012 16:35</p>
+											<p class="text">До следующего полета</p>
+										</div>
+										<div class="clear"></div>							
+									</div>
+																										 
+									<div class="comments-footer">
+										<div class="left"><a href="#">Показать все комментарии(453)</a></div>
+										<div class="right"><a href="#" class="show-comment-add">Комментировать</a></div>
+										<div class="clear"></div>
+									</div>
+															
+									<div class="add" style="display: none;">
+										<div class="g"></div>
+										<textarea></textarea>
+										<input type="submit" value="Отправить" class="send" />
+									</div>                        
+								</div>
+									
+									
+							</div>
+            </section>
+            <div class="clear"></div>
+        </div>
+	
+        
+        <!-- Тег говорит сам за себя -->
+        <footer>
+            <div class="left">
+                <div class="info">
+                    <p>460876, г. Оренбург, ул. Советская 34, офис 56</p>
+                    <p>тел.: +7(3532) 456789</p>
+                    <p>Сайт создан на платформе наОбзоре.рф</p>
+                    <p>© 2013 "Название сайта"</p>
+                </div>
+            </div>
+            <div class="right">
+                <ul class="counters">
+                    <li><img src="images/temp/counter-1.gif" /></li>
+                    <li><img src="images/temp/counter-2.gif" /></li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </footer>
+    </div>
+    
+</body>
+</html>

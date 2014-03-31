@@ -1,0 +1,2 @@
+module CompanyPanel::SubdomainsHelper
+end

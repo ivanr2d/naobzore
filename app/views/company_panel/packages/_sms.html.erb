@@ -1,0 +1,34 @@
+<%= form_for :companies_package, :url => company_panel_companies_packages_path(:format => :js), :remote => true do |f| %>
+  <%= f.hidden_field :package_id, :value => communication.id %>
+  <% active = current_user.account.packages.include?(communication) %>
+  <div class="packet <%= active ? 'active' : '' %>" data-package_id="<%= communication.id %>">
+    <header><span class="title"><%= communication.full_name %></span></header>
+    <div class="content">
+        <div class="tariff">
+            <div class="top-shadow"></div>
+            <div class="items">
+                <div class="item">
+                    <p class="average">Количество SMS</p>
+                    <p class="great"><%= communication.sms %> шт.</p>
+                </div>
+                <div class="item">
+                    <p class="average">Стоимость пакета</p>
+                    <p class="great"><%= communication.price %> руб.</p>
+                </div>
+            </div>
+        </div>
+        <div class="options">
+            <div class="checkbox">
+                <label><div class="left"><input type="checkbox" class="accept-conditions" <%= active ? 'checked=checked' : '' %> /></div>
+                <div class="right">Условия договора-оферты принимаю</div></label>
+            </div>
+            <div class="checkbox">
+                <% companies_package = current_user.account.companies_packages.where(:package_id => communication.id).last %>
+                <label><div class="left"><input type="checkbox" name="companies_package[auto]" value="1" <%= active && companies_package.auto? ? 'checked=checked' : '' %> class="auto" data-companies_package_id="<%= companies_package.try(:id) %>" /></div>
+                <div class="right">Автопродление**</div></label>
+            </div>
+        </div>
+    </div>
+    <footer><a href="javascript:void(0);" class="button activate"><span>Подключить</span></a></footer>
+  </div>
+<% end %>

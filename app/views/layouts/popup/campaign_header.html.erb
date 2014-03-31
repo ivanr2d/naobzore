@@ -1,0 +1,50 @@
+				<div class="popup-images">
+                    <div class="popup-image">
+                    	<ul class=" lightbox">
+                    		<li><a href="<%= @campaign.company.logotype.url %>"><img src="<%= @campaign.company.logotype.url %>" alt="" /></a></li>
+                    	</ul>
+                    </div>
+                    <ul class="lightbox">
+                        
+                        <% @campaign.images.each do |image| %>
+                        	<li><a href="<%= image.url %>"><img src="<%= image.url %>" alt="" width="32" height="32" /></a></li>
+                        <% end %>
+                    </ul>
+                </div>
+								<div class="popup-name"><a href="/campaigns/<%= @campaign.category.alias %>/<%= @campaign.id %>"><%= @campaign.name %></a></div>
+								<div class="popup-map-wrap">
+									<div class="popup-map">
+											<div class="popup-map-title view-map-full" data-full-map="<%= @campaign.company.name %>::<%= @campaign.company.address %>">
+												<div class="popup-map-title-tit">Показать во весь экран</div>
+												<div class="popup-map-title-cont"></div>
+											</div>
+											<div class="popup-map-content" id="map"></div>
+									</div>
+									<h3 class="popup-address"><p><%= @campaign.company.address %></p></h3>
+								</div>
+                <div class="popup-info">
+                    <p class="popup-name"><a href="/campaigns/<%= @campaign.category.alias %>/<%= @campaign.id %>"><%= @campaign.name %></a></p>
+                    <h2 class="popup-company"><p><a href="#"><%= @campaign.company.name %></a></p></h2>
+                    <h3 class="popup-address popup-price"><p><%= @campaign.company.address %></p></h3>
+                    <p class="popup-phone">Тел.: <span><%= @campaign.company.phone %></span></p>
+                    <div><a href="#"><img src="/assets/bell.png" alt="" /></a></div>
+                    <div>Отзывы: <span class="bell-true">+<%= Feedback.get_p_count('Campaign', @campaign.id) %></span> / <span class="bell-false">-<%= Feedback.get_n_count('Campaign', @campaign.id) %></span></div>
+                    <% if user_signed_in? %>
+                    <div class="popup-stat">
+                      	<div class="favorite-active">
+							<a href="#" data-favorite="Campaign:<%= @campaign.id %>:1" class="favorite"><%= image_tag "reviews-1.png" %></a>
+							<a href="#" data-favorite="Campaign:<%= @campaign.id %>:0" class="favorite"><%= image_tag "reviews-0.png" %></a>
+							<a href="#" data-like="Campaign:<%= @campaign.id %>" class="like"><%= image_tag "reviews-2.png" %></a><span>(<small class="like-count"><%= @campaign.likes.count %></small>)</span>
+						</div>
+						<div class="favorite-notactive">
+						 	<%= image_tag "loading-mini.gif" %>
+						</div>
+                    </div>
+                    <% else %>
+                    <div class="popup-stat">
+                          <%= image_tag "no-reviews-1.png" %>
+                          <%= image_tag "no-reviews-0.png" %>
+                          <%= image_tag "no-reviews-2.png" %><span>(<%= @campaign.likes.count %>)</span>
+                    </div>
+                    <% end %>
+                </div>

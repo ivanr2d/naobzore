@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head profile="http://www.w3.org/2005/10/profile">
+    <link rel="icon" href="<%= @site.favicon_url %>" />
+    <title>На обзоре</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+    <link rel="stylesheet" href="/controlPanel/css/main.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="/controlPanel/css/selectbox.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="/controlPanel/css/mini-site.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="/controlPanel/css/jquery.minicolors.css" />
+    <%= stylesheet_link_tag 'jquery.jscrollpane.css' %>
+        
+    <%= javascript_include_tag 'jquery' %>
+    <%= javascript_include_tag :defaults, "jquery_ujs.js" %>
+    <script type="text/javascript" src="/controlPanel/js/jquery.minicolors.js"></script>
+    <%= javascript_include_tag 'jquery.jscrollpane.js' %>
+    <%= javascript_include_tag 'company-panel-common' %>
+    <%= javascript_include_tag 'company_panel/construct' %>
+    
+    <!--[if lt IE 9]>
+    <script>
+        document.createElement('nav');
+        document.createElement('header');
+        document.createElement('footer');
+        document.createElement('section');
+        document.createElement('aside');
+        document.createElement('article');
+    </script>
+    <![endif]-->
+</head>
+<body>
+	
+	<div id="main_container">
+		
+		<!-- Шапка -->
+		<header id="main_header">
+			<div class="header-secl">
+				<div id="logotype"><img src="/controlPanel/images/logotype.png" /></div>
+	                
+                <div id="siteNav">
+                    <a href="#" class="top-link"><img src="/controlPanel/images/home.png" alt="" /></a>
+                    <a href="#" class="top-link"><img src="/controlPanel/images/mail.png" alt="" /></a>
+                    <a href="#" class="top-link"><img src="/controlPanel/images/map.png" alt="" /></a>
+                </div>
+
+				<div class="clear"></div>
+			</div>
+			<div class="header-secr">
+	            <div id="headerNav">
+					<nav id="top_nav">
+	                    <ul>
+	                        <li class="top-nav"><a href="#" class="vinous">Добавить компанию</a></li>
+	                        <li class="top-nav"><a href="#">Выход</a></li>
+	                        <li class="top-nav"><a href="#">Справка</a></li>
+	                    </ul>
+	                </nav>
+	            </div>
+			</div>
+			<div class="clear"></div>
+		</header>
+		<!-- end | Шапка -->
+		
+		<!-- Основная навигация -->
+    <nav id="navigation"> 
+      <%= render_menu %>
+    </nav>
+		<!-- end | Основная навигация -->
+		
+		<section id="contentTitle">
+			<h1>Конструктор сайта "<%= current_user.account.name %>"</h1>
+		</section>
+		
+		<section id="mainContent">
+      <%= yield %>
+		</section>
+        <footer id="mainFooter">
+			<div id="footerShadow"><!----></div>
+			<div id="footerContent"><%= copyright %></div>
+		</footer>
+        
+	</div>
+
+  <%= render :partial => 'company_panel/shared/send_message' %>
+</body>
+</html>

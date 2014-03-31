@@ -1,0 +1,245 @@
+
+	<!-- заголовочный блок -->
+	<section class="main-title">
+	    <div class="main-title-title">
+	        <h1 class="page-title" id="currentCategory" data-value="<%= (@category) ? @category.alias : 0 %>"><%= (@category) ? @category.title : 'Предприятия' %> <span class="page-title-ext">(<%= (@category) ? Category.get_count_entity(@curent_controller, @category.id) : Company.count %>)</span></h1>
+	    </div>
+	    <div class="main-title-categories">
+          	<% if @category && @category.children != nil %>
+          	<% @category.children.each do |subcat| %>
+              <a href="#"><%= subcat.title %></a>,
+            <% end %>
+            <% end %>
+	    </div>
+	    <div class="clear"></div>
+	</section>
+	<!-- end | заголовочный блок -->
+	
+		<!-- Фильтры -->
+		<div class="filters">
+				<!--Левый блок-->
+				<div class="left">
+						<div class="row">
+								<div class="cell left">Сортировать по</div>
+								<div class="cell right">
+								<select name="sort" id="sort" style="width:100px;">
+	              	  <option value="empty">Выбрать</option>
+										<option <%= (params[:sort] == "views" && params[:order] == "DESC") ? 'selected' : '' %> value="<%= url_for params.merge(:sort => "views", :order => 'DESC') %>">Популярности (по убыванию)</option>
+										<option <%= (params[:sort] == "views" && params[:order] == "ASC") ? 'selected' : '' %> value="<%= url_for params.merge(:sort => "views", :order => 'ASC') %>">Популярности (по возрастанию)</option>
+										<option <%= (params[:sort] == "name" && params[:order] == "ASC") ? 'selected' : '' %> value="<%= url_for params.merge(:sort => "name", :order => 'ASC') %>">Алфавиту (А-Я)</option>
+										<option <%= (params[:sort] == "name" && params[:order] == "DESC") ? 'selected' : '' %> value="<%= url_for params.merge(:sort => "name", :order => 'DESC') %>">Алфавиту (Я-А)</option>
+										<option <%= (params[:sort] == "created_at" && params[:order] == "DESC") ? 'selected' : '' %> value="<%= url_for params.merge(:sort => "created_at", :order => 'DESC') %>">Дате (по убыванию)</option>
+										<option <%= (params[:sort] == "created_at" && params[:order] == "ASC") ? 'selected' : '' %> value="<%= url_for params.merge(:sort => "created_at", :order => 'ASC') %>">Дате (по возрастанию)</option>
+										</select>
+								</div>
+								<div class="clear"></div>
+						</div>
+				</div>
+				<!--Центральный блок-->
+				<div class="center">
+						<div class="row">
+								
+						</div>
+				</div>
+				<!--Правый блок-->
+				<div class="right">
+						<div class="row">
+								<ul class="count-page">
+										<li>Показать:</li>
+										<li><%= link_to "10", {:controller => "companies", :action => "index", :count => 10}, :class => (params[:count] == '10' || !params[:count]) ? 'count-active' : '' %></li>
+	                  <li><%= link_to "20", {:controller => "companies", :action => "index", :count => 20}, :class => (params[:count] == '20') ? 'count-active' : '' %></li>
+	                  <li><%= link_to "30", {:controller => "companies", :action => "index", :count => 30}, :class => (params[:count] == '30') ? 'count-active' : '' %></li>
+								</ul>
+						</div>
+				</div>
+		<div class="clear"></div>
+		</div>
+		<div class="found-res text-center" style="display: none;">
+			<span class="found-res-btn">
+				Показать 100 результатов
+			</span>
+		</div>
+		
+		<!-- Блок с подписаться и управлением колличеством элементов -->
+		<div class="sub-filters">
+				<div class="left">
+					<%= render :partial => 'shared/subscribe' %>
+				</div>
+				<div class="right">
+						<!-- Чтонить сюда можно воткнуть -->
+				</div>
+				<div class="clear"></div>
+		</div>
+		<!-- end | Фильтры -->
+	
+	<section class="filter-abc">
+	    <div class="filter-abc-title">Быстрый поиск по алфавиту</div>
+	    <div class="filter-abc-content">
+	    	<div>
+	    	<% i = 0 %>
+	    	<% while(i < @rus_letters.length) %>
+	    		<%= link_to @rus_letters[i], url_for(params.merge(:begin => @rus_letters[i])) %>
+	    		<% i+=1 %>
+	    	<% end %>
+	    	</div>
+	    	<div>
+	    	<% i = 0 %>
+	    	<% while(i < @eng_letters.length) %>
+	    		<%= link_to @eng_letters[i], url_for(params.merge(:begin => @eng_letters[i])) %>
+	    		<% i+=1 %>
+	    	<% end %>
+	    	</div>
+	    	<div>
+	    	<% i = 0 %>
+	    	<% while(i < @num_letters.length) %>
+	    		<%= link_to @num_letters[i], url_for(params.merge(:begin => @num_letters[i])) %>
+	    		<% i+=1 %>
+	    	<% end %>
+	    	</div>
+	   </div>
+	</section>
+	
+	<section class="new-companys">
+	    <h3 class="new-company-title">Новые предприятия</h3>
+	    <div class="new-company-content" id="newCompanyContent">
+	        
+	        <ul>
+	        	<% @new_companies.each do |new_company| %>
+	            <li><a href="#"><%= image_tag(new_company.logotype) %></a></li>
+	            <li><a href="#"><%= image_tag(new_company.logotype) %></a></li>
+	            <% end %>
+	        </ul>
+	        
+	    </div>
+	    <div class="new-company-but"><a href="#"><img src="/assets/new-company-but.png" alt="" /></a></div>
+	</section>
+	
+	<section class="content-items">
+	    <h3 class="items-title">Список предприятий</h3>
+			
+			<br><br>
+			
+			<div class="other-tabs">
+				<ul>
+					<li data-other-tab="1" class="tab-curent" style="z-index: 4007;"><div class="tab-wave"></div><div class="tab-shadow"></div><div class="tab-cont">Новые предприятия</div></li>
+					<li data-other-tab="2" style="z-index: 4006;"><div class="tab-wave"></div><div class="tab-shadow"></div><div class="tab-cont">Популярные предприятия</div></li>
+				</ul>
+				<div class="clear"></div>
+			</div>
+
+		<% if @companies.count > 0 %>
+			<% @companies.each do |company| %>
+				<article class="content-item" data-item-type="Company" data-item-id="<%= company.id %>">
+						<div class="item-container">
+								<div class="item-image"><a href="#" data-item-id="<%= company.id %>"><%= image_tag(company.logotype) %></a></div>
+								<div class="item-info">
+										<div class="item-info-block">
+												<p><%= company.address %></p>
+												<p>Тел.: <%= company.phone %></p>
+												<p><a href="#" class="view-map-full" data-full-map="<%= company.name %>::<%= company.address %>">Посмотреть на карте</a></p>
+												
+														<% if user_signed_in? %>
+														<div class="item-info-block-stat likes">
+															<div class="favorite-active">
+									<a href="#" data-favorite="Company:<%= company.id %>:1" class="favorite <%#= company.favorited_by_user?(current_user) ? 'actived' : '' %> "></a>
+									<a href="#" data-favorite="Company:<%= company.id %>:0" class="ignore"></a>
+									<a href="#" data-like="Company:<%= company.id %>" class="like"></a><span>(<small class="like-count"><%= company.likes.count %></small>)</span>
+								</div>
+								<div class="favorite-notactive">
+									<%= image_tag "loading-mini.gif" %>
+								</div>
+														</div>
+														<div class="item-info-block-bell">
+																<a href="#"><%= image_tag "bell.png" %></a>
+														</div>
+														<% else %>
+														<div class="item-info-block-stat">
+																<%= image_tag "no-reviews-1.png" %>
+																<%= image_tag "no-reviews-0.png" %>
+																<%= image_tag "no-reviews-2.png" %><span>(<%= company.likes.count %>)</span>
+														</div>
+														<div class="item-info-block-bell">
+																<%= image_tag "no-bell.png" %>
+														</div>
+														<% end %>
+														
+										</div>
+								</div>
+								<div class="item-text" data-item-id="<%= company.id %>">
+										<h2 class="item-title"><a href="#" data-item-id="<%= company.id %>"><%= company.name %></a></h2>
+										<p>Описание компании: <%= raw truncate company.description, :length => 160 %></p>
+								</div>
+								<div class="clear"></div>
+								<div class="item-other"><!---
+										<div class="item-control">
+												<div class="control-edit"><a href="#">Редактировать</a></div>
+												<div class="control-delete"><a href="#">Удалить</a></div>
+										</div>--->
+										<div class="item-bell">
+												<div class="info-bell-left"><!--для фона--></div>
+												<div class="info-bell-right">
+														<p>Отзывы: <span class="bell-true">+<%= Feedback.get_p_count('Company', company.id) %></span> / <span class="bell-false">-<%= Feedback.get_n_count('Company', company.id) %></span></p>
+												</div>
+										</div>
+								</div>
+		
+						</div>
+				</article>
+			<% end %>
+
+			
+			<div class="pagination-separator" style="display:none;"><div class="ps-page">Страница <span class="ps-page-num" data-page="1">1</span></div></div>
+			<a href="#" class="pagination-link">
+				Показать еще <%=  params[:count] || 10%>
+			</a>
+		
+		</section>
+	
+		<% else %>
+			<div class="empty-content">Компаний нет</div>
+		<% end %>
+	
+    <div class="popup-slider">
+        <div class="popup-main">
+            <div class="popup-close"><a href="#" class="button-close"></a></div>
+            <!-- Главный блок с инфой -->
+            <div class="popup-content" id="popupHeader">
+                <!--- HEAD --->
+            </div>
+            <!-- end | Главный блок с инфой -->
+        </div>
+        
+        <!--блок с кнопками-->
+        <div class="popup-buts">
+            <div class="popup-but-prev" id="popupPrev"></div>
+            <div class="popup-but-next" id="popupNext"></div>
+            <div class="popup-but-cent">
+            	<div id="popup_loading"><%= image_tag "loading-2.gif" %></div>
+            	<div id="popup_notic"></div>
+            </div>
+        </div>
+        
+        <div class="feedback-add" id="feedbackForm">
+        	<!--- FEEDBACK --->
+        </div>
+        <!--end | блок с кнопками-->
+        
+        <div class="popup-other">
+        	<div id="popupContent">
+        	<!--- CONTENT --->
+        	</div>
+        </div>
+    </div>
+    
+    <div id="mask"></div>
+    
+    <div class="map-full">
+    	<div class="map-full-title">
+    		<div class="map-full-left" id="map_full_title">Планета</div>
+    		<div class="map-full-right"><a href="#" id="map_full_close"></a></div>
+    		<div class="clear"></div>
+    	</div>
+    	<div class="map-full-content" id="map_full"></div>
+    </div>
+
+	<%= render :partial => 'shared/sharing' %>

@@ -1,0 +1,2 @@
+module CompanyPanel::CallsHelper
+end

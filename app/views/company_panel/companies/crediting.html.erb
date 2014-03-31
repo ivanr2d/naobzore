@@ -1,0 +1,21 @@
+<div class="TabControl">
+  <ul class="reload-tabs">
+    <li><a href="#" data-id="1" class="active">Собственное кредитование</a></li>
+    <li><a href="/company_panel/banks" data-id="2">Банк партнер</a></li>
+  </ul>
+  <div class="content">
+    
+  <div class="tab-content" data-id="1">
+              <%= form_for @company, :url => company_panel_company_path(@company) do |f| %>
+                <%= render_error_explanation @company %>
+                <div class="form-one">
+                    <p class="label">Условия кредитования</p>
+                    <%= f.text_area :crediting, :class => 'ckeditor' %>
+                    <div class="buttons">
+                        <input class="blue-button big" type="submit" value="Сохранить" />
+                        <input class="blue-button big" type="submit" value="Сбросить" />
+                    </div>
+                </div>
+              <% end %>
+  </div>
+</div>

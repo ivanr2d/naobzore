@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Naobzore</title>
+<style>
+</style>
+</head>
+<body>
+<% if @news.any? %>
+  Новости портала <%= link_to 'Naobzore.ru', root_url %> за последние сутки:<br />
+  <% @news.each_with_index do |n, i| %>
+    <%= link_to n.title, show_news_url(n) %><%= i == @news.count - 1 ? '' : ', ' %>
+  <% end %>
+  <br />
+<% end %>
+<br />
+<% @companies.each do |company| %>
+  Компания <%= company.name %> добавила:<br />
+  <% if (goods = @goods.select { |g| g.company_id == company.id }).any? %>
+    <%= goods.count %> <%= Russian.pluralize goods.count, 'товар', 'товара', 'товаров' %>: 
+    <% goods.each_with_index do |g, i| %>
+      <%= link_to g.title, good_url(g) %><%= i == goods.count - 1 ? '' : ', ' %>
+    <% end %>
+    <br />
+  <% end %>
+  <% if (services = @services.select { |s| s.company_id == company.id }).any? %>
+    <%= services.count %> <%= Russian.pluralize services.count, 'услуга', 'услуги', 'услуг' %>: 
+    <% services.each_with_index do |s, i| %>
+      <%= link_to s.name, service_url(s) %><%= i == services.count - 1 ? '' : ', ' %>
+    <% end %>
+    <br />
+  <% end %>
+  <% if (campaigns = @campaigns.select { |c| c.company_id == company.id }).any? %>
+    <%= campaigns.count %> <%= Russian.pluralize campaigns.count, 'акция', 'акции', 'акций' %>: 
+    <% campaigns.each_with_index do |c, i| %>
+      <%= link_to c.name, campaign_url(c) %><%= i == campaigns.count - 1 ? '' : ', ' %>
+    <% end %>
+    <br />
+  <% end %>
+  <% if (jobs = @jobs.select { |j| j.company_id == company.id }).any? %>
+    <%= jobs.count %> <%= Russian.pluralize jobs.count, 'вакансия', 'вакансии', 'вакансий' %>: 
+    <% jobs.each_with_index do |j, i| %>
+      <%= link_to j.name, job_url(j) %><%= i == jobs.count - 1 ? '' : ', ' %>
+    <% end %>
+    <br />
+  <% end %>
+  <br />
+<% end %>
+</body>
+</html>	
