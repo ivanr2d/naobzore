@@ -1,7 +1,21 @@
 $(function(){
+	
+	if (!Date.prototype.getWeek) Date.prototype.getWeek = function() {
+    var onejan = new Date(this.getFullYear(), 0, 1);
+    return Math.ceil((((this - onejan) / 86400000) + onejan.getDay() + 1) / 7);
+  }
+	
   var months = $('.calendar-buttons:first').data('months').split(',');
   var month_names = $('.calendar-buttons:first').data('month_names').split(',');
   var month_index = 0;
+	var week_num = (new Date()).getWeek();
+	
+	
+	$('.calendar tr').each(function(){
+		if (week_num - 1 > $(this).data('week')) {
+			$(this).addClass('old-week');
+		}
+	})
 
   function setMonth(obj, month_index) {
     var tab = obj.parents('.tab-content');
@@ -42,12 +56,12 @@ $(function(){
       if (index > -1) {
         weeks[type].splice(index, 1);
       }
-    } else if (!$(this).hasClass('busy')) {
-      $('.load-banner .calendar tr[data-week=' + $(this).data('week') + '][data-type=' + type + ']').addClass('selected')
-      var index = weeks[type].indexOf($(this).data('week'));
-      if (index == -1) {
-        weeks[type][weeks[type].length] = $(this).data('week');
-      }
+    } else if (!$(this).hasClass('busy') && (week_num - 1 <= $(this).data('week'))) {
+				$('.load-banner .calendar tr[data-week=' + $(this).data('week') + '][data-type=' + type + ']').addClass('selected')
+				var index = weeks[type].indexOf($(this).data('week'));
+				if (index == -1) {
+					weeks[type][weeks[type].length] = $(this).data('week');
+			}
     }
     // заполняем период размещения
     flatten_weeks = [];

@@ -11,7 +11,9 @@
         <% week = start.to_date.cweek + w %>
         <tr data-week="<%= week %>" data-week_start="<%= (start + w.weeks).to_date.strftime('%d.%m.%Y') %>" data-week_finish="<%= (start + w.weeks + 6.days).to_date.strftime('%d.%m.%Y') %>" data-type="<%= type %>" <%= Banner.week_busy?(week, type) ? 'class=busy' : '' %>>
           <% 7.times do |d| %>
-            <td><%= l start + w.weeks + d.days, :format => '%a, %d' %></td>
+            <td>
+							<%= l start + w.weeks + d.days, :format => '%a, %d %B' %>
+						</td>
           <% end %>
         </tr>
       <% end %>
