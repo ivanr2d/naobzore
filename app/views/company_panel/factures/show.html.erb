@@ -85,13 +85,13 @@
 		<TD HEIGHT="17" ALIGN="LEFT" COLSPAN="13">ИНН/КПП продавца  <%= @main_company.inn %>/<%= @main_company.kpp %></TD>
 	</TR>
 	<TR>
-		<TD HEIGHT="17" ALIGN="LEFT" COLSPAN="13">Грузоотправитель и его адрес: unknown</TD>
+		<TD HEIGHT="17" ALIGN="LEFT" COLSPAN="13">Грузоотправитель и его адрес: </TD>
 	</TR>
 	<TR>
-		<TD HEIGHT="17" ALIGN="LEFT" COLSPAN="13">Грузополучатель и его адрес: unknown</TD>
+		<TD HEIGHT="17" ALIGN="LEFT" COLSPAN="13">Грузополучатель и его адрес: </TD>
 	</TR>
 	<TR>
-		<TD HEIGHT="17" ALIGN="LEFT" COLSPAN="13">К платежно-расчетному документу № unknown   от  unknown</TD>
+		<TD HEIGHT="17" ALIGN="LEFT" COLSPAN="13">К платежно-расчетному документу № __   от  ___</TD>
 	</TR>
 	<TR>
 		<TD HEIGHT="17" ALIGN="LEFT" COLSPAN="13">Покупатель: <%= @company.legal_name %></TD>
@@ -111,7 +111,6 @@
 		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE>Коли-<BR>чество (объем)</TD>
 		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE>Цена (тариф) за единицу измере-<br>ния</TD>
 		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE>Стоимость товаров (работ, услуг), имущест-<BR>венных прав<BR>без налога - всего</TD>
-		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE>В том<BR>числе сумма<BR>акциза</TD>
 		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE>Налоговая<BR>ставка</TD>
 		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE>Сумма налога, предъяв-<br>ляемая покупа-<br>телю</TD>
 		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE>Стоимость товаров<BR>(работ, услуг), имущест-<BR>венных прав с налогом - всего</TD>
@@ -122,7 +121,6 @@
 		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" HEIGHT="77" ALIGN="CENTER" VALIGN=MIDDLE><BR></TD>
 		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE>код</TD>
 		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE>условное обозна-<BR>чение (национа-<BR>льное)</TD>
-		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE><BR></TD>
 		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE><BR></TD>
 		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE><BR></TD>
 		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE><BR></TD>
@@ -144,9 +142,8 @@
 		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE>7</TD>
 		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE>8</TD>
 		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE>9</TD>
+		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE>9а</TD>
 		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE>10</TD>
-		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE>10а</TD>
-		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER" VALIGN=MIDDLE>11</TD>
 	</TR>
 	<TR>
 		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" HEIGHT="16" ALIGN="LEFT" VALIGN=TOP><%= t "factures.entities.#{@facture.entity_type}" %></TD>
@@ -155,7 +152,6 @@
 		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER">          1,000</TD>
 		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="RIGHT" SDVAL="452627,12" SDNUM="1049;0;0,00"><%= @facture.price_for_one_entity %></TD>
 		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="RIGHT" SDVAL="452627,12" SDNUM="1049;0;0,00"><%= @facture.sum_without_nds %></TD>
-		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="RIGHT">без акциза???</TD>
 		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="CENTER">18%</TD>
 		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="RIGHT" SDVAL="81472,88" SDNUM="1049;0;0,00"><%= @facture.nds.round(2) %></TD>
 		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="RIGHT" SDVAL="534100" SDNUM="1049;0;0,00"><%= @facture.sum_with_nds %></TD>
@@ -169,7 +165,7 @@
 		<TD STYLE="border-bottom: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
 		<TD STYLE="border-bottom: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
 		<TD STYLE="border-bottom: 1px solid #3c3c3c" ALIGN="LEFT"><BR></TD>
-		<TD STYLE="border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="RIGHT" SDVAL="<%= @facture.sum_with_nds %>" SDNUM="1049;0;0,00"><%= @facture.sum_without_nds %></TD>
+
 		<TD STYLE="border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" COLSPAN=2 ALIGN="CENTER" VALIGN=MIDDLE>Х</TD>
 		<TD STYLE="border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="RIGHT" SDVAL="<%= @facture.nds %>" SDNUM="1049;0;0,00"><%= @facture.nds.round(2) %></TD>
 		<TD STYLE="border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c" ALIGN="RIGHT" SDVAL="<%= @facture.sum_with_nds %>" SDNUM="1049;0;0,00"><%= @facture.sum_with_nds %></TD>

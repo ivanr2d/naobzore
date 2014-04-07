@@ -51,11 +51,11 @@ class Banner < ActiveRecord::Base
   end
 
   def self.week_limit
-    5
+    1
   end
 
   def self.week_busy? week, type
-    Banner.where(:week => week, :banner_type => type).where('created_at > ?', Time.now - (period_in_months + 1).months).count >= week_limit
+   Banner.where(:week => week, :banner_type => type).where('created_at > ?', Time.now - (period_in_months + 1).months).count >= self.week_limit
   end
   
 end
