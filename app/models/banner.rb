@@ -51,7 +51,7 @@ class Banner < ActiveRecord::Base
   end
 
   def self.week_limit
-    1
+    5
   end
 
   def self.week_busy? week, type
