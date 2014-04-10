@@ -36,8 +36,8 @@ class Banner < ActiveRecord::Base
     file_size = self.banner.file_size #w - file_size[0]; h - file_size[1]
     
     if (! file_size.nil?)
-      if (file_size[:width] < 557 || file_size[:height] < 188) || (file_size[:width] > 595 || file_size[:height] > 266)
-        errors.add :base, "Размер банера не может быть меньше 557x188 и больше 595x266" 
+      if (file_size[:width] < 540 || file_size[:height] < 240) || (file_size[:width] > 560 || file_size[:height] > 260)
+        errors.add :base, "Размер банера не может быть меньше 540x240 и больше 560x260" 
       end
     end
   end
