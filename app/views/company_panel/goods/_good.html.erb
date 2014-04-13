@@ -1,14 +1,4 @@
 <tr data-entity_id="<%= good.id %>" <%= good.published? ? '' : 'class=not-public' %> data-entity_translit="<%= good.translit %>">
-  <td>
-    <%= form_for good, :as => :entity, :url => company_panel_good_path(good, :format => :js), :remote => true do |f| %>
-    <% end %>
-    <input type="checkbox" class="row-checkbox" />
-  </td>
-  <td><a href="<%= edit_company_panel_good_path(good) %>" class="silver-button">Изменить</a></td>
-  <td class="dynamic-cell" data-type="text">
-      <div class="title"><%= good.article %></div>
-      <div class="input hidden"><input type="text" name="entity[article]" value="<%= good.article %>" size="2" /></div>
-  </td>
   <td class="ext-coll" data-type="popup">
     <div class="right"><a href="#" class="points" data-item="2" data-type="popup-categories" data-id="<%= good.category_id %>"></a>
           <!--popup-categories-->
@@ -16,6 +6,16 @@
       <div class="left"><%= good.category.try(:title) %></div>
       <input type="hidden" name="entity[category]" value="<%= good.category.try(:title) %>" />
   </td>
+	<td class="dynamic-cell" data-type="text">
+      <div class="title"><%= good.article %></div>
+      <div class="input hidden"><input type="text" name="entity[article]" value="<%= good.article %>" size="2" /></div>
+  </td>
+	<td>
+    <%= form_for good, :as => :entity, :url => company_panel_good_path(good, :format => :js), :remote => true do |f| %>
+    <% end %>
+    <input type="checkbox" class="row-checkbox" />
+  </td>
+  <td><a href="<%= edit_company_panel_good_path(good) %>" class="silver-button">Изменить</a></td>
   <td class="dynamic-cell" data-type="text">
       <div class="cell">
       <div class="title"><%= truncate good.name, :limit => 7 %></div>

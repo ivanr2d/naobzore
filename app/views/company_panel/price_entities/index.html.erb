@@ -30,6 +30,8 @@
 									<li><div class="points"></div> Вызов диалогового окна "Категории"</li>
 								</ul>
 							</div>
+		<div class="kegrid-wrap-outer">
+			<div class="kegrid-scroll-arr kegrid-scroll-arr-l"></div>
 			  <div class="kegrid-wrap">		
                 <table class="kegrid style-silver" cellpadding="0" cellspacing="0">
                     
@@ -45,7 +47,9 @@
                       <%= render :partial => 'price_entity', :collection => @price_entities %>
                     </tbody>
                 </table>
-			  </div>
+			</div>
+			<div class="kegrid-scroll-arr kegrid-scroll-arr-r"></div>
+		</div>
                 <div class="flr">
                 <br />
                 <%= form_for :entity, :url => export_company_panel_price_entities_path do |f| %>
