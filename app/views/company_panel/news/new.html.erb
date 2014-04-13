@@ -21,7 +21,7 @@
           <!-- блок с фотографией -->
           <div class="photo">
             <div class="preview-wrap" data-entity_id="<%= @entity.id %>">
-              <div class="preview">
+              <div class="preview view-popup" data-type="load-image">
               <% if @entity.main_photo %>
                 <img src="<%= @entity.main_photo.url %>" width="100" height="128" />
               <% else %>
