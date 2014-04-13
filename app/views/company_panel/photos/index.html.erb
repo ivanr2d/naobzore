@@ -13,14 +13,28 @@
 							<!-- Верхняя часть с информацией -->	
 							<div class="top-bar">
 								<div class="left">
-                  <%= form_for :photo, :url => company_panel_photos_path do |f| %>
-                    <%= f.hidden_field :company_id, :value => current_user.account.id %>
-                    <%= f.hidden_field :entity_type, :value => @entity_type %>
-                    <div class="input-file" style="">
-									    <a class="green-button" href="#">Загрузить изображение</a>
-                      <%= f.file_field :file %>
-                    </div>
-                  <% end %>
+                  <input id="photo_file" type="file" name="photo[file]" multiple>
+<script type="text/javascript"  src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script type="text/javascript"  src="/assets/js/vendor/jquery.ui.widget.js"></script>
+<script type="text/javascript"  src="/assets/js/jquery.iframe-transport.js"></script>
+<script type="text/javascript"  src="/assets/js/jquery.fileupload.js"></script>
+<script type="text/javascript"  src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script>
+$(function () {
+    'use strict';
+    var url = window.location.hostname ===  '/company_panel/photos';
+    $('#photo_file').fileupload({
+        url: url,
+        dataType: 'json',
+        formData: {
+        	"photo[entity_type]" : "<%= @entity_type %>",
+        	"photo[company_id]" : <%= current_user.account.id %>,
+        	authenticity_token : "<%= form_authenticity_token %>",
+        },
+    }).prop('disabled', !$.support.fileInput)
+        .parent().addClass($.support.fileInput ? undefined : 'disabled');
+});
+</script>
 								</div>
 								<div class="right">
 									<ul class="hint">

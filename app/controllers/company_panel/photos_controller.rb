@@ -13,21 +13,12 @@ class CompanyPanel::PhotosController < CompanyPanel::BaseController
   end
 
   def create
-    #@photo = Photo.new params[:photo]
-    #if @photo.save
-    #  redirect_to company_panel_photos_path(:entity_type => params[:photo]['entity_type']), :notice => 'Фото загружено'
-    #else
-    #  render :index
-    #end
-    name  = params[:attachment_name]
-    style = params[:attachment_style]
-    image = params[:user][name]
-    entity_type = params[:photo]['entity_type']
-
-    raise "No attachment #{name} for User!" unless User.attachment_definitions[name.to_sym]
-
-    current_user.update("#{name}" => image)
-    render(json: current_user.to_fileupload(name, style), content_type: request.format)
+    @photo = Photo.new params[:photo]
+    if @photo.save
+      redirect_to company_panel_photos_path(:entity_type => params[:photo]['entity_type']), :notice => 'Фото загружено'
+    else
+      render :index
+    end
   end
 
   def update
