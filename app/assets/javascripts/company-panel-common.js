@@ -1253,6 +1253,28 @@ jQuery(document).ready(function($)
     $('.suggest-job-link').live('click',function(){
 			$(this).closest('.suggest-job').find('.suggest-job-popup').slideToggle('fast');
 		})
+		
+		// стрелки прокрутки таблицы
+		$('.kegrid-scroll-arr').each(function(){
+			var table = $(this).closest('.kegrid-wrap-outer').find('.kegrid'),
+					table_th_h = table.find('th:first').outerHeight();
+				$(this).css({top: table_th_h + 'px', height: $(table).outerHeight() - table_th_h + 'px'})
+				if (!$(this).height())	$(this).hide();
+		});
+		
+		if (!NB) var NB = {};
+		NB.kegrig_scroll_timer = 0;
+		$('.kegrid-scroll-arr').mouseenter(function(){
+			var container = $(this).siblings('.kegrid-wrap'),
+					direct = $(this).is('.kegrid-scroll-arr-l') ? '-' : '+';
+			NB.kegrig_scroll_timer = setInterval(function(){
+				container.animate({scrollLeft: (direct+'=20')}, 100, 'linear')
+			},100)			
+		}).mouseleave(function(){
+			if (NB.kegrig_scroll_timer) clearInterval(NB.kegrig_scroll_timer);
+			$(this).siblings('.kegrid-wrap').stop(true, true);
+		})
+
 	
 
 
