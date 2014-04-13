@@ -486,7 +486,10 @@ jQuery(document).ready(function($)
         popupEmployee = undefined;
         
 		return false;
-	});    
+	});
+	
+	   
+
     
 	
 	/*---------------------------------------------------------------------------------------------------------------------
@@ -510,9 +513,7 @@ jQuery(document).ready(function($)
         });
     }
     
-    
-    
-    
+  
     
     
     

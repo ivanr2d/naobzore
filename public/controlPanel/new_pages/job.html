@@ -1,0 +1,319 @@
+<!doctype html>
+<html>
+<head>
+  <title>На обзоре - админка компании</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+  <link href="/assets/company-panel-main.css?body=1" media="screen" rel="stylesheet" type="text/css" />
+  <link href="/assets/selectbox.css?body=1" media="screen" rel="stylesheet" type="text/css" />
+  <link href="/assets/jquery.jscrollpane.css?body=1" media="screen" rel="stylesheet" type="text/css" />
+
+  <script src="/assets/jquery.js?body=1" type="text/javascript"></script>
+  <script src="/assets/defaults.js" type="text/javascript"></script>
+<script src="/assets/jquery_ujs.js?body=1" type="text/javascript"></script>
+  <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" type="text/javascript"></script>
+  <script src="/assets/jquery.ui.datepicker-ru.js?body=1" type="text/javascript"></script>
+  <script src="/assets/jquery.flot.min.js?body=1" type="text/javascript"></script>
+  <script src="http://malsup.github.com/jquery.form.js" type="text/javascript"></script> 
+  <script src="/controlPanel/js/kegrid.js" type="text/javascript"></script>
+  <script src="/controlPanel/js/jselectbox.js" type="text/javascript"></script>
+  <script src="/controlPanel/js/jcarousel.js" type="text/javascript"></script>
+  <script type="text/javascript">
+  var CKEDITOR_BASEPATH = '/assets/ckeditor/';
+  </script>
+  <script src="/assets/ckeditor/ckeditor.js?body=1" type="text/javascript"></script>
+  <script src="/assets/jquery.maskedinput.min.js?body=1" type="text/javascript"></script>
+  <script src="/assets/jquery.zclip.min.js?body=1" type="text/javascript"></script>
+  <script src="/assets/jquery.iframe-transport.js?body=1" type="text/javascript"></script>
+  <script src="/assets/live_input.js?body=1" type="text/javascript"></script>
+  <script src="/assets/jquery.jscrollpane.js?body=1" type="text/javascript"></script>
+  <script src="/assets/jquery.mousewheel.js?body=1" type="text/javascript"></script>
+  <script src="/assets/jquery.cookie.js?body=1" type="text/javascript"></script>
+  <script src="/assets/company-panel-common.js?body=1" type="text/javascript"></script>
+  
+  <script src="/assets/company_panel/companies_resumes.js?body=1" type="text/javascript"></script>
+
+  <!--[if lt IE 9]>
+  <script>
+      document.createElement('nav');
+      document.createElement('header');
+      document.createElement('footer');
+      document.createElement('section');
+      document.createElement('aside');
+      document.createElement('article');
+  </script>
+  <![endif]-->
+</head>
+<body>
+
+
+<div id="main_container">
+
+<!-- Шапка -->
+<header id="main_header">
+  <div class="header-secl">
+    <div id="logotype"><a href="/"><img src="/company-panel/images/logotype2.png" /></a></div>
+
+    <div id="siteNav">
+      <a href="#" class="top-link"><img src="/company-panel/images/home.png" alt="" /></a>
+      <a href="#" class="top-link"><img src="/company-panel/images/mail.png" alt="" /></a>
+      <a href="#" class="top-link"><img src="/company-panel/images/map.png" alt="" /></a>
+    </div>
+
+    <div class="clear"></div>
+  </div>
+  <div class="header-secr">
+    <div id="headerNav">
+      <nav id="top_nav">
+        <ul>
+          <li class="top-nav"><a href="#" class="vinous">Добавить компанию</a></li>
+          <li class="top-nav"><a href="#">Выход</a></li>
+          <li class="top-nav"><a href="#">Справка</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="clear"></div>
+</header>
+<!-- end | Шапка -->
+
+<!-- Основная навигация -->
+<nav id="navigation"> 
+  <ul class="nav-level-1"><li><a href="#">Мой кабинет</a><ul class="nav-level-2"><li><a href="/company_panel">Панель управления кабинетом</a></li><li><a href="/company_panel/users/50/edit">Настройка кабинета</a><ul class="nav-level-3"><li><a href="/company_panel/users/50/edit">Редактировать персональные данные</a></li><li><a href="/company_panel/users/50/edit_password">Изменить пароль</a></li><li><a href="/company_panel/users/50/edit_email">Изменить адрес электронной почты</a></li><li><a href="/company_panel/users/50/delete_account">Удалить учетную запись</a></li></ul></li><li><a href="/company_panel/statistics">Статистика просмотров</a></li><li><a href="/company_panel/companies_resumes">База резюме</a></li><li><a href="/company_panel/notifications">Уведомения</a></li><li><a href="/company_panel/tutorials">Возможности</a></li></ul></li><li><a href="#">Управление контентом</a><ul class="nav-level-2"><li><a href="/company_panel/goods">Панель управления контентом</a></li><li><a href="#">Добавить</a><ul class="nav-level-3"><li><a href="/company_panel/goods/new">Товар</a></li><li><a href="/company_panel/services/new">Услугу</a></li><li><a href="/company_panel/jobs/new">Вакансию</a></li><li><a href="/company_panel/campaigns/new">Скидку/Акцию</a></li><li><a href="/company_panel/news/new">Новость</a></li></ul></li><li><a href="/company_panel/price_lists/new">Импорт прайс-листа</a><ul class="nav-level-3"><li><a href="/company_panel/pages/price_desc">Описание загрузки прайс-листа</a></li><li><a href="/company_panel/price_lists/new">Загрузить прайс-лист</a></li><li><a href="/company_panel/categories">Коды категорий</a></li></ul></li><li><a href="/company_panel/photos">Каталог изображений</a></li></ul></li><li><a href="#">Управление сайтом</a><ul class="nav-level-2"><li><a href="/company_panel/site_control">Панель управления сайтом</a></li><li><a href="/company_panel/sites/1/construct">Конструктор  дизайна сайта</a></li><li><a href="/company_panel/subdomains">Настройка сайта</a><ul class="nav-level-3"><li><a href="/company_panel/subdomains">Адрес сайта</a></li><li><a href="/company_panel/menus">Настройка меню</a></li></ul></li><li><a href="/company_panel/sites/1/stats">Инструменты веб-мастера</a><ul class="nav-level-3"><li><a href="/company_panel/sites/1/stats">Настройка внешней статистики</a></li><li><a href="/company_panel/sites/1/webmaster">Подключение инструментов веб-мастера</a></li><li><a href="/company_panel/sites/1/sitemap">Карта сайта (sitemap)</a></li><li><a href="/company_panel/sites/1/robots">Управление robots.txt</a></li></ul></li></ul></li><li><a href="#">Документооборот</a><ul class="nav-level-2"><li><a href="/company_panel/invoices/movement">Операции по счетам</a></li><li><a href="/company_panel/invoices/new">Пополнение счёта</a></li><li><a href="/company_panel/invoices">Счета</a></li><li><a href="/company_panel/factures">Счет-фактуры</a></li><li><a href="/company_panel/acts">Акты выполненных работ</a></li></ul></li><li><a href="#">Почта и связь</a><ul class="nav-level-2"><li><a href="/company_panel/mail">Панель управления почта и связь</a></li><li><a href="/company_panel/messages">Сообщения</a></li><li><a href="/company_panel/feedbacks">Отзывы</a></li><li><a href="/company_panel/emails">Рассылки</a></li><li><a href="/company_panel/sms">Sms-биллинг</a></li><li><a href="/company_panel/calls">Менеджер звонков</a></li></ul></li><li><a href="#">Платные услуги</a><ul class="nav-level-2"><li><a href="/company_panel/packages/placing">Пакеты размещения</a></li><li><a href="/company_panel/banners/new">Размещение рекламного баннера</a></li><li><a href="/company_panel/packages/communication">Пакеты смс и голосовой телефонии</a></li><li><a href="/company_panel/pages/apo_design">Услуги дизайна</a></li></ul></li><li><a href="#">О компании</a><ul class="nav-level-2"><li><a href="/company_panel/companies/8/edit">Общие данные</a></li><li><a href="/company_panel/companies/8/legal">Юридические данные</a></li><li><a href="/company_panel/companies/8/logotype">Загрузить логотип</a></li><li><a href="/company_panel/companies/8/schedule">График работы</a></li><li><a href="/company_panel/companies_users">Сотрудники компании</a></li><li><a href="/company_panel/companies/8/crediting">Кредитование</a></li><li><a href="/company_panel/deliveties">Доставка</a></li><li><a href="/company_panel/warranties">Гарантия</a></li></ul></li></ul>
+</nav>
+<!-- end | Основная навигация -->
+
+<section id="contentTitle">
+  <h1>Просмотр резюме</h1>
+</section>
+
+<section id="mainContent">
+  <!-- Левая часть -->
+  <section id="left">
+    <div class="extra" data-id="26" id=menu>
+  <div class="title">Меню</div>
+  <div class="content">
+    <ul>
+      
+        
+        <li><a href="/company_panel/goods" class="txt-blue">Панель управления контентом</a></li>
+      
+        
+<li>Добавить
+<ul>
+<li><a href="/company_panel/goods/new">Товар</a></li>
+<li><a href="/company_panel/services/new">Услугу</a></li>
+<li><a href="/company_panel/jobs/new">Вакансию</a></li>
+<li><a href="/company_panel/campaigns/new">Скидку/Акцию</a></li>
+<li><a href="/company_panel/news/new">Новость</a></li>
+</ul>
+
+</li>
+      
+        
+        <li>Импорт прайс-листа</li>
+      
+        
+        <li><a href="/company_panel/photos" class="txt-blue">Каталог изображений</a></li>
+      
+    </ul>
+  </div>
+</div>
+<div class="extra" data-id="20" id=support_service>
+  <div class="title">Служба поддержки</div>
+  <div class="content">
+    
+      <ul>
+        <li><a href="#"><img src="/controlPanel/images/bell.png" alt="" /></a></li>
+        <li>ICQ: <span class="txt-blue">310 234 224</span></li>
+        <li>Номер: <span class="txt-blue">8353-234-5665</span></li>
+        <li><a href="#" class="blue-button">Написать сообщение</a></li>
+      </ul>
+    
+  </div>
+</div>
+
+  </section>
+  <!-- end | Левая часть -->
+  
+  <!-- Главное содержательная часть -->
+  <section id="content">
+    <div class="notice"></div>
+
+		
+		
+		<!-- MAIN DATA -->
+		<div class="job-page">
+		
+			<div class="header">
+					<div class="left">
+							<h2>Специалист по недвижимости</h2>
+							<p class="salary">от 30 000 руб.</p>
+							<p class="candidate-name">Иванов Иван Иванович</p>
+							
+							<div class="requirements">
+									<p><span class="key">32 года</span></p>
+									<p><span class="key">Опыт работы в аналогичной должности: 10 лет</span></p>
+									<p><span class="key">Образование: Высшее</span></p>
+									<p><span class="key">Тел.: 8 901 123 4567</p>
+									<p><span class="key">E-mail: name@mail.ru</p>
+							</div>
+							
+					</div>
+					<div class="right">
+							<div class="logotype">
+									<img src="/assets/temp/main-photo.png" alt="">
+							</div>
+							<div class="clear"></div>
+							<div class="suggest-job">
+								<div class="suggest-job-link">
+									<span class="sjl-left"></span>
+									<span class="sjl-right">Предложить работу</span>
+									<div class="clear"></div>
+								</div>
+								<div class="suggest-job-popup" style="display: none;">
+									<textarea></textarea>									
+									<div class="buttons">
+										<a class="ok" href="#">Отправить</a><a class="cancel" href="#">Отмена</a>
+									</div>
+									
+								</div>
+							</div>
+					
+					</div>
+					<div class="clear"></div>
+			</div>
+
+			<!--Блок отправки резюме-->
+			<div class="send-resume hidden" id="sendResumeSudgest">
+		<div>
+							<div class="scrollpane">
+		<ul>
+		<li><a href="#">Токарь</a></li>
+		<li><a href="#">Администратор</a></li>
+		<li><a href="#">Слесарь</a></li>
+		<li><a href="#">Продавец</a></li>
+		<li><a href="#">Слесарь</a></li>
+		<li><a href="/cabinet/job" class="add-resume">Создать резюме</a></li><!-- ссылка на стр. создания резюме в Личном кабинете (!) -->
+		</ul>
+		</div>
+		</div>
+		<div class="buttons">
+		<a class="ok" href="#">Отправить</a><a class="cancel" href="#">Отмена</a>
+		</div>
+		</div>
+			<!--end | Блок отправки резюме-->
+			
+		<div id="commentsBlock" class="comments hidden">
+		<div class="comments-header"></div>
+					
+		<div class="comment odd">
+		<div class="photo"><img src="images/temp/ava-2.png"></div>
+		<div class="data">
+		<p class="info">Иван Иванов, 21.09.2012 16:35</p>
+		<p class="text">До следующего полета</p>
+		</div>
+		<div class="clear"></div>
+		</div>
+					
+		<div class="comment even">
+		<div class="photo"><img src="images/temp/ava-2.png"></div>
+		<div class="data">
+		<p class="info">Иван Иванов, 21.09.2012 16:35</p>
+		<p class="text">До следующего полета</p>
+		</div>
+		<div class="clear"></div>							
+		</div>
+					
+		<div class="comment odd">
+		<div class="photo"><img src="images/temp/ava-2.png"></div>
+		<div class="data">
+		<p class="info">Иван Иванов, 21.09.2012 16:35</p>
+		<p class="text">До следующего полета</p>
+		</div>
+		<div class="clear"></div>
+		</div>
+					
+		<div class="comment">
+		<div class="photo"><img src="images/temp/ava-2.png"></div>
+		<div class="data">
+		<p class="info">Иван Иванов, 21.09.2012 16:35</p>
+		<p class="text">До следующего полета</p>
+		</div>
+		<div class="clear"></div>							
+		</div>
+																 
+		<div class="comments-footer">
+		<div class="left"><a href="#">Показать все комментарии(453)</a></div>
+		<div class="right"><a href="#" class="show-comment-add">Комментировать</a></div>
+		<div class="clear"></div>
+		</div>
+					
+		<div class="add" style="display: none;">
+		<div class="g"></div>
+		<textarea></textarea>
+		<input type="submit" value="Отправить" class="send">
+		</div>                        
+		</div>
+		
+			<div id="descriptionBlock" class="description">
+		<div class="row">
+		<h2>Обязанности</h2>
+		<p>Кредитный менеджер работает в&nbsp;мини-офисе Банка на&nbsp;территории магазинов-партнеров‚ таких как «Медиамаркт»‚ «М-Видео»‚ «Техносила»‚ «Берингов» и&nbsp;т.д.‚ которые располагаются в различных округах Москвы и Московской области.&nbsp;&nbsp;(место работы подбирается ближе к дому).</p>
+		</div>
+		<div class="row">
+		<h2>Условия</h2>
+		<p>Кредитный менеджер работает в&nbsp;мини-офисе Банка на&nbsp;территории магазинов-партнеров‚ таких как «Медиамаркт»‚ «М-Видео»‚ «Техносила»‚ «Берингов» и&nbsp;т.д.‚ которые располагаются в различных округах Москвы и Московской области.&nbsp;&nbsp;(место работы подбирается ближе к дому).</p>
+		</div>
+		<div class="row">
+		<h2>Требования</h2>
+		<p>Кредитный менеджер работает в&nbsp;мини-офисе Банка на&nbsp;территории магазинов-партнеров‚ таких как «Медиамаркт»‚ «М-Видео»‚ «Техносила»‚ «Берингов» и&nbsp;т.д.‚ которые располагаются в различных округах Москвы и Московской области.&nbsp;&nbsp;(место работы подбирается ближе к дому).</p>
+		</div>
+		<div class="row">
+		<h2>Сфера</h2>
+		<p>-Недвижимость</p>
+		<p>-Строительство</p>
+		</div>
+		<div class="row">
+		<h2>Адрес</h2>
+		<p><a href="#">г.Оренбург, пр. Победы</a></p>
+		</div>
+		<div class="row">
+		<h2>Контактное лицо</h2>
+		<p>Имя Фамилия</p>
+		<p>Тел.: 70759357</p>
+		<p>E-mail: name@mail.ru</p>
+		</div>
+		</div>
+		
+			<div class="footer sharing">
+					<div class="left"></div>
+					<div class="right">
+							<div class="page-actions">
+									<a href="#"><img src="/assets/mail.png" alt=""></a>
+									<a href="#"><img src="/assets/printer.png" alt=""></a>
+									<a href="#" class="complain-link">Пожаловаться на резюме</a>
+							</div>
+					</div>
+					<div class="clear"></div>
+			</div>
+		
+		</div>
+		
+		
+		
+	<!-- end MAIN DATA -->
+		
+  </section>
+
+	<div class="clear"></div>
+</section>
+
+<footer id="mainFooter">
+  <div id="footerShadow"><!----></div>
+  <div id="footerContent">© НаОбзоре.рф, 2014</div>
+</footer>
+</div>
+
+
+</body>
+</html>

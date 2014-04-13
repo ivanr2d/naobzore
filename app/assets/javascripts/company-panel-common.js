@@ -1249,6 +1249,10 @@ jQuery(document).ready(function($)
 		$(this).removeClass('active')
 	})
 		
+		// попап предложить работу 
+    $('.suggest-job-link').live('click',function(){
+			$(this).closest('.suggest-job').find('.suggest-job-popup').slideToggle('fast');
+		})
 	
 
 
