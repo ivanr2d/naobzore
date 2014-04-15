@@ -726,12 +726,12 @@ li.banner-but-active
 	background: #fff;
 	width: 468px;
 	min-height: 100px;
-	max-height: 650px;
+	max-height: 520px;
 	border: 1px solid #d0d0d0;
 	border-top: 0;
 	position: absolute;
   overflow: auto;
-	z-index: 200;
+	z-index: 3000;
 	left: 8px;
 	margin-top: 10px;
 	outline: none;
@@ -778,6 +778,12 @@ li.banner-but-active
 	left: 13px;
 	display: none;
 	cursor: pointer;
+	font-size: 24px;
+	font-family: arial;
+	line-height: 24px;
+	text-align: center;
+	color: #999;
+	vertical-align: middle;
 }
 
 

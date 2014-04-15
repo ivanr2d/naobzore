@@ -542,7 +542,8 @@ var common = {
 				
 				if (result == 1)
 				{
-					showAlert("Данный товар уже был добавлен в&nbsp;личный кабинет.");
+					showAlert("Удалено из&nbsp;личного кабинета.");
+					$(elem).removeClass('actived');
 				}
 				else if(result == 0)
 				{
@@ -745,6 +746,8 @@ jQuery(document).ready(function($){
 				console.log(id,type);
         controller = $('body').attr('data-controller');
         
+				$('#search_smart').hide();
+				
 				popup.open(id, type, controller);
         
         return false;
