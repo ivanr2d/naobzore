@@ -1,13 +1,15 @@
-	<span id="maxPrice" data-value="<%= @max_cost %>"></span>
-
-    <!-- заголовочный блок -->
-    <section class="main-title">
-        <div class="main-title-full">
-            <h1 class="page-title" id="currentCategory" data-value="<%= (@category) ? @category.alias : 0 %>"><%= (@category) ? @category.title : 'Услуги' %> <span class="page-title-ext">(<%= (@category) ? Category.get_count_entity(@curent_controller, @category.id) : Service.count %>)</span></h1>
-        </div>
-        <div class="clear"></div>
-    </section>
-    <!-- end | заголовочный блок -->
+	<% if @category && @category.children.blank? %>
+		<span id="maxPrice" data-value="<%= @max_cost %>"></span>
+	
+			<!-- заголовочный блок -->
+			<section class="main-title">
+					<div class="main-title-full">
+							<h1 class="page-title" id="currentCategory" data-value="<%= (@category) ? @category.alias : 0 %>"><%= (@category) ? @category.title : 'Услуги' %> <span class="page-title-ext">(<%= (@category) ? Category.get_count_entity(@curent_controller, @category.id) : Service.count %>)</span></h1>
+					</div>
+					<div class="clear"></div>
+			</section>
+			<!-- end | заголовочный блок -->
+	<% end %>	
 		
 		<% if @category && @category.children != nil %>
 				<div class="category-items">
@@ -46,7 +48,8 @@
 		
 		
 		<!-- Фильтры -->
-		<div class="filters" <% if @category && @category.children != nil %>style="display:none"<% end %>>
+		<% if @category && @category.children.blank? %>
+		<div class="filters">
 			<!--Левый блок-->
 				<div class="left">
 						<div class="row">
@@ -113,21 +116,29 @@
 				<div class="clear"></div>
 		</div>
 		<!-- end | Фильтры -->
+		<% end %>
 
-
-    <section class="indent"></section>
+    	<% if @category %>
+				<section class="indent"></section>
+			<% end %>
+			
 
     <section class="content-items">
 			
 		<div class="other-tabs">
-			<ul>
-				<li data-other-tab="1" class="tab-curent" style="z-index: 4007;"><div class="tab-wave"></div><div class="tab-shadow"></div><div class="tab-cont">Новые услуги</div></li>
-				<li data-other-tab="2" style="z-index: 4006;"><div class="tab-wave"></div><div class="tab-shadow"></div><div class="tab-cont">Популярные услуги</div></li>
-				<li data-other-tab="3" style="z-index: 4005;"><div class="tab-wave"></div><div class="tab-shadow"></div><div class="tab-cont">Специальные предложения</div></li>
-			</ul>
+				<ul>
+					<% if !@category %>
+						<li data-other-tab="1" class="tab-curent" style="z-index: 4007;"><div class="tab-wave"></div><div class="tab-shadow"></div><div class="tab-cont">Новые товары</div></li>
+					<% end %>
+					<li data-other-tab="2" <% if @category && @category.children.blank? %>class="tab-curent"<% end %>style="z-index: 4006;"><div class="tab-wave"></div><div class="tab-shadow"></div><div class="tab-cont">Популярные товары</div></li>
+					<% if !@category %>
+						<li data-other-tab="3" style="z-index: 4005;"><div class="tab-wave"></div><div class="tab-shadow"></div><div class="tab-cont">Специальные предложения</div></li>
+					<% end %>
+				</ul>
 			<div class="clear"></div>
 		</div>
 
+		<div class="content-items-inner">
 		<% if @services.count > 0 %>
 			<% @services.each do |service| %>
 						<article class="content-item" data-item-type="Service" data-item-id="<%= service.id %>">
@@ -210,11 +221,13 @@
 				Показать еще <%=  params[:count] || 10%>
 			</a>
 		
-			</section>
+			
 	
 		<% else %>
 			<div class="empty-content">Услуг нет</div>
 		<% end %>
+		</div>
+		</section>
         
     <div class="popup-slider">
         <div class="popup-main">

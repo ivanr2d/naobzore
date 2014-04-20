@@ -1695,70 +1695,6 @@ jQuery(document).ready(function($){
 			$('html, body').animate({ scrollTop: 0 }, 'fast');
 			e.preventDefault();
 		}).css('width', $('#container').offset().left + 'px');
-		
-		
-		/**
-     * Отображение и скрытие панели НаОбзоре
-     */
-		var DIR_IMAGES = '/miniSite/images/'
-		function toggleTopPanel(action) {
-			var block = $('#topPanel header');
-			var panel = $('#controlTopPanel');
-    
-        if (block.css('display') == 'block')
-        {
-            block.hide();
-            panel.text('Раскрыть');
-            panel.css('background', 'url(' + DIR_IMAGES + 'top-view.png) left center no-repeat');
-            panel.closest('footer').css('margin-top','12px').find('.footer-menu').removeClass('hidden');
-        }
-        else if (action !== 'hide')
-        {
-            block.show();
-            panel.text('Свернуть');
-            panel.css('background', 'url(' + DIR_IMAGES + 'top-hide.png) left center no-repeat');
-            panel.closest('footer').css('margin-top','74px').find('.footer-menu').addClass('hidden');
-        }
-        return false;
-		}
-			
-    $('#controlTopPanel').live('click', function(e){
-			toggleTopPanel();
-			e.preventDefault();
-    });
-				
-		/* Показ/Скрытие подменю категорий поиска */
-		$('#topPanel .search-submenu').hide();
-		$('#topPanel .show-search-submenu').click(function(){
-			$(this).siblings('.search-submenu').slideToggle('fast');
-			$(this).toggleClass('hide');
-		});
-		
-		if (!NB) NB = {}
-		NB.goal_opened_pos = 400;
-		NB.top_panel_h = 84;
-		$('#topPanel').css('margin-top', '-' + NB.top_panel_h + 'px')
-		$(document).scroll(function(){
-			var cur_pos = $(document).scrollTop() - $('#search').offset().top;
-			$('#topPanel').stop(true, true);
-			if (cur_pos >= 0) {
-				if (parseInt($('#topPanel').css('margin-top')) >= 0) return;
-				var new_pos = - NB.top_panel_h  * (NB.goal_opened_pos - cur_pos) / NB.goal_opened_pos;
-				$('#topPanel').animate({'margin-top': new_pos + 'px'}, 200,
-																function(){
-																	if (parseInt($('#topPanel').css('margin-top')) > 0)	{
-																		$('#topPanel').css({'margin-top': 0})
-																	}
-																})
-			} else {
-				$('#topPanel').animate({'margin-top': '-' + NB.top_panel_h + 'px'},200)
-			}
-		});
-		
-		$('#topPanel').mouseenter(function(){
-			$('#topPanel').stop(true, true);
-				$('#topPanel').css({'margin-top': 0})
-		})	
 
 				
 		/* универсальный крестик закрытия */
@@ -1769,9 +1705,20 @@ jQuery(document).ready(function($){
 		})
 		
 		/* */
-		$('#sendResumeLink').click(function(){
+		$('.send-resume-wrapper').click(function(){
 			$('#sendResumeBlock').toggleClass('hidden');
 			return false;
+		})
+		
+		$('#sendResumeBlock').click(function(e){
+			e.stopPropagation();
+			e.preventDefault();
+		})
+		
+		$('#sendResumeBlock .buttons').click(function(e){
+			e.stopPropagation();
+			e.preventDefault();
+			$('#sendResumeBlock').toggleClass('hidden');
 		})
 		
     

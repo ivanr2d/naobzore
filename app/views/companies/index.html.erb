@@ -1,4 +1,4 @@
-
+	<% if @category && @category.children.blank? %>
 	<!-- заголовочный блок -->
 	<section class="main-title">
 	    <div class="main-title-title">
@@ -14,8 +14,10 @@
 	    <div class="clear"></div>
 	</section>
 	<!-- end | заголовочный блок -->
+	<% end %>		
 	
 		<!-- Фильтры -->
+		<% if @category && @category.children.blank? %>
 		<div class="filters">
 				<!--Левый блок-->
 				<div class="left">
@@ -71,6 +73,11 @@
 				<div class="clear"></div>
 		</div>
 		<!-- end | Фильтры -->
+		<% end %>
+			
+		<% if @category %>
+			<section class="indent"></section>
+		<% end %>
 	
 	<section class="filter-abc">
 	    <div class="filter-abc-title">Быстрый поиск по алфавиту</div>
@@ -127,6 +134,7 @@
 				<div class="clear"></div>
 			</div>
 
+		<div class="content-items-inner">
 		<% if @companies.count > 0 %>
 			<% @companies.each do |company| %>
 				<article class="content-item" data-item-type="Company" data-item-id="<%= company.id %>">
@@ -193,11 +201,13 @@
 				Показать еще <%=  params[:count] || 10%>
 			</a>
 		
-		</section>
+	
 	
 		<% else %>
 			<div class="empty-content">Компаний нет</div>
 		<% end %>
+		</div>
+    </section>
 	
     <div class="popup-slider">
         <div class="popup-main">

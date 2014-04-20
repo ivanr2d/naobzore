@@ -7,17 +7,6 @@
                 <li><a href="/resume">Каталог резюме</a> <span>(<%= Resume.count %>)</span></li>
             </ul>
         </div>
-        <div class="jobs-filter">
-            <div class="jobs-rss">Подписаться на вакансии <a href=""><img src="/assets/rss.png" />RSS</a></div>
-            <div class="jobs-filter-page">
-            Вакансий на странице: 
-            <ul>
-				<li><%= link_to "10", {:controller => "jobs", :action => "index", :count => 10}, :class => (params[:count] == '10' || !params[:count]) ? 'count-active' : '' %> |</li>
-				<li><%= link_to "20", {:controller => "jobs", :action => "index", :count => 20}, :class => (params[:count] == '20') ? 'count-active' : '' %> |</li>
-				<li><%= link_to "30", {:controller => "jobs", :action => "index", :count => 30}, :class => (params[:count] == '30') ? 'count-active' : '' %>  </li>
-            </ul>
-        </div>
-        </div>
     </section>
 
 	<div class="indent"></div>

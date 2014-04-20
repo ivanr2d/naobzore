@@ -1,5 +1,5 @@
-	
-	<span id="maxPrice" data-value="<%= @max_price %>"></span>
+	<% if @category && @category.children.blank? %>
+		<span id="maxPrice" data-value="<%= @max_price %>"></span>
 	
       <!-- заголовочный блок -->
       <section class="main-title">
@@ -9,6 +9,7 @@
           <div class="clear"></div>
       </section>
       <!-- end | заголовочный блок -->
+	<% end %>		
 			
 			<% if @category && @category.children != nil %>
 				<div class="category-items">
@@ -49,107 +50,118 @@
 			
 			
 			<!-- Фильтры -->
-			<div class="filters" <% if @category && @category.children != nil %>style="display: none;"<% end %>>
-					<!--Левый блок-->
-					<div class="left">
-							<div class="row">
-									Цена от <input type="text" class="diapazon-field filter" id="price_from" name="price_from" value="<%= (params[:price_from]) ? params[:price_from] : '' %>" /> 
-									до <input type="text" class="diapazon-field filter" id="price_to" name="price_to" value="<%= (params[:price_to]) ? params[:price_to] : '' %>" />
-							</div>
-							<div>
-									<div id="polzunok_good_price" class="polzunok"></div>
-							</div>
-					</div>
-					<!--Центральный блок-->
-					<div class="center">
-							<div class="row">
-									<div class="cell left">Сортировать по</div>
-									<div class="cell right">
-											<select name="sort" id="sort" class="selectbox" style="width: 100px;">
-												<option value="empty">Выбрать</option>
-												<option <%= (params[:sort] == "views" && params[:order] == "DESC") ? 'selected' : '' %> value="<%= url_for params.merge(:sort => "views", :order => 'DESC') %>">Популярности (по убыванию)</option>
-												<option <%= (params[:sort] == "views" && params[:order] == "ASC") ? 'selected' : '' %> value="<%= url_for params.merge(:sort => "views", :order => 'ASC') %>">Популярности (по возрастанию)</option>
-												<option <%= (params[:sort] == "price" && params[:order] == "DESC") ? 'selected' : '' %> value="<%= url_for params.merge(:sort => "price", :order => 'DESC') %>">Цене (по убыванию)</option>
-												<option <%= (params[:sort] == "price" && params[:order] == "ASC") ? 'selected' : '' %> value="<%= url_for params.merge(:sort => "price", :order => 'ASC') %>">Цене (по возрастанию)</option>
-												<option <%= (params[:sort] == "created_at" && params[:order] == "DESC") ? 'selected' : '' %> value="<%= url_for params.merge(:sort => "created_at", :order => 'DESC') %>">Дате (по убыванию)</option>
-												<option <%= (params[:sort] == "created_at" && params[:order] == "ASC") ? 'selected' : '' %> value="<%= url_for params.merge(:sort => "created_at", :order => 'ASC') %>">Дате (по возрастанию)</option>
-											</select>
-									</div>
-									<div class="clear"></div>
-							</div>
-							<div class="row">
-									<div class="cell left">Производитель</div>
-									<div class="cell right">
-											<select name="maker" class="filter other-selectbox" style="width: 100px;">
-												<option value="empty">Все</option>
-												<% @makers.each do |maker| %>
-												<option <%= (params[:maker] && params[:maker] == maker.name) ? 'selected' : '' %> value="<%= maker.name %>"><%= maker.name %></option>
-												<% end %>
-											</select>
-									</div>
-									<div class="clear"></div>
-							</div>
-					</div>
-					<!--Правый блок-->
-					<div class="right">
-							<div class="row double-cell">
-									<div class="cell left"></div>
-									<div class="cell right">
-											<label><input type="checkbox" name="campaign" class="filter" value="1" <%= (params[:campaign]) ? 'checked' : '' %> /> Со скидкой</label>
-									</div>
-									<div class="clear"></div>
-							</div>
-							<div class="row double-cell">
-									<div class="cell left"></div>
-									<div class="cell right">
-											<label><input type="checkbox" name="delevery" class="filter" <%= (params[:develery]) ? 'checked' : '' %> /> Бесплатная доставка</label>
-									</div>
-									<div class="clear"></div>
-							</div>
-					</div>
-					<div class="clear"></div>
-			</div>
-			<div class="found-res text-center" style="display: none;">
-				<span class="found-res-btn">
-					Показать 100 результатов
-				</span>
-			</div>
+			<% if @category && @category.children.blank? %>
+				<div class="filters">
+						<!--Левый блок-->
+						<div class="left">
+								<div class="row">
+										Цена от <input type="text" class="diapazon-field filter" id="price_from" name="price_from" value="<%= (params[:price_from]) ? params[:price_from] : '' %>" /> 
+										до <input type="text" class="diapazon-field filter" id="price_to" name="price_to" value="<%= (params[:price_to]) ? params[:price_to] : '' %>" />
+								</div>
+								<div>
+										<div id="polzunok_good_price" class="polzunok"></div>
+								</div>
+						</div>
+						<!--Центральный блок-->
+						<div class="center">
+								<div class="row">
+										<div class="cell left">Сортировать по</div>
+										<div class="cell right">
+												<select name="sort" id="sort" class="selectbox" style="width: 100px;">
+													<option value="empty">Выбрать</option>
+													<option <%= (params[:sort] == "views" && params[:order] == "DESC") ? 'selected' : '' %> value="<%= url_for params.merge(:sort => "views", :order => 'DESC') %>">Популярности (по убыванию)</option>
+													<option <%= (params[:sort] == "views" && params[:order] == "ASC") ? 'selected' : '' %> value="<%= url_for params.merge(:sort => "views", :order => 'ASC') %>">Популярности (по возрастанию)</option>
+													<option <%= (params[:sort] == "price" && params[:order] == "DESC") ? 'selected' : '' %> value="<%= url_for params.merge(:sort => "price", :order => 'DESC') %>">Цене (по убыванию)</option>
+													<option <%= (params[:sort] == "price" && params[:order] == "ASC") ? 'selected' : '' %> value="<%= url_for params.merge(:sort => "price", :order => 'ASC') %>">Цене (по возрастанию)</option>
+													<option <%= (params[:sort] == "created_at" && params[:order] == "DESC") ? 'selected' : '' %> value="<%= url_for params.merge(:sort => "created_at", :order => 'DESC') %>">Дате (по убыванию)</option>
+													<option <%= (params[:sort] == "created_at" && params[:order] == "ASC") ? 'selected' : '' %> value="<%= url_for params.merge(:sort => "created_at", :order => 'ASC') %>">Дате (по возрастанию)</option>
+												</select>
+										</div>
+										<div class="clear"></div>
+								</div>
+								<div class="row">
+										<div class="cell left">Производитель</div>
+										<div class="cell right">
+												<select name="maker" class="filter other-selectbox" style="width: 100px;">
+													<option value="empty">Все</option>
+													<% @makers.each do |maker| %>
+													<option <%= (params[:maker] && params[:maker] == maker.name) ? 'selected' : '' %> value="<%= maker.name %>"><%= maker.name %></option>
+													<% end %>
+												</select>
+										</div>
+										<div class="clear"></div>
+								</div>
+						</div>
+						<!--Правый блок-->
+						<div class="right">
+								<div class="row double-cell">
+										<div class="cell left"></div>
+										<div class="cell right">
+												<label><input type="checkbox" name="campaign" class="filter" value="1" <%= (params[:campaign]) ? 'checked' : '' %> /> Со скидкой</label>
+										</div>
+										<div class="clear"></div>
+								</div>
+								<div class="row double-cell">
+										<div class="cell left"></div>
+										<div class="cell right">
+												<label><input type="checkbox" name="delevery" class="filter" <%= (params[:develery]) ? 'checked' : '' %> /> Бесплатная доставка</label>
+										</div>
+										<div class="clear"></div>
+								</div>
+						</div>
+						<div class="clear"></div>
+				</div>
+				<div class="found-res text-center" style="display: none;">
+					<span class="found-res-btn">
+						Показать 100 результатов
+					</span>
+				</div>
+				
+				<!-- Блок с подписаться и управлением колличеством элементов -->
+				<div class="sub-filters">
+						<div class="left">
+							<%= render :partial => 'shared/subscribe' %>
+						</div>
+						<div class="right">
+								<!-- Чтонить сюда можно воткнуть -->
+								<div class="row">
+										<ul class="count-page">
+												<li>Показать:</li>
+												<li><%= link_to "10", {:controller => "goods", :action => "index", :count => 10}, :class => (params[:count] == '10' || !params[:count]) ? 'count-active' : '' %></li>
+												<li><%= link_to "20", {:controller => "goods", :action => "index", :count => 20}, :class => (params[:count] == '20') ? 'count-active' : '' %></li>
+												<li><%= link_to "30", {:controller => "goods", :action => "index", :count => 30}, :class => (params[:count] == '30') ? 'count-active' : '' %></li>
+										</ul>
+								</div>
+						</div>
+						<div class="clear"></div>
+				</div>
+				<!-- end | Фильтры -->
+			<% end %>
 			
-			<!-- Блок с подписаться и управлением колличеством элементов -->
-			<div class="sub-filters">
-					<div class="left">
-						<%= render :partial => 'shared/subscribe' %>
-					</div>
-					<div class="right">
-							<!-- Чтонить сюда можно воткнуть -->
-							<div class="row">
-									<ul class="count-page">
-											<li>Показать:</li>
-											<li><%= link_to "10", {:controller => "goods", :action => "index", :count => 10}, :class => (params[:count] == '10' || !params[:count]) ? 'count-active' : '' %></li>
-											<li><%= link_to "20", {:controller => "goods", :action => "index", :count => 20}, :class => (params[:count] == '20') ? 'count-active' : '' %></li>
-											<li><%= link_to "30", {:controller => "goods", :action => "index", :count => 30}, :class => (params[:count] == '30') ? 'count-active' : '' %></li>
-									</ul>
-							</div>
-					</div>
-					<div class="clear"></div>
-			</div>
-			<!-- end | Фильтры -->
+			<% if @category %>
+				<section class="indent"></section>
+			<% end %>
+			
 		
-
-      <section class="indent"></section>
-
+	
       <section class="content-items">
 				
 			<div class="other-tabs">
 				<ul>
-					<li data-other-tab="1" class="tab-curent" style="z-index: 4007;"><div class="tab-wave"></div><div class="tab-shadow"></div><div class="tab-cont">Новые товары</div></li>
-					<li data-other-tab="2" style="z-index: 4006;"><div class="tab-wave"></div><div class="tab-shadow"></div><div class="tab-cont">Популярные товары</div></li>
-					<li data-other-tab="3" style="z-index: 4005;"><div class="tab-wave"></div><div class="tab-shadow"></div><div class="tab-cont">Специальные предложения</div></li>
+					<% if !@category %>
+						<li data-other-tab="1" class="tab-curent" style="z-index: 4007;"><div class="tab-wave"></div><div class="tab-shadow"></div><div class="tab-cont">Новые товары</div></li>
+					<% end %>
+					<li data-other-tab="2" <% if @category && @category.children.blank? %>class="tab-curent"<% end %>style="z-index: 4006;"><div class="tab-wave"></div><div class="tab-shadow"></div><div class="tab-cont">Популярные товары</div></li>
+					<% if !@category %>
+						<li data-other-tab="3" style="z-index: 4005;"><div class="tab-wave"></div><div class="tab-shadow"></div><div class="tab-cont">Специальные предложения</div></li>
+					<% end %>
 				</ul>
 				<div class="clear"></div>
 			</div>
-
+			
+			<div class="content-items-inner">
 			<% if @goods.count > 0 %>
+				
 				<% @goods.each do |good| %>
 						<article class="content-item" data-item-type="Good" data-item-id="<%= good.id %>">
 								<div class="item-container-1">
@@ -236,13 +248,12 @@
 				<a href="#" class="pagination-link">
 					Показать еще <%=  params[:count] || 10%>
 				</a>
-	
-				</section>
-				
-			<% else %>
-				<div class="empty-content">Товаров нет</div>
-			<% end %>
-      
+					
+				<% else %>
+					<div class="empty-content">Товаров нет</div>
+				<% end %>
+			</div>
+      </section>
     <div class="popup-slider">
         <div class="popup-main">
             <div class="popup-close"><a href="#" class="button-close"></a></div>

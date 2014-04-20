@@ -7,7 +7,6 @@
   
 	<link rel="stylesheet" href="/assets/main.css" />
 	<link rel="stylesheet" href="/assets/login.css" />
-	<link rel="stylesheet" href="/assets/top_panel.css" />
     <link rel="stylesheet" href="/assets/lightbox.css" />
     <link rel="stylesheet" type="text/css" media="all" href="/assets/selectbox.css" />
     
@@ -44,7 +43,6 @@
   
 </head>
 <body data-controller="<%= @curent_controller %>">
-	<%= render :partial => 'layouts/top_panel' %>
     
     <section id="container">
 
@@ -76,7 +74,7 @@
 
             <!-- Контент -->
             <div id="content">
-								<a href="#" class="map-show-btn">Показать<br>на&nbsp;карте</a>
+								<a href="#" class="view-map-full map-show-btn" data-full-map="">Показать<br>на&nbsp;карте</a>
 								<div class="clear"></div>
                 <header>
                 	<!-- Обычно хлебные крошки или статистика -->
@@ -101,7 +99,7 @@
                 	<div class="notice-block"><%= notice %></div>
                 <% end %>
                 
-                <div id="main">
+                <div id="main" <% if !@category %>class="main-first-page"<% end %>>
                     <%= yield %>
                 </div>
 

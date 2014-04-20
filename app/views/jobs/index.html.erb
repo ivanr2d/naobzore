@@ -1,6 +1,8 @@
+	<% if @category && @category.children.blank? %>
 	<span id="maxPrice" data-value="<%= @max_salary %>"></span>
 
 	<h1 class="page-title" id="currentCategory" data-value="<%= (@category) ? @category.alias : 0 %>"></h1>
+	<% end %>	
 
 	<section class="jobs-filters">
         <div class="jobs-menu">
@@ -10,21 +12,11 @@
                 <li><h2><a href="/resume">Каталог резюме</a> <span>(<%= Resume.count %>)</span></h2></li>
             </ul>
         </div>
-        <div class="jobs-filter">
-            <div class="jobs-rss">Подписаться на вакансии <a href=""><img src="/assets/rss.png" />RSS</a></div>
-            <div class="jobs-filter-page">
-            Вакансий на странице: 
-            <ul>
-				<li><%= link_to "10", {:controller => "jobs", :action => "index", :count => 10}, :class => (params[:count] == '10' || !params[:count]) ? 'count-active' : '' %> |</li>
-				<li><%= link_to "20", {:controller => "jobs", :action => "index", :count => 20}, :class => (params[:count] == '20') ? 'count-active' : '' %> |</li>
-				<li><%= link_to "30", {:controller => "jobs", :action => "index", :count => 30}, :class => (params[:count] == '30') ? 'count-active' : '' %>  </li>
-            </ul>
-        </div>
-        </div>
     </section>
     
 		
 		<!-- Фильтры -->
+		<% if @category && @category.children.blank? %>
 		<div class="filters">
 			<!--Левый блок-->
 				<div class="left">
@@ -97,13 +89,17 @@
 				<div class="clear"></div>
 		</div>
   <!-- end | Фильтры -->
+	<% end %>
+			
+	<% if @category %>
+		<section class="indent"></section>
+	<% end %>
 
-    <div class="indent"></div>
 
     <section class="content-items">
 
         <h1 class="items-title">Последние добавленные вакансии</h1>
-
+		<div class="content-items-inner">
 		<% if @jobs.count > 0 %>
 			<% @jobs.each do |job| %>
 					<article class="content-item" data-item-type="Job" data-item-id="<%= job.id %>">
@@ -198,11 +194,12 @@
 					Показать еще <%=  params[:count] || 10%>
 				</a>
 	
-			</section>
+			
 			<% else %>
 				<div class="empty-content">Вакансий нет</div>
 			<% end %>
-    
+			</div>
+    </section>
     <div class="popup-slider">
         <div class="popup-main">
             <div class="popup-close"><a href="#" class="button-close"></a></div>

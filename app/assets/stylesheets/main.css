@@ -726,7 +726,7 @@ li.banner-but-active
 	background: #fff;
 	width: 468px;
 	min-height: 100px;
-	max-height: 520px;
+	max-height: 500px;
 	border: 1px solid #d0d0d0;
 	border-top: 0;
 	position: absolute;
@@ -1128,6 +1128,23 @@ li.banner-but-active
     /* margin: 10px 0px 0px 0px; */
     padding: 0px 0px 20px 0px;
     border: 1px solid #d8d9d9;
+}
+#main.main-first-page
+{
+	border: 0;
+	padding-top: 30px;
+}
+#main.main-first-page .content-items-inner
+{
+	border: 1px solid #53dbfd;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	padding: 10px 0 10px 0;
+	
+}
+#main.main-first-page .content-items-inner .content-item:hover {
+	border-color: #e1e1e1;
 }
 #stock_main
 {
@@ -1991,7 +2008,6 @@ li.new-tab-curent
     font-size: 16px;
     font-weight: bold;
 		display: inline-block;
-    width: 185px;
 }
 .stock-title img
 {
