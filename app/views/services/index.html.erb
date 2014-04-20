@@ -118,25 +118,21 @@
 		<!-- end | Фильтры -->
 		<% end %>
 
-    	<% if @category %>
-				<section class="indent"></section>
-			<% end %>
-			
 
     <section class="content-items">
 			
-		<div class="other-tabs">
-				<ul>
-					<% if !@category %>
-						<li data-other-tab="1" class="tab-curent" style="z-index: 4007;"><div class="tab-wave"></div><div class="tab-shadow"></div><div class="tab-cont">Новые товары</div></li>
-					<% end %>
-					<li data-other-tab="2" <% if @category && @category.children.blank? %>class="tab-curent"<% end %>style="z-index: 4006;"><div class="tab-wave"></div><div class="tab-shadow"></div><div class="tab-cont">Популярные товары</div></li>
-					<% if !@category %>
-						<li data-other-tab="3" style="z-index: 4005;"><div class="tab-wave"></div><div class="tab-shadow"></div><div class="tab-cont">Специальные предложения</div></li>
-					<% end %>
-				</ul>
-			<div class="clear"></div>
-		</div>
+			<% if @category && @category.children.blank? %>
+				<h3 class="items-title">Список услуг</h3>
+			<% else %>
+				<div class="other-tabs">
+						<ul>
+							<li data-other-tab="1" class="tab-curent" style="z-index: 4007;"><div class="tab-wave"></div><div class="tab-shadow"></div><div class="tab-cont">Новые товары</div></li>
+							<li data-other-tab="2" <% if @category && @category.children.blank? %>class="tab-curent"<% end %>style="z-index: 4006;"><div class="tab-wave"></div><div class="tab-shadow"></div><div class="tab-cont">Популярные товары</div></li>
+							<li data-other-tab="3" style="z-index: 4005;"><div class="tab-wave"></div><div class="tab-shadow"></div><div class="tab-cont">Специальные предложения</div></li>
+						</ul>
+					<div class="clear"></div>
+				</div>
+			<% end %>
 
 		<div class="content-items-inner">
 		<% if @services.count > 0 %>

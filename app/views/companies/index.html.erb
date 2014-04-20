@@ -1,7 +1,7 @@
 	<% if @category && @category.children.blank? %>
 	<!-- заголовочный блок -->
 	<section class="main-title">
-	    <div class="main-title-title">
+	    <div class="main-title-full">
 	        <h1 class="page-title" id="currentCategory" data-value="<%= (@category) ? @category.alias : 0 %>"><%= (@category) ? @category.title : 'Предприятия' %> <span class="page-title-ext">(<%= (@category) ? Category.get_count_entity(@curent_controller, @category.id) : Company.count %>)</span></h1>
 	    </div>
 	    <div class="main-title-categories">
@@ -74,58 +74,12 @@
 		</div>
 		<!-- end | Фильтры -->
 		<% end %>
-			
-		<% if @category %>
-			<section class="indent"></section>
-		<% end %>
-	
-	<section class="filter-abc">
-	    <div class="filter-abc-title">Быстрый поиск по алфавиту</div>
-	    <div class="filter-abc-content">
-	    	<div>
-	    	<% i = 0 %>
-	    	<% while(i < @rus_letters.length) %>
-	    		<%= link_to @rus_letters[i], url_for(params.merge(:begin => @rus_letters[i])) %>
-	    		<% i+=1 %>
-	    	<% end %>
-	    	</div>
-	    	<div>
-	    	<% i = 0 %>
-	    	<% while(i < @eng_letters.length) %>
-	    		<%= link_to @eng_letters[i], url_for(params.merge(:begin => @eng_letters[i])) %>
-	    		<% i+=1 %>
-	    	<% end %>
-	    	</div>
-	    	<div>
-	    	<% i = 0 %>
-	    	<% while(i < @num_letters.length) %>
-	    		<%= link_to @num_letters[i], url_for(params.merge(:begin => @num_letters[i])) %>
-	    		<% i+=1 %>
-	    	<% end %>
-	    	</div>
-	   </div>
-	</section>
-	
-	<section class="new-companys">
-	    <h3 class="new-company-title">Новые предприятия</h3>
-	    <div class="new-company-content" id="newCompanyContent">
-	        
-	        <ul>
-	        	<% @new_companies.each do |new_company| %>
-	            <li><a href="#"><%= image_tag(new_company.logotype) %></a></li>
-	            <li><a href="#"><%= image_tag(new_company.logotype) %></a></li>
-	            <% end %>
-	        </ul>
-	        
-	    </div>
-	    <div class="new-company-but"><a href="#"><img src="/assets/new-company-but.png" alt="" /></a></div>
-	</section>
 	
 	<section class="content-items">
-	    <h3 class="items-title">Список предприятий</h3>
-			
-			<br><br>
-			
+		
+		<% if @category && @category.children.blank? %>
+			<h3 class="items-title">Список предприятий</h3>
+		<% else %>
 			<div class="other-tabs">
 				<ul>
 					<li data-other-tab="1" class="tab-curent" style="z-index: 4007;"><div class="tab-wave"></div><div class="tab-shadow"></div><div class="tab-cont">Новые предприятия</div></li>
@@ -133,6 +87,7 @@
 				</ul>
 				<div class="clear"></div>
 			</div>
+		<% end %>
 
 		<div class="content-items-inner">
 		<% if @companies.count > 0 %>

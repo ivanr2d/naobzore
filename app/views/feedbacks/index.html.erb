@@ -1,4 +1,4 @@
-	<% if @category && @category.children.blank? %>
+
     <!-- заголовочный блок -->
     <section class="main-title">
         <div class="main-title-title">
@@ -14,10 +14,8 @@
         <div class="clear"></div>
     </section>
     <!-- end | заголовочный блок -->
-		<% end %>
 		
 		<!-- Фильтры -->
-		<% if @category && @category.children.blank? %>
 		<div class="filters">
 				<!--Левый блок-->
 				<div class="left">
@@ -77,8 +75,7 @@
 				<div class="clear"></div>
 		</div>
 		<!-- end | Фильтры -->
-		<% end %>
-		
+
 
     <div class="items-title">
         <span>Последние добавленные отзывы о товарах и услугах </span> <a href="#"><img src="/assets/add-comment.png" alt="" id="add_comment" /></a>
@@ -86,7 +83,6 @@
 
     <div class="indent"></div>
 
-	<div class="content-items-inner">
 	<% if @feedbacks.count > 0 %>
 		<% @feedbacks.each do |feedback| %>
 			<article class="review">
@@ -180,6 +176,5 @@
     <% else %>
 			<div class="empty-content">Отзывов нет</div>
     <% end %>
-    </div>
     
 		<%= render :partial => 'shared/sharing' %>

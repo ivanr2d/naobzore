@@ -1,8 +1,6 @@
-	<% if @category && @category.children.blank? %>
 	<span id="maxPrice" data-value="<%= @max_salary %>"></span>
 
 	<h1 class="page-title" id="currentCategory" data-value="<%= (@category) ? @category.alias : 0 %>"></h1>
-	<% end %>	
 
 	<section class="jobs-filters">
         <div class="jobs-menu">
@@ -16,7 +14,6 @@
     
 		
 		<!-- Фильтры -->
-		<% if @category && @category.children.blank? %>
 		<div class="filters">
 			<!--Левый блок-->
 				<div class="left">
@@ -89,17 +86,12 @@
 				<div class="clear"></div>
 		</div>
   <!-- end | Фильтры -->
-	<% end %>
-			
-	<% if @category %>
-		<section class="indent"></section>
-	<% end %>
 
 
     <section class="content-items">
 
         <h1 class="items-title">Последние добавленные вакансии</h1>
-		<div class="content-items-inner">
+
 		<% if @jobs.count > 0 %>
 			<% @jobs.each do |job| %>
 					<article class="content-item" data-item-type="Job" data-item-id="<%= job.id %>">
@@ -194,12 +186,11 @@
 					Показать еще <%=  params[:count] || 10%>
 				</a>
 	
-			
+			</section>
 			<% else %>
 				<div class="empty-content">Вакансий нет</div>
 			<% end %>
-			</div>
-    </section>
+    
     <div class="popup-slider">
         <div class="popup-main">
             <div class="popup-close"><a href="#" class="button-close"></a></div>
