@@ -1721,6 +1721,12 @@ jQuery(document).ready(function($){
 			$('#sendResumeBlock').toggleClass('hidden');
 		})
 		
+		/* переккладок н страниц результатов Поиска */
+		$('.filters-search-category').on('click', '.fsc-item', function(){
+			$(this).siblings().removeClass('fsc-item_active');
+			$(this).addClass('fsc-item_active');
+		})
+		
     
 
 /*-------------------------------------------------------------------------------------------
@@ -2046,6 +2052,6 @@ function showAlert(message){
 		setTimeout(function(){
 			alert_window.animate({opacity: 0}, 1500, function(){$(this).remove();})
 		}, 2000);
-		$(document.body).append(alert_window);
+		$('#container').append(alert_window);
 	}
 }

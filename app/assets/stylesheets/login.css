@@ -141,7 +141,7 @@
     width: 390px;
     height: 649px;
     border: 0px solid #cccccc;
-    z-index: 2000;
+    z-index: 20000;
     background: #fff;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;

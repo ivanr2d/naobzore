@@ -8,7 +8,6 @@
   
 	<link rel="stylesheet" href="/assets/main.css" />
 	<link rel="stylesheet" href="/assets/login.css" />
-	<link rel="stylesheet" href="/assets/top_panel.css" />
     <link rel="stylesheet" href="/assets/lightbox.css" />
     <link rel="stylesheet" type="text/css" media="all" href="/assets/selectbox.css" />
     
@@ -46,190 +45,6 @@
   
 </head>
 <body data-controller="goods">
-	<div id="topPanel">
-  <header>
-      <div class="left"></div>
-      <div class="right"></div>
-      <div class="content">
-      
-        <div class="logotype"><a href="http://naobzore.ru/"><img src="/miniSite/images/logo.png" alt="" /></a></div>
-         
-        <form accept-charset="UTF-8" action="/search" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
-          <div class="search">
-              <div class="container">
-                  <div class="field">
-                      <span class="icon-lupa"></span>
-                      <input type="text" name="q" value="Поиск по сайту" class="holder" />
-                      <a href="#" class="show-search-submenu"></a>
-                      <div class="search-submenu">
-                        <div class="row">
-                          <label class="ss-label">Категория</label>
-                          <div class="ss-select">
-                            <select class="selectbox" style="width: 98px;">
-                              <option value="1">Категория 1</option>
-                              <option value="2">Категория 2</option>
-                            </select>
-                          </div>
-                          <div class="clear"></div>
-                        </div>
-                        
-                        <div class="row">
-                          <label class="ss-label">Каталог</label>
-                          <div class="ss-select">
-                            <select class="selectbox" style="width: 98px;">
-                              <option value="1">Каталог 1</option>
-                              <option value="2">Каталог 2</option>
-                            </select>
-                          </div>
-                          <div class="clear"></div>
-                        </div>
-                      </div>
-                  </div>
-                  <div class="but">
-                      <input type="submit" value="НАЙТИ" />
-                  </div>
-                  <div class="clear"></div>
-              </div>
-          </div>
-</form>          
-          <div class="navigation">
-            <div class="top">
-              <ul>
-                  <li class="top-nav"><a href="#" class="view-login">Войти</a></li>
-                  <li class="top-nav"><a href="#" class="view-registration">Зарегистрироваться</a></li>
-              </ul>
-                 <ul class="icons">
-                      <li><a href="/"><img src="/miniSite/images/icon-home.png" /></a></li>
-                      <li><a href="javascript:void(0)" class="view-login" data-type="send-message" data-title="Служба поддержки Наобзоре.РФ" data-to_id=""><img src="/miniSite/images/icon-mail.png" /></a></li>
-                      <li><a href="#"><img src="/miniSite/images/icon-map.png" /></a></li>
-                  </ul>
-              </div>
-              <!--Нижняя навигация-->
-              <div class="bottom">
-                  <ul>
-                      <li><a href="/goods">Товары</a></li>
-                      <li><a href="/services">Услуги</a></li>
-                      <li><a href="/jobs">Вакансии</a></li>
-                      <li><a href="/campaigns">Акции</a></li>
-                      <li><a href="#" id="viewMenuItems"><img src="/miniSite/images/icon-view.png" alt="" /></a>
-                          <ul class="more hidden" id="hiddenMenuItems">
-                              <li><a href="/news">Новости</a></li>
-                              <li><a href="#">Отзывы</a></li>
-                              <li><a href="#">Объявления</a></li>
-                          </ul>
-                      </li>
-                  </ul>
-                  <div class="clear"></div> 
-              </div>
-          </div>
-      </div>
-  </header>
-  <footer>
-      <div class="active">
-        
-        <!-- Выподающий блок регистрации -->
-          <div id="registration">
-              <div class="pop-form">
-
-                <form accept-charset="UTF-8" action="/users" class="new_user" id="new_user" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="oMpsZiZqIhEId0DAbZCXma05yGiFNBkO/ln4NF29Lx8=" /></div>
-                  <div class="pop-table">
-                    <div><!--%= devise_error_messages! %--></div>
-                      <div class="pop-table-row">
-                        write hear registration advantages
-                      </div>
-                      <div class="pop-table-row">
-                          <div class="pop-table-coll">Фамилия</div>
-                          <div class="pop-table-colr"><input id="user_f_name" name="user[f_name]" size="20" type="text" /></div>
-                      </div>
-                      <div class="pop-table-row">
-                          <div class="pop-table-coll">Имя</div>
-                          <div class="pop-table-colr"><input id="user_l_name" name="user[l_name]" size="20" type="text" /></div>
-                      </div>
-                      <div class="pop-table-row">
-                          <div class="pop-table-coll">Отчество</div>
-                          <div class="pop-table-colr"><input id="user_m_name" name="user[m_name]" size="20" type="text" /></div>
-                      </div>
-                      <div class="pop-table-row">
-                          <div class="pop-table-coll">E - mail</div>
-                          <div class="pop-table-colr"><input id="user_email" name="user[email]" size="20" type="email" /></div>
-                      </div>
-                      <div class="pop-table-row">
-                          <div class="pop-table-coll">Пароль</div>
-                          <div class="pop-table-colr"><input id="user_password" name="user[password]" size="20" type="password" /></div>
-                      </div>
-                      <div class="pop-table-row">
-                          <div class="pop-table-coll">Повтор пароля</div>
-                          <div class="pop-table-colr"><input id="user_password_confirmation" name="user[password_confirmation]" size="20" type="password" /></div>
-                      </div>
-                      <div class="pop-table-row">
-                          <div class="pop-table-coll-captcha">
-                              <img src="/assets/temp/captha.png" alt="" />
-                              <p><a href="#" class="pop-link">Новое изображение</a></p>
-                          </div>
-                          <div class="pop-table-colr-captcha">
-                              <p>Что Вы видите?</p><input type="text" name="" size="11" />
-                          </div>
-                      </div>
-                      <div class="pop-table-row">
-                          <div class="pop-table-col-full">
-                              <input id="user_lic" name="user[lic]" type="checkbox" value="1" /> Я принимаю условия <a href="#"  class="pop-link">пользовательского соглашения</a>
-                          </div>
-                      </div>
-                  </div>
-
-              </div>
-              <div class="pop-form-send">
-                  <input name="commit" type="submit" value="Зарегистрироваться" />
-              </div>
-</form>              
-              <div class="pop-form-social">
-                  Вход без регистрации 
-                  <a href="#"><img src="/assets/social/facebook.png" /></a>
-                  <a href="#"><img src="/assets/social/vk.png" /></a>
-                  <a href="#"><img src="/assets/social/twitter.png" /></a>
-              </div>
-          </div>
-          <!-- end | Выподающий блок регистрации -->
-        
-        <!-- Всплывающий блок Входа -->
-          <div id="login">
-          <form accept-charset="UTF-8" action="/users/sign_in" class="new_user" id="new_user" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="oMpsZiZqIhEId0DAbZCXma05yGiFNBkO/ln4NF29Lx8=" /></div>
-              <div id="login_form">
-                  <div class="pop-form-login">
-                      <div class="pop-form-login-table">
-                          <div class="pop-form-login-row">
-                              <div class="pop-form-login-coll">E-mail</div>
-                              <div class="pop-form-login-colr"><input id="user_email" name="user[email]" size="18" type="email" /></div>
-                          </div>
-                          <div class="pop-form-login-row">
-                              <div class="pop-form-login-coll">Пароль</div>
-                              <div class="pop-form-login-colr"><input id="user_password" name="user[password]" size="18" type="password" /></div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="pop-form-button">
-                      <div class="pop-form-button-left"><a href="#" id="view_rec_pass">Забыли пароль?</a></div>
-                      <div class="pop-form-button-right"><input name="commit" type="submit" value="Вход" /></div>
-                  </div>
-              </div>
-              <div id="login_social">
-                  Войти с помощью... 
-                  <a href="#"><img src="/assets/social/facebook.png" /></a>
-                  <a href="#"><img src="/assets/social/vk.png" /></a>
-                  <a href="#"><img src="/assets/social/twitter.png" /></a>
-              </div>
-</form>          </div>
-          <!-- end | Всплывающий блок Входа -->
-          
-        <span class="footer-menu">
-            <a href="#" class="view-login">Войти</a> |
-            <a href="#" class="view-registration">Зарегистрироваться</a>
-        </span>
-                  
-        <a href="#" id="controlTopPanel">Свернуть</a>
-      </div>
-  </footer>
-</div>
 
     
     <section id="container">
@@ -396,7 +211,7 @@
       </div>
       <div id="search_field">
         <input type="text" name="SEARCH" id="search_inp"/>
-				<span class="search-clear-cross"></span>
+				<span class="search-clear-cross">&times;</span>
         <a href="#" id="search_ext_view">Расширенный поиск <img src="/assets/view-search.png" alt="" /></a>
       </div>
       <div class="clear"></div>
